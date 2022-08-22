@@ -1,0 +1,85 @@
+.btn-Aceptar{
+    color: #FFF;   
+    border-radius: 3px;
+    background-color: #001E33;
+    width: 100%;
+    font-size: .825rem;
+}
+
+.btn-outline{
+    border-radius: 3px;
+    background-color: #FFF;
+    border: 1px solid #001E33;
+    color: #001E33;  
+    font-size: .825rem;
+    width: 100%;
+    padding: 0.375rem 0.25rem;
+}
+
+._bottom-section {
+    position: absolute;
+    width: 95% !important; 
+    height: 50px;
+    bottom: 0;
+    right: 7px;
+}
+
+.label-title{
+    font-size: .875rem;
+    color: #001E33;
+}
+
+.section {
+    padding: 0 1rem;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.ng-select.custom ::ng-deep .ng-select-container  {    
+    font-size: .825rem;
+    color: #828282;
+}
+
+.ng-select.custom ::ng-deep .ng-option{
+    font-size: .825rem !important;
+    color: #828282;
+} 
+
+.search-icon
+{
+    display: inline;
+    margin-left: -7.5%;
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+.search-field{
+    width: 100%;
+    font-size: .8rem;
+    border-radius: 2px;
+    height: 40px;
+}
+
+.pad-left-0{
+    padding-left: 0px;
+}
+
+.checkbox {
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: .75rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+}
+
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+    

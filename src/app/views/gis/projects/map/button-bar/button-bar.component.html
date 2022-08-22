@@ -1,0 +1,67 @@
+<div class="bar animate__animated animate__faster"  [ngClass]="{
+    'animate__fadeOutLeft': thereIsAnEnabledTool,
+    'animate__fadeInLeft': ! thereIsAnEnabledTool
+}">
+    
+    <div #buttonBar class="button-bar">
+    
+        <div  *ngFor="let toolGroup of toolGroups" class="tool-group">
+    
+            <div class="tool-group-btn">
+    
+                <button type="button"
+                        [attr.aria-expanded]="!toolGroup.selected" aria-controls="collapse-tool-group"
+                        class="btn-transparent tool-group" 
+                        [attr.title]="toolGroup.display_name" 
+                        (click)="toogleSelectedStateOnToolGroup(toolGroup)"
+                        >
+                    <img [src]="'assets/icons/svg/map/' + toolGroup.name + ( toolGroup.selected ? '-on' : '' ) + '.svg'" [alt]="toolGroup.name">
+                </button>
+
+                <small (click)="toogleSelectedStateOnToolGroup(toolGroup)"
+                     [class.bold]="toolGroup.selected" 
+                     class="cursor-pointer d-none d-md-block mx-xxl-1 mt-1">
+                    {{ toolGroup.display_name }}
+                </small>
+    
+            </div>
+    
+            <div class="tools-container" [collapse]="! toolGroup.selected" [isAnimated]="true">
+
+                <div  class="mb-2 mx-md-0" *ngFor="let tool of toolGroup.gis_tools">
+
+                    <button type="button"
+                            class="btn-transparent" 
+                            (click)="toogleSelectedStateInTool(tool)"
+                            [attr.title]="tool.display_name" 
+                            >
+                        <img [src]="'assets/icons/svg/map/' + tool.name + ( tool.selected ? '-on' : '' ) + '.svg'" [alt]="tool.name">
+                    </button>
+    
+                    <small (click)="toogleSelectedStateInTool(tool)" 
+                            [class.bold]="tool.selected" 
+                            class="cursor-pointer d-none d-md-block mx-xxl-1 mt-1 mb-2">
+                        {{ tool.display_name }}
+                    </small>
+
+                </div>
+    
+            </div>
+    
+            <div class="separator"></div>
+    
+        </div>
+
+    </div>
+
+    <div class="legend-btn-container">
+        <button type="button"
+        class="btn-transparent" 
+        title="Leyenda" 
+        (click)="false"
+        >
+            <img class="legend-icon" src="assets/icons/svg/map/show.svg" alt="Leyenda">
+        </button>
+    </div>
+
+</div>

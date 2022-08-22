@@ -1,0 +1,205 @@
+label{
+    width: 100%;
+    text-align: start;
+    margin-bottom: .5rem;
+    font-size: .875rem;
+    font-family: 'Rubik Bold' !important;
+    color: #001E33;
+}
+
+.ng-select.layer-selector ::ng-deep .ng-select-container  {    
+    font-size: .825rem;
+    background-color: #FAFAFA;
+    border-color: #E0E0E0;
+    border-radius: .125rem;
+    color: #222;
+    font-family: 'NunitoSans' !important;
+}
+
+.ng-select.layer-selector ::ng-deep .ng-select-container:disabled  {    
+    opacity: .65;
+}
+
+.ng-select.layer-selector ::ng-deep .ng-option{
+    font-size: .825rem;
+    color: #222;
+    font-family: 'NunitoSans' !important;
+}
+
+/* media */
+  
+@media(min-width: 800px)
+{
+    label{
+        font-size: .825rem;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+        font-size: .75rem;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-option{
+        font-size: .725rem !important;
+    }
+}
+
+@media(min-width: 1024px)
+{    
+    label{
+        font-size: .85rem;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+        font-size: .825rem;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-option{
+        font-size: .825rem !important;
+    }
+}
+
+@media(min-width: 1280px)
+{     
+    label{
+        font-size: .925rem;
+    }
+
+    .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+        font-size: .875rem;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-option{
+        font-size: .875rem !important;
+    }
+}
+
+@media(min-width: 1360px)
+{       
+  
+}
+
+@media(min-width: 1440px) 
+{
+    label{
+        font-size: 1rem;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+        font-size: .95rem;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-option{
+        font-size: .95rem !important;
+    }
+}
+
+@media(min-width: 1600px)
+{
+    label{
+        font-size: 1.125rem;
+    }
+}
+
+@media(min-width: 1768px)
+{
+   
+}
+
+@media(min-width: 800px) and (min-height: 600px)
+{
+
+}
+
+@media(min-width: 1024px) and (min-height: 768px)
+{
+
+}
+
+@media(min-width: 1152px) and (min-height: 864px)
+{
+
+}
+
+@media(min-width: 1176px) and (min-height: 664px)
+{
+
+}
+
+@media(min-width: 1280px) and (min-height: 720px)
+{
+    
+ 
+}
+
+@media(min-width: 1280px) and (min-height: 768px)
+{
+ 
+}
+
+@media(min-width: 1280px) and (min-height: 800px)
+{
+
+}
+
+@media(min-width: 1280px) and (min-height: 960px)
+{
+   
+}
+
+@media(min-width: 1280px) and (min-height: 1024px)
+{
+
+}
+
+@media(min-width: 1360px) and (min-height: 765px)
+{
+ 
+}
+
+@media(min-width: 1440px) and (min-height: 900px)
+{
+ 
+}
+
+@media(min-width: 1600px) and (min-height: 900px)
+{
+  
+}
+
+@media(min-width: 1600px) and (min-height: 1024px)
+{
+  
+}
+
+@media(min-width: 1680px) and (min-height: 1024px)
+{
+  
+}
+
+@media(min-width: 1680px) and (min-height: 1050px)
+{
+    
+}
+
+@media(min-width: 1600px) and (min-height: 1200px)
+{
+  
+}
+
+@media(min-width: 1768px) and (min-height: 992px)
+{
+
+}
+
+@media(min-width: 1880px) and (min-height: 882px)
+{ 
+  
+}
+
+@media(min-width: 1920px) and (min-height: 1080px)
+{
+}
+
+@media(min-height: 1210px)
+{
+}

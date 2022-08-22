@@ -1,0 +1,191 @@
+<header [class.collapsed]="sidebarIsCollapsed" class="animate__animated animate__fadeInDown animate__faster">
+    
+    <div class="brand-logo-section">
+
+        <img  class="cursor-pointer" [routerLink]="['/home/proyectos']" src="assets/images/brand-marker-logo.png" alt="brand-logo">
+
+    </div>
+   
+    <div class="module-icons-section">
+
+        <img *ngFor="let module of modules | slice:0:2" 
+            [src]="'assets/icons/svg/'+module.name+'.svg'" 
+            class="icon-m" 
+            [attr.title]="module.display_name"
+            [attr.alt]="module.name">
+            
+            &nbsp;
+
+            <small *ngIf="(modules.length - 2) > 0">
+                + {{ modules.length - 2 }}
+            </small>
+
+    </div>
+
+    <div class="project-selector-section px-1">
+
+        <div class="row m-0 w-100 align-items-center">
+
+            <div class="col-3 px-0 text-center">
+                <img 
+                [attr.title]="project.title"
+                [src]="project.logo_src"
+                >
+            </div>
+
+            <div class="col-9 px-1">
+                <ng-select
+                class="custom" 
+                name="project_id"
+                [disabled]="false"
+                [clearable]="false"
+                [items]="projects"
+                bindLabel="title"
+                [(ngModel)]="project.id"
+                (change)="onChangeProject($event)"
+                bindValue="id" 
+                placeholder="Proyecto"
+                    >
+                </ng-select>
+    
+            </div>
+        </div>
+
+    </div>
+
+    <div class="export-data-buttons-section">
+
+        <div class="row w-100 mx-0 text-center">
+            
+            <div class="col-3 px-0">
+                <button type="button" title="Listados" class="btn-transparent px-0">
+                    <img class="icon" src="assets/icons/svg/map/listings.svg" alt="Listado">
+                    <span class="d-none d-xxl-block">Listados</span>
+                </button>
+            </div>
+
+            <div class="col-3 px-0">
+                <button type="button" title="Planos" class="btn-transparent px-0">
+                    <img class="icon" src="assets/icons/svg/map/blueprints.svg" alt="planos">
+                    <span class="d-none d-xxl-block">Planos</span>
+                </button>
+            </div>
+
+            <div class="col-3 px-0">
+                <button type="button" title="Fichas" class="btn-transparent px-0">
+                    <img class="icon" src="assets/icons/svg/map/cards.svg" alt="ficha">
+                    <span class="d-none d-xxl-block">Fichas</span>
+                </button>
+            </div>
+
+            <div class="col-3 px-0">
+                <button type="button" title="Exportar" class="btn-transparent px-0">
+                    <img class="icon" src="assets/icons/svg/map/export-file.svg" alt="exportar">
+                    <span class="d-none d-xxl-block">Exportar</span>
+                </button>
+            </div>
+
+        </div>
+        
+
+    </div>
+
+    <div class="ps-2 pe-0 d-none d-md-block">
+
+        <input [(ngModel)]="selected" [typeahead]="states" type="text" placeholder="Buscar calle..." class="finder">
+
+        <!-- <img src="assets/icons/svg/lupa.svg" class="finder-icon " alt="buscar"> -->
+
+    </div>
+
+    <div class="logout-window-section">
+
+        <div class="circle" 
+        (click)="toggleLogoutWindowVisibility()"
+        (mouseenter)="showLogoutWindow()"
+        (mouseleave)="hideLogoutWindowAutomatically()">
+            {{ user.fullNameInitials }}
+        </div>
+
+    </div>
+
+    <div  
+    *ngIf="logoutWindowIsVisible" 
+    [@fadeInOnEnter] [@fadeOutOnLeave] 
+    (mouseenter)="overTheLogoutWindow()" 
+    (mouseleave)="hideLogoutWindow()" 
+    class="logout-window">
+
+        <div class="row mx-0">
+            
+            <div class="col-12 px-0 user-info-container">
+
+                <div class="row mx-0">
+
+                    <div class="col-12 px-md-2 px-lg-3 py-2 text-center">
+        
+                        <img *ngIf="! user.profile_photo_path; else profilePhotoDefined" class="profile-image-container" [src]="userProfileImgSrc">
+
+                        <ng-template #profilePhotoDefined>
+                            <div class="circle profile-image-defined"
+                                [ngStyle]="{
+                                    'background-image': 'url('+userProfileImgSrc+')
+                                '}">
+                            </div>
+                        </ng-template>
+                        
+                    </div>
+                    
+                    <div class="col-12 px-md-2 px-lg-3 pb-2 text-center user-info">
+        
+                        <h6 class="mb-1 text-truncate">{{ user.full_name }}</h6>
+        
+                        <h4 [attr.title]="user.email ? user.email : 'No disponible'" class="mb-1 text-truncate"> {{ user.email ? user.email : "No disponible" }} </h4>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div [routerLink]="['/home/proyectos']" class="col-12 px-md-2 px-lg-3 py-2 top-bordered logout-window-option">
+                
+                <div class="row m-0">
+
+                    <div class="col-2 p-0 text-center">
+                        <img class="icon" src="assets/icons/svg/home.svg" alt="home">
+                    </div>
+
+                    <div class="col-10 pl-1 pr-0 text-truncate">
+                        Volver al home
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div (click)="logout()" class="col-12 px-md-2 px-lg-3 py-2 top-bordered logout-window-option">
+
+                <div class="row m-0">
+
+                    <div class="col-2 p-0 text-center">
+                        <img class="icon" src="assets/icons/svg/CERRARSESION.svg" alt="icono-cerrar-sesion">
+                    </div>
+
+                    <div class="col-10 pl-1 pr-0 text-truncate">
+                        Cerrar sesión
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+</header>
+
+<input type="text" placeholder="Buscar calle..." class="d-block d-md-none finder animate__animated animate__fadeInDown animate__faster">
+<img src="assets/icons/svg/lupa.svg" class="finder-icon d-block d-md-none  animate__animated animate__fadeInDown animate__faster" alt="buscar">
+

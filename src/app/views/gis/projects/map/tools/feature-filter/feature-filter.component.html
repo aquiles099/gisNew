@@ -1,0 +1,123 @@
+<div class="selector-section">
+
+    <div class="row justify-content-center section">
+    
+        <div class="col-12 p-0 mb-2">
+            <layer-selector
+            label="Capa:"            
+            (change)="onChangeLayerSelector($event)"
+            ></layer-selector>
+        </div>
+
+        <div id="filter-elements-attribute-selector" class="col-12 p-0 mt-xs-2 mb-2 text-left">
+            <label class="mb-2 label-title" for="">Atributo:</label>
+            <ng-select
+                class="custom" 
+                placeholder="Seleccione una propiedad"                
+                [clearable]="false"
+                [disabled]=" !formData.layer"
+                [(ngModel)]="formData.property"
+                [ngModelOptions]="{standalone: true}"
+                (change)="onChangePropertySelector()"
+                >
+                <ng-option [value]="attribute.display_name" *ngFor="let attribute of attributes">
+                    {{attribute.display_name}} 
+                </ng-option>
+            </ng-select>
+        </div>
+
+        <div class="d-block d-xs-none p-0 col-12">
+            <hr class="w-100 separator">
+        </div>
+
+        <div id="filter-elements-attributes-finder" class="pad-left-0" >            
+            <div class="w-100 text-left" class="pad-left-0">            
+                <label class="mb-2 label-title" for=""> <b>Valores:</b> </label>            
+                <input type="text" [disabled]="! formData.property" class="form-control form-control-sm d-inline search-field" placeholder="Buscar..." [(ngModel)]="search">            
+                <img src="assets/icons/svg/lupa.svg" class="icon search-icon" alt="lupa">                    
+            </div>           
+        </div>
+    
+        <div id="filter-elements-attribute-values-list" 
+                *ngIf="formData.property " 
+                class="feature-property-values-section text-center"
+                >
+        
+            <div *ngIf="propertyValues.length > 0" class="row feature-property-values animated__animated animate__fadeIn animate__faster"> 
+        
+                <div class="col-12 p-0 my-1 bottom-bordered property-value " *ngFor="let value of ( propertyValues | keyMatch : search)">
+                   
+
+                    <div class="col-1 p-0 mb-2 align-items-center text-center">
+                        <label class="checkbox" for="feature_value_{{value}}">                            
+                            <input type="checkbox"                                                         
+                            name="feature_value_{{value}}" 
+                            id="feature_value_{{value}}"   
+                            (change)="updateFilter(value)" 
+                            [checked]="valueExistsOnFilter(value)" >
+                            <i class="fas fa-check" *ngIf="valueExistsOnFilter(value)" ></i> 
+                        </label>
+                    </div>
+                    <div class="col-11 pl-2 pr-0 py-0 mb-2 align-items-center">
+                        <label for="feature_value_{{value}}" title="{{value}}" class="ml-3 text-truncate d-inline">
+                            {{value}}
+                        </label>
+                    </div>
+                    <!--<div class="row m-0">
+    
+                        <div class="col-1 p-0 mb-2 align-items-center text-center">
+                            <label class="checkbox" for="feature_value_{{value}}">
+                                
+                                <input type="checkbox" 
+                                (change)="updateFilter(value)" 
+                                [checked]="valueExistsOnFilter(value)" 
+                                name="feature_value_{{value}}" 
+                                id="feature_value_{{value}}">    
+                                <i class="fas fa-check" *ngIf="valueExistsOnFilter(value)" ></i>    
+                            </label>
+                        </div>
+    
+                        <div class="col-11 pl-2 pr-0 py-0 mb-2 align-items-center">
+                            <label for="feature_value_{{value}}" title="{{value}}" class="ml-3 text-truncate d-inline">
+                                {{value}}
+                            </label>
+                        </div>
+    
+                    </div>-->
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    
+    <div class="_bottom-section row m-0 align-items-center" >
+        <div class="col-4 p-1">
+            <button type="button" class="btn btn-block btn-Aceptar">
+                Aceptar
+            </button>
+        </div>
+
+        <div class="col-4 p-1">
+            <button 
+            id="filter-elements-remove-layer-filter-btn"          
+            type="button" 
+            class="btn btn-block btn-outline"
+            disabled
+            >
+                Eliminar filtro capa
+            </button>
+        </div>
+
+        <div class="col-4 p-1">
+            <button 
+            id="filter-elements-remove-all-filters-btn"
+            type="button" 
+            disabled
+            class="btn btn-block btn-outline">
+             Eliminar todo
+            </button>
+        </div>
+        
+    </div>
+
+</div>

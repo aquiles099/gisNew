@@ -1,0 +1,384 @@
+<div [class.d-none]="creationForm && creationForm.isVisible" class="header d-lg-block animate__animated animate__fadeIn animate__faster">
+    <div class="row mx-0 align-items-center">
+        
+        <div class="col-9 col-md-5 title p-0">Proyectos activos</div>
+
+        <div class="d-block d-md-none col-3 px-0">
+            <img src="assets/icons/svg/ayuda.svg" class="help-icon float-end" alt="ayuda">
+        </div>
+
+        <div [ngClass]="{'offset-2 px-0 offset-xl-3': ! user.isAdmin, 'offset-xl-2 px-2': user.isAdmin}" class="d-none d-md-block col-4 col-xl-3">
+
+            <input (keyup)="onSearch($event)" [(ngModel)]="search" name="search" class="finder" placeholder="Buscar..." type="text">
+
+            <img src="assets/icons/svg/lupa.svg" class="finder-icon" alt="buscar">
+
+        </div>
+        
+        <div [ngClass]="{'col-1': ! user.isAdmin, 'col-3 col-xl-2': user.isAdmin}" class="d-none d-md-block px-0">
+
+            <div class="row h-100 align-items-center mx-0">
+
+                <div *ngIf="user.isAdmin" class="col-9 px-0">
+                    <button type="button" (click)="creationForm.show()" class="btn btn-block px-md-4">
+                        Nuevo
+                    </button>
+                </div>
+
+                <div [ngClass]="{'col-12': ! user.isAdmin, 'col-3': user.isAdmin}" class="text-end px-0">
+                    <img src="assets/icons/svg/ayuda.svg" class="help-icon float-end" alt="ayuda">
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div [ngClass]="{'col-12': ! user.isAdmin, 'col-7': user.isAdmin}" class="px-0 mt-2 d-block d-md-none">
+            
+            <input (keyup)="onSearch($event)" [(ngModel)]="search" name="search" class="finder" placeholder="Buscar..." type="text">
+
+            <img src="assets/icons/svg/lupa.svg" class="finder-icon" alt="buscar">
+            
+        </div>
+
+        <div *ngIf="user.isAdmin" class="d-block d-md-none mt-2 col-5 ps-2 pe-0">
+            <button type="button" (click)="creationForm.show()" class="btn btn-block px-md-4">
+                Nuevo
+            </button>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="content animate__animated animate__fadeInRight animate__faster" 
+    [class.creation-form-is-visible]="creationForm && creationForm.isVisible"
+    >
+
+    <div #vsContainer 
+        (scroll)="scrolled()" 
+        (touchmove)="scrolled()" 
+        [class.d-none]="project || (creationForm && creationForm.isVisible)" 
+        class="project-list d-lg-inline-block">
+        
+        <div class="mb-3 py-2 d-lg-block selectors-row" [class.d-none]="project || (creationForm && creationForm.isVisible)">
+            
+            <div class="row mx-0 text-center text-md-start">
+                
+                <div class="col-6 col-xl-5 px-0">
+                    
+                    <label for="sort">
+                        <b>Ordenar</b> 
+                    </label>
+
+                    <button type="button" class="btn-transparent d-inline-block d-md-none" (click)="onChangeSortMode()">
+                        <img [src]="sortMode === 'asc' ? 'assets/icons/svg/chevron-up.svg' : 'assets/icons/svg/chevron-down.svg'" class="sort-icon" alt="flecha">
+                    </button>
+                    
+                    <select [(ngModel)]="sortCriteria" (change)="sortProjects()" class="ps-md-3" name="sort" id="sort">
+                        <option value="id">Fecha de creación</option>
+                        <option value="title">Alfabetico</option>
+                    </select>
+
+                    <button type="button" class="btn-transparent d-none d-md-inline-block" (click)="onChangeSortMode()">
+                        <img [src]="sortMode === 'asc' ? 'assets/icons/svg/chevron-up.svg' : 'assets/icons/svg/chevron-down.svg'" class="sort-icon" alt="flecha">
+                    </button>
+
+                </div>
+
+                <div class="col-6 offset-xl-2 col-xl-5 px-0">
+
+                    <label for="sort-by-category">
+                        <b>Categoría</b> 
+                    </label>
+
+                    <select [(ngModel)]="fixedParams.category" (change)="loadRecords()" class="ps-md-3" name="sort-by-category" id="sort-by-category">
+                        <option *ngFor="let option of categoryOptions" [value]="option.value">{{option.label}}</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row mx-0 d-flex">
+    
+            <div class="col-12 p-0">
+    
+                <div [hidden]="! records.length" class="row mx-0">
+    
+                    <div *ngFor="let project of records" class="col-12 p-0 col-md-6 col-xl-4">
+
+                        <div  (click)="onSelectProject(project)" class="project-box">
+                            
+                            <div class="municipality-image-section">
+
+                                <div *ngIf="! user.isAdmin">
+                                    <button type="button" 
+                                            class="btn-transparent favourite-btn" 
+                                            [disabled]="project.updating" 
+                                            [class.disabled]="project.updating" 
+                                            (click)="toggleFavouriteStateOnProject(project, $event)" 
+                                            [attr.title]="project.favourite ? 'Remover de favoritos' : 'Añadir a favoritos'">
+                                        <img [src]="project.favourite ? 'assets/icons/svg/favorito-color.svg' : 'assets/icons/svg/favorito.svg'" alt="favorito ">
+                                    </button>
+                                </div>
+                    
+                                <div #spinner class="w-100 h-100 py-3 municipality-image-spinner">
+                                    <mat-spinner></mat-spinner>
+                                </div>
+
+                                <img 
+                                #img
+                                class="d-none"
+                                [src]="project.municipality.image_src"
+                                [attr.alt]="project.municipality.name"
+                                (load)="onLoadMunicipalityImage(img, spinner)">
+
+                            </div>
+                    
+                            <div class="separator">
+                                <div></div>
+                            </div>
+                    
+                            <div class="info-section py-2">
+                    
+                                <div class="row mx-0 h-100 d-flex align-items-center">
+                    
+                                    <div class="col-3 px-2 px-md-0">
+                    
+                                        <img class="logo" [src]="project.logo_src" [attr.alt]="project.title">
+                                        
+                                    </div>
+                    
+                                    <div class="col-9 ps-2 pr-0">
+                    
+                                        <div class="row mx-0 d-flex align-items-center text-start">
+                    
+                                            <div [attr.title]="project.title" class="col-12 p-0 project-title text-truncate mb-">
+                                                {{ project.title }}
+                                            </div>
+                                            
+                                            <div class="col-12 p-0">
+                                                <span class="last-access-label">{{ project.last_access}}</span>
+                                            </div>
+                    
+                                        </div>
+                    
+                                    </div>
+                    
+                                </div>
+                    
+                            </div>
+                    
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div [hidden]="records.length" class="w-100 animate__animated animate__fadeIn animate__faster">
+                    <h1>Sin registros</h1>
+                </div>
+            
+            </div>
+                
+        </div>
+        
+    </div>
+    
+    <div *ngIf="creationForm && ! creationForm.isVisible" class="project-details" [class.empty]="!project">
+        
+        <div *ngIf="project" class="row mx-0 animate__animated animate__fadeInRight animate__faster">
+            
+            <div class="col-12 py-3 px-2 px-lg-3">
+    
+                <div class="row mx-0 justify-content-around align-items-center">
+    
+                    <div class="col-5 ps-2 pe-0">
+    
+                        <button type="button" (click)="backToTheListing()" class="btn-transparent" title="Volver">
+                            <img class="icon back-to-the-listing-btn" src="assets/icons/svg/chevron-left.svg" alt="volver">
+                        </button>
+                        
+                    </div>
+    
+                    <div class="col-7 pe-2 ps-0 px-md-3 px-lg-0 text-md-end">
+                        <button type="button" [routerLink]="[project.id]" class="btn px-md-4">
+                            Información
+                        </button>
+                    </div>
+    
+                </div>
+    
+            </div>
+            
+            <div class="col-12 my-1 px-2 px-lg-3">
+                <div class="row mx-0 align-items-center">
+            
+                    <div class="col-4 col-md-3 ps-1 pe-3 text-center">
+                        <img [src]="project.logo_src" [attr.alt]="project.title">
+                    </div>
+            
+                    <div class="col-8 col-md-9 py-3 px-0">
+                        <h4 class="mb-1">{{ project.title }}</h4>
+                        <h4 class="mb-1">{{ project.municipality.name }}</h4>
+                        <h4 class="mb-1">{{ project.municipality.province.name }}</h4>
+                        <h4 class="mb-0">{{ project.municipality.spatial_ref_sys.name }}</h4>
+                    </div>
+            
+                </div>
+            </div>
+    
+            <div class="col-12 my-1 px-2 px-lg-3 py-xl-2">
+    
+                <div class="separator mb-2">
+                    <div></div>
+                </div>
+    
+                <div *ngFor="let data of project.accesses_given; let i = index" class="row mx-0 section-label">
+                    
+                    <div class="col-10 p-0 text-start">
+                        <b class="text-uppercase" *ngIf="i === 0; else workModuleTag">{{ data.key }}</b>
+                        <ng-template #workModuleTag>{{ data.key }}</ng-template>
+                    </div>
+                    
+                    <div class="col-2 ps-2 pr-0 text-center">
+                        {{ data.value }}
+                    </div>
+    
+                </div>
+    
+                <div class="separator mt-2">
+                    <div></div>
+                </div>
+    
+            </div>
+    
+            <div class="col-12 my-1 px-2 px-lg-3">
+    
+                <div class="row mx-0">
+                    
+                    <div class="col-10 my-2 py-1 px-0 project-option" *ngFor="let option of options">
+                        
+                        <a *ngIf="option.path; else optionWithAction" [routerLink]="option.path" >{{ option.label }}</a>
+                        
+                        <ng-template #optionWithAction>
+                            <a href="javascript:void(0);" (click)="option.action(project)" >{{ option.label }}</a>
+                        </ng-template>
+
+                    </div>
+                    
+                </div>
+    
+            </div>
+        
+        </div>
+      
+        <div [hidden]="project" class="row mx-0 project-details-example animate__animated animate__fadeInRight animate__faster">
+            
+            <div class="col-12 py-3 px-2 px-lg-3">
+    
+                <div class="row mx-0 justify-content-around align-items-center">
+    
+                    <div class="p-0 text-end">
+                        <button type="button" disabled class="btn px-md-4 disabled">
+                            Información
+                        </button>
+                    </div>
+    
+                </div>
+    
+            </div>
+            
+            <div class="col-12 my-1 px-2 px-lg-3">
+                <div class="row mx-0 align-items-center">
+            
+                    <div class="col-4 col-md-3 ps-1 pe-3 text-center">
+                        <img src="assets/images/camara.png" alt="camara">
+                    </div>
+            
+                    <div class="col-8 col-md-9 py-3 px-0">
+                        <h4 class="mb-1">Seleccione un proyecto</h4>
+                    </div>
+            
+                </div>
+            </div>
+    
+            <div class="col-12 my-1 px-2 px-lg-3 py-xl-2">
+    
+                <div class="separator mb-2">
+                    <div></div>
+                </div>
+    
+                <div class="row mx-0 section-label">
+                    
+                    <div class="col-10 p-0 text-start">
+                        <b class="text-uppercase">TOTAL USUARIOS</b>
+                    </div>
+                    
+                    <div class="col-2 ps-2 pr-0 text-center">
+                        ?
+                    </div>
+    
+                    <div class="col-10 p-0 text-start">
+                        Sección
+                    </div>
+                    
+                    <div class="col-2 ps-2 pr-0 text-center">
+                        ?
+                    </div>
+                    
+                    <div class="col-10 p-0 text-start">
+                        Sección
+                    </div>
+                    
+                    <div class="col-2 ps-2 pr-0 text-center">
+                        ?
+                    </div>
+    
+                </div>
+    
+                <div class="separator mt-2">
+                    <div></div>
+                </div>
+    
+            </div>
+    
+            <div class="col-12 my-1 px-2 px-lg-3">
+    
+                <div class="row mx-0">
+                    
+                    <div class="col-10 my-2 py-1 px-0 project-option">
+                        ?
+                    </div>
+                    <div class="col-10 my-2 py-1 px-0 project-option">
+                        ?
+                    </div>
+                    <div class="col-10 my-2 py-1 px-0 project-option">
+                        ?
+                    </div>
+                    
+                </div>
+    
+            </div>
+        
+        </div>
+    
+    </div>
+
+    <project-creation-form
+        [modules]="modules"
+        (onCreateProject)="loadRecords()"
+    ></project-creation-form>
+
+    <!-- SPINNER -->
+    <div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
+        <mat-spinner></mat-spinner>
+    </div>
+
+</div>
+
+
+
+

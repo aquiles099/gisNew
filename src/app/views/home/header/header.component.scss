@@ -1,0 +1,452 @@
+/* movil */
+
+header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 7.5%;   
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    box-shadow: 3px 3px 4px 0 rgba(147,147,147,0.5);
+    -webkit-box-shadow: 3px 3px 4px 0 rgba(147,147,147,0.5);
+    -moz-box-shadow: 3px 3px 4px 0 rgba(147,147,147,0.5);
+    z-index: 1001;
+    transition: width .2s;
+}
+
+.brand-logo-section,
+.user-company-logo-section,
+.logout-window-section{
+    display: inline-flex;
+}
+
+.brand-logo-section{
+    width: 17.5%;
+    justify-content: center;
+} 
+
+.brand-logo-section img:nth-child(2){
+    display: none;
+    width: 70%;
+} 
+
+.user-company-logo-section{
+    width: 62.5%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user-company-logo{
+    padding-left: .75rem;
+    width: 32.5%;
+    max-height: 2rem;
+    display: inline-block;
+}
+
+.collapse-sidebar-main-btn{
+    width: 1.75rem;
+}
+
+.collapse-sidebar-secondary-btn{
+    display: none;
+    padding: 0 .5rem 0 .75rem;
+    max-height: 1rem;
+}
+
+.user-company-logo-section > div{
+    width: 70%;
+    display: inline-flex;
+    align-items: center;
+    font-style: italic;
+    font-size: .875rem;
+    color: #4F4F4F;
+    padding-left: 1.25rem;
+}
+
+.logout-window-section{
+    width: 17.5%;
+    right: 0%;
+    justify-content: center;
+}
+
+.circle{
+    background-color: #40824F;
+    border-radius:50%;
+    padding: .35rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: .825rem;
+    letter-spacing: .125rem;
+}
+
+.logout-window{
+    position: absolute;
+    top: 82.5%;
+    right: 7.5%;
+    width: 52.5%;
+    height: auto;
+    border-radius: .975rem;
+    background-color: #FFF;
+    border: 1px solid #E0E0E0;
+    box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    color: #495C80;
+    font-size: 0.875rem;
+}
+
+.user-info-container{
+    border-top-right-radius: .975rem;
+    border-top-left-radius: .975rem;
+}
+
+.profile-image-container{
+    width: 65%;
+    max-height: 6rem;
+}
+
+.profile-image-defined{
+    width: 65%;
+    max-height: 6rem;
+    margin: auto;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center; 
+}
+
+.icon{
+    width: 1.25rem;
+    height: 1.25rem;    
+}
+
+.top-bordered{
+    border-top: 1px solid #E0E0E0;
+}
+
+.logout-window > .row > .col-12:nth-child(1){
+    background-color: #E6EEFF;
+}
+
+.user-info > h6{
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #495C80;
+}
+
+.user-info > h4{
+    font-size: .775rem;
+    color: #495C80;
+}
+
+.logout-window-option{
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.logout-window-option:hover{
+    transform: scale(1.02);
+}
+
+
+  
+ /* media */
+  
+@media(min-width: 800px)
+{
+    header.collapsed{
+        right: 0%;
+        width: 90%;
+    }
+    
+    header{
+        right: 0%;
+        width: 80%;
+    }
+
+    .brand-logo-section{
+        display: none;
+    }
+
+    .brand-logo-section img:nth-child(2){
+        display: block;
+    } 
+    
+    .collapse-sidebar-secondary-btn{
+        display: block;
+    }
+
+    .circle{
+        padding: 0.275rem;
+        font-size: 0.785rem;
+    }
+
+    .logout-window-section{
+        width: 12.5%;
+    }
+    
+    .logout-window{
+        top: 87.5%;
+        right: 2.5%;
+        width: 20%;
+        font-size: .775rem;
+    }
+
+    .logout-window-option{
+        font-size: .675rem;
+    }
+
+    .profile-image-container{
+        max-height: 5rem;
+    }
+    
+    .profile-image-defined{
+        max-height: 5rem;
+    }
+
+    .user-info > h6{
+        font-size: .875rem;
+    }
+    
+    .user-info > h4{
+        font-size: .675rem;
+    }
+
+    .icon{
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+@media(min-width: 1024px)
+{
+    .collapse-sidebar-secondary-btn{
+        padding: 0 2rem;
+    }
+
+    .company-name{
+        font-size: 1rem;
+    }
+
+    .logout-window-section{
+        position: absolute;
+        width: 7.5%;
+    }
+
+    .logout-window{
+        width: 20%;
+        font-size: .825rem;
+    }
+
+    .logout-window-option{
+        font-size: .725rem;
+    }
+
+    .profile-image-container{
+        max-height: 5rem;
+    }
+    
+    .profile-image-defined{
+        max-height: 5rem;
+    }
+
+    .user-info > h6{
+        font-size: .925rem;
+    }
+    
+    .user-info > h4{
+        font-size: .725rem;
+    }
+}
+
+@media(min-width: 1280px)
+{
+    header.collapsed{
+        width: 92.5%;
+    }
+    
+    header{
+        width: 85%;
+    }
+}
+
+@media(min-width: 1440px)
+{
+    .circle{
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .logout-window{
+        top: 80%;
+        width: 15% !important;
+    }
+
+    .user-info > h6{
+        font-size: .925rem;
+    }
+    
+    .user-info > h4{
+        font-size: .825rem;
+    }
+
+    .logout-window-option{
+        font-size: .825rem;
+    }
+}
+
+@media(min-width: 1600px)
+{
+    .collapse-sidebar-secondary-btn{
+        max-height: 2rem;
+    }
+
+    .company-name{
+        font-size: 1.125rem;
+    }
+
+    .logout-window{
+        width: 12.5% !important;
+    }
+}
+
+@media(min-width: 1280px) and (min-height: 1024px)
+{
+    .company-name{
+        font-size: 1.125rem;
+    }
+
+    .user-company-logo{
+        width: 10%;
+    }
+}
+
+
+@media(min-width: 1440px)
+{
+    .collapse-sidebar-secondary-btn{
+        max-height: 3rem;
+    }
+}
+
+
+@media(min-width: 800px) and (min-height: 600px)
+{
+    .user-company-logo-section{
+        width: 87.5%;
+    }
+    
+    .user-company-logo{
+        width: 12.5%;
+    }
+    
+    .user-company-logo-section > div{
+        width: 80%;
+    }   
+}
+
+@media(min-width: 1024px) and (min-height: 768px)
+{
+    
+}
+
+@media(min-width: 1152px) and (min-height: 864px)
+{
+
+}
+
+@media(min-width: 1176px) and (min-height: 664px)
+{
+    .logout-window-section{
+        position: absolute;
+        width: 7.5%;
+    }
+
+    .logout-window{
+        width: 15%;
+    }
+}
+
+@media(min-width: 1280px) and (min-height: 720px)
+{
+
+}
+
+@media(min-width: 1280px) and (min-height: 768px)
+{
+
+
+
+}
+
+@media(min-width: 1280px) and (min-height: 800px)
+{
+
+}
+
+@media(min-width: 1280px) and (min-height: 960px)
+{
+
+}
+
+@media(min-width: 1280px) and (min-height: 1024px)
+{
+
+}
+
+@media(min-width: 1360px) and (min-height: 765px)
+{
+    .user-company-logo{
+        width: 8%;
+    }
+}
+
+@media(min-width: 1440px) and (min-height: 900px)
+{
+
+}
+
+@media(min-width: 1600px) and (min-height: 900px)
+{
+
+}
+
+@media(min-width: 1600px) and (min-height: 1024px)
+{
+   
+}
+
+@media(min-width: 1680px) and (min-height: 1024px)
+{
+
+}
+
+@media(min-width: 1680px) and (min-height: 1050px)
+{
+
+}
+
+@media(min-width: 1600px) and (min-height: 1200px)
+{
+    .user-company-logo{
+        width: 7.5%;
+    }
+}
+
+@media(min-width: 1768px) and (min-height: 992px)
+{
+    
+}
+
+@media(min-width: 1880px) and (min-height: 882px)
+{ 
+    
+}
+
+@media(min-width: 1920px) and (min-height: 1080px)
+{
+   
+}
+
+@media(min-height: 1210px)
+{
+}

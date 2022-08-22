@@ -1,0 +1,13 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+<!-- spinner -->
+<ngx-spinner class="custom" name="appSpinner" [fullScreen]="true" bdColor="rgba(255,255,255,0.5)">
+
+    <div class="loading-container">
+        <img src="assets/icons/gif/loading.gif" class="loading mb-4 d-block" alt="loading">
+        <div *ngIf="spinnerHtml"  [@fadeInOnEnter] [@fadeOutOnLeave] class="loading-html" [innerHTML]="spinnerHtml | safeHtml"></div>
+    </div>
+
+</ngx-spinner>
+
+<router-outlet></router-outlet>

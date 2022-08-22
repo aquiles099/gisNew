@@ -1,0 +1,108 @@
+<header [class.collapsed]="sidebarIsCollapsed" class="animate__animated animate__fadeInDown animate__faster">
+    
+    <div class="brand-logo-section cursor-pointer">
+        <img (click)="toggleSidebarCollapsedState()" class="cursor-pointer collapse-sidebar-main-btn" src="assets/icons/png/hamburguesa.png" alt="fisotec">
+        <img src="assets/images/brand-logo-black.png" alt="fisotec">
+    </div>
+    
+    <div class="user-company-logo-section">
+        
+        <img (click)="toggleSidebarCollapsedState()" class="cursor-pointer collapse-sidebar-secondary-btn" src="assets/icons/png/hamburguesa.png" alt="fisotec">
+
+        <img src="assets/images/brand-logo-black.png" class="user-company-logo" alt="fisotec">
+
+        <div >
+            <span [attr.title]="user.company.name" class="text-truncate company-name">
+                {{ user.company.name }}
+            </span>
+        </div>
+
+    </div>
+
+    <div class="logout-window-section">
+
+        <div class="circle" 
+        (click)="toggleLogoutWindowVisibility()"
+        (mouseenter)="showLogoutWindow()"
+        (mouseleave)="hideLogoutWindowAutomatically()">
+            {{ user.fullNameInitials }}
+        </div>
+
+    </div>
+
+    <div  
+    *ngIf="logoutWindowIsVisible" 
+    [@fadeInOnEnter] [@fadeOutOnLeave] 
+    (mouseenter)="overTheLogoutWindow()" 
+    (mouseleave)="hideLogoutWindow()" 
+    class="logout-window">
+
+        <div class="row mx-0">
+            
+            <div class="col-12 px-0 user-info-container">
+
+                <div class="row mx-0">
+
+                    <div class="col-12 px-md-2 px-lg-3 py-2 text-center">
+        
+                        <img *ngIf="! user.profile_photo_path; else profilePhotoDefined" class="profile-image-container" [src]="userProfileImgSrc">
+
+                        <ng-template #profilePhotoDefined>
+                            <div class="circle profile-image-defined"
+                                [ngStyle]="{
+                                    'background-image': 'url('+userProfileImgSrc+')
+                                '}">
+                            </div>
+                        </ng-template>
+                        
+                    </div>
+                    
+                    <div class="col-12 px-md-2 px-lg-3 pb-2 text-center user-info">
+        
+                        <h6 class="mb-1 text-truncate">{{ user.full_name }}</h6>
+        
+                        <h4 [attr.title]="user.email ? user.email : 'No disponible'" class="mb-1 text-truncate"> {{ user.email ? user.email : "No disponible" }} </h4>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div [routerLink]="['/home/perfil']" class="col-12 px-md-2 px-lg-3 py-2 top-bordered logout-window-option">
+                
+                <div class="row m-0">
+
+                    <div class="col-2 p-0 text-center">
+                        <img class="icon" src="assets/icons/svg/ADMUSUARIO.svg" alt="ADMUSUARIO">
+                    </div>
+
+                    <div class="col-10 pl-1 pr-0 text-truncate">
+                        Config. de perfil
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div (click)="logout()" class="col-12 px-md-2 px-lg-3 py-2 top-bordered logout-window-option">
+
+                <div class="row m-0">
+
+                    <div class="col-2 p-0 text-center">
+                        <img class="icon" src="assets/icons/svg/CERRARSESION.svg" alt="icono-cerrar-sesion">
+                    </div>
+
+                    <div class="col-10 pl-1 pr-0 text-truncate">
+                        Cerrar sesión
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+</header>

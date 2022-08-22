@@ -1,0 +1,22 @@
+
+<label [hidden]="! label" for="layer-selector">{{label}}</label>
+
+<ng-select 
+    id="layer-selector"
+    class="layer-selector" 
+    [items]="layers"
+    bindLabel="display_name"
+    bindValue="id"
+    groupBy="label"
+    [selectableGroup]="false"
+    placeholder="Seleccione capa"
+    [disabled]="disabled"
+    [clearable]="false"
+    [(ngModel)]="layerId"
+    [ngModelOptions]="{standalone: true}"
+    (change)="onChange($event)"
+    >
+    <ng-template ng-optgroup-tmp let-item="item">
+        <div class="w-100 text-center" [innerHtml]="item.label | safeHtml" ></div>
+    </ng-template>
+</ng-select>

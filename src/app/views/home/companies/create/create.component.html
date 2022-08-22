@@ -1,0 +1,390 @@
+<div class="container-fluid">
+
+    <div class="row header">
+        <!--title-->
+        <div class="col-lg-8 col-xs-12">
+            <h1 class="bold-text ">Nueva empresa</h1>
+        </div>
+        <!--end tittle-->
+
+
+    </div>
+
+    <!--start create row-->
+    <div class="row ">
+
+
+        <div class="col-lg-12 col-xs-12">
+
+
+            <!--start form-->
+            <form [formGroup]="form_model" #companyForm id="creationFormCR" (ngSubmit)="sendForm(companyForm)"
+                class="form-horizontal content">
+
+                <!--Logo row-->
+                <div class="row border-bottom">
+
+                    <div class="col-lg-4">
+                        <!--logo goes here-->
+                        <img class="logo" src="assets/images/logo-empresa.png" width="395" (click)="toggleFullscreen($event)" [src]="companyLogoImgSrc"  alt="logo">
+
+
+                    </div>
+
+
+                    <div class="col-lg-8">
+
+                        <!--start first row-->
+                        <div class="row">
+                            <!--start nombre-->
+                            <div class="col-lg-6   col-xs-12 ">
+                                <label class="label-text little-bold-text" for=""> Nombre de la empresa<span class="required"><span class="required">*</span></span></label>
+                                <input name="name" class="mb-1 form-control" required type="text"
+                                    formControlName="name" maxlength=50 [ngClass]="{
+                                invalid:
+                                model_form_control.name.invalid &&
+                                model_form_control.name.touched,
+                                valid: model_form_control.name.valid
+                                }" placeholder="Escribe aqui el nombre de la empresa" />
+                                <small *ngIf="model_form_control.name.invalid && model_form_control.name.touched"
+                                    class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            </div>
+                            <!--end nombre-->
+
+
+                            <!--start nombre-->
+                            <div class="col-lg-6   col-xs-12 ">
+                                <label class="label-text little-bold-text" for=""> CIF<span class="required"><span class="required">*</span></span></label>
+                                <input name="cif" class="mb-1 form-control" required type="text" formControlName="cif"
+                                    maxlength=50 [ngClass]="{
+                                invalid:
+                                model_form_control.cif.invalid &&
+                                model_form_control.cif.touched,
+                                valid: model_form_control.cif.valid
+                                }" placeholder="" />
+                                <small *ngIf="model_form_control.cif.invalid && model_form_control.name.touched"
+                                    class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            </div>
+                            <!--end nombre-->
+
+                        </div>
+                        <!--end first row-->
+
+
+                        <!--start second row-->
+                        <div class="row">
+                            <!--start provincia-->
+                            <div class="col-lg-6   col-xs-12 location-row">
+                                <label class="label-text little-bold-text" for=""> Ubicación<span class="required">*</span></label>
+
+                             
+
+                                <ng-select
+                                id="company-province"
+                                class="custom" 
+                                name="province_id" 
+                                formControlName="province_id"
+                                 
+                                placeholder="Seleccione provincia..."
+                                [clearable]="false"
+                                [items]="provinces"
+                                bindLabel="name"
+                                bindValue="id"
+                                [loading]="loadingProvinces"
+                                [loadingText]="'Cargando provincias...'"
+                                (change)="onChangeProvinceSelector($event)"
+                            >
+                            </ng-select>
+
+                                <small
+                                    *ngIf="model_form_control.province_id.invalid && model_form_control.province_id.touched"
+                                    class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            </div>
+                            <!--end provincia-->
+
+
+                            <!--start municipio-->
+                            <div class="col-lg-6   col-xs-12 ">
+                                <label class="label-text little-bold-text" for=""> &nbsp;</label>
+
+                                <ng-select
+                                id="company-municipality"
+                                 
+                                formControlName="municipality_id" 
+                                name="municipality_id" 
+                                class="custom mt-1" 
+                                [clearable]="false"
+                                placeholder="Seleccione municipio..."
+                                [loading]="loadingMunicipalities"
+                                [loadingText]="'Cargando municipios...'"
+                                [items]="municipalities"
+                                bindLabel="name"
+                                bindValue="id"
+                            >
+                            </ng-select>
+                                <small
+                                    *ngIf="model_form_control.municipality_id.invalid && model_form_control.municipality_id.touched"
+                                    class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            </div>
+                            <!--end municipio-->
+
+                        </div>
+                        <!--end second row-->
+
+
+
+                        <!--start third row-->
+                        <div class="row">
+                            <!--start provincia-->
+                            <div class="col-lg-6   col-xs-12 custom-file-upload mt-4 ">
+                                <label class="label-text little-bold-text" for=""> &nbsp;</label>
+
+                                <label for="file-upload" class="custom-file-upload1">
+                                    <img class="download-button" src="assets/icons/png/CARGAR.png" alt=""> Cargar Imagen
+                                </label>
+                                <input 
+                                #imageInput
+                                formControlName="image"
+                                required
+                                accept=".png, .jpg, .jpeg" 
+                                id="file-upload" 
+                                type="file"
+                                name="image" 
+                                (change)="onSelectCompanyLogo($event)"
+                                />
+
+                            </div>
+                            <!--end provincia-->
+
+                        </div>
+                        <!--end third row-->
+
+                    </div>
+
+
+                </div>
+                <!--end logo-->
+
+                <!--administracion section -->
+                <div class="row mt-2" >
+                
+                    <!--administracion section 1-->
+                    <div class="col-lg-6 border-right"  >
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <h5 class="little-bold-text">Administrador 1</h5>
+                            </div>
+                        </div>
+
+                        <!--first row-->
+                        <div class="row" formGroupName="admin_1">
+                            <!--start nombre-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Nombre<span class="required">*</span></label>
+                                <input  class="mb-1 form-control" required type="text"
+                                    formControlName="first_name" name="first_name" maxlength=50 placeholder="" />
+                              
+
+                            </div>
+                            <!--end nombre-->
+
+                            <!--start apellido-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Apellido<span class="required">*</span></label>
+                                <input  class="mb-1 form-control" required type="text"
+                                    formControlName="last_name"  name="last_name" maxlength=50  placeholder="" />
+                               
+
+                            </div>
+                            <!--end apellido-->
+
+
+                            <!--start NIF-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> NIF/NIE<span class="required">*</span></label>
+                                <input  class="mb-1 form-control" required type="text"
+                                    formControlName="identification_document" name="identification_document" maxlength=50 placeholder="" />
+                                
+
+                            </div>
+                            <!--end nombre-->
+                        </div>
+                        <!--end first row-->
+
+
+
+                        <!--second row-->
+                        <div class="row" formGroupName="admin_1">
+                            <!--start nombre de us-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Nombre de usuario<span class="required">*</span></label>
+                                <input  class="mb-1 form-control" required type="text"
+                                    formControlName="user_name" maxlength=50 name="user_name"  placeholder="" />
+                                
+
+                            </div>
+                            <!--end nombre de usuario-->
+
+                            <!--start email-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Email<span class="required">*</span></label>
+                                <input  class="mb-1 form-control" required type="email"
+                                    formControlName="email" maxlength=50  name="email" placeholder="" />
+                                
+
+                            </div>
+                            <!--end email-->
+
+
+                            <!--start contraseña-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Contraseña<span class="required">*</span></label>
+                                <input #admin1PasswordField name="password"  style="display: inline-block;" class="mb-1 form-control" required type="password"
+                                    formControlName="password" maxlength=50    placeholder="" />
+                                    <img [src]="admin1PasswordField.type === 'password' ? 'assets/icons/svg/show.svg' : 'assets/icons/svg/hide.svg'" 
+                                    class="eye-icon pointer" 
+                                    (click)="togglePasswordVisibility(admin1PasswordField)">
+
+                            </div>
+                            <!--end contraseña-->
+                        </div>
+                        <!--end second row-->
+
+
+                    </div>
+                    <!--end administracion section 1-->
+
+                    <!--administracion section 2-->
+                    <div class="col-lg-6 border-left"  >
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <h6 class="little-bold-text">Administrador 2</h6>
+                            </div>
+                        </div>
+
+                        <!--first row-->
+                        <div class="row" formGroupName="admin_2">
+                            <!--start nombre de usuario-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Nombre<span class="required">*</span></label>
+                                <input  class="mb-1 form-control" required type="text"
+                                    formControlName="first_name" name="first_name" maxlength=50 placeholder="" />
+                              
+
+                            </div>
+                            <!--end nombre de usuario-->
+
+                            <!--start email-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Apellido<span class="required">*</span></label>
+                                <input  class="mb-1 form-control" required type="text"
+                                    formControlName="last_name" name="last_name" maxlength=50  placeholder="" />
+                               
+
+                            </div>
+                            <!--end email-->
+                            <!--start NIF-->
+                                 
+                            <div class="col-lg-4  ">
+                                    <label class="label-text little-bold-text" for=""> NIF/NIE<span class="required">*</span></label>
+                                    <input  class="mb-1 form-control" required type="text"
+                                        formControlName="identification_document" name="identification_document" maxlength=50  placeholder="" />
+                                 
+    
+                                </div>
+                            <!--end NIF-->
+
+                           
+                        </div>
+                        <!--end first row-->
+
+
+
+                        <!--second row-->
+                        <div class="row" formGroupName="admin_2">
+                            <!--start nombre-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Nombre de usuario<span class="required">*</span></label>
+                                <input  class="mb-1 form-control" required type="text"
+                                    formControlName="user_name" name="user_name" maxlength=50  placeholder="" />
+                                
+
+                            </div>
+                            <!--end nombre-->
+
+                            <!--start apellido-->
+                            <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Email<span class="required">*</span></label>
+                                <input class="mb-1 form-control" required type="email"
+                                    formControlName="email" name="email" maxlength=50  placeholder="" />
+                                
+
+                            </div>
+                            <!--end apellido-->
+
+                              <!--start contraseña-->
+                              <div class="col-lg-4  ">
+                                <label class="label-text little-bold-text" for=""> Contraseña<span class="required"><span class="required">*</span></span></label>
+                                <input #admin2PasswordField style="display: inline-block;" class="mb-1 form-control" required type="password"
+                                    formControlName="password" name="password" maxlength=50   placeholder="" />
+                                    <img [src]="admin2PasswordField.type === 'password' ? 'assets/icons/svg/show.svg' : 'assets/icons/svg/hide.svg'" 
+                                    class="eye-icon pointer" 
+                                    (click)="togglePasswordVisibility(admin2PasswordField)">
+
+                            </div>
+                            <!--end contraseña-->
+                       
+                        </div>
+                        <!--end second row-->
+
+
+                    </div>
+                    <!--end administracion section 2-->
+                </div>
+                <!--end administracion section -->
+
+
+          
+
+                <!--fourth row-->
+                <div class="row mt-2">
+
+
+                    <div class="col-12 ">
+                        <div class="row">
+                            <div class="col-lg-2 offset-lg-8 col-xs-2 button-container">
+                                <button class="buttons btn float-end"
+                                    >Crear</button>
+                            </div>
+                            <div class="col-lg-2 col-xs-2 button-container">
+                                <button class="buttons btn float-start" (click)="back()" type="button">Volver</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                </div>
+                <!--end fourth row-->
+
+                </form>
+
+            
+
+
+    </div>
+
+
+</div>
+<!--end create row-->
+

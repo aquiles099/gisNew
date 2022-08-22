@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="136mm" height="60mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 13600 6000"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <font id="FontID0" horiz-adv-x="666" font-variant="normal" style="fill-rule:nonzero" font-style="normal" font-weight="400">
+	<font-face 
+		font-family="Arial">
+		<font-face-src>
+			<font-face-name name="Arial"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="x" horiz-adv-x="500" d="M5.99924 0l189.505 268.83 -175.504 250.173 108.168 0 81.9954 -122.508c15.1715,-23 27.17,-41.6652 35.666,-56.3252 14.8334,20.8326 28.0022,39.6626 39.836,56.4986l86.3301 122.334 107.501 0 -176.501 -250.173 188.005 -268.83 -106.998 0 -107.336 160.003 -24.4998 38.5009 -138.667 -198.504 -107.501 0z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Arial";font-variant:normal;font-style:normal;font-weight:normal;src:url("#FontID0") format(svg)}
+    .fil1 {fill:#373435}
+    .fil0 {fill:black;fill-rule:nonzero}
+    .fnt1 {font-weight:normal;font-size:672.82px;font-family:'Arial'}
+    .fnt0 {font-weight:normal;font-size:1153.48px;font-family:'Arial'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Capa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1182158944">
+   <g>
+    <path class="fil0" d="M13300 352l-13000 0 0 -252 13000 0 126 126 -126 126zm0 -252c69,0 126,57 126,126 0,70 -57,126 -126,126l0 -252zm-126 5674l0 -5548 252 0 0 5548 -126 126 -126 -126zm252 0c0,69 -57,126 -126,126 -69,0 -126,-57 -126,-126l252 0zm-13126 -126l13000 0 0 252 -13000 0 -126 -126 126 -126zm0 252c-69,0 -126,-57 -126,-126 0,-70 57,-126 126,-126l0 252zm126 -5674l0 5548 -252 0 0 -5548 126 -126 126 126zm-252 0c0,-69 57,-126 126,-126 69,0 126,57 126,126l-252 0z"/>
+   </g>
+   <g>
+    <polygon class="fil0" points="13300,4604 300,4604 300,4478 13300,4478 "/>
+   </g>
+   <g>
+    <polygon class="fil0" points="9894,3371 300,3371 300,3245 9894,3245 "/>
+   </g>
+   <g>
+    <path class="fil0" d="M300 2138c-35,0 -63,-28 -63,-63 0,-34 28,-63 63,-63l0 126zm13000 0l-13000 0 0 -126 13000 0 0 126zm0 -126c35,0 63,29 63,63 0,35 -28,63 -63,63l0 -126z"/>
+   </g>
+   <g>
+    <polygon class="fil0" points="9831,5774 9831,2075 9957,2075 9957,5774 "/>
+   </g>
+   <text x="5360" y="1543"  class="fil1 fnt0">xxxxx</text>
+   <text x="1137" y="2877"  class="fil1 fnt1">xxx</text>
+   <text x="1137" y="4126"  class="fil1 fnt1">xxx</text>
+   <text x="1137" y="5360"  class="fil1 fnt1">xxx</text>
+   <text x="1137" y="5360"  class="fil1 fnt1">xxx</text>
+   <text x="10461" y="2877"  class="fil1 fnt1">xxx</text>
+   <text x="10461" y="5360"  class="fil1 fnt1">xxx</text>
+  </g>
+ </g>
+</svg>

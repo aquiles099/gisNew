@@ -1,0 +1,340 @@
+.spinner{
+    top: auto;
+    bottom: 0;
+    height: 90%;
+}
+
+.btn-ok,
+.btn-cancel{
+    border-radius: 0.25rem;
+    background-color: #001E33;
+    color: #fff;
+    font-size: .875rem;
+    font-family: 'Rubik Bold' !important;
+}
+
+.btn-ok.big{
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-ok{
+    background-color: #001E33;
+    color: #fff;
+}
+
+.btn-cancel{
+    border-color: #001E33;
+    background-color: #fff;
+    color: #001E33;
+}
+
+.separator{
+    width: 100%;
+    height: .125rem;
+    border-radius: .5rem;
+    background-color: #C6C6C6;
+    margin: .25rem auto;
+}
+
+.help-message{
+    font-size: .875rem;
+    font-family: 'NunitoSans' !important;
+    color: #222;
+    padding: 0;
+}
+
+.attr-label{
+    color: #001E33;
+    font-family: 'Rubik Bold' !important;
+    font-size: .875rem;
+}
+
+.attr-value:not(.ng-select){
+    border-color:#E0E0E0;
+    color: #222;
+    font-family: 'NunitoSans' !important;
+    width: 100%;
+    font-size: .825rem;
+    padding: .25rem .5rem;
+}
+
+.ng-select.attr-value ::ng-deep .ng-select-container  {    
+    border-color: #E0E0E0;
+    background-color: #F6F6F6;
+    font-size: .825rem;
+    color: #001E33;
+    font-family: 'NunitoSans' !important;
+    text-overflow: ellipsis;
+    border-radius: .125rem;
+}
+
+.ng-select.attr-value ::ng-deep .ng-option{
+    font-size: .825rem !important;
+    color: #001E33;
+    font-family: 'NunitoSans' !important;
+    text-overflow: ellipsis;
+} 
+
+input[type=checkbox]{
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.bottom-section{
+    position: absolute;
+    bottom:5%;
+}
+
+/* media */
+
+@media(min-width: 800px)
+{
+    .bottom-section{
+        padding: 0 .75rem;
+    }
+
+    .attr-label,
+    .attr-value,
+    .ng-select.attr-value{
+        font-size: 0.75rem !important;
+    }
+
+    .ng-select.attr-value ::ng-deep .ng-select-container  {    
+        font-size: .75rem;
+    }
+    
+    .ng-select.attr-value ::ng-deep .ng-option{
+        font-size: .75rem !important;
+    } 
+    
+    input[type=checkbox]{
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    
+    .btn-ok,
+    .btn-cancel{
+        font-size: .75rem;
+    }
+}
+
+@media(min-width: 1024px)
+{    
+    .attr-label,
+    .attr-value,
+    .ng-select.attr-value{
+        font-size: 0.825rem !important;
+    }
+
+    .ng-select.attr-value ::ng-deep .ng-select-container  {    
+        font-size: .825rem;
+    }
+    
+    .ng-select.attr-value ::ng-deep .ng-option{
+        font-size: .825rem !important;
+    } 
+    
+    input[type=checkbox]{
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+    
+    .btn-ok,
+    .btn-cancel{
+        font-size: .825rem;
+    }
+
+    .bottom-section{
+        bottom: 2.5%;
+    }
+}
+
+@media(min-width: 1280px)
+{       
+    .help-message{
+        font-size: .925rem;
+    }    
+
+    .attr-label,
+    .attr-value,
+    .ng-select.attr-value{
+        font-size: 0.875rem !important;
+    }
+
+    .ng-select.attr-value ::ng-deep .ng-select-container  {    
+        font-size: .875rem;
+    }
+    
+    .ng-select.attr-value ::ng-deep .ng-option{
+        font-size: .875rem !important;
+    } 
+    
+    .bottom-section{
+        padding: 0 1rem;
+    }
+
+    .btn-ok.big{
+        height: 2rem;
+    }
+
+    .btn-ok,
+    .btn-cancel{
+        font-size: .875rem;
+    }
+}
+
+@media(min-width: 1360px)
+{       
+
+}
+
+@media(min-width: 1440px) 
+{
+    .help-message{
+        font-size: 1rem;
+    }    
+
+    .attr-label,
+    .attr-value,
+    .ng-select.attr-value{
+        font-size: .95rem !important;
+    }
+
+    .ng-select.attr-value ::ng-deep .ng-select-container  {    
+        font-size: .95rem;
+    }
+    
+    .ng-select.attr-value ::ng-deep .ng-option{
+        font-size: .95rem !important;
+    } 
+
+    .bottom-section{
+        bottom: 3.5%;
+    }
+
+    .btn-ok,
+    .btn-cancel{
+        font-size: .95rem;
+    }
+}
+
+@media(min-width: 1600px)
+{
+    .help-message{
+        font-size: 1.125rem;
+    }    
+
+    label{
+        font-size: 1.125rem;
+    }
+}
+
+@media(min-width: 1768px)
+{
+
+}
+
+@media(min-width: 800px) and (min-height: 600px)
+{
+    
+}
+ 
+@media(min-width: 1024px) and (min-height: 768px)
+{
+    
+}
+  
+@media(min-width: 1152px) and (min-height: 864px)
+{
+   
+}
+ 
+ @media(min-width: 1176px) and (min-height: 664px)
+ {
+  
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 720px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 768px)
+ {
+   
+ }
+
+ @media(min-width: 1280px) and (min-height: 800px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 960px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 1024px)
+ {
+  
+ }
+ 
+ @media(min-width: 1360px) and (min-height: 765px)
+ {
+   
+ }
+ 
+ @media(min-width: 1440px) and (min-height: 900px)
+ {  
+
+ }
+
+ @media(min-width: 1600px) and (min-height: 900px)
+ {
+  
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1024px)
+ {
+   
+ }
+
+ @media(min-width: 1680px) and (min-height: 1024px)
+ {
+
+ }
+
+ @media(min-width: 1680px) and (min-height: 1050px)
+ {
+   
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1200px)
+ {
+    
+ }
+   
+ @media(min-width: 1768px) and (min-height: 992px)
+ {
+    
+ }
+
+ @media(min-width: 1880px) and (min-height: 882px)
+ { 
+    
+ }
+ 
+ @media(min-width: 1920px) and (min-height: 1080px)
+ {
+  
+ }
+ 
+ @media(min-height: 1210px)
+ {
+   
+ }

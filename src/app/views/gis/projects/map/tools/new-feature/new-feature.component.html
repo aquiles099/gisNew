@@ -1,0 +1,209 @@
+<div class="row mx-0 d-flex justify-content-center  animate__animated animate__fadeIn animate__faster" 
+    *ngIf="drawingState !== 'finished'">
+
+    <div class="col-10 px-0">
+        
+        <layer-selector
+            label="Capa:"
+            (change)="onChangeLayerSelector($event)"
+        ></layer-selector>
+
+        <div [hidden]="isCollapsed" class="separator my-3"></div>
+    </div>
+
+    <div class="my-2 text-center help-message animate__animated animate__fadeIn animate__faster" 
+        [hidden]="! drawing" 
+        [innerHtml]="helpMessage"></div>
+
+    <div class="col-8 text-center d-grid gap-2 animate__animated animate__fadeIn animate__faster">
+
+        <button [hidden]="! finishMultiGeometry" 
+                (click)="finishMultipleGeometryFeature()" 
+                type="button"
+                class="btn btn-ok big animate__animated animate__fadeIn animate__faster">
+            Terminar elemento
+        </button>
+
+    </div>
+    
+    <div class="bottom-section">
+
+        <div class="row mx-0 justify-content-between">
+
+            <div class="col-5 px-0 d-grid gap-2">
+                <button [disabled]="! gisLayer" [hidden]="drawing" (click)="startDrawing()" class="btn btn-ok animate__animated animate__fadeIn animate__faster">
+                    Continuar
+                </button>
+            </div>
+
+            <div class="col-5 px-0 d-grid gap-2">
+                <button [disabled]="! drawing" [hidden]="! drawing" (click)="clear()" class="btn btn-cancel animate__animated animate__fadeIn animate__faster">
+                    Cancelar
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>
+
+<div [class.collapsed]="isCollapsed" class="row mx-0 mb-3 animate__animated animate__fadeIn animate__faster" 
+    *ngIf="drawingState === 'finished'">
+
+    <div class="col-12 px-0">
+        Agregue los atributos:
+    </div>
+
+</div>
+
+<div [class.collapsed]="isCollapsed" class="row mx-0 d-flex scrollable justify-content-center  animate__animated animate__fadeIn animate__faster" 
+    *ngIf="drawingState === 'finished'">
+
+    <ul>
+
+        <li *ngFor="let attribute of layerAttributes">
+
+            <div class="row m-0 py-2 mb-2 bottom-bordered">
+
+                <div class="col-6 p-0 d-flex align-items-center text-start">
+
+                    <label class="attr-label" [attr.title]="attribute.display_name" for="attribute_{{attribute.name}}">
+                        {{ attribute.display_name }}
+                    </label>
+
+                </div>
+
+                <div class="col-6 p-0 text-center" *ngIf="! attribute.domain || ! attribute.domain.length; else domainSelector">
+
+                    <div class="w-100 d-flex justify-content-center" [ngSwitch]="attribute.data_type">
+
+                        <input
+                        *ngSwitchCase="'varchar'" 
+                        id="attribute_{{attribute.name}}"
+                        type="text" 
+                        class="attr-value"
+                        [(ngModel)]="newFeature[attribute.name]"
+                        >
+                       
+                        <input
+                        *ngSwitchCase="'text'" 
+                        id="attribute_{{attribute.name}}"
+                        type="text" 
+                        class="attr-value"
+                        [(ngModel)]="newFeature[attribute.name]"
+                        >
+
+                        <input
+                        id="attribute_{{attribute.name}}"
+                        *ngSwitchCase="'bigint'" 
+                        type="number" 
+                        step="1"
+                        min="0"
+                        class="attr-value"
+                        [(ngModel)]="newFeature[attribute.name]"
+                        >
+
+                        <input
+                        id="attribute_{{attribute.name}}"
+                        *ngSwitchCase="'float'" 
+                        type="number"
+                        step=".01"
+                        min="0" 
+                        class="attr-value"
+                        [(ngModel)]="newFeature[attribute.name]"
+                        >
+                       
+                        <input
+                        id="attribute_{{attribute.name}}"
+                        *ngSwitchCase="'date'" 
+                        type="text"
+                        class="attr-value"
+                        [(ngModel)]="newFeature[attribute.name]"
+                        bsDatepicker
+                        [bsConfig]="{ 
+                            adaptivePosition: true,
+                            containerClass: 'theme-dark-blue', 
+                            isAnimated: true
+                        }">
+
+                        <timepicker 
+                        *ngSwitchCase="'time'" 
+                        id="attribute_{{attribute.name}}"
+                        [(ngModel)]="newFeature[attribute.name]"
+                        [showMeridian]="false"
+                        ></timepicker>
+
+                        <label *ngSwitchCase="'boolean'" class="checkbox" for="attribute_{{attribute.name}}">
+                            
+                            <input 
+                            type="checkbox" 
+                            [checked]="newFeature[attribute.name]" 
+                            name="attribute_{{attribute.name}}" 
+                            [(ngModel)]="newFeature[attribute.name]"
+                            id="attribute_{{attribute.name}}">
+
+                            <i class="fas fa-check" *ngIf="newFeature[attribute.name]" ></i>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <ng-template #domainSelector>
+
+                    <div class="col-6 p-0">
+    
+                        <ng-select
+                            class="attr-value" 
+                            [clearable]="false"
+                            [(ngModel)]="newFeature[attribute.name]"
+                            [ngModelOptions]="{standalone: true}"
+                            placeholder="Seleccione..."
+                            >
+                            <ng-option [value]="value" *ngFor="let value of attribute.domain">
+                                {{ value }}
+                            </ng-option>
+                        </ng-select>
+                        
+                    </div>
+
+                </ng-template>
+
+            </div>
+        </li>
+    </ul>    
+    
+</div>
+
+<div class="row mx-0 d-flex justify-content-center  animate__animated animate__fadeIn animate__faster" 
+    *ngIf="drawingState === 'finished'">
+
+    <div class="bottom-section">
+
+        <div class="row mx-0 justify-content-between">
+
+            <div class="col-5 px-0 d-grid gap-2">
+                <button (click)="onSubmit()" class="btn btn-ok">
+                    Guardar
+                </button>
+            </div>
+
+            <div class="col-5 px-0 d-grid gap-2">
+                <button (click)="clear()" class="btn btn-cancel">
+                    Volver
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>
+
+<!-- SPINNER -->
+<div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
+   <mat-spinner></mat-spinner>
+</div>
+

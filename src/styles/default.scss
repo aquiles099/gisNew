@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'Work Sans';
+  src: url("../assets/fonts/work-sans/static/WorkSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Work Sans Bold';
+  src: url("../assets/fonts/work-sans/static/WorkSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Work Sans Light';
+  src: url("../assets/fonts/work-sans/static/WorkSans-Light.ttf") format("truetype");
+}
+
+//
+
+@font-face {
+  font-family: 'Lucida Sans Typewriter';
+  src: url("../assets/fonts/lucida-sans-typewriter/lucidatypewriterregular.ttf") format("truetype");
+}
+
+
+//rubik
+@font-face {
+  font-family: 'Rubik';
+  src: url("../assets/fonts/rubik/Rubik-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Rubik Bold';
+  src: url("../assets/fonts/rubik/Rubik-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Rubik Light';
+  src: url("../assets/fonts/rubik/Rubik-Light.ttf") format("truetype");
+}
+  //rubik
+@font-face {
+  font-family: 'NunitoSans';
+  src: url("../assets/fonts/nunito-sans/NunitoSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'NunitoSans Bold';
+  src: url("../assets/fonts/nunito-sans/NunitoSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'NunitoSans Light';
+  src: url("../assets/fonts/nunito-sans/NunitoSans-Light.ttf") format("truetype");
+
+
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgb(173 173 173 / 50%);
+}
+
+@media (min-width: 576px) {
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+}
+
+// colors
+
+:root {
+  --main-dark-blue: #495C80;
+}
+
+*:not(i) {
+  font-family: "Rubik" !important;
+}
+
+html, body { height: 100%; overflow: hidden;}
+
+body { margin: 0;}
+
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+.swal2-container {
+  z-index: 99999 !important;
+}

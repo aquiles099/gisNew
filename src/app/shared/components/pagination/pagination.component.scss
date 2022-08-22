@@ -1,0 +1,111 @@
+div {
+    font-size: 12px;
+    color: rgba(0,0,0,.54);
+}
+
+.pagination-style{
+    float: right;
+    margin-right: 13.5rem;
+}
+.cursor{
+    cursor: pointer;
+}
+button {
+    border: none !important;
+    background-color: transparent;
+}
+
+.left-arrow{
+    transform: rotate(175deg);
+}
+
+.pagination-description
+{
+    margin-left: 2rem;
+}
+
+@media(max-width: 576px) {
+    .responsive-view {
+        margin-left: 10px !important;
+    }
+
+    .margin-for-mobile {
+        margin-top: 10px;
+    }
+}
+
+
+/* Extra small devices (phones, 375px and down) */
+@media only screen and (max-width: 375px) {
+    .pagination-style{
+        float: none !important;
+        margin-right: initial !important;
+    }
+    
+    
+    
+}
+
+/* Extra small devices (phones, 400px and down) */
+@media only screen and (min-width: 390px) and (max-width: 400px) {
+    .pagination-style{
+        float: none !important;
+        margin-right: initial !important;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+    .pagination-style{
+        float: none !important;
+        margin-right: initial !important;
+    }
+ 
+}
+
+
+/* Medium devices (landscape tablets, 1024px and higher) */
+@media only screen and (min-width: 760px) and (max-width: 800px) {
+    .pagination-style{
+        float: none !important;
+        margin-right: initial !important;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 800px and higher) */
+@media only screen and (min-width: 800px) and (max-width: 915px) {
+    
+    .pagination-style{
+        float: none !important;
+        margin-right: initial !important;
+    }
+   
+}
+
+/* Medium devices (landscape tablets, 1024px and lower) */
+@media only screen and (min-width: 1000px) and (max-width: 1024px) {
+    .pagination-style{
+        float: none !important;
+        margin-right: initial !important;
+    }
+   
+}
+
+/* Medium devices (landscape tablets, 1024px and lower) */
+@media only screen and (min-width: 1080px) and (max-width: 1280px) {
+    
+   
+}
+
+/* Laptops*/
+/* ----------- Non-Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  
+ 
+
+
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {}

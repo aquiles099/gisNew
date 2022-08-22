@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="55.9mm" height="59.4mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 5590 5940"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <font id="FontID0" horiz-adv-x="667" font-variant="normal" class="str2" style="fill-rule:nonzero" font-style="normal" font-weight="400">
+	<font-face 
+		font-family="Arial">
+		<font-face-src>
+			<font-face-name name="Arial"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="!" horiz-adv-x="277" d="M113.001 178.001l-27.0021 379.331 0 158.669 109.002 0 0 -158.669 -25.001 -379.331 -56.9985 0zm-22.9998 -178.001l0 100.001 101 0 0 -100.001 -101 0z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Arial";font-variant:normal;font-style:normal;font-weight:normal;src:url("#FontID0") format(svg)}
+    .str2 {stroke-width:2.28}
+    .str0 {stroke:black;stroke-width:100}
+    .str1 {stroke:black;stroke-width:160}
+    .str3 {stroke:#FEFEFE;stroke-width:7.62}
+    .fil0 {fill:none}
+    .fil2 {fill:#FEFEFE}
+    .fil1 {fill:black}
+    .fnt0 {font-weight:normal;font-size:3343.07px;font-family:'Arial'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Capa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0 str0" d="M3236 735l2134 3999c37,71 59,151 59,236 0,277 -224,500 -500,500 0,0 0,0 0,0l-4242 0c-8,0 -17,0 -26,0 -9,0 -17,0 -26,0 -264,-14 -474,-232 -474,-500 0,-87 23,-169 62,-241l-1 -1 2131 -3992c0,-1 0,-1 1,-1 84,-158 250,-265 441,-265 191,0 357,107 441,265z"/>
+  <path class="fil1 str1" d="M2882 923l2133 4000c28,46 8,136 -72,147l-4241 0c-116,2 -159,-47 -130,-147l2133 -4000c47,-74 135,-69 177,0z"/>
+  <text x="2325" y="4597"  class="fil2 str3 fnt0">!</text>
+ </g>
+</svg>

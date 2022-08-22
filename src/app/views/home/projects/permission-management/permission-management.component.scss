@@ -1,0 +1,402 @@
+.project-logo{
+    width: 75%;
+    max-height: 3.5rem;
+}
+
+.project-info{
+    font-size: .925rem;
+    color: #495C80;
+}
+
+.table-col{
+    overflow: auto;
+    height: 72.5%;
+}
+
+table:not(.checkbox-table){
+    text-align: center;
+    border: none !important;
+    font-size: .925rem;
+    width: 300%;
+    border-collapse: collapse;
+}
+
+thead:not(.checkbox-table th){
+    border-bottom: none;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: .925rem;
+}
+
+.table-thead th,
+.table-thead th button{
+    font-size: 1rem;
+    color: #495C80;
+    background-color: #F1F3F7;
+    font-family: 'Rubik Bold' !important;
+}
+
+  th, tr, td{
+    border: none;
+    font-weight: normal;
+    transition: width .2s;
+  }
+
+  th:not(.sub-th), td{
+    padding: .5rem .25rem;
+  }
+
+  .user-col{
+    width: 27.5% !important;
+  }
+
+  .module-col{
+    width: 22.5% !important;
+  }
+
+  .permission-col{
+    width: 17.5% !important;
+  }
+
+  .work-module-col{
+    width: 32.5% !important;
+  }
+
+  td{
+      color: #222;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #FAFAFA;
+  }
+  
+  .sub-th *{
+    color: #828282;
+    background-color: #F1F3F7;
+    font-size: .875rem;
+  }
+  
+  .right-bordered {
+    border-right: 1px solid #E0E0E0 !important;
+  }
+  
+  .user-badge{
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .925rem;
+    color: #FAFAFA; 
+    font-weight: bolder;
+  }
+
+  .module-icon{
+      width: 2rem;
+      height: 2rem;
+  }
+
+label{
+    color: #828282;
+    font-size: .875rem;
+}
+
+.checkbox-table{
+    width: 100%;
+}
+
+th.collapsible-col{ 
+    width: 25%;
+}
+
+th.collapsible-col.collapsed{ 
+    width: 9%;
+}
+
+input[type=checkbox]{
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.ng-select.custom ::ng-deep .ng-select-container  {            
+    text-overflow: ellipsis;
+}
+
+ /* media */
+  
+ @media(min-width: 800px)
+ {
+    .project-logo{
+        width: 4rem;
+        max-height: 4rem;
+    }
+
+    .table-thead th,
+    .table-thead th button{
+        font-size: .925rem;
+    }
+ }
+
+@media(min-width: 1024px)
+{
+    .table-thead th,
+    .table-thead th button{
+        font-size: 1rem;
+    }
+}
+
+@media(min-width: 1280px)
+{
+    .table-thead th,
+    .table-thead th button{
+        font-size: 1.125rem;
+    }
+
+    .module-icon{
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .user-badge{
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1rem;
+    }
+} 
+
+@media(min-width: 1440px)
+{
+    .table-thead th,
+    .table-thead th button{
+        font-size: 1.125rem;
+    }
+
+    .sub-th *{
+        font-size: .925rem;
+    }
+
+    .module-icon{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .user-name{
+        font-size: .925rem;
+    }
+} 
+
+@media(min-width: 1600px)
+{    
+    .sub-th *{
+        font-size: 1rem;
+    }
+
+    .user-name{
+        font-size: 1rem;
+    }
+} 
+
+@media(min-width: 800px) and (min-height: 600px)
+{
+    .table-col{
+        height: 87.5%;
+    }
+
+    table:not(.checkbox-table){
+        width: 125%;
+        font-size: .875rem;
+    }
+
+   
+
+    th:not(.sub-th), td{
+        padding: .5rem .25rem;
+    }
+
+    input[type=checkbox]{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+ 
+@media(min-width: 1024px) and (min-height: 768px)
+{
+    .project-logo{
+        width: 4rem;
+        max-height: 4rem;
+    }
+
+    table:not(.checkbox-table){
+        width: 100%;
+    }
+
+    .project-info{
+        font-size:1rem;
+    }
+}
+  
+@media(min-width: 1152px) and (min-height: 864px)
+{
+    table:not(.checkbox-table){
+        font-size: .925rem;
+    }
+
+    .project-info{
+        font-size:1rem;
+    }
+}
+ 
+ @media(min-width: 1176px) and (min-height: 664px)
+ {
+    table:not(.checkbox-table){
+        width: 100%;
+    }
+
+    .project-info{
+        font-size:1rem;
+    }
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 720px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 768px)
+ {
+   
+ }
+
+ @media(min-width: 1280px) and (min-height: 800px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 960px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 1024px)
+ {
+    .project-logo{
+        width: 4.5rem;
+        max-height: 4.5rem;
+    }
+
+    .project-info{
+        font-size:1.125rem;
+    }
+
+    .table-col{
+        height: 85%;
+    }
+
+    table:not(.checkbox-table){
+        font-size: 1rem;
+    }
+ }
+ 
+ @media(min-width: 1360px) and (min-height: 765px)
+ {
+    .table-col{
+        height: 85%;
+    }
+ }
+ 
+ @media(min-width: 1440px) and (min-height: 900px)
+ {
+    .project-logo{
+        width: 4.5rem;
+        max-height: 4.5rem;
+    }   
+
+ }
+
+ @media(min-width: 1600px) and (min-height: 900px)
+ {
+    .table-col{
+        height: 87.5%;
+    }
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1024px)
+ {
+   
+ }
+
+ @media(min-width: 1680px) and (min-height: 1024px)
+ {
+
+ }
+
+ @media(min-width: 1680px) and (min-height: 1050px)
+ {
+   
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1200px)
+ {
+    .project-info{
+        font-size:1.25rem;
+    }
+
+    table:not(.checkbox-table){
+        font-size: 1.125rem;
+    }
+ }
+   
+ @media(min-width: 1768px) and (min-height: 992px)
+ {
+    .project-info{
+        font-size:1.25rem;
+    }
+
+    .table-col{
+        height: 87.5%;
+    }
+
+    table:not(.checkbox-table){
+        font-size: 1.125rem;
+    }
+ }
+
+ @media(min-width: 1880px) and (min-height: 882px)
+ { 
+    .project-info{
+        font-size:1.25rem;
+    }
+
+    .table-col{
+        height: 87.5%;
+    }
+
+    table:not(.checkbox-table){
+        font-size: 1.125rem;
+    }
+ }
+ 
+ @media(min-width: 1920px) and (min-height: 1080px)
+ {
+    .project-info{
+        font-size:1.25rem;
+    }
+
+    .table-col{
+        height: 87.5%;
+    }
+
+    table:not(.checkbox-table){
+        font-size: 1.125rem;
+    }
+ }
+ 
+ @media(min-height: 1210px)
+ {
+   
+ }

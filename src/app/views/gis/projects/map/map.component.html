@@ -1,0 +1,45 @@
+<!-- CABECERA -->
+<map-header
+    [projects]="resources['projects']"
+    [modules]="resources['toolsAndModules']['modules']"
+></map-header>
+
+<!-- CONTROL DE CAPAS -->
+<layer-controller
+    (onChangeBaseLayer)="changeBaseLayer($event)"
+></layer-controller>
+
+<button *ngIf="map && ! thereIsAnEnabledTool" 
+        [@fadeInRightOnEnter] [@fadeOutRightOnLeave]
+        class="btn-transparent layer-controller-btn" 
+        (click)="LayerController.toggleVisibleState()"
+        >
+    <img [src]="LayerController.isVisible ? 'assets/icons/svg/layers-on.svg' : 'assets/icons/svg/layers.svg'" alt="capas">
+</button>
+
+<!-- BARRA DE BOTONES -->
+<map-button-bar
+    [setToolGroups]="resources['toolsAndModules']['tool_groups']"
+>
+</map-button-bar>
+
+<!--  -->
+<map-tool-sidebar
+>
+</map-tool-sidebar>
+
+<!-- MAPA -->
+<div class="map-container"
+    leaflet
+    [leafletOptions]="options"
+    [leafletLayer]="baseLayer"
+    (leafletMapReady)="onMapReady($event)"
+    (leafletMouseMove)="false"
+>
+    <div *ngIf="false" leafletDraw [leafletDrawOptions]="drawOptions"></div>
+</div>
+
+<!-- SPINNER -->
+<div *ngIf="! map" [@fadeInOnEnter] [@fadeOutOnLeave] class="spinner">
+    <mat-spinner></mat-spinner>
+</div>

@@ -1,0 +1,290 @@
+
+.header{
+    position: absolute;
+    height: 12.5%;
+    width: 100%;
+    color: #495C80;
+    font-family: 'Rubik Bold' !important;
+}
+
+.title{
+    font-family: 'Rubik Bold' !important;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.help-icon{
+    width: 2rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.content{
+    position: absolute;
+    width: 100%;
+    top: 15%;
+    height: 85%;
+    // background: rgba(200,200,200,0.1);
+}
+
+.finder{
+    border-radius: .925rem;
+    border: 1px solid #BDBDBD;
+    color: #BDBDBD;
+    width: 100%;
+    padding: .275rem 1rem .275rem 2.5rem;
+    box-shadow: none;
+}
+
+.finder-icon{
+    display: inline-block;
+    margin-left: -95%;
+    width: 1rem;
+    height: 1rem;
+}
+
+.checkbox {
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: .75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    text-align: center;
+  }
+  
+.checkbox.checked {
+    background-color: #495C80;
+}
+  
+  .checkbox input {
+    display: none;
+  }
+
+.btn-block{
+    border-radius: 0.925rem;
+    background-color: #495C80;
+    color: #fff;
+    font-family: "Rubik Bold" !important;
+    font-weight: bold;
+    width: 100%;
+    padding: 0.25rem 1.25rem;
+    font-size: .875rem;
+}
+
+.required-field-mark{
+    font-size: .75rem;
+    color: #dc3545!important;
+}
+  
+ /* media */
+  
+@media(min-width: 800px)
+{
+    .header{
+        height: 7.5%;
+    }
+        
+    .help-icon{
+        width: 2.25rem;
+    }
+    
+    .content{
+        height: 90%;
+        top: 10%;
+    }
+    
+    .finder{
+        font-size: .875rem;
+    }
+
+}
+ 
+@media(min-width: 1024px)
+{
+    .title{
+        font-size: 1.5rem;
+    }
+
+    .help-icon{
+        width: 2.5rem;
+    }
+}
+
+@media(min-width: 1280px)
+{
+    .title{
+        font-size: 1.75rem;
+    }
+
+    .finder{
+        font-size: .925rem;
+    }
+
+    .help-icon{
+        width: 2.75rem;
+    }
+
+    .btn-block{
+        font-size: 1rem;
+    }
+}
+
+@media(min-width: 1440px)
+{
+    .help-icon{
+        width: 3rem;
+    }
+}
+
+@media(min-width: 1600px)
+{
+    .title{
+        font-size: 2rem;
+    }
+
+    .help-icon{
+        width: 3rem;
+    }
+}
+
+@media(min-width: 800px) and (min-height: 600px)
+{
+    
+}
+ 
+@media(min-width: 1024px) and (min-height: 768px)
+{
+    .header{
+        height: 7.5%;
+    }
+    
+    .content{
+        top: 10%;
+        height: 90%;
+    }
+}
+  
+@media(min-width: 1152px) and (min-height: 864px)
+{
+
+}
+ 
+ @media(min-width: 1176px) and (min-height: 664px)
+ {
+
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 720px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 768px)
+ {
+
+ }
+
+ @media(min-width: 1280px) and (min-height: 800px)
+ {
+
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 960px)
+ {
+
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 1024px)
+ {
+    .finder{
+        font-size: 1rem;
+    }
+ }
+ 
+ @media(min-width: 1360px) and (min-height: 765px)
+ {
+
+ }
+ 
+ @media(min-width: 1440px) and (min-height: 900px)
+ {
+   
+ }
+
+ @media(min-width: 1600px) and (min-height: 900px)
+ {
+    .header{
+        height: 6%;
+    }
+    
+    .content{
+        top: 8.5%;
+        height: 91.5%;
+    }
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1024px)
+ {
+   
+ }
+
+ @media(min-width: 1680px) and (min-height: 1024px)
+ {
+    .finder{
+        font-size: 1.125rem;
+    }
+ }
+
+ @media(min-width: 1680px) and (min-height: 1050px)
+ {
+    .finder{
+        font-size: 1.125rem;
+    }
+
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1200px)
+ {
+    .finder{
+        font-size: 1.125rem;
+    }
+
+ }
+   
+ @media(min-width: 1768px) and (min-height: 992px)
+ {
+    .header{
+        height: 6%;
+    }
+    
+    .content{
+        top: 8.5%;
+        height: 91.5%;
+    }
+
+    .finder{
+        font-size: 1.125rem;
+    }
+
+ }
+
+ @media(min-width: 1880px) and (min-height: 882px)
+ { 
+    .finder{
+        font-size: 1.125rem;
+    }
+ }
+ 
+ @media(min-width: 1920px) and (min-height: 1080px)
+ {
+    .finder{
+        font-size: 1.125rem;
+    }
+ }
+ 
+ @media(min-height: 1210px)
+ {
+    .finder{
+        font-size: 1.125rem;
+    }
+ }

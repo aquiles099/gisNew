@@ -1,0 +1,263 @@
+.bar{
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 100%;
+    height: 92.5%;
+    background-color: #fff;
+    z-index: 999;
+    text-align: center;
+    padding: .75rem;
+    transition: height .2s;
+}
+
+.bar.collapsed{
+    height: 42.5%;
+}
+
+.title{
+    color: #00204A;
+    font-weight: bold;
+    font-size: 1.125rem;
+    text-align: start;
+}
+
+.help-icon{
+    width: 2rem;
+}
+
+.icon{
+    width: 1.25rem;
+}
+
+/* media */
+  
+@media(min-width: 800px)
+{
+    .bar{
+        top: 6.5%;
+        height: 94%;
+        width: 32.5%;
+        padding: .75rem;
+    }
+   
+    .bar.collapsed{
+        height: 94%;
+    }
+
+    .title{
+        font-size: .85rem;
+    }
+    
+    .help-icon{
+        width: 1.5rem;
+    }
+
+    .icon{
+        width: 1rem;
+    }
+}
+
+@media(min-width: 1024px)
+{    
+    .title{
+        font-size: 1.125rem;
+    }
+    
+    .help-icon{
+        width: 1.75rem;
+    }
+
+    .icon{
+        width: 1.25rem;
+    }
+}
+
+@media(min-width: 1280px)
+{       
+    .bar{
+        padding: 1rem;
+        width: 30%;
+    }
+
+    .title{
+        font-size: 1.25rem;
+    }
+    
+    .help-icon{
+        width: 2rem;
+    }
+}
+
+@media(min-width: 1360px)
+{       
+    .bar{
+        width: 27.5%;
+        padding: 1.125rem;
+    }
+
+    .title{
+        font-size: 1.125rem;
+    }
+    
+    .help-icon{
+        width: 2rem;
+    }
+}
+
+@media(min-width: 1440px) 
+{
+    .bar{
+        padding: 1.25rem;
+    }
+
+    .title{
+        font-size: 1.25rem;
+    }
+    
+    .help-icon{
+        width: 2.25rem;
+    }
+
+    .icon{
+        width: 1.5rem;
+    }
+}
+
+@media(min-width: 1600px)
+{
+    .bar{
+        width: 25%;
+        padding: 1.5rem;
+    }
+
+    .title{
+        font-size: 1.25rem;
+    }
+    
+    .help-icon{
+        width: 2.125rem;
+    }
+
+    .icon{
+        width: 1.25rem;
+    }
+}
+
+@media(min-width: 1768px)
+{
+    .bar{
+    }
+
+    .title{
+        font-size: 1.4rem;
+    }
+    
+    .help-icon{
+        width: 2.25rem;
+    }
+
+    .icon{
+        width: 1.5rem;
+    }
+}
+
+
+@media(min-width: 800px) and (min-height: 600px)
+{
+
+}
+
+@media(min-width: 1024px) and (min-height: 768px)
+{
+
+}
+
+@media(min-width: 1152px) and (min-height: 864px)
+{
+
+}
+
+@media(min-width: 1176px) and (min-height: 664px)
+{
+
+}
+
+@media(min-width: 1280px) and (min-height: 720px)
+{
+    
+ 
+}
+
+@media(min-width: 1280px) and (min-height: 768px)
+{
+ 
+}
+
+@media(min-width: 1280px) and (min-height: 800px)
+{
+
+}
+
+@media(min-width: 1280px) and (min-height: 960px)
+{
+   
+}
+
+@media(min-width: 1280px) and (min-height: 1024px)
+{
+
+}
+
+@media(min-width: 1360px) and (min-height: 765px)
+{
+ 
+}
+
+@media(min-width: 1440px) and (min-height: 900px)
+{
+ 
+}
+
+@media(min-width: 1600px) and (min-height: 900px)
+{
+  
+}
+
+@media(min-width: 1600px) and (min-height: 1024px)
+{
+  
+}
+
+@media(min-width: 1680px) and (min-height: 1024px)
+{
+  
+}
+
+@media(min-width: 1680px) and (min-height: 1050px)
+{
+    
+}
+
+@media(min-width: 1600px) and (min-height: 1200px)
+{
+  
+}
+
+@media(min-width: 1768px) and (min-height: 992px)
+{
+
+}
+
+@media(min-width: 1880px) and (min-height: 882px)
+{ 
+  
+}
+
+@media(min-width: 1920px) and (min-height: 1080px)
+{
+}
+
+@media(min-height: 1210px)
+{
+}

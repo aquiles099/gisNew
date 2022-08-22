@@ -1,0 +1,277 @@
+<div class="container-fluid height-100">
+
+    <div class="row header">
+        <!--title-->
+        <div class="col-lg-8 col-xs-12 ">
+            <h1 class="bold-text  header">Editar empresa</h1>
+        </div>
+        <!--end tittle-->
+
+
+    </div>
+
+    <!--start create row-->
+    <div class="row ">
+
+
+        <div class="col-lg-12 col-xs-12">
+
+
+            <!--start form-->
+            <form [formGroup]="form_model" #companyForm id="creationFormCR" (ngSubmit)="sendForm(companyForm)"
+                class="form-horizontal content">
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="company_id" formControlName="company_id">
+                <!--Logo row-->
+                <div class="row">
+
+                    <div class="col-lg-4 col-xs-12">
+                        <!--logo goes here-->
+                        <img class="logo center" src="assets/images/logo-empresa.png" width="395" (click)="toggleFullscreen($event)" [src]="companyLogoImgSrc"  alt="logo">
+
+
+                    </div>
+
+
+                    <div class="col-lg-8 col-xs-12">
+
+                        <!--start first row-->
+                        <div class="row mb-2">
+                            <!--start nombre-->
+                            <div class="col-lg-6   col-xs-12 ">
+                                <label class="label-text little-bold-text" for=""> Nombre de la empresa<span class="required"><span class="required">*</span></span></label>
+                                <input name="name" class="mb-1 form-control"  type="text"
+                                    formControlName="name" maxlength=50 [ngClass]="{
+                                invalid:
+                                model_form_control.name.invalid &&
+                                model_form_control.name.touched,
+                                valid: model_form_control.name.valid
+                                }" placeholder="Escribe aqui el nombre de la empresa" />
+                                <small *ngIf="model_form_control.name.invalid && model_form_control.name.touched"
+                                    class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            </div>
+                            <!--end nombre-->
+
+
+                            <!--start nombre-->
+                            <div class="col-lg-6   col-xs-12 ">
+                                <label class="label-text little-bold-text" for=""> CIF<span class="required"><span class="required">*</span></span></label>
+                                <input name="cif" class="mb-1 form-control"  type="text" formControlName="cif"
+                                    maxlength=50 [ngClass]="{
+                                invalid:
+                                model_form_control.cif.invalid &&
+                                model_form_control.cif.touched,
+                                valid: model_form_control.cif.valid
+                                }" placeholder="" />
+                                <small *ngIf="model_form_control.cif.invalid && model_form_control.name.touched"
+                                    class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            </div>
+                            <!--end nombre-->
+
+                        </div>
+                        <!--end first row-->
+
+
+                        <!--start second row-->
+                        <div class="row mb-2">
+
+
+                            <!--start administradores-->
+                            <div class="col-lg-6   col-xs-12 ">
+                                <label class="label-text little-bold-text" for=""> Administradores (máx 2)<span class="required">*</span></label>
+
+                                  
+                                <ng-select
+                                id="user_ids"
+                                class="custom" 
+                                name="user_ids" 
+                                formControlName="user_ids"
+                                 
+                                placeholder="Seleccione usuario..."
+                                [clearable]="false"
+                                [multiple]="true"
+                                [items]="users"
+                                bindLabel="first_name"
+                                bindValue="id"
+                            >
+                            </ng-select>
+                              
+                                <small
+                                    *ngIf="model_form_control.user_ids.invalid && model_form_control.user_ids.touched"
+                                    class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            </div>
+                            <!--end administradores-->
+
+                            <!--start provincia-->
+                            <div class="col-lg-6   col-xs-12 ">
+                                <label class="label-text little-bold-text" for=""> Ubicación<span class="required">*</span></label>
+
+                                <ng-select
+                                id="company-province"
+                                class="custom" 
+                                name="province_id" 
+                                formControlName="province_id"
+                                 
+                                placeholder="Seleccione provincia..."
+                                [clearable]="false"
+                                [items]="provinces"
+                                bindLabel="name"
+                                bindValue="id"
+                                [loading]="loadingProvinces"
+                                [loadingText]="'Cargando provincias...'"
+                                (change)="onChangeProvinceSelector($event)"
+                            >
+                            </ng-select>
+
+                                <small
+                                    *ngIf="model_form_control.province_id.invalid && model_form_control.province_id.touched"
+                                    class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            </div>
+                            <!--end provincia-->
+
+
+                           
+
+                        </div>
+                        <!--end second row-->
+
+                        <div class="row">
+                             <!--start status-->
+                             <div class="col-lg-6   col-xs-12 ">
+
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <label class="label-text little-bold-text" for=""> &nbsp;</label>
+                                        <div class="center-switch">
+                                            <label for="is_active_switch" class="little-bold-text">Activo</label><span class="required">*</span>  
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 switch-row">
+                                        <label class="label-text little-bold-text" for=""> &nbsp;</label>
+    
+                                        <div class="form-check form-switch ">
+                                          <input class="form-check-input center switch"
+                                          formControlName="is_active"
+                                          name="is_active"
+                                          [checked]="is_active" 
+                                          type="checkbox" id="is_active_switch" >
+                                          </div>
+                                      
+                                    </div>
+                                </div>
+                               
+                         
+  
+                              </div>
+                              <!--end status-->
+  
+  
+                              <!--start municipio-->
+                              <div class="col-lg-6   col-xs-12 ">
+                                  <label class="label-text little-bold-text" for=""> &nbsp;</label>
+                                
+
+                                        <ng-select
+                                        id="company-municipality"
+                                         
+                                        formControlName="municipality_id" 
+                                        name="municipality_id" 
+                                        class="custom mt-1" 
+                                        [clearable]="false"
+                                        placeholder="Seleccione municipio..."
+                                        [loading]="loadingMunicipalities"
+                                        [loadingText]="'Cargando municipios...'"
+                                        [items]="municipalities"
+                                        bindLabel="name"
+                                        bindValue="id"
+                                    >
+                                    </ng-select>
+                                  <small
+                                      *ngIf="model_form_control.municipality_id.invalid && model_form_control.municipality_id.touched"
+                                      class="small-text float-end error-text">Este campo es requerido*</small>
+  
+                              </div>
+                              <!--end municipio-->
+                        </div>
+
+
+                    </div>
+
+
+                      
+
+
+                            <!--start image-->
+                            <div class="col-lg-4   col-xs-12 custom-file-upload ">
+                              <label class="label-text little-bold-text" for=""> &nbsp;</label>
+  
+                              <label for="file-upload" class="custom-file-upload1 float-end mt-4">
+                                  <img class="download-button "  src="assets/icons/png/CARGAR.png" alt=""> Cargar Imagen
+                              </label>
+                              <input 
+                              #imageInput
+                              formControlName="image"
+                              
+                              accept=".png, .jpg, .jpeg" 
+                              id="file-upload" 
+                              type="file"
+                              name="image" 
+                              (change)="onSelectCompanyLogo($event)"
+                              />
+  
+                          </div>
+                          <!--end image-->
+  
+                             
+  
+                         
+
+
+                </div>
+
+     
+
+          
+
+            
+    <!--fourth row-->
+    <div class="row mt-2">
+
+        
+        <div class="col-12 ">
+            <div class="row button-row">
+                <div class="col-lg-2 offset-lg-8 col-xs-2 button-container">
+                    <button type="submit" class="buttons btn float-end"
+                        >Actualizar</button>
+                </div>
+                <div class="col-lg-2 col-xs-2 button-container">
+                    <button class="buttons btn float-start" (click)="back()" type="button">Volver</button>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+    </div>
+    <!--end fourth row-->
+                </form>
+
+            
+
+
+    </div>
+
+
+</div>
+<!--end create row-->
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="44mm" height="50.5mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 4400 5050"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#00204A;stroke-width:250}
+    .str1 {stroke:#00204A;stroke-width:25}
+    .fil0 {fill:none}
+    .fil1 {fill:#00204A}
+   ]]>
+  </style>
+ </defs>
+ <g id="Capa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2315345011920">
+   <polygon class="fil0 str0" points="200,4100 200,950 2200,196 4200,950 4200,4100 2200,4854 "/>
+   <line class="fil0 str0" x1="2200" y1="4854" x2="2200" y2= "1704" />
+   <polyline class="fil0 str0" points="200,950 2200,1704 4200,950 "/>
+   <rect class="fil1 str1" transform="matrix(5.8438 2.2146 -0 5.44648 658.614 1822.29)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(2.9215 1.09565 -0 5.44648 1478.99 2134.04)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(2.9215 1.09565 -0 5.44648 1478.99 3084.87)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(5.8438 2.2146 -0 5.44648 1264.41 2051.87)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(5.8438 2.2146 -0 5.44648 658.614 2773.12)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(5.8438 2.2146 -0 5.44648 1264.41 3002.7)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(-5.8438 2.2146 -0 5.44648 3741.39 1822.29)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(-2.9215 1.09565 -0 5.44648 2921.01 2134.04)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(-2.9215 1.09565 -0 5.44648 2921.01 3084.87)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(-5.8438 2.2146 -0 5.44648 3135.59 2051.87)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(-5.8438 2.2146 -0 5.44648 3741.39 2773.12)" width="73.43" height="114.43"/>
+   <rect class="fil1 str1" transform="matrix(-5.8438 2.2146 -0 5.44648 3135.59 3002.7)" width="73.43" height="114.43"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,26 @@
+<div class="row mt-4" *ngIf=" length > 0">
+
+
+  <div class="col-6">
+    <span class="responsive-view text-center pagination-description" > {{ 1 + (pageOffset * (pageIndex - 1)) }}
+      - {{ (pageOffset * pageIndex) <= length ? pageOffset * pageIndex : length }}
+      of {{ length }}</span>
+  </div>
+
+
+  <div class="col-6">
+    
+
+
+    <span  class="responsive-view margin-for-mobile pagination-style ">
+      <button [disabled]="pageIndex <= 1" (click)="getPreviousPage()">
+        <img  class="cursor left-arrow " style="margin-right: 1rem;" src="assets/icons/png/desplegable.png"  alt="">
+      </button>
+      <button [disabled]="this.pageOffset * this.pageIndex > length" (click)="getNextPage()">
+        <img  class="cursor" src="assets/icons/png/desplegable.png"  alt="">
+      </button>
+    
+    </span>
+  </div>
+  
+  </div>

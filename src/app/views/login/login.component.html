@@ -1,0 +1,200 @@
+<div id="content-background">
+
+
+  <div class="container animate__animated animate__fadeIn animate__faster">
+
+    <div class="row">
+      <div class="col-12 ">
+
+        <!--start form-->
+        <form action="" *ngIf="!authUser" class="" #loginForm [formGroup]="form" (ngSubmit)="onSubmit()"
+          id="login-form">
+
+          <div class="row register-box radius-5">
+            <div class="col-12  gray-container radius-5">
+
+              <div class="row">
+
+                <div class="col-lg-4 col-sm-12 col-12 logo-box">
+
+                  <div class="logo">
+                    <img src="assets/images/logo-fisotec.png" class="icon-fiso" alt="logo">
+
+                  </div>
+                </div>
+
+                <div class="col-lg-8 col-sm-12 col-12 login-inputs radius-5 radius-mobile container-height fade-in-div "
+                  *ngIf="! error">
+
+                  <div class="row top-login">
+
+
+
+                    <!--header-->
+                    <div class="col-lg-10 offset-lg-2  col-sm-12 col-12 mt-5 mobile-top-header">
+                      <h1 class="text-left p-0 m-0">Bienvenido,</h1>
+                      <p><span class="sub-title">Por favor, inicia sesion para comenzar</span></p>
+                    </div>
+                    <!--end header-->
+
+
+                  </div>
+
+
+
+                  <div class="row">
+                    <!--input data-->
+
+                    <div class="col-lg-10 offset-lg-2 col-sm-12 col-12">
+
+                      <!--username-->
+                      <div class="row">
+
+                        <div class="col-lg-10 col-sm-12 col-12 less-2">
+                          <label for="user_name"></label>
+                          <input type="text" name="user_name" formControlName="user_name" class="form-control" value=""
+                            placeholder="Escribe tu usuario o correo electronico" [ngClass]="{
+                                invalid:
+                                  form.controls.user_name.invalid &&
+                                  form.controls.user_name.touched,
+                                valid: form.controls.user_name.valid
+                              }" required>
+                          <!--  <small *ngIf="form.controls.user_name.invalid && form.controls.user_name.touched"
+                              class="small-text float-end error-text">Este campo es requerido*</small>-->
+                        </div>
+
+
+                      </div>
+                      <!--end username-->
+
+
+                      <!--password-->
+                      <div class="row">
+                        <div class="col-lg-10  mt-2 col-sm-12 col-12">
+                          <input #_passwordField name="password" style="display: inline-block;"
+                            class="mb-1 form-control" formControlName="password" maxlength=50 type="password" [ngClass]="{
+                                  invalid:
+                                    form.controls.password.invalid &&
+                                    form.controls.password.touched,
+                                  valid: form.controls.password.valid
+                                }" placeholder="Escribe aqui tu contraseña" required>
+
+                          <img
+                            [src]="_passwordField.type === 'password' ? 'assets/icons/svg/show.svg' : 'assets/icons/svg/hide.svg'"
+                            class="eye-icon" (click)="togglePasswordVisibility(_passwordField)">
+
+
+                          <!--<small *ngIf="form.controls.password.invalid && form.controls.password.touched"
+                                  class="small-text float-start error-text">Este campo es requerido*</small>-->
+
+                        </div>
+
+
+                      </div>
+                      <!--end password-->
+
+                      <!--forgot password-->
+                      <div class="row">
+                        <div class="col-lg-10  mt-2 col-sm-12 col-12 ">
+                          <p class="light-bold center-mobile"> <a routerLink="/recuperar-contraseña">¿Has olvidado tu
+                              contraseña?</a></p>
+
+                        </div>
+                      </div>
+                      <!--forgot password-->
+
+                      <!--end tab1-->
+
+                      <!--buttons-->
+                      <div class="row">
+
+                        <div class="col-lg-10 mt-4 margin-mobile-2 col-sm-12 col-12 ">
+
+                          <div class="row">
+
+
+                            <div class="col-lg-12 col-sm-12 col-12 center-mobile">
+
+
+                              <button class="next-button btn enabled" [disabled]="form.invalid || sendingForm"
+                                type="submit">
+                                <div class="lds-ring me-3" *ngIf="sendingForm">
+                                  <div></div>
+                                  <div></div>
+                                  <div></div>
+                                </div>
+                                Entrar
+                              </button>
+
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+                      <!--end buttons-->
+
+                      <div class="row mb-5">
+                        <div class="col-lg-10 mt-2 col-sm-12 col-12">
+                          <div class="row">
+                            <div class="col-lg-12 mb-3">
+                              <p class="text-center">
+                                ¿Aun no tienes cuenta? <a routerLink="/registro">Registrate</a>
+
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+                    <!--end input data-->
+
+
+                  </div>
+
+
+
+                </div>
+
+
+
+                <!--error container-->
+                <div class="col-lg-8 col-sm-12 col-12 login-inputs radius-5 container-height radius-mobile fade-in-div "
+                  *ngIf="error">
+                  <div class="row top-login">
+
+                    <div class="col-lg-10 offset-lg-2 col-12 col-sm-12 error-container text-center">
+                      <p class="">
+                        <img src="assets/images/error.png" alt="">
+                      </p>
+                      <h3 class="error-type">Ups...</h3>
+                      <p class="error-message">{{errorMessage}}</p>
+
+                      <div class="mt-2">
+                        <a class="error-button btn enabled " (click)="back()">Volver</a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!--end error container-->
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </form>
+        <!--end form-->
+
+
+
+        <login-profile *ngIf="authUser" [user]="authUser"></login-profile>
+
+      </div>
+    </div>
+  </div>
+</div>

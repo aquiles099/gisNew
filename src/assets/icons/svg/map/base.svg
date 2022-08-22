@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="52mm" height="52mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 5200 5200"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str2 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str4 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str6 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str11 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str7 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str8 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str9 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str5 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str1 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str10 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .str3 {stroke:#FEFEFE;stroke-width:161.75;stroke-linecap:round;stroke-linejoin:round}
+    .fil1 {fill:none}
+    .fil0 {fill:url(#id0)}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="5112.27" y1="2277.94" x2="87.73" y2="2370.22">
+   <stop offset="0" style="stop-opacity:1; stop-color:#565656"/>
+   <stop offset="1" style="stop-opacity:0.898039; stop-color:#626262"/>
+  </linearGradient>
+ </defs>
+ <g id="Capa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2093547098848">
+   <path class="fil0" d="M88 5112l2460 0c1410,0 2564,-1154 2564,-2564l0 -2460 -2742 0c-1255,0 -2282,1027 -2282,2282l0 2742z"/>
+   <g>
+    <g>
+     <line class="fil1 str0" x1="2059" y1="3740" x2="3616" y2= "4660" />
+    </g>
+    <g>
+     <line class="fil1 str1" x1="3278" y1="2549" x2="4288" y2= "3146" />
+    </g>
+    <g>
+     <line class="fil1 str2" x1="3045" y1="1451" x2="3819" y2= "1909" />
+    </g>
+    <g>
+     <line class="fil1 str3" x1="2916" y1="1762" x2="3493" y2= "2102" />
+    </g>
+    <g>
+     <line class="fil1 str4" x1="760" y1="4038" x2="1661" y2= "3505" />
+    </g>
+    <g>
+     <polyline class="fil1 str5" points="4012,4426 2182,3343 2105,3298 2154,3214 2218,3176 3278,2549 4288,3146 "/>
+    </g>
+    <g>
+     <polyline class="fil1 str6" points="4440,1542 3819,1909 2981,1414 "/>
+    </g>
+    <g>
+     <polyline class="fil1 str7" points="2916,1762 3493,2102 2183,2877 "/>
+    </g>
+    <g>
+     <line class="fil1 str8" x1="1734" y1="3142" x2="531" y2= "3853" />
+    </g>
+    <g>
+     <path class="fil1 str9" d="M1925 540c557,0 1020,446 1020,1020 -65,968 -977,822 -823,2017 0,133 -120,197 -197,197 -77,0 -197,-64 -197,-197 154,-1195 -758,-1049 -823,-2017 0,-574 463,-1020 1020,-1020zm0 649c205,0 371,166 371,371 0,205 -166,371 -371,371 -205,0 -371,-166 -371,-371 0,-205 166,-371 371,-371z"/>
+    </g>
+    <g>
+     <line class="fil1 str10" x1="3553" y1="2386" x2="4564" y2= "2984" />
+    </g>
+    <g>
+     <polyline class="fil1 str11" points="4564,2984 3553,2386 4669,1727 "/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

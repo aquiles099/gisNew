@@ -1,0 +1,223 @@
+<div class="header animate__animated animate__fadeInRight animate__faster mb-3">
+    <div class="row mx-0 align-items-center">
+        
+        <div class="col-10 col-md-7 title p-0">Gestión de permisos</div>
+
+        <div class="d-none d-md-block col-4 col-xl-3 offset-xl-1 px-2">
+
+            <input (keyup)="onSearch($event)" [(ngModel)]="search" name="search" class="finder" placeholder="Buscar..." type="text">
+
+            <img src="assets/icons/svg/lupa.svg" class="finder-icon" alt="buscar">
+
+        </div>
+
+        <div class="col-1 p-0 text-end">
+            <img src="assets/icons/svg/ayuda.svg" class="help-icon float-end" alt="ayuda">
+        </div>
+        
+        <div class="col-12 px-0 mt-2 d-block d-md-none">
+            
+            <input (keyup)="onSearch($event)" [(ngModel)]="search" name="search" class="finder" placeholder="Buscar..." type="text">
+
+            <img src="assets/icons/svg/lupa.svg" class="finder-icon" alt="buscar">
+            
+        </div>
+
+    </div>
+</div>
+
+<div class="content animate__animated animate__fadeInRight animate__faster">
+
+    <div class="row h-100 mx-0 align-items-center">
+
+        <div class="col-3 col-md-1 px-0 text-start">
+            <img [src]="project.logo_src" class="project-logo" [attr.alt]="project.title">
+        </div>
+
+        <div class="col-9 col-md-8 col-xl-9 ps-3 pe-0 project-info">
+
+            <b>Proyecto:</b> {{project.title}}
+            <br>
+            <b>Usuarios con acceso:</b> {{ accessesGiven }}
+
+        </div>
+        
+        <div class="col-12 col-md-3 col-xl-2 py-2 px-0">
+
+            <div class="row mx-0 align-items-center justify-content-around">
+
+                <div class="col-4 text-center px-2">
+                    <button [disabled]="editionEnabled"  [class.disabled]="editionEnabled" type="button" (click)="enableEdition()" class="btn-transparent">
+                        <img src="assets/icons/svg/editar-n.svg" alt="editar" class="icon">
+                    </button>
+                </div>
+
+                <div class="col-4 text-center px-0">
+                    <button [disabled]="! editionEnabled" [class.disabled]="! editionEnabled" type="button" (click)="saveChanges()" class="btn-transparent">
+                        <img src="assets/icons/svg/guardar-n.svg" alt="guardar" class="icon">
+                    </button>
+                </div>
+
+                <div class="col-4 text-center px-0">
+                    <button type="button" [disabled]="! editionEnabled" [class.disabled]="! editionEnabled" (click)="undoChanges()" class="btn-transparent">
+                        <img src="assets/icons/svg/cerrar-n.svg" alt="cerrar" class="icon">
+                    </button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div #vsContainer (scroll)="scrolled()" (touchmove)="scrolled()" class="col-12 p-0 table-col mt-2">
+                
+                <table>
+        
+                    <thead class="table-thead">
+        
+                        <tr class="table-titles">
+                            <th class="user-col right-bordered">
+                                Usuario 
+                            </th>
+                            <th class="module-col right-bordered">
+                                Módulos 
+                            </th>
+                            <th class="permission-col right-bordered">
+                                Permisos 
+                            </th>
+                            <th class="work-module-col right-bordered">
+                                Secciones 
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th class="user-col right-bordered sub-th"></th>
+                            <th class="module-col right-bordered sub-th"></th>
+                            <th class="permission-col right-bordered sub-th"></th>
+                            
+                            <th  class="work-module-col right-bordered sub-th">
+
+                                <table class="checkbox-table">
+                                    <tr>
+                                        <td [ngStyle]="{'width': (100 / workModules.length)  + '%'}"  class="px-2" *ngFor="let workModule of workModules">
+                                            {{ workModule.display_name }}    
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </th>
+                        </tr>
+        
+                    </thead>
+    
+                    <tbody>
+        
+                        <tr  *ngFor="let user of records">
+                
+                            <td class="user-col right-bordered">
+            
+                                <div class="row m-0"> 
+            
+                                    <div class="col-3 px-0">
+                
+                                        <div  class="user-badge"
+                                            [attr.title]="user.full_name" [ngStyle]="{ 'background-color': user.color}">
+                                            {{ user.full_name_initials }}
+                                        </div>
+                
+                                    </div>
+
+                                    <div class="col-9 ps-3 pe-0 user-name text-start">
+                                        {{ user.full_name }}
+                                    </div>
+                                
+                                </div>
+
+                            </td>
+
+                            <td class="module-col right-bordered">
+            
+                                <div class="row m-0 align-items-center justify-content-around">
+            
+                                    <div *ngFor="let module of modules" class="col-3 px-1">
+
+                                        <label *ngIf="user.assigned_modules[module.name] || module.available_spots > 0 " class="cursor-pointer" for="user-{{user.id}}-module-{{module.id}}">
+
+                                            <img class="module-icon" 
+                                                [class.disabled]="user.assigned_modules[module.name]"
+                                                [src]="user.modules[module.name] ? 'assets/icons/svg/'+module.name+'.svg' : 'assets/icons/svg/'+module.name+'-gris.svg'" 
+                                                [attr.alt]="module.name">
+
+                                                <input *ngIf="! user.assigned_modules[module.name]" 
+                                                    type="checkbox" 
+                                                    class="hidden" 
+                                                    (change)="onSelectModule(module, user, $event, ngSelect)"
+                                                    id="user-{{user.id}}-module-{{module.id}}" 
+                                                    [disabled]="! editionEnabled"
+                                                    [checked]="user.modules[module.name]">
+
+                                        </label>
+                
+                                    </div>
+                                
+                                </div>
+
+                            </td>
+
+                            <td class="permission-col right-bordered">
+                                        
+                                <ng-select
+                                #ngSelect
+                                class="custom" 
+                                [clearable]="true"
+                                [disabled]="! editionEnabled"
+                                [items]="roles"
+                                [(ngModel)]="user.role"
+                                [ngModelOptions]="{standalone: true}"
+                                bindLabel="display_name"
+                                bindValue="name" 
+                                placeholder="Seleccione..."
+                                (clear)="clearUserData(user)"
+                                    >
+                                </ng-select>
+
+                            </td>
+                            
+                            <td class="work-module-col right-bordered p-0">
+
+                                <table class="checkbox-table">
+                                    <tr>
+                                        <td [ngStyle]="{'width': (100 / workModules.length)  + '%'}"  class="px-2" *ngFor="let workModule of workModules">
+                                                                                        
+                                            <input 
+                                            type="checkbox" 
+                                            [value]="workModule.name" 
+                                            [disabled]="! editionEnabled" 
+                                            (change)="setFocusOnRoleSelectorIfUserDoesntHaveRole(user, $event, ngSelect)" 
+                                            [(ngModel)]="user.work_modules[workModule.name]">
+    
+                                        </td>
+                                    </tr>
+                                </table>
+            
+                            </td>
+                            
+                         </tr>
+
+                    </tbody>
+    
+                </table>
+    
+        </div>
+    </div>
+
+    <!-- SPINNER -->
+    <div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
+        <mat-spinner></mat-spinner>
+    </div>
+
+</div>
+
+
+
+

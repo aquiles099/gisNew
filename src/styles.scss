@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+.invalid{
+  border-color: rgba(253,47,51,0.87) !important;
+}
+
+.valid{
+  border-color: #26AAE2 !important;
+}
+
+
+.login-button{
+        height: 40px;
+        width: 207px;
+        border-radius: 2px;
+        background-color: #495C80;
+      
+}
+
+// input{
+//   border-radius: 3px;
+//   background-color: #FFF;
+//   box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+// }
+
+// select{
+//   border-radius: 3px !important;
+//   background-color: #FFF !important;
+//   box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5) !important;
+// }
+
+
+.login-button span{
+  height: 21px;
+  width: 161.64px;
+  color: #FFF;
+  font-family: "Rubik";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+}
+// html, body { height: 100%; }
+
+.fade-in-div { animation: fadeIn 1s; }
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

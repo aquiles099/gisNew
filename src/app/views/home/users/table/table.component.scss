@@ -1,0 +1,294 @@
+.table-col{
+    overflow: auto;
+    height: 90%;
+}
+
+table{
+    text-align: center;
+    border: none !important;
+    font-size: .925rem;
+    width: 200%;
+    border-collapse: collapse;
+}
+
+thead{
+    border-bottom: none;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: .925rem;
+}
+
+.table-thead th,
+.table-thead th button{
+    font-size: 1rem;
+    color: #495C80;
+    background-color: #F1F3F7;
+    font-family: 'Rubik Bold' !important;
+}
+
+  th, tr, td{
+    border: none;
+    font-weight: normal;
+    transition: width .2s;
+  }
+
+  th, td{
+    padding: .5rem .25rem;
+  }
+
+  td{
+      color: #222;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #FAFAFA;
+  }
+  
+  .right-bordered {
+    border-right: 1px solid #E0E0E0 !important;
+  }
+  
+  .user-badge{
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .925rem;
+    color: #FAFAFA; 
+    font-weight: bolder;
+  }
+
+  .module-icon{
+      width: 2rem;
+      height: 2rem;
+  }
+
+label{
+    color: #828282;
+    font-size: .875rem;
+}
+
+input[type=checkbox]{
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.form-check{
+    width: 100%;
+    margin: auto;
+}
+
+.form-check-input{
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.form-check-input {
+    background-color: #b2b2b2;
+    border-color: #b2b2b2;
+}
+
+.form-check-input:checked {
+    background-color: var(--main-dark-blue);
+    border-color: var(--main-dark-blue);
+}
+
+.ng-select.custom ::ng-deep .ng-select-container  {            
+    text-overflow: ellipsis;
+}
+
+ /* media */
+  
+ @media(min-width: 800px)
+ {
+    table{
+        width: 100%;
+    }
+
+    .table-thead th,
+    .table-thead th button{
+        font-size: .925rem;
+    }
+
+    .form-check{
+        width: 50%;
+    }    
+ }
+
+@media(min-width: 1024px)
+{
+    .table-thead th,
+    .table-thead th button{
+        font-size: 1rem;
+    }
+}
+
+@media(min-width: 1280px)
+{
+    .table-thead th,
+    .table-thead th button{
+        font-size: 1.125rem;
+    }
+
+    .module-icon{
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .user-badge{
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1rem;
+    }
+} 
+
+@media(min-width: 1440px)
+{
+    .table-thead th,
+    .table-thead th button{
+        font-size: 1.125rem;
+    }
+
+    .module-icon{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .user-name{
+        font-size: .925rem;
+    }
+} 
+
+@media(min-width: 1600px)
+{    
+    .table-thead th,
+    .table-thead th button{
+        font-size: 1.25rem;
+    }
+
+    .user-name{
+        font-size: 1rem;
+    }
+} 
+
+@media(min-width: 800px) and (min-height: 600px)
+{
+    table{
+        font-size: .875rem;
+    }
+
+    th, td{
+        padding: .5rem .25rem;
+    }
+}
+ 
+@media(min-width: 1024px) and (min-height: 768px)
+{
+}
+  
+@media(min-width: 1152px) and (min-height: 864px)
+{
+    table{
+        font-size: .925rem;
+    }
+}
+ 
+ @media(min-width: 1176px) and (min-height: 664px)
+ {
+    table{
+        width: 100%;
+    }
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 720px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 768px)
+ {
+   
+ }
+
+ @media(min-width: 1280px) and (min-height: 800px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 960px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 1024px)
+ {
+    table{
+        font-size: 1rem;
+    }
+ }
+ 
+ @media(min-width: 1360px) and (min-height: 765px)
+ {
+
+ }
+ 
+ @media(min-width: 1440px) and (min-height: 900px)
+ {
+ }
+
+ @media(min-width: 1600px) and (min-height: 900px)
+ {
+
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1024px)
+ {
+   
+ }
+
+ @media(min-width: 1680px) and (min-height: 1024px)
+ {
+
+ }
+
+ @media(min-width: 1680px) and (min-height: 1050px)
+ {
+   
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1200px)
+ {
+    table{
+        font-size: 1.125rem;
+    }
+ }
+   
+ @media(min-width: 1768px) and (min-height: 992px)
+ {
+    table{
+        font-size: 1.125rem;
+    }
+ }
+
+ @media(min-width: 1880px) and (min-height: 882px)
+ { 
+    table{
+        font-size: 1.125rem;
+    }
+ }
+ 
+ @media(min-width: 1920px) and (min-height: 1080px)
+ {
+    table{
+        font-size: 1.125rem;
+    }
+ }
+ 
+ @media(min-height: 1210px)
+ {
+   
+ }

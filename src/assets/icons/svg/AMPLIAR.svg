@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="52mm" height="52mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 5200 5200"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str2 {stroke:#495C80;stroke-width:300;stroke-linecap:round;stroke-linejoin:round}
+    .str0 {stroke:#495C80;stroke-width:300;stroke-linecap:round;stroke-linejoin:round}
+    .str3 {stroke:#495C80;stroke-width:300;stroke-linecap:round;stroke-linejoin:round}
+    .str1 {stroke:#495C80;stroke-width:300;stroke-linecap:round;stroke-linejoin:round}
+    .fil0 {fill:none}
+   ]]>
+  </style>
+ </defs>
+ <g id="Capa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2093150835888">
+   <g>
+    <line class="fil0 str0" x1="928" y1="4272" x2="4109" y2= "1091" />
+   </g>
+   <g>
+    <polyline class="fil0 str1" points="1419,3237 409,3237 409,4791 1963,4791 1963,3781 "/>
+   </g>
+   <g>
+    <polyline class="fil0 str2" points="2411,3781 4791,3781 4791,409 1419,409 1419,2789 "/>
+   </g>
+   <g>
+    <polyline class="fil0 str3" points="3177,1091 4109,1091 4109,2023 "/>
+   </g>
+  </g>
+ </g>
+</svg>

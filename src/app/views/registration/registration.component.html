@@ -1,0 +1,654 @@
+<div id="content-background">
+
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12">
+
+        <!--start form-->
+        <form action="" #registerForm [formGroup]="form_model" (ngSubmit)="sendForm()" id="register-form">
+
+          <div class="row h-100 register-box radius-5">
+            <div class="col-12 gray-container radius-5">
+
+              <div class="row container-height">
+
+                <div class="col-lg-4 col-sm-12 col-12 logo-box">
+
+                  <div class="logo">
+                    <img src="assets/images/logo-fisotec.png" class="icon-fiso" alt="logo">
+
+                  </div>
+                </div>
+
+                
+                <div class="col-lg-8 col-sm-12 col-12 register-inputs radius-5 container-height radius-mobile">
+
+                  <div class="row">
+              
+              
+              
+                    <!--header-->
+                    <div class="col-lg-9 offset-lg-3  col-sm-12 col-12 mt-5 mobile-top-header">
+                      <h1 class="text-left">Registro</h1>
+                    </div>
+                    <!--end header-->
+              
+              
+                  </div>
+              
+                  <div class="row">
+                              <!--selector-->
+                              <div class="col-lg-9 offset-lg-3 col-sm-12 col-12 selector">
+              
+                                <div class="row">
+                                  <div class="col-lg-1 col-sm-1 col-1 p-0 dot-div left-4 left-8-mobile">
+                                    <span class="active"> &#11044; </span>
+              
+                                  </div>
+                                  <div class="col-lg-4 col-sm-4 col-4  p-0  ">
+                                    <div class="tablink">
+                                      
+                                        <hr  [ngClass]="{
+                                          hractive:
+                                                tab2.is_active || tab3.is_active}">
+                                    </div>
+              
+                                  </div>
+                                  <div class="col-lg-1 col-sm-1 col-1  p-0 dot-div left">
+                                    <span [ngClass]="{
+                                      active:
+                                      tab2.is_active || tab3.is_active}">&#11044;</span>
+              
+                                  </div>
+                                  <div class="col-lg-4 col-sm-4 col-4  p-0">
+                                    <div class="tablink">
+              
+                                        <hr [ngClass]="{
+                                          hractive:
+                                              tab3.is_active}">
+              
+                                    </div>
+              
+                                  </div>
+                                  <div class="col-lg-1 col-sm-1 col-1  p-0  dot-div left">
+                                    <span [ngClass]="{
+                                        active:
+                                        tab3.is_active}">&#11044;</span>
+              
+                                  </div>
+              
+                                </div>
+              
+              
+              
+              
+                              </div>
+                              <!--end selector-->
+                  </div>
+              
+                  <div class="row">
+                    <!--input data-->
+              
+                    <div class="col-lg-9 offset-lg-3 col-sm-12 col-12">
+              
+                      <!--start tab1-->
+                     <div class="tab1 animate__animated animate__faster" [ngClass]="{
+                      'd-none': ! tab1.is_active,
+                      animate__fadeInLeft: tab1.is_active
+                      }">
+                      <!--first and last name-->
+                      <div class="row">
+                        <div class="col-lg-5 mt-2  col-sm-12 col-12">
+                          <label for="first_name">Nombre *</label>
+                          <input type="text"  name="first_name" formControlName="first_name" class="form-control" value=""
+                            placeholder="Escribe tu nombre" [ngClass]="{
+                              invalid:
+                                model_form_control.first_name.invalid &&
+                                model_form_control.first_name.touched,
+                              valid: model_form_control.first_name.valid
+                            }" required>
+                          <small *ngIf="model_form_control.first_name.invalid && model_form_control.first_name.touched"
+                            class="small-text float-start error-text small-left">Este campo es requerido*</small>
+                        </div>
+              
+                        <div class="col-lg-5  mt-2 col-sm-12 col-12">
+                          <label for="last_name">Apellido *</label>
+                          <input type="text"  name="last_name" formControlName="last_name" class="form-control" value=""
+                            placeholder="Escribe tu apellido" [ngClass]="{
+                              invalid:
+                                model_form_control.last_name.invalid &&
+                                model_form_control.last_name.touched,
+                              valid: model_form_control.last_name.valid
+                            }" required>
+              
+                          <small *ngIf="model_form_control.last_name.invalid && model_form_control.last_name.touched"
+                            class="small-text float-end error-text">Este campo es requerido*</small>
+                        </div>
+                      </div>
+                      <!--end first and last name-->
+              
+              
+                      <!--email-->
+                      <div class="row">
+                        <div class="col-lg-10  mt-2 col-sm-12 col-12">
+                          <label for="email">Email *</label>
+                          <input type="email" name="email" class="form-control" formControlName="email" value=""
+                            placeholder="Escribe tu correo electronico" [ngClass]="{
+                              invalid:
+                                model_form_control.email.invalid &&
+                                model_form_control.email.touched,
+                              valid: model_form_control.email.valid
+                            }" required>
+              
+                          <small class="small-text float-end no-valid">No valido e-mail tipo gmail. hotmail,
+                            yahoo</small>
+                          <small *ngIf="model_form_control.email.invalid && model_form_control.email.touched"
+                            class="small-text float-start error-text small-left">Este campo es requerido*</small>
+                        </div>
+              
+                      </div>
+                      <!--end email-->
+              
+                      <!--phone-->
+                      <div class="row">
+                        <div class="col-lg-10  mt-2 col-sm-12 col-12">
+                          <label for="phone">Telefono *</label>
+                          <input type="text" name="telephone"  minlength="9" maxlength="9" onkeypress='return event.charCode >= 48 && event.charCode <= 57' formControlName="telephone" class="form-control" value=""
+                            placeholder="Escribe tu telefono" [ngClass]="{
+                              invalid:
+                                model_form_control.telephone.invalid &&
+                                model_form_control.telephone.touched,
+                              valid: model_form_control.telephone.valid
+                            }" required>
+                          <small *ngIf="model_form_control.telephone.invalid && model_form_control.telephone.touched"
+                            class="small-text float-start error-text small-left">Este campo es requerido*</small>
+                        </div>
+              
+                      </div>
+                      <!--end phone-->
+              
+                      <!--password and confirm password-->
+                      <div class="row">
+                        <div class="col-lg-5  mt-2 col-sm-12 col-12">
+                          <label for="first_name">Contraseña *</label>
+                          <input #_passwordField name="password" style="display: inline-block;"
+                            class="mb-1 form-control pe-4"  maxlength="25"  formControlName="password" type="password" [ngClass]="{
+                            invalid:
+                              model_form_control.password.invalid &&
+                              model_form_control.password.touched,
+                            valid: model_form_control.password.valid
+                          }" placeholder="contraseña" required>
+              
+                          <img
+                            [src]="_passwordField.type === 'password' ? 'assets/icons/svg/show.svg' : 'assets/icons/svg/hide.svg'"
+                            class="eye-icon" (click)="togglePasswordVisibility(_passwordField)">
+              
+              
+                          <small *ngIf="model_form_control.password.invalid && model_form_control.password.touched"
+                            class="small-text float-start error-text small-left">Este campo es requerido*</small>
+              
+                        </div>
+              
+                        <div class="col-lg-5  mt-2 col-sm-12 col-12">
+                          <label for="last_name">Confirmar contraseña *</label>
+                          <input #_confirmPasswordField style="display: inline-block;" name="password_confirmation"
+                            class="mb-1 left-2 form-control pe-4"  maxlength="25"  formControlName="password_confirmation" type="password"
+                           [ngClass]="{
+                      invalid:
+                        model_form_control.password_confirmation.invalid &&
+                        model_form_control.password_confirmation.touched,
+                      valid: model_form_control.password_confirmation.valid
+                    }" placeholder="repita contraseña" required>
+              
+              
+                          <img
+                            [src]="_confirmPasswordField.type === 'password' ? 'assets/icons/svg/show.svg' : 'assets/icons/svg/hide.svg'"
+                            class="eye-icon" (click)="togglePasswordVisibility(_confirmPasswordField)">
+                          <small
+                            *ngIf="model_form_control.password_confirmation.invalid && model_form_control.password_confirmation.touched"
+                            class="small-text float-end error-text">Este campo es requerido*</small>
+              
+                        </div>
+                        <small *ngIf="passwordMatchError" class="small-text float-end error-text">Las contraseñas no
+                          coinciden*</small>
+                        <small class="small-text ">8 caracteres como minimo, distingue mayusculas de minúsculas</small>
+              
+                      </div>
+                      <!--end password-->
+              
+                    </div> 
+              
+                    <!--end tab1-->
+              
+                    <!--start tab2-->
+                    <div class="tab2 animate__animated animate__faster" [ngClass]="{
+                      'd-none': ! tab2.is_active,
+                      animate__fadeInLeft: tab2.is_active
+                      }">
+                      <!--province and municipality name-->
+                      <div class="row">
+                        <div class="col-lg-10 ">
+              
+                          <div class="row">
+                            <div class="col-lg-12 mt-2  col-sm-12 col-12">
+                              <label for="first_name">Nombre de la empresa*</label>
+                              <input type="text"  name="company_name" formControlName="company_name" class="form-control" value=""
+                                placeholder="Escribe el nombre de la empresa" [ngClass]="{
+                                  invalid:
+                                    model_form_control.company_name.invalid &&
+                                    model_form_control.company_name.touched,
+                                  valid: model_form_control.company_name.valid
+                                }" required>
+                              <small *ngIf="model_form_control.company_name.invalid && model_form_control.company_name.touched"
+                                class="small-text float-start error-text small-left">Este campo es requerido*</small>
+                            </div>
+              
+                          </div>
+                        
+                          
+                        </div>
+              
+                        <div class="col-lg-10 ">
+              
+                          <div class="row mt-3">
+                            <div class="col-lg-12">
+                              <h5>Selecciona el tipo de la empresa *</h5>
+                            </div>
+                          </div>
+              
+                          <div class="row mt-2">
+              
+                            <div class="col-lg-6 col-6 center-mobile">
+                              <input type="radio" class="" name="type" id="radio1" value="personal" formControlName="type">
+                              <label class="radio-text pointer" for="radio1">&nbsp; Personal</label>
+              
+                            </div>
+              
+                            <div class="col-lg-6 col-6 center-mobile">
+                              <input type="radio" class="" name="type" id="radio2" value="legal" formControlName="type">
+                              <label class="radio-text pointer" for="radio2">&nbsp; Juridica</label>
+              
+                            </div>
+              
+              
+                          </div>
+              
+                        
+                        </div>
+                      </div>
+                      <!--end province and municipality name-->
+              
+              
+                      <!--modules-->
+                      <div class="row mt-3">
+                      
+                        <div class="col-lg-10 ">
+                          <div class="row">
+                            <div class="col-12">
+                              <h5 class="">Seleccione el sector *</h5>
+                            </div>
+                          </div>
+              
+                          <div class="row">
+                            <div class="col-lg-5 col-6 col-sm-6  center-mobile">
+                              <div class="row  pointer">
+              
+              
+                                <div class="col-lg-12 icon-container">
+                                  <div class="row">
+              
+                                      <!--icon-->
+                                  <div class="col-lg-2">
+                                    <label class="cursor-pointer" for="sector-maintenance">
+                                      <img class="sector-image"  [src]="form_model.get('sector').value === 'maintenance' ? 'assets/icons/svg/maintenance_active.svg' : 'assets/icons/svg/maintenance_inactive.svg'" alt="">
+                                      <input id="sector-maintenance" class="hidden"  type="radio" value="maintenance" formControlName="sector" >
+                                    </label>
+                                  </div>
+                                  <!--end icon-->
+                                  
+              
+                                  <div class="col-lg-8 display-table">
+                                    <label class="cursor-pointer" for="sector-maintenance">
+                                      <span [ngClass]="{
+                                        'bold-text': (form_model.get('sector').value === 'maintenance')
+                                        }" 
+                                        class="cell">Mantenimiento</span>
+                                    </label>
+                                  </div>
+              
+                                  </div>
+                                </div>
+                                
+                              </div>  
+                            </div>
+              
+                            <div class="col-lg-5 offset-lg-1 col-6 col-sm-6  center-mobile">
+                              <div class="row  pointer">
+              
+              
+                                <div class="col-lg-12 icon-container">
+                                  <div class="row">
+              
+                                      <!--icon-->
+                                  <div class="col-lg-2">
+                                    <label class="cursor-pointer" for="sector-consultancy">
+                                      <img class="sector-image"  [src]="form_model.get('sector').value === 'consultancy' ? 'assets/icons/svg/consultancy_active.svg' : 'assets/icons/svg/consultancy_inactive.svg'" alt="">
+                                      <input id="sector-consultancy" class="hidden"  type="radio" value="consultancy" formControlName="sector" >
+                                    </label>
+                                    
+                                  </div>
+                                  <!--end icon-->
+                                  
+              
+                                  <div class="col-lg-8 display-table">
+                                    <label class="cursor-pointer" for="sector-consultancy">
+                                      <span 
+                                      [ngClass]="{
+                                        'bold-text': (form_model.get('sector').value === 'consultancy')
+                                        }" 
+                                      class="cell">Consultoria</span>
+                                    </label>
+                                  </div>
+              
+                                  </div>
+                                </div>
+                                
+                              </div>  
+                            </div>
+                          </div>
+              
+                          <div class="row mt-3">
+                            <div class="col-lg-5 col-6 col-sm-6  center-mobile">
+                              <div class="row  pointer">
+              
+              
+                                <div class="col-lg-12 icon-container">
+                                  <div class="row">
+              
+                                      <!--icon-->
+                                  <div class="col-lg-2">
+                                    <label class="cursor-pointer" for="sector-administration">
+                                      <img class="sector-image"  [src]="form_model.get('sector').value === 'administration' ? 'assets/icons/svg/administration_active.svg' : 'assets/icons/svg/administration_inactive.svg'" alt="">
+                                      <input id="sector-administration" class="hidden"  type="radio" value="administration" formControlName="sector" >
+                                    </label>
+                                    
+                                  </div>
+                                  <!--end icon-->
+                                  
+              
+                                  <div class="col-lg-8 display-table">
+                                    <label class="cursor-pointer" for="sector-administration">
+                                      <span
+                                      [ngClass]="{
+                                        'bold-text': (form_model.get('sector').value === 'administration')
+                                        }" 
+                                      class="cell">Administración</span>
+                                    </label>
+                                  </div>
+              
+                                  </div>
+                                </div>
+                                
+                              </div>  
+                            </div>
+              
+                            <div class="col-lg-5 offset-lg-1  col-6 col-sm-6  center-mobile">
+                              <div class="row  pointer">
+              
+              
+                                <div class="col-lg-12 icon-container">
+                                  <div class="row">
+              
+                                      <!--icon-->
+                                  <div class="col-lg-2">
+                                    <label class="cursor-pointer" for="sector-others">
+                                      <img  class="sector-image" [src]="form_model.get('sector').value === 'others' ? 'assets/icons/svg/others_active.svg' : 'assets/icons/svg/others_inactive.svg'" alt="">
+                                      <input id="sector-others" class="hidden"  type="radio" value="others" formControlName="sector" >
+                                    </label>
+                                    
+                                  </div>
+                                  <!--end icon-->
+                                  
+              
+                                  <div class="col-lg-8 display-table">
+                                    <label class="cursor-pointer" for="sector-others">
+                                      <span 
+                                      [ngClass]="{
+                                        'bold-text': (form_model.get('sector').value === 'others')
+                                        }" 
+                                      class="cell">Otros</span>
+                                    </label>
+                                  </div>
+              
+                                  </div>
+                                </div>
+                                
+                              </div>  
+                            </div>
+                          </div>
+              
+                  
+              
+                        </div>
+                      </div>
+                      <!--end modules-->
+              
+              
+              
+                    </div> 
+              
+                    <!--end tab2--> 
+              
+              
+              
+              
+                      <!--start tab3-->
+                      <div class="tab3 animate__animated animate__faster" [ngClass]="{
+                        'd-none': ! tab3.is_active,
+                        animate__fadeInLeft: tab3.is_active
+                        }">
+                        <!--province and municipality name-->
+                        <div class="row">
+                          <div class="col-lg-10 ">
+              
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <label for="">Municipio *</label>
+                            
+                                <ng-select
+                                id="company-province"
+                                class="custom" 
+                                name="province_id" 
+                                formControlName="province_id"
+                                placeholder="Seleccione provincia..."
+                                [clearable]="false"
+                                [items]="provinces"
+                                bindLabel="name"
+                                bindValue="id"
+                                [loading]="loadingProvinces"
+                                [loadingText]="'Cargando provincias...'"
+                                (change)="onChangeProvinceSelector($event)"
+                                
+                            >
+                            </ng-select>
+              
+                          <!--  <small
+                            *ngIf="model_form_control.province_id.invalid && model_form_control.province_id.touched"
+                            class="small-text float-end error-text">Este campo es requerido*</small>-->
+
+                              </div>
+                            </div>
+                          
+                            
+                          </div>
+              
+                          <div class="col-lg-10 ">
+              
+                            <div class="row">
+                              <div class="col-lg-12 mt-3">
+                                <ng-select
+                                id="municipality"
+                                 
+                                formControlName="municipality_id" 
+                                name="municipality_id" 
+                                class="custom" 
+                                [clearable]="false"
+                                placeholder="Seleccione municipio..."
+                                [loading]="loadingMunicipalities"
+                                [loadingText]="'Cargando municipios...'"
+                                [items]="municipalities"
+                                bindLabel="name"
+                                bindValue="id"
+                                
+                            >
+                            </ng-select>
+              
+                           <!-- <small
+                            *ngIf="model_form_control.municipality_id.invalid && model_form_control.municipality_id.touched"
+                            class="small-text float-end error-text">Este campo es requerido*</small>-->
+                              </div>
+                            </div>
+              
+                          
+                          </div>
+                        </div>
+                        <!--end province and municipality name-->
+              
+              
+                        <!--modules-->
+                        <div class="row mt-3">
+                         
+                          <div class="col-lg-10 ">
+                            <div class="row">
+                              <div class="col-12">
+                                <h5 class="">Seleccione el módulo que desea *</h5>
+                              </div>
+                            </div>
+              
+                           
+                            <div class="row">
+                              <div class="col-lg-6 col-6 col-sm-6 text-left">
+                                <label for="module-energy" class="cursor-pointer">
+                                  <img class="pointer module-image"  [src]="form_model.get('module_name').value === 'energy' ? 'assets/icons/svg/gis_energy_active.svg' : 'assets/icons/svg/gis_energy_inactive.svg'" alt="">
+                                  <input id="module-energy" class="hidden" type="radio" name="module_name" value="energy" formControlName="module_name" >
+                                </label>
+                              </div>
+              
+                              <div class="col-lg-6  col-6 col-sm-6  text-left">
+                                <label for="module-environment" class="cursor-pointer">
+                                  <img class="pointer module-image" [src]="form_model.get('module_name').value === 'environment' ? 'assets/icons/svg/gis_environment_active.svg' : 'assets/icons/svg/gis_environment_inactive.svg'" alt="">
+                                  <input id="module-environment" class="hidden" type="radio" name="module_name" value="environment" formControlName="module_name" >
+                                </label>
+                              </div>
+                            </div>
+              
+                            <div class="row mt-3">
+                              <div class="col-lg-6 col-6 col-sm-6 text-left">
+                                <label for="module-urban" class="cursor-pointer">
+                                  <img class="pointer module-image" [src]="form_model.get('module_name').value === 'urban' ? 'assets/icons/svg/gis_urban_active.svg' : 'assets/icons/svg/gis_urban_inactive.svg'" alt="">
+                                  <input id="module-urban" class="hidden" type="radio" name="module_name" value="urban" formControlName="module_name" >
+                                </label>
+                              </div>
+              
+                              <div class="col-lg-6 col-6 col-sm-6 text-left">
+                                <label for="module-water" class="cursor-pointer">
+                                  <img class="pointer module-image" [src]="form_model.get('module_name').value === 'water' ? 'assets/icons/svg/gis_water_active.svg' : 'assets/icons/svg/gis_water_inactive.svg'" alt="">
+                                  <input id="module-water" class="hidden" type="radio" name="module_name" value="water" formControlName="module_name" >
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--end modules-->
+              
+              
+              
+                      </div> 
+              
+                      <!--end tab3-->
+              
+              
+              
+              
+              
+              
+              
+                      <!--buttons-->
+                      <div class="row">
+              
+                        <div class="col-lg-10 mt-4 col-sm-12 col-12 ">
+              
+                          <div class="row">
+                            <div class="col-lg-6 col-sm-6 col-6 center-mobile" *ngIf="clicked_tabs>1" >
+                              <button class="back-button btn" type="button" [disabled]="tab1.is_active"  (click)="subTab()"  [ngClass]="{
+                                disabled:
+                                  tab1.is_active,
+                                enabled:tab2.is_active || tab3.is_active }">Volver</button>
+                            </div>
+              
+                              
+                            <div class="center-mobile" [ngClass]="{
+                              'col-12':clicked_tabs==1,
+                              'text-center':clicked_tabs==1,
+                              'col-6':clicked_tabs>1
+
+                                 }">
+                              <button class="next-button btn enabled" [disabled]="validTab1()" type="button"  (click)="addTab()"  *ngIf="clicked_tabs<3; else saveTag">
+                                  Siguiente
+                              </button>
+              
+                              <ng-template #saveTag>
+                                <button class="next-button btn enabled" [disabled]="form_model.invalid || sendingForm" type="submit"  >
+                                  Guardar
+                              </button>
+              
+                            </ng-template>
+                            </div>
+                          </div>
+              
+                        </div>
+              
+                      </div>
+                      <!--end buttons-->
+              
+                      <div class="row mb-5">
+                        <div class="col-lg-10 mt-2 col-sm-12 col-12">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <p class="text-center">
+                                ¿Ya tienes una cuenta? <a routerLink="/login">&nbsp;&nbsp;Inicia sesión</a>
+              
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+              
+              
+                    </div>
+                    <!--end input data-->
+              
+              
+                  </div>
+              
+              
+              
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </form>
+        <!--end form-->
+
+
+      </div>
+    </div>
+  </div>
+</div>

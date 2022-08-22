@@ -1,0 +1,185 @@
+<form *ngIf="isVisible"
+        #newProjectForm="ngForm" 
+        class="animate__animated  animate__faster"
+        [ngClass]="{
+            'animate__fadeInRight': showing,
+            'animate__fadeOutRight': ! showing
+        }"
+        enctype="multipart/form-data"
+        (submit)="onSubmit($event)" >
+        
+    <div class="row h-100 mx-0">
+        
+        <div class="col-12 px-2 px-lg-3 px-xl-4">
+            
+            <button type="button" (click)="hide()" class="btn-transparent mt-3 float-end">
+                <img src="assets/icons/svg/cerrar.svg" alt="cerrar" class="close-icon">
+            </button>
+
+            <div class="row mx-0 h-100 align-items-center">
+
+                <div class="col-4 col-xxl-5 px-0">
+
+                    <div class="circle my-1">
+
+                        <label for="project-logo" title="Cargar logo">
+                            
+                            <img [src]="logoSrc" alt="logo">
+
+                            <input 
+                            accept=".png, .jpg, .jpeg" 
+                            [(ngModel)]="form.logo" 
+                            required 
+                            class="d-none"
+                            type="file" 
+                            name="logo" 
+                            id="project-logo"
+                            (change)="onSelectLogo($event)">
+
+                        </label>
+
+                    </div>                    
+                </div>
+
+                <div class="col-8 col-xxl-7 ps-3 pe-0 title">
+                    Nuevo proyecto
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-12 px-2 px-lg-3 px-xl-4 my-2">
+
+            <span class="step-label">PASO 1 DE 2: </span> &nbsp; <label for="">DATOS DEL PROYECTO</label>
+
+        </div>
+      
+        <div class="col-12 px-2 px-lg-3 px-xl-4 mb-2">
+
+            <label for="title">Titulo <span class="required-field-mark">*</span></label>
+
+            <input required [(ngModel)]="form.title" name="title" type="text" id="title" placeholder="nombre del proyecto">
+
+        </div>
+
+        <div class="col-12 px-2 px-lg-3 px-xl-4 mb-2">
+
+            <label for="company">Empresa <span class="required-field-mark">*</span></label>
+
+            <ng-select
+            class="custom" 
+            [clearable]="false"
+            [items]="companies"
+            bindLabel="name"
+            required 
+            [(ngModel)]="form.company_id"
+            name="company_id"
+            bindValue="id" 
+            placeholder="Seleccione empresa"
+                >
+            </ng-select>
+
+        </div>
+        
+        <div class="col-12 px-2 px-lg-3 px-xl-4 mb-1">
+
+            <label for="municipality">Municipio <span class="required-field-mark">*</span></label>
+
+            <ng-select
+            class="custom" 
+            [clearable]="false"
+            name="province_id"
+            [items]="provinces"
+            bindLabel="name"
+            bindValue="id" 
+            placeholder="Seleccione provincia"
+            (change)="onChangeProvinceSelector($event)"
+                >
+            </ng-select>
+
+        </div>
+        
+        <div class="col-12 px-2 px-lg-3 px-xl-4 mb-2">
+
+            <ng-select
+            class="custom" 
+            [clearable]="false"
+            required 
+            [(ngModel)]="form.municipality_id"
+            name="municipality_id"
+            [items]="municipalities"
+            [loading]="loadingMunicipalities"
+            [disabled]="loadingMunicipalities"
+            [loadingText]="'Cargando municipios...'"
+            bindLabel="name"
+            bindValue="id" 
+            placeholder="Seleccione municipio"
+                >
+            </ng-select>
+
+        </div>
+
+        <div class="col-12 px-2 px-lg-3 px-xl-4 mb-3">
+
+            <label for="modules" class="mb-1">Modulos <span class="required-field-mark">*</span></label>
+
+            <div class="row mx-0 my-3 justify-content-around">
+
+                <div *ngFor="let module of modules; let i = index" class="col-2 px-1">
+                    <label  class="cursor-pointer" for="project-module-{{module.id}}">
+
+                        <img class="module-icon" 
+                            [src]="form.modules[module.name].selected ? 'assets/icons/svg/'+module.name+'.svg' : 'assets/icons/svg/'+module.name+'-gris.svg'" 
+                            [attr.alt]="module.name">
+
+                            <input  
+                            type="checkbox" 
+                            name="modules[{{i}}][id]"
+                            [value]="module.id"
+                            class="hidden" 
+                            id="project-module-{{module.id}}" 
+                            (change)="onSelectModule(module)"
+                            [(ngModel)]="form.modules[module.name].selected"
+                            [checked]="form.modules[module.name].selected">
+
+                    </label>
+                </div>
+
+            </div>
+
+            <ng-select
+            *ngIf="selectedModule"
+            class="custom mb-2" 
+            name="hiring_plan_id"
+            dropdownPosition="top"
+            [disabled]="selectedModule === 'base'"
+            [clearable]="false"
+            [items]="hiringPlans"
+            bindLabel="name"
+            [(ngModel)]="form.modules[selectedModule].hiring_plan_id"
+            bindValue="id" 
+            placeholder="Plan de contratación"
+                >
+            </ng-select>
+
+        </div>
+        
+        <div class="col-10 offset-1 px-2 px-lg-3 px-xl-4 align-self-end pb-4">
+
+            <button type="submit" [disabled]="newProjectForm.invalid" class="btn btn-block">
+                Guardar
+            </button>
+
+        </div>
+        
+    </div>
+
+</form>
+
+<div *ngIf="isVisible" 
+    class="backdrop animate__animated animate__faster"
+    [ngClass]="{
+        'animate__fadeInRight': showing,
+        'animate__fadeOutRight': ! showing
+    }"></div>

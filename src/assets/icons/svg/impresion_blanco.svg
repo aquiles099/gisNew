@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="36.9mm" height="34mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 3690 3400"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:white;stroke-width:100}
+    .str1 {stroke:white;stroke-width:160}
+    .str2 {stroke:white;stroke-width:100;stroke-linecap:round;stroke-linejoin:round}
+    .fil0 {fill:none}
+   ]]>
+  </style>
+ </defs>
+ <g id="Capa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1079244432">
+   <line class="fil0 str0" x1="2303" y1="1391" x2="2746" y2= "1391" />
+   <line class="fil0 str0" x1="3077" y1="1391" x2="2933" y2= "1391" />
+   <rect class="fil0 str1" x="714" y="2101" width="2262" height="1187" rx="151" ry="166"/>
+   <line class="fil0 str2" x1="1032" y1="2409" x2="2265" y2= "2409" />
+   <line class="fil0 str2" x1="1032" y1="2701" x2="2021" y2= "2701" />
+   <line class="fil0 str2" x1="1032" y1="2992" x2="2265" y2= "2992" />
+   <path class="fil0 str1" d="M842 112l2006 0c70,0 128,57 128,128l0 787 -2262 0 0 -787c0,-71 58,-128 128,-128z"/>
+   <path class="fil0 str1" d="M714 2682l-370 0c-103,0 -231,-71 -231,-231l0 -1193c0,-118 80,-231 231,-231l3002 0c133,0 231,85 231,231l0 1193c0,133 -46,231 -231,231l-370 0"/>
+  </g>
+ </g>
+</svg>

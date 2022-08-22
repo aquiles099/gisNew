@@ -1,0 +1,172 @@
+.block{
+    display: inline-block !important;
+}
+.container-fluid
+{
+  margin: 2rem;
+}
+
+
+
+.bold-text
+{
+    height: 28px;
+    color: #495C80;
+    font-family: "Rubik Bold" !important;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px
+
+}
+
+.little-bold-text{
+  height: 16px;
+  color: #495C80;
+  font-family: "Rubik Bold" !important;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+
+.content{
+  background-color: #F2F2F2;
+  padding: 2rem;
+}
+.right-1-rem
+{
+    margin-right: 1rem;
+}
+
+   
+   .eye-icon{
+     margin-left: -3rem;
+     display: inline-block;
+   }
+   
+   
+   
+   
+   img:not(.logo) {
+     width: 1.8rem;
+   }
+   
+ /* Extra small devices (phones, 375px and down) */
+ @media only screen and (max-width: 375px) {
+      
+  
+  .container-fluid
+{
+  margin: initial !important;
+}
+
+button,a{
+  float: none !important;
+}
+
+
+  
+  
+}
+
+/* Extra small devices (phones, 400px and down) */
+@media only screen and (min-width: 390px) and (max-width: 400px) {
+ 
+  .container-fluid
+  {
+    margin: initial !important;
+  }
+  
+button,a{
+  float: none !important;
+}
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+  
+  
+  .container-fluid
+  {
+    margin: initial !important;
+  }
+  
+  
+button,a{
+  float: none !important;
+}
+
+}
+
+
+/* Medium devices (landscape tablets, 1024px and higher) */
+@media only screen and (min-width: 760px) and (max-width: 800px) {
+  
+  .container-fluid
+  {
+    margin: initial !important;
+  }
+  
+  
+button,a{
+  float: none !important;
+}
+
+}
+
+
+/* Medium devices (landscape tablets, 800px and higher) */
+@media only screen and (min-width: 800px) and (max-width: 915px) {
+  
+  .container-fluid
+{
+  margin: initial !important;
+}
+
+
+button,a{
+  float: none !important;
+}
+
+
+}
+
+/* Medium devices (landscape tablets, 1024px and lower) */
+@media only screen and (min-width: 1000px) and (max-width: 1024px) {
+  .container-fluid
+  {
+    margin: initial !important;
+  }
+  
+
+  button,a{
+    float: none !important;
+  }
+  
+}
+
+/* Medium devices (landscape tablets, 1024px and lower) */
+@media only screen and (min-width: 1080px) and (max-width: 1280px) {
+  .container-fluid
+  {
+    margin: initial !important;
+  }
+  
+button,a{
+  float: none !important;
+}
+
+}
+
+/* Laptops*/
+/* ----------- Non-Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+
+
+
+
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {}

@@ -1,0 +1,174 @@
+.scrollable{
+    max-height: 72.5%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.scrollable.collapsed{
+    max-height: 45%;
+}
+
+
+ /* media */
+  
+ @media(min-width: 800px)
+ {
+    .scrollable{
+        max-height: 72.5%;
+    }
+    
+    .scrollable.collapsed{
+        max-height: 72.5%;
+    }  
+ }
+
+@media(min-width: 1024px)
+{
+    .scrollable{
+        max-height: 80%;
+    }
+    
+    .scrollable.collapsed{
+        max-height: 80%;
+    }  
+}
+
+@media(min-width: 1280px)
+{
+   
+} 
+
+@media(min-width: 1440px)
+{
+    .scrollable{
+        max-height: 77.5% !important;
+    }
+    
+    .scrollable.collapsed{
+        max-height: 77.5% !important;
+    }  
+} 
+
+@media(min-width: 1600px)
+{    
+} 
+
+@media(min-width: 1768px)
+{
+
+}
+
+@media(min-width: 800px) and (min-height: 600px)
+{
+    
+}
+ 
+@media(min-width: 1024px) and (min-height: 768px)
+{
+    
+}
+  
+@media(min-width: 1152px) and (min-height: 864px)
+{
+   
+}
+ 
+ @media(min-width: 1176px) and (min-height: 664px)
+ {
+    .scrollable{
+        max-height: 77.5%;
+    }
+    
+    .scrollable.collapsed{
+        max-height: 77.5%;
+    }  
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 720px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 768px)
+ {
+   
+ }
+
+ @media(min-width: 1280px) and (min-height: 800px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 960px)
+ {
+    
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 1024px)
+ {
+  
+ }
+ 
+ @media(min-width: 1360px) and (min-height: 765px)
+ {
+   
+ }
+ 
+ @media(min-width: 1440px) and (min-height: 900px)
+ {  
+
+ }
+
+ @media(min-width: 1600px) and (min-height: 900px)
+ {
+  
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1024px)
+ {
+   
+ }
+
+ @media(min-width: 1680px) and (min-height: 1024px)
+ {
+
+ }
+
+ @media(min-width: 1680px) and (min-height: 1050px)
+ {
+   
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1200px)
+ {
+    
+ }
+   
+ @media(min-width: 1768px) and (min-height: 992px)
+ {
+    
+ }
+
+ @media(min-width: 1880px) and (min-height: 882px)
+ { 
+    
+ }
+ 
+ @media(min-width: 1920px) and (min-height: 1080px)
+ {
+  
+ }
+ 
+ @media(min-height: 1210px)
+ {
+   
+ }

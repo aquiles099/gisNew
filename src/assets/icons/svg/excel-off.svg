@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="44mm" height="42mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 4400 4200"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str4 {stroke:#B2B2B2;stroke-width:20}
+    .str1 {stroke:#FEFEFE;stroke-width:400;stroke-linecap:round;stroke-linejoin:round}
+    .str2 {stroke:#B2B2B2;stroke-width:150;stroke-linecap:round;stroke-linejoin:round}
+    .str0 {stroke:#B2B2B2;stroke-width:200;stroke-linecap:round;stroke-linejoin:round}
+    .str3 {stroke:#B2B2B2;stroke-width:200;stroke-linecap:round;stroke-linejoin:round}
+    .fil0 {fill:none}
+    .fil1 {fill:#FEFEFE}
+    .fil2 {fill:#B2B2B2}
+   ]]>
+  </style>
+ </defs>
+ <g id="Capa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1050591920">
+   <g>
+    <path class="fil0 str0" d="M3517 3920l-2063 0c-95,0 -173,-77 -173,-172l0 -3296c0,-95 78,-172 173,-172l1390 0c14,-1 26,5 34,16l1283 1295c9,10 13,18 13,31l0 1431"/>
+   </g>
+   <polygon class="fil1 str1" points="226,1655 814,1655 1231,2445 1649,1655 2236,1655 1597,2787 2236,3920 1649,3920 1231,3130 814,3920 226,3920 866,2787 "/>
+   <polygon class="fil1 str2" points="226,1655 814,1655 1231,2445 1649,1655 2236,1655 1597,2787 2236,3920 1649,3920 1231,3130 814,3920 226,3920 866,2787 "/>
+   <g>
+    <path class="fil0 str3" d="M4174 2526l0 1222c0,95 -78,172 -173,172l-590 0"/>
+   </g>
+   <rect class="fil2 str4" x="3334" y="1709" width="500" height="300"/>
+   <rect class="fil2 str4" x="2634" y="1709" width="500" height="300"/>
+   <rect class="fil2 str4" x="3334" y="2109" width="500" height="300"/>
+   <rect class="fil2 str4" x="2634" y="2109" width="500" height="300"/>
+   <rect class="fil2 str4" x="3334" y="2509" width="500" height="300"/>
+   <rect class="fil2 str4" x="2634" y="2509" width="500" height="300"/>
+   <rect class="fil2 str4" x="3334" y="2909" width="500" height="300"/>
+   <rect class="fil2 str4" x="2634" y="2909" width="500" height="300"/>
+   <rect class="fil2 str4" x="3334" y="3309" width="500" height="300"/>
+   <rect class="fil2 str4" x="2634" y="3309" width="500" height="300"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,154 @@
+//icons
+.check-icon{
+    width: 2vw;
+}
+//end icons
+
+
+//containers
+.logo-box-profile{
+    justify-content: right;
+    display: flex;
+    align-items: center;
+  
+  }
+
+.icon-fiso-profile{
+    width: 17vw;
+}
+
+.fade-in-profile{
+    animation:fadeInLarge 3s ease-out;
+    
+}
+
+//end containers
+
+
+//titles, fonts
+.sub-title-profile{
+    color: #fff;
+    font-family: "Nunito Sans" !important;
+    font-size: 1vw;
+
+}
+
+.title-profile{
+    color: #fff;
+    font-family: Rubik !important;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+//end
+
+//imgs
+.avatar{
+    background-color: #fff;
+    border: 5px solid #FFF;
+    width: 8vw;
+    height: 8vw;
+    object-fit: contain;
+}
+//end imgs
+
+.loading-text{
+    color: #fff;
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.loading:after {
+    content: ' .';
+    animation: dots 1s steps(5, end) infinite;}
+
+
+//animations
+
+@keyframes fadeInLarge 
+{
+ 
+    0%{
+        opacity: 0;
+    }
+
+   
+    100%{
+        opacity: 1;
+    }
+
+}
+
+/* loading dots */
+
+  
+  @keyframes dots {
+    0%, 20% {
+      color: rgba(0,0,0,0);
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    40% {
+      color: white;
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    60% {
+      text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 rgba(0,0,0,0);}
+    80%, 100% {
+      text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 white;}}
+  
+
+//end animations
+
+//mobile
+  
+  
+@media(max-width: 912px) and (max-height: 1369px)
+{
+
+    .logo-box-profile{
+        justify-content: center !important;
+      
+      }
+
+    .top-login{
+        margin-top: initial !important;
+    }
+
+    .check-icon{
+        width: 3vh !important;
+    }
+
+    .icon-fiso-profile{
+        width: 20vh !important;
+    }
+
+    .title-profile{
+        padding: 0;
+        margin: 0;
+        font-size: 3vh !important;
+    }
+    .sub-title-profile{
+        font-size: 2vh !important;
+    
+    }
+
+    .avatar{
+     
+        width: 8vh !important;
+        height: 8vh !important;
+    
+    }
+
+    .loading-text{
+
+        font-size: 2vh !important;
+        margin-bottom: 5vh !important;
+    }
+}
+

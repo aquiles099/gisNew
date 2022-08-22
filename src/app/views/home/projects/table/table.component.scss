@@ -1,0 +1,485 @@
+.project-list{
+    width: 100%;
+    height: 100%;
+    padding: 0 0 .5rem 0;
+    overflow-y: auto;
+    text-align: center;
+    display: inline-block;
+    border-top-left-radius: .975rem;
+    border-top-right-radius: .975rem;
+}
+
+.selectors-row{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #FFF;
+    width: 100%;
+    border-top-left-radius: .975rem;
+    border-top-right-radius: .975rem;
+}
+
+select{
+    border: 0;
+    box-shadow: none !important;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0 .25rem;
+    font-size: .875rem;
+    text-overflow: ellipsis;
+}
+
+.sort-icon{
+    width: .975rem;
+    cursor: pointer;
+}
+
+.project-box{
+    cursor: pointer;
+    border-radius: .875rem;
+    background: #fff;
+    // height: 25%;
+    width: 95%;
+    box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    -moz-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    margin-bottom: 1.75rem;
+}
+
+.paginator-btn,
+.project-box{
+    transition: transform .2s;
+}
+
+.paginator-btn:hover,
+.project-box:hover{
+    transform: scale(1.01);
+}
+
+.project-box .separator {
+    width: 100%;
+    height: .4rem;
+}
+
+.project-box .separator > div {
+    width: 40%;
+    height: 100%;
+    float: right;
+    background: #495C80;
+}
+
+.municipality-image-section div{
+    width: 100%;
+    margin-bottom: -17.5%;
+}
+
+.favourite-btn{
+    position: relative;
+    left: 40%;
+}
+
+.favourite-btn img{
+    width: 2.25rem !important;
+}
+
+.municipality-image-section{
+    height: 60%;
+    width: 100%;
+}
+
+.municipality-image-section > img{
+    width: 100%;
+    max-height: 100%;
+    border-top-left-radius: .975rem;
+    border-top-right-radius: .975rem;
+}
+
+.project-box .info-section{
+    height: 40%;
+    width: 100%;
+}
+
+.project-box .info-section .logo{
+    max-width: 97.5%;
+    max-height: 2.5rem;
+}
+
+.project-title{
+    font-size: 1.05rem;
+    margin-bottom: 0;
+    font-family: 'Rubik Bold' !important;
+}
+
+.last-access-label{
+    font-size: .875rem;
+}
+
+.project-details{
+    width: 100%;
+    height: 100%;
+    color: #495C80;
+    border-radius: .925rem .925rem 0 0;
+    background-color: #FFF;
+    box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    -moz-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    overflow-y: auto;
+    z-index: 900;
+}
+
+.project-details.empty{
+   display: none;
+}
+
+.project-details-example{
+    display: none;
+}
+
+.project-details .col-12:nth-child(1){
+    background: #F1F3F7;
+}
+
+.project-details .col-12:nth-child(1) button:not(.btn-transparent){
+    border-radius: .925rem;
+    background-color: #495C80;
+    color: #fff;
+    font-family: 'Rubik Bold' !important;
+    font-weight: bold;
+    padding: .25rem 1.25rem;
+}
+
+.back-to-the-listing-btn{
+    width: 1.75rem;
+}
+
+.project-details img{
+    max-width: 100%;
+    max-height: 6.5rem;
+}
+
+.project-details .col-12:nth-child(2) h4{
+    font-family: 'Rubik Bold' !important;
+    font-weight: bold;
+}
+
+.project-details .col-12:nth-child(2) h4:nth-child(1){
+    font-size: 1.125rem;
+}
+
+.project-details .col-12:nth-child(2) h4{
+    font-size: .875rem;
+}
+
+.project-details .separator{
+    width: 100%;
+    height: .4rem;
+}
+
+.project-details .separator div{
+    width: 40%;
+    height: 100%;
+    background: #495C80;
+}
+
+.project-details .separator:nth-child(1) div{
+    float: right;
+}
+
+.project-details .separator:nth-child(2) div{
+    float: left;
+}
+
+.project-option{
+    background: #F1F3F7;
+    border-radius: 0 15px 15px 0;
+    text-align: center;
+}
+
+.project-option a{
+    color: #495C80;
+    font-size: 1.125rem;
+    text-decoration: none;
+}
+
+.content.creation-form-is-visible{
+    top: 0% !important;
+    height: 100% !important;
+}
+
+ /* media */
+  
+ @media(min-width: 1024px)
+ {
+    .content.creation-form-is-visible{
+        top: 10% !important;
+        height: 90% !important;
+    }
+
+    .project-list{
+        width: 65%;
+    }
+
+    select{
+        padding: 0 .5rem;
+        font-size: .975rem;
+    }
+
+    .project-list.selected-project{
+        display: inline-block;
+    }
+
+    .project-details{
+        width: 35%;
+        display: inline-block;
+    }
+
+    .project-details .col-12:nth-child(2) h4:nth-child(1){
+        font-size: 1.125rem;
+    }
+
+    .project-details .col-12:nth-child(2) h4{
+        font-size: .875rem;
+    }
+
+    .project-details.empty{
+        display: inline-block;
+    } 
+    
+    .back-to-the-listing-btn{
+        display: none;
+    }
+
+    .section-label{
+        font-size: .875rem;
+    }
+
+    .project-option a{
+        font-size: 1rem;
+    }   
+    
+    .project-details-example{
+        display: block;
+    }
+
+    .project-box .info-section .logo{
+        max-height: 3rem;
+    }
+ }
+
+ @media(min-width: 1280px)
+ {
+    .municipality-image-section{
+        height: 55%;
+    }
+
+    .municipality-image-section div{
+        margin-bottom: -12.5% !important;
+    }
+    
+    .project-box .info-section{
+        height: 45%;
+    }
+} 
+
+@media(min-width: 1440px)
+ {
+    .municipality-image-section div{
+        margin-bottom: -12.5% !important;
+    }
+    
+    .favourite-btn{
+        left: 42.5% !important;
+    }
+} 
+
+@media(min-width: 800px) and (min-height: 600px)
+{
+    .project-box{
+        width: 92.5%;
+    }
+
+    .municipality-image-section div{
+        margin-bottom: -15%;
+    }
+    
+    .favourite-btn{
+        left: 42.5%;
+    }
+
+    .project-details .col-12:nth-child(2) h4:nth-child(1){
+        font-size: 1.25rem;
+    }
+
+    .project-details .col-12:nth-child(2) h4{
+        font-size: .975rem;
+    }
+
+    .last-access-label{
+        font-size: .875rem;
+    }
+
+    .project-title{
+        font-size: .975rem;
+    }
+
+    .project-box .info-section .logo{
+        max-height: 3rem;
+    }
+}
+ 
+@media(min-width: 1024px) and (min-height: 768px)
+{
+    
+}
+  
+@media(min-width: 1152px) and (min-height: 864px)
+{
+    .project-title{
+        font-size: 1rem;
+    }
+
+    .last-access-label{
+        font-size: .875rem;
+    }
+}
+ 
+ @media(min-width: 1176px) and (min-height: 664px)
+ {
+    .project-details{
+        overflow: auto;
+    }
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 720px)
+ {
+    .project-box .info-section .logo{
+        max-height: 2.5rem;
+    }
+
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 768px)
+ {
+
+ }
+
+ @media(min-width: 1280px) and (min-height: 800px)
+ {
+
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 960px)
+ {
+    .section-label,
+    .project-details .col-12:nth-child(1) button:not(.btn-transparent),
+    .project-option a{
+        font-size: 1.125rem;
+    }
+ }
+ 
+ @media(min-width: 1280px) and (min-height: 1024px)
+ {
+    .project-title{
+        font-size: 1.125rem;
+    }
+
+    .last-access-label{
+        font-size: .9rem;
+    }
+
+    .project-box .info-section .logo{
+        max-height: 2.75rem;
+    }
+ }
+ 
+ @media(min-width: 1360px) and (min-height: 765px)
+ {
+    .project-title{
+        font-size: 1rem;
+    }
+
+    .last-access-label{
+        font-size: .9rem;
+    }
+ }
+ 
+ @media(min-width: 1440px) and (min-height: 900px)
+ {
+    .project-title{
+        font-size: 1rem;
+    }
+
+    .last-access-label{
+        font-size: .875rem;
+    }
+
+    .section-label{
+        font-size: 1rem;
+    }
+    
+    .project-option a{
+        font-size: 1.125rem;
+    }
+
+    .project-box .info-section .logo{
+        max-height: 3rem;
+    }
+ }
+
+ @media(min-width: 1600px) and (min-height: 900px)
+ {
+    
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1024px)
+ {
+   
+ }
+
+ @media(min-width: 1680px) and (min-height: 1024px)
+ {
+    .project-details .col-12:nth-child(1) button:not(.btn-transparent){
+        font-size: 1.35rem;
+    }
+ }
+
+ @media(min-width: 1680px) and (min-height: 1050px)
+ {
+     
+ }
+ 
+ @media(min-width: 1600px) and (min-height: 1200px)
+ {
+    
+ }
+   
+ @media(min-width: 1768px) and (min-height: 992px)
+ {
+    .project-details .col-12:nth-child(1) button:not(.btn-transparent){
+        font-size: 1.35rem;
+    }
+ }
+
+ @media(min-width: 1880px) and (min-height: 882px)
+ { 
+    
+ }
+ 
+ @media(min-width: 1920px) and (min-height: 1080px)
+ {
+   
+ }
+ 
+ @media(min-height: 1210px)
+ {
+    .project-title{
+        font-size: 1.5rem;
+    }
+
+    .last-access-label{
+        font-size: 1rem;
+    }
+ }

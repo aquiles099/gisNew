@@ -1,0 +1,96 @@
+<div class=" h-100 relative " id="label-container">
+
+    <!--layer select-->
+    <div class="row">
+        <div class="col-12 text-start">
+            <label class="label-bold" for="capa">Capa:</label>
+
+            <layer-selector (change)="onChangeLayerSelector($event)"></layer-selector>
+
+        </div>
+    </div>
+    <!--end layer select-->
+
+    <div class="row">
+        <div class="col-12 mt-3">
+            <hr class="separator">
+        </div>
+    </div>
+
+    <!--attributes search-->
+    <div class="row">
+        <div class="col-12 text-start">
+            <label class="label-bold" for="atributo">Atributo:</label>
+            <input [(ngModel)]="search" type="text" placeholder="Buscar..." class="form-control mt-2 search-input"
+                name="atributo">
+
+        </div>
+    </div>
+    <!--end attributes search-->
+
+
+    <!--attributes data-->
+    <div class="row mt-4 scrollable">
+
+        <!--if input is not empty-->
+
+        <div class="col-12 radio-box text-start" *ngFor="let attribute of attributes|matchValue:search:'display_name'; index as i">
+
+            <div *ngIf="(attributes|matchValue:search:'display_name').length">
+                <div class="bordered-div">
+                        <div class="content mb-3 mt-2">
+                            <div class="row">
+                                <div class="col-1 ">
+
+                                    <div class="ms-1">
+                                        <input type="radio" class="pointer" (change)="onChangeAttribute($event)" id="attribute_{{i}}" name="attribute" [checked]="attribute.name==selected_attribute_value" [value]="attribute.name">
+
+                                    </div>
+
+                                </div>
+                                <div class="col-10 text-start">
+                                    <label for="attribute_{{i}}" class="label-text pointer">
+
+                                    <span class="radio-text ">
+                                        {{attribute.display_name}} 
+                                    </span>
+                                </label>
+
+                                </div>
+                            </div>
+                       
+                        </div>
+
+
+                </div>
+            </div>
+            
+
+            
+        </div>
+        <div *ngIf="! (attributes|matchValue:search:'display_name').length">
+            Vacio
+         </div>
+    
+
+    </div>
+   
+    <!--end attributes data-->
+
+    <!--section of buttons-->
+    <div class="row buttons-box">
+        <div class="col-6">
+            <button class=" btns w-100 text-center" type="button" (click)="remove()">Eliminar</button>
+        </div>
+
+        <div class="col-6">
+            <button class=" btns   w-100  text-center" type="button" (click)="removeAll()">Eliminar Todo</button>
+        </div>
+    </div>
+    <!--end buttons-->
+
+       <!-- SPINNER -->
+       <div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

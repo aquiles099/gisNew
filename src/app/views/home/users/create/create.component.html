@@ -1,0 +1,305 @@
+<div class="container-fluid">
+
+    <div class="row header">
+        <!--title-->
+        <div class="col-lg-8 col-xs-12 mb-4">
+            <h1 class="bold-text left-2-rem">Nuevo usuario</h1>
+        </div>
+        <!--end tittle-->
+
+
+    </div>
+
+    <!--start create row-->
+    <div class="row flex-fill bd-highlight">
+
+
+        <div class="col-lg-12 col-xs-12  scroll">
+
+
+            <!--start form-->
+            <form [formGroup]="form_model" #userForm id="creationFormCR" (ngSubmit)="sendForm(userForm)" class="form-horizontal">
+
+                <!--start content-->
+                <div class="col-12 content">
+
+
+                    <div class="row">
+                        <div class="col-lg-10 col-xs-12">
+                            
+                    <!--first row-->
+                    <div class="row">
+
+                        
+                        <!--start nombre-->
+                        <div class="col-lg-6   col-xs-12 ">
+                            <label class="label-text little-bold-text" for=""> Nombres <span class="required">*</span></label>
+                            <input name="first_name" class="mb-1 form-control" required type="text"
+                                formControlName="first_name" maxlength=50 [ngClass]="{
+                                invalid:
+                                model_form_control.first_name.invalid &&
+                                model_form_control.first_name.touched,
+                                valid: model_form_control.first_name.valid
+                                }" placeholder="Escribe aqui tu nombre" />
+                            <small
+                                *ngIf="model_form_control.first_name.invalid && model_form_control.first_name.touched"
+                                class="small-text float-end error-text">Este campo es requerido*</small>
+
+                        </div>
+                        <!--end nombre-->
+
+                         <!--start apellido-->
+                         <div class="col-lg-6   col-xs-12 ">
+                            <label class="label-text little-bold-text" for=""> Apellidos <span class="required">*</span></label>
+                            <input name="last_name" class="mb-1  form-control" required type="text"
+                                formControlName="last_name" maxlength=50 [ngClass]="{
+                        invalid:
+                        model_form_control.last_name.invalid &&
+                        model_form_control.last_name.touched,
+                        valid: model_form_control.last_name.valid
+                        }" placeholder="Escribe aqui tus apellidos " />
+                            <small *ngIf="model_form_control.last_name.invalid && model_form_control.last_name.touched"
+                                class="small-text float-end error-text">Este campo es requerido*</small>
+
+                        </div>
+                        <!--end apellido-->
+
+                       
+
+                    </div>
+                    <!--end first row-->
+
+                    <!--second row-->
+                    <div class="row">
+                        
+                            <!-- start document number-->
+                            <div class="col-lg-6  col-xs-12 ">
+                                <label class="label-text little-bold-text" for=""> NIF/NIE: <span class="required">*</span> </label>
+    
+                                <input name="identification_document" style="display: inline-block;"
+                                    class="mb-1 form-control" formControlName="identification_document" maxlength=50
+                                    type="text" [ngClass]="{
+                        invalid:
+                        model_form_control.identification_document.invalid &&
+                        model_form_control.identification_document.touched,
+                        valid: model_form_control.identification_document.valid
+                        }" placeholder="Escribe aqui el número de identificación" />
+    
+    
+                                <small
+                                    *ngIf="model_form_control.identification_document.invalid && model_form_control.identification_document.touched"
+                                    class="small-text float-end error-text">Este campo es requerido*</small>
+    
+                            </div>
+                            <!-- end document number-->
+
+
+                    <!-- start email-->
+                    <div class="col-lg-6 col-xs-12 ">
+                        <label class="label-text little-bold-text" for=""> Email <span class="required">*</span></label>
+                        <input name="email" class="mb-1 form-control" required type="email" formControlName="email"
+                            maxlength=50 [ngClass]="{
+                    invalid:
+                    model_form_control.email.invalid &&
+                    model_form_control.email.touched,
+                    valid: model_form_control.email.valid
+                    }" placeholder="Escribe aqui tu email" />
+                        <small class="small-text float-end">No valido e-mail tipo gmail. hotmail, yahoo</small>
+                        <small *ngIf="model_form_control.email.invalid && model_form_control.email.touched"
+                            class="small-text float-start error-text">Este campo es requerido*</small>
+
+                    </div>
+                    <!-- end email-->
+
+
+                     
+                    </div>
+                    <!--second row-->
+
+                    <!--third row-->
+                    <div class="row">
+
+                   <!--start user_name-->
+                   <div class="col-lg-6   col-xs-12 ">
+                    <label class="label-text little-bold-text" for=""> Nombre de Usuario<span class="required">*</span></label>
+                    <input name="user_name" class="mb-1 form-control" required type="text"
+                        formControlName="user_name" maxlength=50 [ngClass]="{
+                           invalid:
+                           model_form_control.user_name.invalid &&
+                           model_form_control.user_name.touched,
+                           valid: model_form_control.user_name.valid
+                           }" placeholder="Escribe aqui el nombre de usuario" />
+                    <small *ngIf="model_form_control.user_name.invalid && model_form_control.user_name.touched"
+                        class="small-text float-end error-text">Este campo es requerido*</small>
+
+                </div>
+                <!--end user_name-->          
+
+
+                
+    
+
+                        <!--start telefono movil-->
+                        <div class="col-lg-6  col-xs-12 ">
+                            <label class="label-text little-bold-text" for=""> Telefono Móvil <span class="required">*</span></label>
+                            <input name="telephone" class="mb-1 left-2 form-control" required type="text"
+                                formControlName="telephone" maxlength=50 [ngClass]="{
+                        invalid:
+                        model_form_control.telephone.invalid &&
+                        model_form_control.telephone.touched,
+                        valid: model_form_control.telephone.valid
+                        }" placeholder="Escribe aqui tu número telefonico" />
+                            <small *ngIf="model_form_control.telephone.invalid && model_form_control.telephone.touched"
+                                class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            <small *ngIf="model_form_control.telephone.hasError('pattern')"
+                                class="small-text float-end error-text">El numero telefonico es invalido*</small>
+                        </div>
+                        <!--end telfono movil-->                   
+
+                    </div>
+                    <!-- end third row-->
+
+                    <!--fourth row-->
+                    <div class="row">
+
+                        <!-- start password-->
+                        <div class="col-lg-6  col-xs-12 ">
+                            <label class="label-text little-bold-text" for=""> Contraseña <span class="required">*</span></label>
+
+                            <input #_passwordField name="password" style="display: inline-block;"
+                                class="mb-1 form-control" formControlName="password" maxlength=50 type="password"
+                                [ngClass]="{
+                        invalid:
+                        model_form_control.password.invalid &&
+                        model_form_control.password.touched,
+                        valid: model_form_control.password.valid
+                        }" placeholder="Escribe aqui tu contraseña" />
+                            <img [src]="_passwordField.type === 'password' ? 'assets/icons/svg/show.svg' : 'assets/icons/svg/hide.svg'"
+                                class="eye-icon pointer" (click)="togglePasswordVisibility(_passwordField)">
+
+                            <small *ngIf="model_form_control.password.invalid && model_form_control.password.touched"
+                                class="small-text float-end error-text">Este campo es requerido*</small>
+
+                        </div>
+                        <!-- end password-->
+
+                        <!-- start confirm password-->
+                        <div class="col-lg-6  col-xs-12">
+                            <label class="label-text little-bold-text" for=""> Confirmar Contraseña <span class="required">*</span></label>
+                            <input #_confirmPasswordField style="display: inline-block;" name="password_confirmation"
+                                class="mb-1 left-2 form-control" formControlName="password_confirmation" type="password"
+                                maxlength=50 [ngClass]="{
+                     invalid:
+                     model_form_control.password_confirmation.invalid &&
+                     model_form_control.password_confirmation.touched,
+                     valid: model_form_control.password_confirmation.valid
+                     }" placeholder="Confirmar tu contraseña" />
+                            <img [src]="_confirmPasswordField.type === 'password' ? 'assets/icons/svg/show.svg' : 'assets/icons/svg/hide.svg'"
+                                class="eye-icon pointer" (click)="togglePasswordVisibility(_confirmPasswordField)">
+
+                            <small
+                                *ngIf="model_form_control.password_confirmation.invalid && model_form_control.password_confirmation.touched"
+                                class="small-text float-end error-text">Este campo es requerido*</small>
+
+                            <small *ngIf="passwordMatchError" class="small-text float-end error-text">Las contraseñas no
+                                coinciden*</small>
+
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <small class="small-text ">8 caracteres como minimo, distingue mayusculas de
+                                minúsculas</small>
+
+                        </div>
+
+
+                    </div>
+
+                    
+                    <!-- end fourth row-->
+                        </div>
+
+                        <div class="col-lg-2 col-xs-12 custom-file-upload  top-2-rem" >
+                            <div class="image-box mb-2">
+                                <img class="logo center" src="assets/images/agregar-foto.png" [src]="userLogoImgSrc" alt="">
+                            </div>
+
+                              <!--start logo-->
+
+                              <div class="text-center">
+                                <label class="label-text" for=""> &nbsp;</label>
+
+                                <label for="file-upload" class="custom-file-upload1">
+                                    <img class="download-button" src="assets/icons/png/CARGAR.png" alt=""> Cargar Imagen
+                                </label>
+                                <input 
+                                #imageInput
+                                formControlName="image"
+                                required
+                                accept=".png, .jpg, .jpeg" 
+                                id="file-upload" 
+                                type="file"
+                                name="image" 
+                                (change)="onSelectUserLogo($event)"
+                                />
+                              </div>
+                               
+                            <!--end logo-->
+                        </div>
+                    </div>
+
+
+                    <!--button row-->
+                <div class="row mt-5">
+
+
+                    <div class="col-12 ">
+                        <div class="row">
+                            <div class="col-lg-2 offset-lg-8 col-sm-6 col-xs-2 ">
+                                <button class="buttons btn "
+                                [disabled]="form_model.invalid || sendingForm">Guardar</button>
+                            </div>
+                            <div class="col-lg-2 col-xs-2 col-sm-6 ">
+                                <button class="buttons btn " (click)="back()" type="button"
+                                >Volver</button>
+                            </div>
+                        </div>
+               
+
+                    </div>
+
+
+
+
+
+                </div>
+                <!--end button row-->
+
+                </div>
+                <!--end content-->
+
+                
+
+            </form>
+
+            <!--end form-->
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+    <!--end create row-->
+
+
+
+
+
+
+
+</div>

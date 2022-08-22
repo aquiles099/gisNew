@@ -1,0 +1,40 @@
+<div class="bar animate__animated animate__faster"   [ngClass]="{
+    'animate__fadeOutLeft':! isVisible,
+    'animate__fadeInLeft': isVisible,
+    'collapsed': isCollapsed
+}">
+
+    <div class="row mx-0 mb-3 align-items-center">
+        
+        <div class="d-block d-md-none col-1 px-0">
+
+            <button (click)="toggleCollapsedState()" class="btn-transparent">
+                <img class="icon" [src]="isCollapsed ? 'assets/icons/svg/chevron-up.svg' : 'assets/icons/svg/chevron-down.svg'" alt="flecha">
+            </button>
+            
+        </div>
+
+        <div *ngIf="enabledTool" class="col-9 col-md-10 px-2 px-md-0 title">
+
+            {{ enabledTool.display_name }} 
+
+            <button class="btn-transparent ms-2">
+                <img class="help-icon" src="assets/icons/svg/ayuda.svg" alt="ayuda">
+            </button>
+
+        </div>
+
+        <div class="col-2 ps-1 pe-0 text-end">
+
+            <button (click)="close()" class="btn-transparent">
+                <img class="icon" src="assets/icons/svg/cerrar-n.svg" alt="cerrar">
+            </button>
+
+        </div>
+
+    </div>
+        
+    <router-outlet>
+    </router-outlet>
+
+</div>

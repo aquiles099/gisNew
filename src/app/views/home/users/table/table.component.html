@@ -1,0 +1,214 @@
+<div class="header animate__animated animate__fadeInRight animate__faster mb-3">
+    <div class="row mx-0 align-items-center">
+        
+        <div class="col-9 col-md-5 title p-0">Gestionar usuarios</div>
+
+        <div class="d-block d-md-none col-3 px-0">
+            <img src="assets/icons/svg/ayuda.svg" class="help-icon float-end" alt="ayuda">
+        </div>
+
+        <div class="d-none d-md-block col-4 col-xl-3 offset-xl-2 px-2">
+
+            <input (keyup)="onSearch($event)" [(ngModel)]="search" name="search" class="finder" placeholder="Buscar..." type="text">
+
+            <img src="assets/icons/svg/lupa.svg" class="finder-icon" alt="buscar">
+
+        </div>
+        
+        <div class="d-none d-md-block px-0 col-3 col-xl-2">
+
+            <div class="row h-100 align-items-center mx-0">
+
+                <div class="col-9 px-0">
+                    <button type="button" [routerLink]="['nuevo']"  class="btn btn-block px-md-4">
+                        Nuevo
+                    </button>
+                </div>
+
+                <div class="text-end px-0 col-3">
+                    <img src="assets/icons/svg/ayuda.svg" class="help-icon float-end" alt="ayuda">
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="px-0 mt-2 d-block d-md-none col-7">
+            
+            <input (keyup)="onSearch($event)" [(ngModel)]="search" name="search" class="finder" placeholder="Buscar..." type="text">
+
+            <img src="assets/icons/svg/lupa.svg" class="finder-icon" alt="buscar">
+            
+        </div>
+
+        <div class="d-block d-md-none mt-2 col-5 ps-2 pe-0">
+            <button type="button" [routerLink]="['nuevo']"  class="btn btn-block px-md-4">
+                Nuevo
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div class="content animate__animated animate__fadeInRight animate__faster">
+
+    <div class="row h-100 mx-0 align-items-center">
+
+        <div class="col-12 p-0 table-col mt-2">
+                
+                <table>
+        
+                    <thead class="table-thead">
+        
+                        <tr>
+                            <th style="width: 40%;" class="p-3 right-bordered">
+                                Usuario
+                            </th>
+                            <th style="width: 25%;" class="p-3 right-bordered">
+                                Proyectos 
+                            </th>
+                            <th style="width: 15%;" class=" p-3 right-bordered">
+                                Activo
+                            </th>
+                            <th style="width: 20%;" class="p-3 right-bordered">
+                            </th>
+                        </tr>
+        
+                    </thead>
+    
+                    <tbody>
+        
+                        <tr  *ngFor="let user of records">
+                
+                            <td class="right-bordered">
+            
+                                <div class="row m-0"> 
+            
+                                    <div class="col-3 px-0">
+                
+                                        <div  class="user-badge"
+                                            [attr.title]="user.full_name" [ngStyle]="{ 'background-color': user.color}">
+                                            {{ user.full_name_initials }}
+                                        </div>
+                
+                                    </div>
+
+                                    <div class="col-9 ps-3 pe-0 user-name text-start">
+                                        {{ user.full_name }}
+                                    </div>
+                                
+                                </div>
+
+                            </td>
+
+                            <td class="right-bordered" *ngIf="user.projects.length; else emptyProjects"> 
+                                <img *ngFor="let project of $any(user.projects | slice:0:3)" class="icon mx-1"
+                                    [attr.title]="project?.title" [src]="project?.logo_src">
+                                <span *ngIf="(user.projects.length - 3) > 0">
+                                    <b>+ {{ user.projects.length - 3 }} </b>
+                                </span>
+                            </td>
+                            
+                            <ng-template #emptyProjects>
+                                <td class="right-bordered"> 
+                                    Ninguno
+                                </td>
+                            </ng-template>
+
+                            <td class="right-bordered text-center">
+
+                                <div *ngIf="user.id !== authUser.id; else warning" class="form-check form-switch">
+
+                                    <input [(ngModel)]="user.is_active" 
+                                            (change)="toggleActiveStateOfTheUser(user)" 
+                                            type="checkbox" 
+                                            class="form-check-input pointer" 
+                                            id="active-user-{{user.id}}-switch">
+                                    
+                                    <label class="form-check-label pointer" [ngClass]="{
+                                        'text-primary': user.is_active,
+                                        'text-secondary': ! user.is_active
+                                    }" for="active-user-{{user.id}}-switch">{{ user.is_active ? "SI" : "NO" }}</label>
+
+                                </div>
+                                
+                            </td>
+                            
+                            <td class="right-bordered p-0">
+
+                                <div *ngIf="authUser.id !== user.id; else warning" class="w-100">
+
+                                    <a [routerLink]="[user.id, 'editar']">
+                                        <img src="assets/icons/svg/editar.svg" class="icon mx-2" alt="Editar">
+                                    </a>  
+            
+                                    <button type="button" (click)="deleteUser(user)" class="btn-transparent d-inline">
+                                        <img src="assets/icons/svg/PAPEPERA_R.svg" class="icon" alt="Eliminar">
+                                    </button>  
+        
+                                </div>
+            
+                            </td>
+                            
+                         </tr>
+
+                    </tbody>
+    
+                </table>
+    
+        </div>
+
+        <div *ngIf="paginator" class="col-4 col-md-2 p-0 mt-2">
+        
+            {{ paginator.from }} - {{ paginator.to }} de {{ paginator.total }}
+
+        </div>
+
+        <div *ngIf="paginator" class="offset-4 col-4 offset-md-8 col-md-2 p-0 mt-2">
+
+            <div class="row mx-0">
+                
+                <div class="col-4 p-0">
+                    <button [hidden]="! paginator.prev_page_url" 
+                            type="button" 
+                            class="btn-transparent" 
+                            [disabled]="! paginator.prev_page_url"
+                            (click)="prevPage()">
+                        <img class="icon" src="assets/icons/svg/chevron-left.svg" alt="left">
+                    </button>
+                </div>
+
+                <div class="col-4 p-0 text-center">
+                    {{ paginator.current_page }}
+                </div>
+
+                <div class="col-4 p-0">
+                    <button [hidden]="! paginator.next_page_url" 
+                            type="button" 
+                            class="btn-transparent" 
+                            [disabled]="! paginator.next_page_url"
+                            (click)="nextPage()">
+                        <img class="icon" src="assets/icons/svg/chevron-right.svg" alt="right">
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SPINNER -->
+    <div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
+        <mat-spinner></mat-spinner>
+    </div>
+
+</div>
+
+
+<ng-template #warning>
+    <img src="assets/icons/svg/warning.svg" class="icon d-inline pointer" alt="informacion" tooltip="Tu usuario.">
+</ng-template>
+
+
+
