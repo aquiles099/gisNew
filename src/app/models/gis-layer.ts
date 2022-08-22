@@ -176,7 +176,7 @@ export class GisLayer
   
         values = values.map(value =>  isNumeric(value) ? value : `'${value}'`);
   
-        cqlFilter += `'${attribute}' IN (${values.join(', ')})`;
+        cqlFilter += `"${attribute}" IN (${values.join(', ')})`;
       }
       else
       {

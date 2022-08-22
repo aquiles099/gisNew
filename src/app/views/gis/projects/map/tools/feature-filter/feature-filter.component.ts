@@ -70,47 +70,21 @@ export class FeatureFilterComponent extends BaseToolComponent
 
   public async updateFilter(value:string|number):Promise<void>
   {
-    if( this.selectedLayerFilter[this.selectedPropertyData.display_name] )
-    {
-      this.selectedLayerFilter[this.selectedPropertyData.display_name] = this.valueExistsOnFilter(value) ?
-      this.selectedLayerFilter[this.selectedPropertyData.display_name].filter(_value => _value !== value) :
-      [...this.selectedLayerFilter[this.selectedPropertyData.display_name], value];
-    }
-    else
-    {
-      this.selectedLayerFilter[this.selectedPropertyData.display_name] = [value];
-    }
-
-    this.updateCqlFilterInSelectedLayer();
+    this.selectedLayer.updateFilter(this.selectedPropertyData.name, value );
   }
 
   public valueExistsOnFilter(value:string|number):boolean
   {    
-    return this.selectedLayerFilter[this.selectedPropertyData.display_name] ?
-    this.selectedLayerFilter[this.selectedPropertyData.display_name].includes(value) :
+    return this.selectedLayerFilter[this.selectedPropertyData.name] ?
+    this.selectedLayerFilter[this.selectedPropertyData.name].includes(value) :
     false;
   }
 
-  private updateCqlFilterInSelectedLayer():void
-  {
-    let cqlFilter = "";
-    if( ! this.selectedLayerFilter[this.selectedPropertyData.display_name].length )
-      delete this.selectedLayerFilter[this.selectedPropertyData.display_name];
 
-    for( let [property, values] of Object.entries(this.selectedLayerFilter))
-    {
-      if( cqlFilter.charAt(cqlFilter.length - 1) === ")" )
-        cqlFilter += " AND ";
-
-      values = values.map(value =>  isNumeric(value) ? value : `'${value}'`);
-
-      cqlFilter += `"${property}" IN (${values.join(", ")})`;
-    }
-  }
 
   public onChangePropertySelector():void {
     console.log(this.formData);
-    this.selectedPropertyData = this.attributes.find(property => property.display_name === this.formData.property);
+    this.selectedPropertyData = this.attributes.find(property => property.name === this.formData.property);
     console.log(this.selectedPropertyData);
     this.propertyValues = this.selectedPropertyData.domain;
     this.search = null;
