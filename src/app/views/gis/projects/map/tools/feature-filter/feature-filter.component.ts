@@ -60,10 +60,10 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     );
 
     this.key = "feature-filter";
+    this.cleanField();
   }
   ngOnInit(): void {
-    this.layers = this._mapLayerService.projectedLayers 
-    console.log(this.layers);
+    this.isThereAnyLayerWithActiveFilter = this._mapLayerService.projectedLayers.length > 0;
   }
 
   async onChangeLayerSelector(layer: GisLayer)
@@ -85,9 +85,20 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     }
     else
     {
-      this.selectedLayer = null;
-      this.attributes = [];
+      this.cleanField();
     }
+  }
+
+  cleanField() {
+    this.selectedLayer = null;
+    this.attributes = [];
+    this.selectedPropertyData = null;
+    this.propertyValues = [];
+    this.search = null;
+    this.formData.module = null;
+    this.formData.group = null;
+    this.formData.layer = null;
+    this.formData.property = null;
   }
 
   public async updateFilter(value:string|number):Promise<void>
@@ -114,7 +125,6 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
 
   public selectedLayerHasFilterOnProperty():boolean
   {
-    console.log(this.selectedPropertyData, this.selectedLayerFilter)
     return this.selectedLayerFilter && Object.keys(this.selectedLayerFilter).length &&
     this.selectedLayerFilter[this.selectedPropertyData.name] ?
     this.selectedLayerFilter[this.selectedPropertyData.name].length > 0 :
@@ -143,8 +153,8 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     delete this.selectedLayer.wms.wmsParams.cql_filter;
 
     this.selectedLayer.refresh();
+    this.cleanField();
 
-    // this._projectLayersService.notificarCambioEnObservador();
   }
 
   public async removeFilterOnProperty():Promise<void>
@@ -168,7 +178,7 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
             capa.refrescar();
           }); */
 
-      this.selectedLayerFilter = {};
+      this.cleanField();
 
       //this._projectLayersService.notificarCambioEnObservador();
 

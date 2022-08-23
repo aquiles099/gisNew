@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { GisLayer } from '../../../../../../../models/gis-layer';
 import { MapLayerService } from '../../../../../../../services/gis/map/map-layer.service';
 
@@ -7,7 +7,7 @@ import { MapLayerService } from '../../../../../../../services/gis/map/map-layer
   templateUrl: './layer-selector.component.html',
   styleUrls: ['./layer-selector.component.scss']
 })
-export class LayerSelectorComponent implements OnInit
+export class LayerSelectorComponent implements OnChanges
 {
   @Input()
   public layerId:number;
@@ -26,9 +26,8 @@ export class LayerSelectorComponent implements OnInit
   constructor(
     private _mapLayerService:MapLayerService
   ) { }
-  
-  public ngOnInit(): void
-  {
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.layers = this._mapLayerService.projectedLayers;
   }
 
