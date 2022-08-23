@@ -14,7 +14,6 @@
     [readonly]="layers.length == 0"
     [clearable]="true"
     [(ngModel)]="layerId"
-    [ngModelOptions]="{standalone: true}"
     (change)="onChange($event)"
     >
     <ng-template ng-optgroup-tmp let-item="item">
