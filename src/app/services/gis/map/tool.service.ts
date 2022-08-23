@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { GisTool } from '../../../interfaces/gis-tool';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -10,6 +10,8 @@ export class ToolService {
   public enabledToolObservable:Observable<GisTool>;
 
   private collapsed:boolean = true;
+
+  public clearSelectLayer: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private _router:Router

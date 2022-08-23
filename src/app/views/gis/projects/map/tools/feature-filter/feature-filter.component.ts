@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { fadeInAnimation, fadeOutAnimation } from 'angular-animations';
 import { BaseToolComponent } from '../base-tool/base-tool.component';
 import { ToolService } from '../../../../../../services/gis/map/tool.service';
@@ -154,6 +154,7 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
 
     this.selectedLayer.refresh();
     this.cleanField();
+    this.toolService.clearSelectLayer.emit(true);
 
   }
 
