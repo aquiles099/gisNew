@@ -27,12 +27,17 @@ export class ToolSidebarComponent implements OnInit, OnDestroy
   
   get isCollapsed():boolean
   {
-    return this._toolService.isCollapsed;
+    return this._toolService.toolBarIsCollapsed;
+  }
+ 
+  get buttonBarIsCollapsed():boolean
+  {
+    return this._toolService.buttonBarIsCollapsed;
   }
 
   public toggleCollapsedState():void
   {
-    this._toolService.toggleCollapsedState();
+    this._toolService.toggleToolBarCollapsedState();
   }
   
   public close():void
@@ -48,6 +53,5 @@ export class ToolSidebarComponent implements OnInit, OnDestroy
 
   public ngOnDestroy(): void
   {
-    
   }
 }

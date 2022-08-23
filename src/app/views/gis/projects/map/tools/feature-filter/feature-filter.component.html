@@ -1,10 +1,13 @@
 <div class="selector-section">
-
     <div class="row justify-content-center section">
-    
+        <div class="d-block d-xs-none p-0 col-12">
+            <hr class="w-100 separator">
+        </div>
+
         <div class="col-12 p-0 mb-2">
             <layer-selector
-            label="Capa:"            
+            label="Capa:"  
+            [layerId]="layerId"
             (change)="onChangeLayerSelector($event)"
             ></layer-selector>
         </div>
@@ -26,20 +29,16 @@
             </ng-select>
         </div>
 
-        <div class="d-block d-xs-none p-0 col-12">
-            <hr class="w-100 separator">
-        </div>
-
-        <div id="filter-elements-attributes-finder" class="pad-left-0" >            
-            <div class="w-100 text-left">            
-                <label class="mb-2 label-title" for=""> <b>Valores:</b> </label>            
+        <div id="filter-elements-attributes-finder " class="pad-left-0 text-left pad-right-0" >            
+            <div class="w-100 text-left" class="pad-left-0">            
+                <label class="mb-2 label-title" for=""> Valores: </label>            
                 <input type="text" [disabled]="! formData.property" class="form-control form-control-sm d-inline search-field" placeholder="Buscar..." [(ngModel)]="search">            
                 <img src="assets/icons/svg/lupa.svg" class="icon search-icon" alt="lupa">                    
             </div>           
         </div>
     
         <div id="filter-elements-attribute-values-list"
-        class="feature-property-values-section feature-property-values animated__animated animate__fadeIn animate__faster"
+        class="feature-property-values-section bottom-bordered "
         *ngIf="formData.property && propertyValues.length > 0">
             <label class="custom-control overflow-checkbox" *ngFor="let value of ( propertyValues | keyMatch : search)">
                 <input type="checkbox" class="overflow-control-input"
@@ -50,46 +49,38 @@
                 <span class="overflow-control-indicator"></span>
                 <span class="overflow-control-description">{{value | titlecase}}</span>
             </label>
-            <!-- <div class="form-check" *ngFor="let value of ( propertyValues | keyMatch : search)">
-                <input class="form-check-input"
-                type="checkbox" id="feature_value_{{value}}"
-                name="feature_value_{{value}}"
-                (change)="updateFilter(value)" 
-                [checked]="valueExistsOnFilter(value)">
-                <label class="form-check-label" for="feature_value_{{value}}">{{value | titlecase}}</label>
-            </div> -->
         </div> 
+        <span *ngIf="formData.property && propertyValues.length === 0"  class="mg-t-16"> Vacio </span>
     </div>
+
+    
     <div class="_bottom-section row m-0 align-items-center" >
         <div class="col-4 p-1">
-            <button type="button" class="btn btn-block btn-Aceptar">
+            <button type="button" class="btn btn-block btn-Aceptar" (click)="toggleSectionVisibility()">
                 Aceptar
             </button>
         </div>
+
         <div class="col-4 p-1">
             <button 
-            id="filter-elements-remove-layer-filter-btn"
+            id="filter-elements-remove-layer-filter-btn"          
+            type="button" 
+            class="btn btn-block btn-outline"
             (click)="removeFilterOnProperty()"
-            type="button" class="btn btn-block btn-outline"
-            [disabled]="! formData.property || ! selectedLayerHasFilterOnProperty()"
-            [ngClass]="{
-                '_btn-outline-secondary': ! formData.property || ! selectedLayerHasFilterOnProperty(),
-                'btn-outline-info': formData.property && selectedLayerHasFilterOnProperty()
-            }">
+            [disabled]="!formData.property || !selectedLayerHasFilterOnProperty()"
+            disabled>
                 Eliminar filtro capa
             </button>
         </div>
+
         <div class="col-4 p-1">
             <button 
             id="filter-elements-remove-all-filters-btn"
+            type="button" 
             (click)="removeFilterOnAllLayers()"
-            type="button" class="btn btn-block btn-outline"
-            [disabled]="! isThereAnyLayerWithActiveFilter"
-            [ngClass]="{
-                '_btn-outline-secondary': ! isThereAnyLayerWithActiveFilter,
-                'btn-outline-info': isThereAnyLayerWithActiveFilter
-            }">
-                Eliminar todo
+            [disabled]="!formData.property || !isThereAnyLayerWithActiveFilter"
+            class="btn btn-block btn-outline">
+             Eliminar todo
             </button>
         </div>
     </div>

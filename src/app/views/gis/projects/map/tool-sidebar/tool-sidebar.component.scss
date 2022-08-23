@@ -8,7 +8,7 @@
     z-index: 999;
     text-align: center;
     padding: .75rem;
-    transition: height .2s;
+    transition: height .2s, left .5s;
 }
 
 .bar.collapsed{
@@ -37,12 +37,16 @@
     .bar{
         top: 6.5%;
         height: 94%;
-        width: 32.5%;
-        padding: .75rem;
+        width: 33%;
+        padding: .75rem .75rem .75rem 2.5rem;
     }
    
     .bar.collapsed{
         height: 94%;
+    }
+
+    .bar.button-bar-is-visible{
+        left: 7.5%;
     }
 
     .title{
@@ -60,6 +64,14 @@
 
 @media(min-width: 1024px)
 {    
+    .bar{
+        padding: .75rem .75rem .75rem 2.5rem;
+    }
+   
+    .bar.button-bar-is-visible{
+        left: 6%;
+    }    
+
     .title{
         font-size: 1.125rem;
     }
@@ -74,9 +86,13 @@
 }
 
 @media(min-width: 1280px)
-{       
+{     
+    .bar.button-bar-is-visible{
+        left: 5%;
+    }    
+
     .bar{
-        padding: 1rem;
+        padding: 1rem 1rem 1rem 2.5rem;
         width: 30%;
     }
 
@@ -93,7 +109,7 @@
 {       
     .bar{
         width: 27.5%;
-        padding: 1.125rem;
+        padding: 1.125rem 1.125rem 1.125rem 2.5rem;
     }
 
     .title{
@@ -108,7 +124,7 @@
 @media(min-width: 1440px) 
 {
     .bar{
-        padding: 1.25rem;
+        padding: 1.25rem 1.25rem 1.25rem 2.5rem;
     }
 
     .title{
@@ -128,7 +144,7 @@
 {
     .bar{
         width: 25%;
-        padding: 1.5rem;
+        padding: 1.5rem 1.5rem 1.5rem 2.5rem;
     }
 
     .title{

@@ -18,9 +18,9 @@
 
 ._bottom-section {
     position: absolute;
-    width: 98% !important; 
+    width: 95% !important; 
     height: 50px;
-    bottom: 15px;
+    bottom: 0;
     right: 7px;
 }
 
@@ -28,6 +28,7 @@
     font-size: .875rem;
     color: #001E33;
     text-align: left !important;
+    font-family: "Rubik Bold" !important;
 }
 
 .section {
@@ -66,35 +67,20 @@
 .pad-left-0{
     padding-left: 0px;
 }
-
-/* .checkbox {
-    border: 1px solid #000;
-    cursor: pointer;
-    font-size: .75rem;
-    width: 1.2rem;
-    height: 1.2rem;
-    position: absolute;
-}
-
-.checkbox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-} */
     
 .feature-property-values-section {
-    border: 1px solid #d1cbcb;
-    border-radius: 5px;
-    padding: 10px;
+    border: 1px solid #E0E0E0;
+    padding-top: 8px;
+    padding-bottom: 8px;
     max-height: 30vh;
     height: 100%;
     overflow: hidden;
     overflow-y: auto;
     margin-top: 8px;
-    width: 97%;
+    width: 100%;
     text-align: left !important;
+    padding-left: 0px;
+    padding-right: 0px;
     label {
         display: inline-block;
         margin-bottom: 0.5rem;
@@ -103,16 +89,18 @@
         position: relative;
         display: block;
         min-height: 1.5rem;
-        padding-left: 1.5rem;
+        padding-left: 2.8rem;
+        border-bottom: 1px solid #E0E0E0;
+        padding-top: 5px;
 
         &.overflow-checkbox .overflow-control-input {
             display: none;
         }
         &.overflow-checkbox .overflow-control-input:checked ~ .overflow-control-indicator::after {
-            -webkit-transform: rotateZ(45deg) scale(1);
-            -ms-transform: rotate(45deg) scale(1);
-            transform: rotateZ(45deg) scale(1);
-            top: -6px;
+            -webkit-transform: rotateZ(50deg) scale(1);
+            -ms-transform: rotate(50deg) scale(1);
+            transform: rotateZ(50deg) scale(1);
+            top: -2px;
             left: 5px;
         }
         &.overflow-checkbox .overflow-control-input:checked ~ .overflow-control-indicator::before {
@@ -128,14 +116,15 @@
         }
         
         &.overflow-checkbox .overflow-control-indicator {
-            border-radius: 3px;
             display: inline-block;
             position: absolute;
             top: 4px;
             left: 0;
             width: 16px;
-            height: 16px;
-            border: 2px solid #00909e;
+            width: 1.2rem;
+            height: 1.2rem;
+            border: 1px solid #000;
+            left: 16px;
         }
         &.overflow-checkbox .overflow-control-indicator::after {
             content: '';
@@ -149,9 +138,9 @@
             -webkit-transform: rotateZ(90deg) scale(0);
             -ms-transform: rotate(90deg) scale(0);
             transform: rotateZ(90deg) scale(0);
-            width: 10px;
-            border-bottom: 4px solid #00909e;
-            border-right: 4px solid #00909e;
+            width: 7px;
+            border-bottom: 3px solid #00909e;
+            border-right: 3px solid #00909e;
             border-radius: 3px;
             top: -2px;
             left: 2px;
@@ -165,15 +154,33 @@
             -webkit-transition: .3s;
             -o-transition: .3s;
             transition: .3s;
-            width: 10px;
+            width: 7px;
             border-right: 7px solid #fff;
             border-radius: 3px;
-            -webkit-transform: rotateZ(45deg) scale(1);
-            -ms-transform: rotate(45deg) scale(1);
-            transform: rotateZ(45deg) scale(1);
-            top: -4px;
-            left: 5px;
+            -webkit-transform: rotateZ(50deg) scale(1);
+            -ms-transform: rotate(50deg) scale(1);
+            transform: rotateZ(50deg) scale(1);
+            top: 0px;
+            left: 4px;
             opacity: 0;
         }
     }
+}
+
+
+.mg-t-16 {
+    margin-top: 16px;
+}
+
+.pad-right-0 {
+    padding-right: 0px;
+}
+
+.bottom-bordered {
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.btn.disabled, .btn:disabled, fieldset:disabled .btn {
+    color: #BDBDBD;
+    border: 1px solid #BDBDBD;
 }

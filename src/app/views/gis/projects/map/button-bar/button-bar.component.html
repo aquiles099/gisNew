@@ -1,6 +1,6 @@
 <div class="bar animate__animated animate__faster"  [ngClass]="{
-    'animate__fadeOutLeft': thereIsAnEnabledTool,
-    'animate__fadeInLeft': ! thereIsAnEnabledTool
+    'animate__fadeOutLeft': isCollapsed,
+    'animate__fadeInLeft': ! isCollapsed
 }">
     
     <div #buttonBar class="button-bar">
@@ -11,7 +11,7 @@
     
                 <button type="button"
                         [attr.aria-expanded]="!toolGroup.selected" aria-controls="collapse-tool-group"
-                        class="btn-transparent tool-group" 
+                        class="btn-transparent tool-group px-0 px-xxl-1" 
                         [attr.title]="toolGroup.display_name" 
                         (click)="toogleSelectedStateOnToolGroup(toolGroup)"
                         >
@@ -20,7 +20,7 @@
 
                 <small (click)="toogleSelectedStateOnToolGroup(toolGroup)"
                      [class.bold]="toolGroup.selected" 
-                     class="cursor-pointer d-none d-md-block mx-xxl-1 mt-1">
+                     class="cursor-pointer d-none d-xl-block mx-xxl-1 mt-1">
                     {{ toolGroup.display_name }}
                 </small>
     
@@ -28,10 +28,10 @@
     
             <div class="tools-container" [collapse]="! toolGroup.selected" [isAnimated]="true">
 
-                <div  class="mb-2 mx-md-0" *ngFor="let tool of toolGroup.gis_tools">
+                <div  class="mb-1 mx-md-0" *ngFor="let tool of toolGroup.gis_tools">
 
                     <button type="button"
-                            class="btn-transparent" 
+                            class="btn-transparent px-0 px-xxl-1" 
                             (click)="toogleSelectedStateInTool(tool)"
                             [attr.title]="tool.display_name" 
                             >
@@ -40,7 +40,7 @@
     
                     <small (click)="toogleSelectedStateInTool(tool)" 
                             [class.bold]="tool.selected" 
-                            class="cursor-pointer d-none d-md-block mx-xxl-1 mt-1 mb-2">
+                            class="cursor-pointer d-none d-xl-block mx-xxl-1 my-1">
                         {{ tool.display_name }}
                     </small>
 
@@ -64,4 +64,17 @@
         </button>
     </div>
 
+</div>
+
+<div class="collapse-button-bar animate__animated animate__faster" [class.collapsed]="isCollapsed" [ngClass]="{
+    'animate__fadeOutLeft': thereIsAnEnabledTool && isOnSmallScreen,
+    'animate__fadeInLeft': ! isOnSmallScreen
+}">
+    <button type="button"
+    class="btn-transparent collapse-btn" 
+    [title]="isCollapsed ? 'Mostrar' : 'Ocultar'" 
+    (click)="toolService.toggleButtonBarCollapsedState()"
+    >
+        <img class="collapse-btn-icon" [src]="isCollapsed ? 'assets/icons/svg/chevron-big-right.svg' : 'assets/icons/svg/chevron-big-left.svg'" alt="Leyenda">
+    </button>
 </div>

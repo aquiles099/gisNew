@@ -15,16 +15,6 @@ export class AuthUserService
   {
     this.userSubject = new BehaviorSubject((null as any));
     this.userObservable = this.userSubject.asObservable();
-    this.initiate();
-  }
-
-  private initiate():void
-  {
-    if( localStorage.getItem("user") )
-    {
-      const user = new User(JSON.parse(localStorage.getItem("user")));
-      this.userSubject.next(user);
-    }
   }
 
   get user():User

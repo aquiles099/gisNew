@@ -1,4 +1,4 @@
-<div class="bar animate__animated animate__faster"   [ngClass]="{
+<div class="bar animate__animated animate__faster" [class.button-bar-is-visible]="! buttonBarIsCollapsed"  [ngClass]="{
     'animate__fadeOutLeft':! isVisible,
     'animate__fadeInLeft': isVisible,
     'collapsed': isCollapsed

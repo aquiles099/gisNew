@@ -10,10 +10,10 @@
     groupBy="label"
     [selectableGroup]="false"
     placeholder="Seleccione capa"
-    [disabled]="layers.length == 0"
-    [readonly]="layers.length == 0"
-    [clearable]="true"
+    [disabled]="disabled"
+    [clearable]="false"
     [(ngModel)]="layerId"
+    [ngModelOptions]="{standalone: true}"
     (change)="onChange($event)"
     >
     <ng-template ng-optgroup-tmp let-item="item">

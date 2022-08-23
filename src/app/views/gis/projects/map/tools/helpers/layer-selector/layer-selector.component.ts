@@ -1,8 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { GisLayer } from '../../../../../../../models/gis-layer';
 import { MapLayerService } from '../../../../../../../services/gis/map/map-layer.service';
-import { ToolService } from '@services/gis/map/tool.service';
-import { NgSelectComponent } from '@ng-select/ng-select';
 
 @Component({
   selector: 'layer-selector',
@@ -11,8 +9,6 @@ import { NgSelectComponent } from '@ng-select/ng-select';
 })
 export class LayerSelectorComponent implements OnInit
 {
-  @ViewChild(NgSelectComponent) ngSelectComponent: NgSelectComponent;
-
   @Input()
   public layerId:number;
 
@@ -28,16 +24,11 @@ export class LayerSelectorComponent implements OnInit
   public layers:GisLayer[] = [];
 
   constructor(
-    private _mapLayerService:MapLayerService,
-    private toolService: ToolService
+    private _mapLayerService:MapLayerService
   ) { }
-
-  ngOnInit(): void {
-    this.toolService.clearSelectLayer.subscribe((res: any) => {
-      if(res){
-        this.ngSelectComponent.clearModel();
-      }
-    });
+  
+  public ngOnInit(): void
+  {
     this.layers = this._mapLayerService.projectedLayers;
   }
 
@@ -45,6 +36,4 @@ export class LayerSelectorComponent implements OnInit
   {
     this.change.emit(layer);
   }
-
-
 }

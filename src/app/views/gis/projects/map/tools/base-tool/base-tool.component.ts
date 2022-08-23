@@ -25,7 +25,7 @@ export class BaseToolComponent
 
   get isCollapsed():boolean
   {
-    return this.toolService.isCollapsed;
+    return this.toolService.toolBarIsCollapsed;
   }
 
   public getKey():string

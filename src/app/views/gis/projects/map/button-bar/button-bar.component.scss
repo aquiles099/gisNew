@@ -2,20 +2,49 @@
     position: absolute;
     top: 7.5%;
     left: 0;
-    width: 20%;
+    width: 15%;
     height: 92.5%;
     background-color: #fff;
-    z-index: 999;
+    z-index: 1000;
     text-align: center;
     padding: .5rem .25rem;
 }
 
 .button-bar{
+    display: inline-block;
     height: 90%;
+    width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     padding: .75rem .25rem;
     direction: rtl;
+}
+
+.collapse-button-bar{
+    position: absolute;
+    top: 10%;
+    height: 80%;
+    left: 15%;
+    border: 1px solid #E0E0E0;
+    border-radius: 0 .3rem .3rem 0;
+    background-color: rgba(255,2555,255,.75);
+    z-index: 1000;
+    transition: left .5s;
+}
+
+.collapse-button-bar.collapsed{
+    left: 0%;
+}
+
+.collapse-btn{
+    padding: 0 .1rem;
+    width: 100%;
+    height: 100%;
+}
+
+.collapse-btn-icon{
+    width: 1.125rem;
+    height: 1.75rem;
 }
 
 .separator{
@@ -36,18 +65,18 @@
     border-radius: .25rem;
 }
 
-button{
+button:not(.collapse-btn){
     margin: .125rem 0;
 }
 
 button.tool-group img{
-    width: 2.5rem;
-    max-height: 3rem;
+    width: 2rem;
+    max-height: 2.5rem;
 }
 
-button img{
-    width: 2.25rem;
-    max-height: 2.75rem;
+button:not(.collapse-btn) img{
+    width: 1.75rem;
+    max-height: 2rem;
 }
 
 .tools-container{
@@ -56,7 +85,7 @@ button img{
 
 small{
     font-size: .575rem;
-    line-height: .875rem;
+    line-height: .775rem;
 }
 
 small.bold{
@@ -85,7 +114,7 @@ small.bold{
     .bar{
         top: 6.5%;
         height: 93.5%;
-        width: 10%;
+        width: 7.5%;
     }
 
     button.tool-group img{
@@ -93,10 +122,19 @@ small.bold{
         max-height: 2.5rem;
     }
 
-    button img{
-        width: 2rem;
-        max-height: 2.25rem;
+    button:not(.collapse-btn) img{
+        width: 1.75rem;
+        max-height: 2rem;
     }   
+
+    .collapse-button-bar{
+        left: 7.5%;
+        height: 80%;
+    }
+
+    .collapse-btn-icon{
+        height: 1.5rem;
+    }
 }
 
 @media(min-width: 1024px)
@@ -104,7 +142,16 @@ small.bold{
     .bar{
         top: 6%;
         height: 94%;
-        width: 7.5%;
+        width: 6%;
+    }
+
+    button:not(.collapse-btn) img{
+        width: 2rem;
+    }   
+
+    .collapse-button-bar{
+        left: 6%;
+        height: 81%;
     }
 
     small{
@@ -115,60 +162,35 @@ small.bold{
 @media(min-width: 1280px)
 {    
     .bar{
-        width: 7%;
+        width: 5%;
+        padding: .5rem 0;
     }
 
-    button.tool-group img{
-        width: 2.5rem;
-        max-height: 2.75rem;
+    .button-bar{
+        padding: .75rem 0;
     }
-
-    button img{
-        width: 2.25rem;
-        max-height: 2.5rem;
-    }   
+    
+    .collapse-button-bar{
+        left: 5%;
+    }
 
     small{
-        font-size: .65rem;
+        font-size: .575rem;
     }
 }
 
 @media(min-width: 1440px) 
 {
-    .bar{
-        width: 6.5%;
-    }
-
-    button.tool-group img{
-        width: 2.75rem;
-        max-height: 3rem;
-    }
-
-    button img{
-        width: 2.5rem;
-        max-height: 2.75rem;
-    }   
-
     small{
-        font-size: .675rem;
+        font-size: .625rem;
     }
 }
 
 @media(min-width: 1600px)
 {
     small{
-        font-size: .7rem;
+        font-size: .65rem;
     }
-
-    button.tool-group img{
-        width: 3.25rem;
-        max-height: 3.25rem;
-    }
-
-    button img{
-        width: 3rem;
-        max-height: 3rem;
-    }   
 }
 
 @media(min-width: 800px) and (min-height: 600px)
