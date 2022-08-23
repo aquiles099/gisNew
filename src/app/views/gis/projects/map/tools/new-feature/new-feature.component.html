@@ -83,7 +83,7 @@
                         id="attribute_{{attribute.name}}"
                         type="text" 
                         class="attr-value"
-                        [(ngModel)]="newFeature[attribute.name]"
+                        [(ngModel)]="drawnLayerFeature[attribute.name]"
                         >
                        
                         <input
@@ -91,7 +91,7 @@
                         id="attribute_{{attribute.name}}"
                         type="text" 
                         class="attr-value"
-                        [(ngModel)]="newFeature[attribute.name]"
+                        [(ngModel)]="drawnLayerFeature[attribute.name]"
                         >
 
                         <input
@@ -101,7 +101,7 @@
                         step="1"
                         min="0"
                         class="attr-value"
-                        [(ngModel)]="newFeature[attribute.name]"
+                        [(ngModel)]="drawnLayerFeature[attribute.name]"
                         >
 
                         <input
@@ -111,7 +111,7 @@
                         step=".01"
                         min="0" 
                         class="attr-value"
-                        [(ngModel)]="newFeature[attribute.name]"
+                        [(ngModel)]="drawnLayerFeature[attribute.name]"
                         >
                        
                         <input
@@ -119,7 +119,7 @@
                         *ngSwitchCase="'date'" 
                         type="text"
                         class="attr-value"
-                        [(ngModel)]="newFeature[attribute.name]"
+                        [(ngModel)]="drawnLayerFeature[attribute.name]"
                         bsDatepicker
                         [bsConfig]="{ 
                             adaptivePosition: true,
@@ -130,7 +130,7 @@
                         <timepicker 
                         *ngSwitchCase="'time'" 
                         id="attribute_{{attribute.name}}"
-                        [(ngModel)]="newFeature[attribute.name]"
+                        [(ngModel)]="drawnLayerFeature[attribute.name]"
                         [showMeridian]="false"
                         ></timepicker>
 
@@ -138,12 +138,12 @@
                             
                             <input 
                             type="checkbox" 
-                            [checked]="newFeature[attribute.name]" 
+                            [checked]="drawnLayerFeature[attribute.name]" 
                             name="attribute_{{attribute.name}}" 
-                            [(ngModel)]="newFeature[attribute.name]"
+                            [(ngModel)]="drawnLayerFeature[attribute.name]"
                             id="attribute_{{attribute.name}}">
 
-                            <i class="fas fa-check" *ngIf="newFeature[attribute.name]" ></i>
+                            <i class="fas fa-check" *ngIf="drawnLayerFeature[attribute.name]" ></i>
 
                         </label>
 
@@ -158,7 +158,7 @@
                         <ng-select
                             class="attr-value" 
                             [clearable]="false"
-                            [(ngModel)]="newFeature[attribute.name]"
+                            [(ngModel)]="drawnLayerFeature[attribute.name]"
                             [ngModelOptions]="{standalone: true}"
                             placeholder="Seleccione..."
                             >

@@ -1,4 +1,95 @@
- <!-- SPINNER -->
- <div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
+<div class="middle-section d-flex flex-column w-100 h-100 ">
+
+    <div *ngIf="! showInfo" [@fadeInOnEnter] [@fadeOutOnLeave] class="mx-0 my-1">
+        <div class="p-0 property-key">
+            <span >
+                Haga click encima o cerca de un elemento para seleccionarlo.
+            </span>
+        </div>
+    </div>
+  
+    <div *ngIf="layerFeatures.length && ! showInfo" [@fadeInOnEnter] [@fadeOutOnLeave]  class="h-100">
+
+        <div class="size-container overflow-auto">
+
+            <span class="attr-label element-align">
+                Selecciona un Elemento: 
+            </span>
+
+            <div *ngFor="let layer of layerFeatures">
+
+                <div class="d-flex flex-column mb-2">
+
+                    <label class="mb-2 title">
+                        {{ layer.display_name }}
+                    </label>
+
+                    <div class="d-flex justify-content-between flex-row" *ngFor="let feature of layer.features; let i = index;">
+
+                        <div class="element-align">
+                            <label for="checkbox_layer_{{layer.layer_id}}_feature_{{i}}" class="cursor">
+                                Elemento {{ i + 1}}
+                            </label>
+                        </div>
+
+                        <div class="checkbox-align p-0">
+                            <input type="radio" 
+                                    (change)="onSelectFeature(layer.layer_id, feature)" 
+                                    id="checkbox_layer_{{layer.layer_id}}_feature_{{i}}" 
+                                    [checked]="selectedFeature && selectedFeature.id === feature.id"
+                                    name="feature"
+                                    >
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="d-flex flex-row justify-content-between align-items-end mx-auto">
+
+            <button (click)="showFeatureInfo()" [disabled]="! selectedFeature" class="btn btn-ok size-btn">
+                Continuar
+            </button>
+           
+        </div>
+    </div>
+        
+    <div *ngIf="featureInfo" [@fadeInOnEnter] [@fadeOutOnLeave] class="size-container d-flex flex-column">
+
+        <div  class="h-100 overflow-auto">
+            <ul class="detail-element p-0">
+                <li class="d-flex flex-column" *ngFor="let attribute of attLayer">
+                    <div class="d-flex flex-row justify-content-between border-bottom mb-2">
+                            <label class="attr-label element-align w-50">
+                                {{ attribute.display_name | titlecase }} :
+                            </label>
+                            <label for="attr-value w-50">{{featureInfo[attribute.name]}}</label>
+                            <!-- <input
+                            readonly
+                            type="text" 
+                            class="form-control attr-value w-50"
+                            [value]="featureInfo[attribute.name]"
+                            > -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between align-items-end mx-auto" *ngIf="layerFeatures.length >= 1">
+            <button (click)="onBack()" class="btn btn-cancel">
+                Volver
+            </button>
+        </div>
+        
+    </div>
+
+</div>
+
+<!-- SPINNER -->
+<div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
     <mat-spinner></mat-spinner>
 </div>

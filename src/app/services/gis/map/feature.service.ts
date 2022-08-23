@@ -46,7 +46,20 @@ export class FeatureService extends CrudService
     }
     catch (error)
     {
-        throw error;
+      throw error;
     }
+  }
+
+  public async getElementSelect(idElement:any, idCapa:number) {
+    try{
+      const baseUrl = this.baseUrl.slice(0, this.baseUrl.indexOf('capas') + 5);  
+    
+      return await this.httpClient.get<any>(`${baseUrl}/${idCapa}/elementos/${idElement}`).toPromise();
+
+    }catch (error)
+    {
+      throw error;
+    }
+    
   }
 }

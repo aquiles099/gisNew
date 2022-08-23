@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { GisLayerService } from '../../../../../../services/gis/gis-layer.service'
-import { GisLayer } from '../../../../../../models/gis-layer'
-import { MapLayerService } from '../../../../../../services/gis/map/map-layer.service'
-import { BaseToolComponent } from '../base-tool/base-tool.component';
-import { ToolService } from '../../../../../../services/gis/map/tool.service';
-import { MapService } from '../../../../../../services/gis/map/map.service';
+import { Component, OnInit,ElementRef  } from '@angular/core';
+import {GisLayerService} from '../../../../../../services/gis/gis-layer.service'
+import {GisLayer} from '../../../../../../models/gis-layer'
+import {MapLayerService} from '../../../../../../services/gis/map/map-layer.service'
+import { ToastrService } from 'ngx-toastr';
+import { SpinnerService } from '../../../../../../services/spinner.service';
+import { of } from 'rxjs';
+
 
 @Component({
   templateUrl: './feature-labeling.component.html',
-  styleUrls: ['./feature-labeling.component.scss']
+  styleUrls: ['./feature-labeling.component.scss',
+  '../../../../../../../styles/map/tool.scss'
+
+]
 })
-export class FeatureLabelingComponent extends BaseToolComponent 
+export class FeatureLabelingComponent 
 {
   public attributes: any = [];
   public search: string = null;
@@ -20,20 +24,17 @@ export class FeatureLabelingComponent extends BaseToolComponent
   public showSpinner: boolean;
 
   constructor
-    (
-      protected toolService: ToolService,
-      protected mapService: MapService,
-      private _gisLayerService: GisLayerService,
-      private _mapLayerService: MapLayerService
+  (
+    private _gisLayerService:GisLayerService,
+    private _mapLayerService:MapLayerService,
+    private _toastService:ToastrService,
+    private _spinnerService:SpinnerService,
+    private elRef:ElementRef
+
 
     ) {
 
-    super(
-      toolService,
-      mapService
-    );
 
-    this.key = "feature-info";
   }
 
   public async onChangeLayerSelector(layer: GisLayer): Promise<void> {
@@ -52,28 +53,83 @@ export class FeatureLabelingComponent extends BaseToolComponent
     finally {
       this.search = null;
       this.showSpinner = false;
+
     }
   }
 
   onChangeAttribute(event) {
 
-    this.selected_value = event.target.value;
+    let checkbox_attributes = this.elRef.nativeElement.getElementsByClassName('checkbox_attribute') 
 
-    this.layer.addLabel(this.selected_value);
+    let current_value=event.target.value;
+    
+    let is_checked=event.target.checked;
 
-  }
+    for (const checkbox of checkbox_attributes) 
+    {
+      if(current_value!=checkbox.value)
+      {
+        checkbox.checked=false;
+      }
+      
+    }
+    
+    this.selected_value=event.target.value;
 
-  remove() {
-    this.layer.removeLabel();
 
+    if(is_checked)
+    {
+      this.layer.addLabel(this.selected_value);
 
-  }
+    }else
+    {
+      this.remove();
 
-  removeAll() {
-    for (let layer of this._mapLayerService.projectedLayers) {
-      layer.removeLabel();
     }
 
+  }
+
+
+ remove()
+ {
+
+  let checkbox_attributes = this.elRef.nativeElement.getElementsByClassName('checkbox_attribute') 
+ 
+  for (const checkbox of checkbox_attributes) 
+  {
+   
+    if(checkbox.value==this.layer.getLabel())
+    {
+      checkbox.checked=false;
+    }
+    
+  }
+
+  this.layer.removeLabel();
+
+
+ }
+
+ removeAll()
+ {
+
+  let checkbox_attributes = this.elRef.nativeElement.getElementsByClassName('checkbox_attribute') 
+ 
+  for (const checkbox of checkbox_attributes) 
+  {
+    checkbox.checked=false;
+
+
+  }
+
+
+  for(let layer of this._mapLayerService.projectedLayers)
+  {
+    layer.removeLabel();
+
+  }
+
+ 
   }
 
 }

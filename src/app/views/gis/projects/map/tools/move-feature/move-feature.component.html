@@ -1,1 +1,71 @@
-<p>move-feature works!</p>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-12 p-0" *ngIf="!layerFeatures.length">
+            <p class="text-start ">Mueva el elemento a la posición deseada. </p>
+        </div>
+    </div>
+
+    <div class="row radio-container mt-3">
+        <div class="col-12">
+
+            <div class="row">
+
+                <!--start accordion-->
+                <div class="col-12 border-bottom-map mt-3 p-0" *ngFor="let layerFeature of layerFeatures">
+                    <div class="element-info">
+                        <p class="text-start">
+                            {{layerFeature.display_name}}
+                        </p>
+                    </div>
+
+                    <div class="element ">
+                        <div class="row " *ngFor="let feature of layerFeature.features; index as i">
+                            <div class="col-1 text-start">
+                                <input type="radio" name="element" [value]="feature.id" (click)="addMarker(feature.id)">
+                            </div>
+                            <div class="col-10 ">
+                                <p class="text-start ">Elemento {{i+1}}</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            <!--end accordion-->
+            
+            
+            
+            </div>
+
+
+      
+            
+        </div>
+    </div>
+
+
+
+    <div class="row mx-0 d-flex justify-content-center  animate__animated animate__fadeIn animate__faster" 
+    >
+ 
+     <div class="bottom-section">
+ 
+         <div class="row mx-0 justify-content-between">
+ 
+             <div class="col-5 px-0 d-grid gap-2">
+                 <button class=" btns w-100 text-center" [disabled]="selected_item" type="button" >Continuar</button>
+ 
+             </div>
+ 
+             <div class="col-5 px-0 d-grid gap-2">
+                 <button class=" btns   w-100  text-center" type="button" >Cancelar</button>
+ 
+             </div>
+ 
+         </div>
+ 
+     </div>
+     
+ </div>
+
+</div>

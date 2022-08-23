@@ -8,5 +8,6 @@ export interface GisTool extends Model
     "path": string;
     "description": string;
     "selected": boolean;
+    "order": number;
     "is_active": boolean;
 }

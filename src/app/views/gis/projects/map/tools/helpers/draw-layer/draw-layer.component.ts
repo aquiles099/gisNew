@@ -13,9 +13,9 @@ export class DrawLayerComponent extends BaseToolComponent implements OnInit, OnD
 
   public gisLayer:GisLayer = null;
 
-  public newLayer:Marker|Polyline|Polygon;
+  public drawnLayer:Marker|Polyline|Polygon;
   
-  public newFeature:{[key:string]:string|number|boolean} = {};
+  public drawnLayerFeature:{[key:string]:string|number|boolean} = {};
 
   public drawingState:"waiting"|"inProgress"|"finished" = "waiting";
 
@@ -49,7 +49,7 @@ export class DrawLayerComponent extends BaseToolComponent implements OnInit, OnD
         {
           setTimeout(() => {
 
-              (this.newLayer as any).editor.newShape();
+              (this.drawnLayer as any).editor.newShape();
 
               this.finishMultiGeometry = true;
               
@@ -65,7 +65,8 @@ export class DrawLayerComponent extends BaseToolComponent implements OnInit, OnD
         {
           this.drawingState = "finished";
 
-          this.newLayer.disableEdit();
+          if( ! this.keepTheDrawnLayerEditable )
+            this.drawnLayer.disableEdit();
 
           this.helpMessage = this.gisLayer.geometry_type.includes('POLYGON') ? 
           `<kdb>Ctrl + click</kdb> sobre polígono para iniciar agujero.`: "";
@@ -83,6 +84,8 @@ export class DrawLayerComponent extends BaseToolComponent implements OnInit, OnD
   protected onFinishDrawing:() => void;
 
   protected zoomBeforeFocusOnLayer:number;
+  
+  protected keepTheDrawnLayerEditable:boolean = false;;
 
   constructor(
     protected toolService:ToolService,    
@@ -123,30 +126,30 @@ export class DrawLayerComponent extends BaseToolComponent implements OnInit, OnD
     switch( this.gisLayer.geometry_type )
     {
       case "POINT":
-        this.newLayer = this.map.editTools.startMarker();
+        this.drawnLayer = this.map.editTools.startMarker();
         this.helpMessage = "Click en mapa para agregar marcador.";
         break;
 
       case "LINESTRING":
       case "MULTILINESTRING":
-        this.newLayer = this.map.editTools.startPolyline();
+        this.drawnLayer = this.map.editTools.startPolyline();
         this.helpMessage = "Click en mapa para iniciar línea.";
         break;
 
       case "POLYGON":
       case "MULTIPOLYGON":
 
-        this.newLayer = this.map.editTools.startPolygon();
+        this.drawnLayer = this.map.editTools.startPolygon();
         
         // evento para iniciar agujero sobre poligono una vez que este es dibujado.
-        this.newLayer.on('click', (event:any) => {
+        this.drawnLayer.on('click', (event:any) => {
 
           if ((event.originalEvent.ctrlKey || event.originalEvent.metaKey) &&
-             (this.newLayer as any).editEnabled() &&
+             (this.drawnLayer as any).editEnabled() &&
              this.gisLayer.geometry_type !== "MULTIPOLYGON"
             )
             {
-              (this.newLayer as any).editor.newHole(event.latlng);
+              (this.drawnLayer as any).editor.newHole(event.latlng);
             }
 
         });
@@ -165,7 +168,10 @@ export class DrawLayerComponent extends BaseToolComponent implements OnInit, OnD
 
       this.map.editTools.stopDrawing();
       this.drawingState = "finished";  
-      this.newLayer.disableEdit();
+
+      if( ! this.keepTheDrawnLayerEditable )
+        this.drawnLayer.disableEdit();
+
       this.helpMessage = null;
       this.focusOnDrawedLayer();
 
@@ -178,20 +184,20 @@ export class DrawLayerComponent extends BaseToolComponent implements OnInit, OnD
   {
     this.zoomBeforeFocusOnLayer = this.map.getZoom();
 
-    this.newLayer instanceof Marker ?
-    this.map.flyTo( this.newLayer.getLatLng(), 20, {duration: .5}) :
-    this.map.flyToBounds( this.newLayer.getBounds() );
+    this.drawnLayer instanceof Marker ?
+    this.map.flyTo( this.drawnLayer.getLatLng(), 20, {duration: .5}) :
+    this.map.flyToBounds( this.drawnLayer.getBounds() );
   }
 
   public async clear():Promise<void>
   {
     this.map.editTools.stopDrawing();
 
-    if( this.newLayer )
+    if( this.drawnLayer )
     {
-      this.newLayer.remove();
-      this.newLayer = null;
-      this.newFeature = {};
+      this.drawnLayer.remove();
+      this.drawnLayer = null;
+      this.drawnLayerFeature = {};
 
       if( this.zoomBeforeFocusOnLayer )
       {

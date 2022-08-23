@@ -3,4 +3,59 @@
     bottom: 0;
     height: 92.5%;
 }
-  
+
+.scrollable{
+    overflow-x: auto;
+    overflow-y: scroll;
+    max-height: 47rem;
+}
+
+.detail-element{
+    list-style-type: none;
+}
+
+.title{
+    color: #001E33;
+    font-family: 'Rubik Bold' !important;
+    border-bottom: 0.1rem solid #cdcdcd;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.checkbox input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.element-align{
+    text-align: left;
+    font-family: 'NunitoSans' !important;
+}
+
+.checkbox-align{
+    text-align: right;
+}
+.cursor{
+    cursor: pointer;
+}
+
+.size-btn{
+    width: 47%;
+}
+.size-container{
+    height: 90%;
+}
+@media(max-width: 768px)
+{
+    .size-container{
+        height: 75%;
+    }
+}
+@media(max-width: 666px)
+{
+    .size-container{
+        height: 65%;
+    }
+}

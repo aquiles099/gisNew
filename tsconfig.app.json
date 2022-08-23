@@ -8,7 +8,8 @@
       "leaflet-draw",
       "leaflet-editable",
       "geojson",
-      "node"
+      "node",
+      "sortablejs"
     ],
   },
   "files": [

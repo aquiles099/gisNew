@@ -1,5 +1,5 @@
 import { Component, } from '@angular/core';
-import { Polyline, LatLngExpression, LatLngBoundsExpression, ZoomPanOptions } from 'leaflet';
+import { Polyline, LatLngExpression, LatLngBoundsExpression, ZoomPanOptions, LatLngBoundsLiteral } from 'leaflet';
 import { Geometry } from '@turf/helpers';
 import LeafletWms from 'leaflet.wms';
 import { BaseToolComponent } from '../../base-tool/base-tool.component';
@@ -60,22 +60,26 @@ export class LayerHighlighterComponent extends BaseToolComponent
   public highlight(query:string, zone?:{geom:Geometry|LatLngBoundsExpression, zoom?:number, options?:ZoomPanOptions}):void
   {
     this.highlightLayer.wmsParams.cql_filter = query;
+
     this.refresh();
 
     if( zone )
     {
       if( ! zone.options )
         zone.options = {duration: .5};
-      
+
+      const coordinates = zone.geom.hasOwnProperty('coordinates') ?
+      [...(zone.geom as Geometry).coordinates] : [...(zone.geom as LatLngBoundsLiteral)];
+        
       switch( true )
       {
         case (zone.geom as Geometry).type === "Point":
-          this.map.flyTo( ((zone.geom as Geometry).coordinates.reverse() as LatLngExpression), zone.zoom ?? 20, zone.options);
+          this.map.flyTo( (coordinates.reverse() as LatLngExpression), zone.zoom ?? 20, zone.options);
           break;
 
         case (zone.geom as Geometry).type !== "Point":
 
-        const layer = new Polyline((zone.geom as Geometry).coordinates as LatLngExpression[]);
+        const layer = new Polyline(coordinates as LatLngExpression[]);
 
           let bounds = layer.getBounds()
                             .toBBoxString()
@@ -91,7 +95,7 @@ export class LayerHighlighterComponent extends BaseToolComponent
           break;
 
         default:
-          this.map.flyToBounds((zone.geom as LatLngBoundsExpression));
+          this.map.flyToBounds((coordinates as LatLngBoundsExpression));
           break;
       }
     };

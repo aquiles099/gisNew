@@ -107,11 +107,11 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
   public async removeFilterOnProperty():Promise<void>
   { 
     this.selectedLayerFilter[this.selectedPropertyData.name] = [];
-    this.selectedLayer.removeAttributeFromFilter(this.selectedPropertyData.name);
+    this.selectedLayer.clearFilter();
     this.formData.property= null;
     this.propertyValues = [];
     this.selectedPropertyData = [];
-    console.log(this.selectedLayerFilter);
+    
     
   }
 
@@ -125,6 +125,9 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
 
   public async removeFilterOnAllLayers():Promise<void>
   {
+    for(let layer of this._mapLayerService.projectedLayers) {
+      layer.clearFilter();
+    }
     this.selectedLayer = null;
     this.attributes = [];
     this.selectedPropertyData = [];
@@ -132,6 +135,7 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     this.formData.property= null;
     this.layerId = null;
     this.selectedLayerFilter = null;
-    this.selectedLayer.removeLabel();
+    
+    
   }
 }

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Project } from '@interfaces/project';
 import { LaravelPaginator } from '../interfaces/laravel-paginator';
 
 export class CrudService
@@ -11,7 +10,7 @@ export class CrudService
     constructor(
         protected httpClient: HttpClient,
         protected resourceUrl:string,
-        backend:"administration"|"gis" = "administration"
+        protected backend:"administration"|"gis" = "administration"
     )
     {
         let url = backend === "administration" ? 
@@ -141,11 +140,22 @@ export class CrudService
     {
         try
         {
-            data instanceof FormData ?
-            data.append("_method", "PUT") :
-            data["_method"] = "PUT";
+            let response;
 
-            return await this.httpClient.post<any>(`${this.baseUrl}/${id}`, data).toPromise();
+            if( this.backend === "gis" )
+            {
+                data instanceof FormData ?
+                data.append("_method", "PUT") :
+                data["_method"] = "PUT";
+    
+                response = await this.httpClient.post<any>(`${this.baseUrl}/${id}`, data).toPromise();
+            }
+            else
+            {
+                response = await this.httpClient.post<any>(`${this.baseUrl}/${id}`, data).toPromise();
+            }
+
+            return response;
         }
         catch (error)
         {

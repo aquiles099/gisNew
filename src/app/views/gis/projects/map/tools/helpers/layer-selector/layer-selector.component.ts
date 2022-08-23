@@ -30,6 +30,7 @@ export class LayerSelectorComponent implements OnInit
   public ngOnInit(): void
   {
     this.layers = this._mapLayerService.projectedLayers;
+    console.log(this.layers)
   }
 
   public onChange(layer:GisLayer):void

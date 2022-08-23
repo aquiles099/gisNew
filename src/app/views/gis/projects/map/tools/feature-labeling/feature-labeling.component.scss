@@ -57,6 +57,8 @@ button.btns{
 }
 
 
+
+
 .hidden{
     display: none;
 }
@@ -69,6 +71,20 @@ button.btns{
 
 .relative{
     position: relative;
+}
+
+//inherited
+
+.bottom-section{
+    bottom: 8.5% !important;
+}
+
+@media (min-width: 800px)
+{
+.bottom-section{
+    bottom: 8% !important;
+    padding: 0 0.75rem !important;
+}
 }
 
 @media(max-width: 800px) and (max-height: 600px)

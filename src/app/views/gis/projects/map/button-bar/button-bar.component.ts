@@ -99,7 +99,7 @@ export class ButtonBarComponent implements OnInit
     }
   }
 
-  public toogleSelectedStateInTool(tool:GisTool):void
+  public toogleSelectedStateInTool(tool:GisTool|GisToolGroup):void
   {
     if( this.toolService.enabledTool === tool )
     {

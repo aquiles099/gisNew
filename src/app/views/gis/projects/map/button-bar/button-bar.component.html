@@ -3,11 +3,29 @@
     'animate__fadeInLeft': ! isCollapsed
 }">
     
-    <div #buttonBar class="button-bar">
+    <div #buttonBar [sortablejs]="toolGroups" class="button-bar">
     
         <div  *ngFor="let toolGroup of toolGroups" class="tool-group">
     
-            <div class="tool-group-btn">
+            <div *ngIf="toolGroup.path" class="tool-group-btn">
+    
+                <button type="button"
+                    class="btn-transparent tool-group px-0 px-xxl-1" 
+                    (click)="toogleSelectedStateInTool(toolGroup)"
+                    [attr.title]="toolGroup.display_name" 
+                    >
+                    <img [src]="'assets/icons/svg/map/' + toolGroup.name + ( toolGroup.selected ? '-on' : '' ) + '.svg'" [alt]="toolGroup.name">
+                </button>
+
+                <small (click)="toogleSelectedStateInTool(toolGroup)" 
+                        [class.bold]="toolGroup.selected" 
+                        class="cursor-pointer d-none d-xl-block mx-xxl-1 mt-1">
+                        {{ toolGroup.display_name }}
+                </small>
+    
+            </div>
+           
+            <div *ngIf="! toolGroup.path" class="tool-group-btn">
     
                 <button type="button"
                         [attr.aria-expanded]="!toolGroup.selected" aria-controls="collapse-tool-group"
@@ -26,7 +44,7 @@
     
             </div>
     
-            <div class="tools-container" [collapse]="! toolGroup.selected" [isAnimated]="true">
+            <div *ngIf="! toolGroup.path" [sortablejs]="toolGroup.gis_tools" class="tools-container" [collapse]="! toolGroup.selected" [isAnimated]="true">
 
                 <div  class="mb-1 mx-md-0" *ngFor="let tool of toolGroup.gis_tools">
 

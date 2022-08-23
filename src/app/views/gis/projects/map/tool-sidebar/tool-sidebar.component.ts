@@ -15,7 +15,7 @@ export class ToolSidebarComponent implements OnInit, OnDestroy
     private _toolService:ToolService
   ) {  }
 
-  get enabledTool():GisTool
+  get enabledTool():Partial<GisTool>
   {
     return this._toolService.enabledTool;
   }
@@ -45,10 +45,8 @@ export class ToolSidebarComponent implements OnInit, OnDestroy
     this._toolService.disableTool();
   }
 
-
   public ngOnInit(): void
   {
-    
   }
 
   public ngOnDestroy(): void

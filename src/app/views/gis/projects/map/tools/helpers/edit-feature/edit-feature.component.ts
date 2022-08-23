@@ -6,6 +6,7 @@ import { FeatureService } from '../../../../../../../services/gis/map/feature.se
 import { MapLayerService } from '../../../../../../../services/gis/map/map-layer.service';
 import { Marker, Polyline, Polygon } from 'leaflet';
 import { GisLayer } from '@models/gis-layer';
+import { GisLayerService } from '../../../../../../../services/gis/gis-layer.service';
 
 @Component({
   templateUrl: './edit-feature.component.html',

@@ -1,1 +1,178 @@
-<p>edit-feature works!</p>
+<div class="middle-section scrollable">
+
+    <div class="row mx-0 my-1">
+        <div class="col-12 p-0 property-key">
+            <span *ngIf="showHeader">
+                Haga click encima o cerca de un elemento para seleccionarlo.
+            </span>
+            <span *ngIf="layerFeatures.length >= 1 && showInfo" class="attr-label">
+                Selecciona un Elemento: 
+            </span>
+        </div>
+    </div>
+   
+    <div *ngIf="layerFeatures.length >= 1 && showInfo" class="row mx-0 my-1">
+        <div class="list-element scrollable mb-2">
+            <div class="col-12 px-0 py-2" *ngFor="let element of layerFeatures;">
+                <div class="row m-0">
+                    <div class="col-12 p-0 mb-2 title">
+                        <label *ngIf="layerFeatures.length >= 1" class="mb-2">
+                            {{element.display_name | titlecase}}
+                        </label>
+                    </div>
+                </div>
+                <div class="row m-0" *ngFor="let atribbute of element.features; let i = index;">
+                        <div class="col-4 p-0 element-align">
+                            <label for="checkbox_layer_{{i}}" class="cursor">
+                            {{'Elemento' | titlecase}} {{ i + 1}}
+                        </label>
+                    </div>
+                        <div class="col-8 checkbox-align p-0">
+                        <label for="checkbox_layer_{{i}}"
+                                [class.checked]="atribbute" 
+                                    class="checkbox cursor">
+                            <i *ngIf="atribbute" class="fa fa-check"></i>
+                        </label>
+                        <input type="radio" (change)="onSelectElement(atribbute,element.layer_id)" id="checkbox_layer_{{i}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-5 px-0">
+                <button (click)="onCanceld()" class="btn btn-cancel animate__animated animate__fadeIn animate__faster">
+                    Cancelar
+                </button>
+            </div>
+            <div class="col-5 px-0">
+                <button (click)="onNext()" class="btn btn-ok animate__animated animate__fadeIn animate__faster">
+                    Continuar
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="!showInfo">
+        <div class="scrollable mb-2">
+            <ul class="detail-element p-0">
+                <li *ngFor="let attribute of attLayer">
+                    <div class="row m-2">
+                        <div class="col-6 p-0 d-flex align-items-center property-key">
+                            <label class="attr-label" [attr.title]="attribute.display_name">
+                                {{ attribute.display_name | titlecase }}
+                            </label>
+                        </div>
+        
+                        <div class="col-6 p-0 text-center" *ngIf="! attribute.domain || ! attribute.domain.length; else domainSelector">
+                            <div class="w-100 d-flex justify-content-center" [ngSwitch]="attribute.data_type">
+        
+                                <input
+                                *ngSwitchCase="'varchar'" 
+                                id="attribute_{{attribute.name}}"
+                                type="text" 
+                                class="attr-value form-control"
+                                [(ngModel)]="selectedFeature[attribute.name]"
+                                >
+                                
+                                <input
+                                *ngSwitchCase="'text'" 
+                                id="attribute_{{attribute.name}}"
+                                type="text" 
+                                class="attr-value form-control"
+                                [(ngModel)]="selectedFeature[attribute.name]"
+                                >
+        
+                                <input
+                                id="attribute_{{attribute.name}}"
+                                *ngSwitchCase="'bigint'" 
+                                type="number" 
+                                step="1"
+                                min="0"
+                                class="attr-value form-control"
+                                [(ngModel)]="selectedFeature[attribute.name]"
+                                >
+        
+                                <input
+                                id="attribute_{{attribute.name}}"
+                                *ngSwitchCase="'float'" 
+                                type="number"
+                                step=".01"
+                                min="0" 
+                                class="attr-value form-control"
+                                [(ngModel)]="selectedFeature[attribute.name]"
+                                >
+                                
+                                <input
+                                id="attribute_{{attribute.name}}"
+                                *ngSwitchCase="'date'" 
+                                type="text"
+                                class="attr-value form-control"
+                                [(ngModel)]="selectedFeature[attribute.name]"
+                                bsDatepicker
+                                [bsConfig]="{ 
+                                    adaptivePosition: true,
+                                    containerClass: 'theme-dark-blue', 
+                                    isAnimated: true
+                                }">
+        
+                                <timepicker 
+                                *ngSwitchCase="'time'" 
+                                id="attribute_{{attribute.name}}"
+                                [(ngModel)]="selectedFeature[attribute.name]"
+                                [showMeridian]="false"
+                                ></timepicker>
+        
+                                <label *ngSwitchCase="'boolean'" class="checkbox" for="attribute_{{attribute.name}}">
+                                    <input 
+                                    type="checkbox" 
+                                    [checked]="selectedFeature[attribute.name]" 
+                                    name="attribute_{{attribute.name}}" 
+                                    [(ngModel)]="selectedFeature[attribute.name]"
+                                    id="attribute_{{attribute.name}}">
+                                    <i class="fas fa-check" *ngIf="selectedFeature[attribute.name]" ></i>
+                                </label>
+                            </div>
+                        </div>
+        
+                        <ng-template #domainSelector>
+                            <div class="col-6 p-0">
+                                <ng-select
+                                    class="attr-value" 
+                                    [clearable]="false"
+                                    [(ngModel)]="selectedFeature[attribute.name]"
+                                    [ngModelOptions]="{standalone: true}"
+                                    placeholder="Seleccione..."
+                                    >
+                                    <ng-option [value]="value" *ngFor="let value of attribute.domain">
+                                        {{ value }}
+                                    </ng-option>
+                                </ng-select>
+                            </div>
+                        </ng-template>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="row mx-0 d-flex justify-content-center  animate__animated animate__fadeIn animate__faster">
+            <div class="row mx-0 justify-content-between">
+                <div class="col-5 px-0 d-grid gap-2">
+                    <button (click)="onSubmit()" class="btn btn-ok">
+                        Guardar
+                    </button>
+                </div>
+    
+                <div class="col-5 px-0 d-grid gap-2">
+                    <button (click)="onBack()" class="btn btn-cancel">
+                        Volver
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SPINNER -->
+<div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
+    <mat-spinner></mat-spinner>
+</div>

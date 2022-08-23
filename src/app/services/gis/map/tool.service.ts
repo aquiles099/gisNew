@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { GisTool } from '../../../interfaces/gis-tool';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { GisToolGroup } from '../../../interfaces/gis-tool-group';
 
 @Injectable()
 export class ToolService {
 
-  private enabledToolSubject:BehaviorSubject<GisTool>;
-  public enabledToolObservable:Observable<GisTool>;
+  private enabledToolSubject:BehaviorSubject<Partial<GisTool>>;
+  public enabledToolObservable:Observable<Partial<GisTool>>;
 
   private buttonBarCollapsed:boolean = false;
   private toolBarCollapsed:boolean = true;
@@ -24,7 +25,7 @@ export class ToolService {
     return this.enabledTool !== null;
   }
 
-  get enabledTool():GisTool
+  get enabledTool():Partial<GisTool>
   {
     return this.enabledToolSubject.getValue();
   }
@@ -39,7 +40,7 @@ export class ToolService {
     return this.toolBarCollapsed;
   }
 
-  public enableTool(tool:GisTool):void
+  public enableTool(tool:Partial<GisTool>):void
   {
     if( ! this.thereIsAnEnabledTool )
       this.buttonBarCollapsed = true;

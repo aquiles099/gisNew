@@ -7,6 +7,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { SortablejsModule } from 'ngx-sortablejs';
 
 //
 import { MapComponent } from './map.component';
@@ -30,6 +31,9 @@ import { FeatureFilterComponent } from './tools/feature-filter/feature-filter.co
 import { LayerCategorizationComponent } from './tools/layer-categorization/layer-categorization.component';
 import { FeatureTableComponent } from './tools/feature-table/feature-table.component';
 import { AnalysisChartsComponent } from './tools/analysis-charts/analysis-charts.component';
+import { LuminairesPerCmComponent } from './tools/luminaires-per-cm/luminaires-per-cm.component';
+import { LoadExternalFileComponent } from './tools/load-external-file/load-external-file.component';
+import { StreetViewComponent } from './tools/street-view/street-view.component';
 
 // helpers
 import { FeatureFinderComponent } from './tools/helpers/feature-finder/feature-finder.component';
@@ -44,6 +48,7 @@ import { MapLayerService } from '../../../../services/gis/map/map-layer.service'
 import { ToolService } from '../../../../services/gis/map/tool.service';
 import { FeatureService } from '../../../../services/gis/map/feature.service';
 import { GisLayerService } from '../../../../services/gis/gis-layer.service';
+import { FeatureFinderComponent as HelperFeatureFinderComponent } from './tools/helpers/feature-finder/feature-finder.component';
 
 @NgModule({
   declarations: [
@@ -61,17 +66,21 @@ import { GisLayerService } from '../../../../services/gis/gis-layer.service';
     EditMultipleFeaturesComponent,
     CopyFeatureComponent,
     FeatureInformationComponent,
-    // helpers
-    FeatureFinderComponent,
-    LayerHighlighterComponent,
-    DrawLayerComponent,
-    LayerSelectorComponent,
+    LoadExternalFileComponent,
     FeatureLabelingComponent,
     FeatureGaleryComponent,
     FeatureFilterComponent,
     LayerCategorizationComponent,
     FeatureTableComponent,
     AnalysisChartsComponent,
+
+    LuminairesPerCmComponent,
+    StreetViewComponent,
+    // helpers
+    FeatureFinderComponent,
+    LayerHighlighterComponent,
+    DrawLayerComponent,
+    LayerSelectorComponent,
   ],
   imports: [
     SharedModule,
@@ -81,7 +90,8 @@ import { GisLayerService } from '../../../../services/gis/gis-layer.service';
     TypeaheadModule,
     CollapseModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    TimepickerModule.forRoot()
+    TimepickerModule.forRoot(),
+    SortablejsModule.forRoot({ animation: 150 }),
   ],
   providers: [
     MapService,

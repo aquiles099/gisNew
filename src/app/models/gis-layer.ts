@@ -191,6 +191,11 @@ export class GisLayer
     this.refresh();
   }
 
+  public clearFilter(): void{
+    this.filter = {};
+    this.refresh();
+  }
+
   // self
 
   public refresh():void

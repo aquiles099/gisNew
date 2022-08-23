@@ -87,7 +87,7 @@ export class NewFeatureComponent extends DrawLayerComponent implements OnInit
   public buildFeatureFormModel():void
   {
     for( let attr of this.layerAttributes )
-      this.newFeature[attr.name] = attr.default_value;
+      this.drawnLayerFeature[attr.name] = attr.default_value;
   }
 
   public async onSubmit():Promise<void>
@@ -101,9 +101,9 @@ export class NewFeatureComponent extends DrawLayerComponent implements OnInit
 
         this.formatAttributeDataByDataType();
 
-        this.newFeature['geom'] = GeoJSONHelper.geometryToWkt( this.newLayer.toGeoJSON().geometry );
+        this.drawnLayerFeature['geom'] = GeoJSONHelper.geometryToWkt( this.drawnLayer.toGeoJSON().geometry );
 
-        await this.featureService.store(this.newFeature);
+        await this.featureService.store(this.drawnLayerFeature);
 
         this.toastrService.success('Elemento creado.','OK');
 
@@ -128,15 +128,15 @@ export class NewFeatureComponent extends DrawLayerComponent implements OnInit
         case "time":
           break;
         case "int":
-          this.newFeature[attribute.name] = Number.parseInt(this.newFeature[attribute.name].toString());
+          this.drawnLayerFeature[attribute.name] = Number.parseInt(this.drawnLayerFeature[attribute.name].toString());
           break;
         case "float":
-          this.newFeature[attribute.name] = Number.parseFloat(this.newFeature[attribute.name].toString());
+          this.drawnLayerFeature[attribute.name] = Number.parseFloat(this.drawnLayerFeature[attribute.name].toString());
           break;
         case "date":
           break;
         case "boolean":
-          this.newFeature[attribute.name] = this.newFeature[attribute.name] === "false" ? 0 : 1;
+          this.drawnLayerFeature[attribute.name] = this.drawnLayerFeature[attribute.name] === "false" ? 0 : 1;
           break;
       }
     }

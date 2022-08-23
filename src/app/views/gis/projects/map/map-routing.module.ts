@@ -19,6 +19,12 @@ import { DeleteFeatureComponent } from './tools/delete-feature/delete-feature.co
 import { FeatureInformationComponent } from './tools/feature-information/feature-information.component';
 import { FeatureLabelingComponent } from './tools/feature-labeling/feature-labeling.component';
 import { FeatureFilterComponent } from './tools/feature-filter/feature-filter.component';
+import { AnalysisChartsComponent } from './tools/analysis-charts/analysis-charts.component';
+import { LuminairesPerCmComponent } from './tools/luminaires-per-cm/luminaires-per-cm.component';
+import { LayerCategorizationComponent } from './tools/layer-categorization/layer-categorization.component';
+import { FeatureTableComponent } from './tools/feature-table/feature-table.component';
+import { FeatureGaleryComponent } from './tools/feature-galery/feature-galery.component';
+import { LoadExternalFileComponent } from './tools/load-external-file/load-external-file.component';
 
 const routes: Routes = [
   {
@@ -28,6 +34,40 @@ const routes: Routes = [
       resources: MapResolverService
     },
     children: [
+      // information
+      {
+        path: "informacion-de-elemento",
+        component: FeatureInformationComponent
+      },
+      {
+        path: "luminarias-por-centro-de-mando",
+        component: LuminairesPerCmComponent
+      },
+      {
+        path: "etiquetar-elementos",
+        component: FeatureLabelingComponent
+      },
+      // helpers
+      {
+        path: "filtro-de-elementos",
+        component: FeatureFilterComponent
+      },
+      {
+        path: "categorizar-capa",
+        component: LayerCategorizationComponent
+      },
+      {
+        path: "tabla-de-elementos",
+        component: FeatureTableComponent
+      },
+      {
+        path: "galeria-de-elemento",
+        component: FeatureGaleryComponent
+      },
+      {
+        path: "importar-archivo",
+        component: LoadExternalFileComponent
+      },
       // feature crud
       {
         path: "nuevo-elemento",
@@ -53,19 +93,12 @@ const routes: Routes = [
         path: "eliminar-elemento",
         component: DeleteFeatureComponent
       },
-      // information
+      // analisys charts      
       {
-        path: "informacion-de-elemento",
-        component: FeatureInformationComponent
+        path: "graficos-de-analisis",
+        component: AnalysisChartsComponent
       },
-      {
-        path: "etiquetar-elementos",
-        component: FeatureLabelingComponent
-      },
-      {
-        path: "filtro-de-elementos",
-        component: FeatureFilterComponent
-      },
+      
     ]
   },
   {

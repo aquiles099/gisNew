@@ -6,6 +6,7 @@ import { FeatureService } from '../../../../../../../services/gis/map/feature.se
 import { LayerHighlighterComponent } from '../layer-highlighter/layer-highlighter.component';
 import { Feature } from '@turf/helpers';
 import { MapLayerService } from '../../../../../../../services/gis/map/map-layer.service';
+import { GisLayerService } from '../../../../../../../services/gis/gis-layer.service';
 
 @Component({
   templateUrl: './feature-finder.component.html',
@@ -16,10 +17,14 @@ export class FeatureFinderComponent extends LayerHighlighterComponent implements
   private getFeatures: (event:any) => void = async event => 
   {
     this.ngZone.run( async () => {
-
+      
       try
       {
+        
+
         this.showSpinner = true;
+
+        this.startCallback();
 
         this.map.off("click", this.getFeatures);
 
@@ -27,39 +32,41 @@ export class FeatureFinderComponent extends LayerHighlighterComponent implements
 
         const latlng:LatLng = event.latlng;
 
+        this.attenuate();
+
         const point = {
           type: "Point",
           coordinates: [latlng.lng, latlng.lat]
         };
-        
+
         const data = await this.featureService.getOfProjectedLayers(point);
+        
+        this.showInfo = false;
 
         this.selectedFeature = null;
 
         this.setLayersWithFeatures(data);
-
-        this.startCallback();
-
-        // this.showingInfo = false;
-
-        this.attenuate();
-          
-        if( this.thereIsOnlyOneFeature() )
+      
+        if(this.thereIsOnlyOneFeature())
         {
-          this.onSelectFeature(this.layerFeatures[0]);
-          
-          // if( this.layerFeatures[0].layer === "centro_mando" )
-          // {
-          //   // mostrando herramienta de centro de mando...
-          // }
+          this.onSelectFeature(
+            this.layerFeatures[0].layer_id,
+            this.layerFeatures[0].features[0]
+          );
         }
 
+        this.middleCallback();
+       
       }
       catch (error)
       {
       }
       finally
       {
+        
+        this.toolService.thereIsAnEnabledTool;
+        this.toolService.enabledTool.name === this.getKey();
+     
         if( this.toolService.thereIsAnEnabledTool && this.toolService.enabledTool.name === this.getKey() )
           this.map.on("click", this.getFeatures);
 
@@ -68,15 +75,17 @@ export class FeatureFinderComponent extends LayerHighlighterComponent implements
         this.showSpinner = false;
         
         this.endCallback();
-
       }
     });
   };
 
   public layerFeatures:{layer_id:number, display_name:string, features:Feature<any>[]}[] = [];
   public selectedFeature:any;
+  public layerIdOfSelectedFeature:number;
+  public showInfo:boolean = false;
 
   protected startCallback: () => any;
+  protected middleCallback: () => any;
   protected endCallback: () => any;
 
   protected startSearchOnInit:boolean = false;
@@ -86,12 +95,12 @@ export class FeatureFinderComponent extends LayerHighlighterComponent implements
     protected mapService:MapService,
     protected featureService:FeatureService,
     protected mapLayerService:MapLayerService,
-    protected ngZone:NgZone,
+    protected ngZone:NgZone
   )
   {
     super(
       toolService,
-      mapService
+      mapService, 
     )
   }
 
@@ -143,11 +152,13 @@ export class FeatureFinderComponent extends LayerHighlighterComponent implements
     return value;
   }
 
-  public onSelectFeature(data:{layer_id:number, display_name:string, features:Feature<any>[]}):void
+  public onSelectFeature(layer_id:number, feature:Feature<any>):void
   {
-    this.selectedFeature = data.features[0];
+    this.selectedFeature = feature;
 
-    const gisLayer  = this.mapLayerService.find(data.layer_id); 
+    const gisLayer  = this.mapLayerService.find(layer_id); 
+
+    this.layerIdOfSelectedFeature = layer_id;
     
     this.setLayerToHighlight(gisLayer.geoserverKey);
 
