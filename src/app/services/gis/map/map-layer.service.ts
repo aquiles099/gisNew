@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Layer } from '../../../interfaces/layer';
-import LeafletWms from 'leaflet.wms';
 import { RequestedProjectService } from '../../requested-project.service';
 import { Map } from 'leaflet';
 import { Module } from '../../../interfaces/module';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { isNumeric } from '../../../shared/helpers';
 import { GisLayer } from '../../../models/gis-layer';
 
 @Injectable()

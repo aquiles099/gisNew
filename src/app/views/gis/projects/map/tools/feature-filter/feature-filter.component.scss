@@ -18,15 +18,16 @@
 
 ._bottom-section {
     position: absolute;
-    width: 95% !important; 
+    width: 98% !important; 
     height: 50px;
-    bottom: 0;
+    bottom: 15px;
     right: 7px;
 }
 
 .label-title{
     font-size: .875rem;
     color: #001E33;
+    text-align: left !important;
 }
 
 .section {
@@ -66,7 +67,7 @@
     padding-left: 0px;
 }
 
-.checkbox {
+/* .checkbox {
     border: 1px solid #000;
     cursor: pointer;
     font-size: .75rem;
@@ -81,5 +82,98 @@
     cursor: pointer;
     height: 0;
     width: 0;
-}
+} */
     
+.feature-property-values-section {
+    border: 1px solid #d1cbcb;
+    border-radius: 5px;
+    padding: 10px;
+    max-height: 30vh;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-top: 8px;
+    width: 97%;
+    text-align: left !important;
+    label {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+    }
+    .custom-control {
+        position: relative;
+        display: block;
+        min-height: 1.5rem;
+        padding-left: 1.5rem;
+
+        &.overflow-checkbox .overflow-control-input {
+            display: none;
+        }
+        &.overflow-checkbox .overflow-control-input:checked ~ .overflow-control-indicator::after {
+            -webkit-transform: rotateZ(45deg) scale(1);
+            -ms-transform: rotate(45deg) scale(1);
+            transform: rotateZ(45deg) scale(1);
+            top: -6px;
+            left: 5px;
+        }
+        &.overflow-checkbox .overflow-control-input:checked ~ .overflow-control-indicator::before {
+            opacity: 1;
+        }
+        &.overflow-checkbox .overflow-control-input:disabled ~ .overflow-control-indicator {
+            opacity: .5;
+            border: 2px solid #ccc;
+        }
+        &.overflow-checkbox .overflow-control-input:disabled ~ .overflow-control-indicator:after {
+            border-bottom: 4px solid #ccc;
+            border-right: 4px solid #ccc;
+        }
+        
+        &.overflow-checkbox .overflow-control-indicator {
+            border-radius: 3px;
+            display: inline-block;
+            position: absolute;
+            top: 4px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #00909e;
+        }
+        &.overflow-checkbox .overflow-control-indicator::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            -webkit-transition: .3s;
+            -o-transition: .3s;
+            transition: .3s;
+            -webkit-transform: rotateZ(90deg) scale(0);
+            -ms-transform: rotate(90deg) scale(0);
+            transform: rotateZ(90deg) scale(0);
+            width: 10px;
+            border-bottom: 4px solid #00909e;
+            border-right: 4px solid #00909e;
+            border-radius: 3px;
+            top: -2px;
+            left: 2px;
+        }
+        &.overflow-checkbox .overflow-control-indicator::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            -webkit-transition: .3s;
+            -o-transition: .3s;
+            transition: .3s;
+            width: 10px;
+            border-right: 7px solid #fff;
+            border-radius: 3px;
+            -webkit-transform: rotateZ(45deg) scale(1);
+            -ms-transform: rotate(45deg) scale(1);
+            transform: rotateZ(45deg) scale(1);
+            top: -4px;
+            left: 5px;
+            opacity: 0;
+        }
+    }
+}

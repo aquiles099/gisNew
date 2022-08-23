@@ -31,71 +31,66 @@
         </div>
 
         <div id="filter-elements-attributes-finder" class="pad-left-0" >            
-            <div class="w-100 text-left" class="pad-left-0">            
+            <div class="w-100 text-left">            
                 <label class="mb-2 label-title" for=""> <b>Valores:</b> </label>            
                 <input type="text" [disabled]="! formData.property" class="form-control form-control-sm d-inline search-field" placeholder="Buscar..." [(ngModel)]="search">            
                 <img src="assets/icons/svg/lupa.svg" class="icon search-icon" alt="lupa">                    
             </div>           
         </div>
     
-        <div id="filter-elements-attribute-values-list" 
-                *ngIf="formData.property " 
-                class="feature-property-values-section text-center"
-                >
-        
-            <div *ngIf="propertyValues.length > 0" class="row feature-property-values animated__animated animate__fadeIn animate__faster"> 
-        
-                <div class="col-12 p-0 my-1 bottom-bordered property-value " *ngFor="let value of ( propertyValues | keyMatch : search)">
-                   
-
-                    <div class="col-1 p-0 mb-2  text-center">
-                        <label class="checkbox" for="feature_value_{{value}}">                            
-                            <input type="checkbox"                                                         
-                            name="feature_value_{{value}}" 
-                            id="feature_value_{{value}}"   
-                            (change)="updateFilter(value)" 
-                            [checked]="valueExistsOnFilter(value)" >
-                            <i class="fas fa-check" *ngIf="valueExistsOnFilter(value)" ></i> 
-                        </label>
-                    </div>
-                    <div class="col-11 pl-2 pr-0 py-0 mb-2 ">
-                        <label for="feature_value_{{value}}" title="{{value}}" class="ml-3 text-truncate d-inline">
-                            {{value | titlecase}}
-                        </label>
-                    </div>                    
-                </div>
-            </div>
+        <div id="filter-elements-attribute-values-list"
+        class="feature-property-values-section feature-property-values animated__animated animate__fadeIn animate__faster"
+        *ngIf="formData.property && propertyValues.length > 0">
+            <label class="custom-control overflow-checkbox" *ngFor="let value of ( propertyValues | keyMatch : search)">
+                <input type="checkbox" class="overflow-control-input"
+                id="feature_value_{{value}}"
+                name="feature_value_{{value}}"
+                (change)="updateFilter(value)" 
+                [checked]="valueExistsOnFilter(value)">
+                <span class="overflow-control-indicator"></span>
+                <span class="overflow-control-description">{{value | titlecase}}</span>
+            </label>
+            <!-- <div class="form-check" *ngFor="let value of ( propertyValues | keyMatch : search)">
+                <input class="form-check-input"
+                type="checkbox" id="feature_value_{{value}}"
+                name="feature_value_{{value}}"
+                (change)="updateFilter(value)" 
+                [checked]="valueExistsOnFilter(value)">
+                <label class="form-check-label" for="feature_value_{{value}}">{{value | titlecase}}</label>
+            </div> -->
         </div> 
     </div>
-
-    
     <div class="_bottom-section row m-0 align-items-center" >
         <div class="col-4 p-1">
             <button type="button" class="btn btn-block btn-Aceptar">
                 Aceptar
             </button>
         </div>
-
         <div class="col-4 p-1">
             <button 
-            id="filter-elements-remove-layer-filter-btn"          
-            type="button" 
-            class="btn btn-block btn-outline"
-            disabled>
+            id="filter-elements-remove-layer-filter-btn"
+            (click)="removeFilterOnProperty()"
+            type="button" class="btn btn-block btn-outline"
+            [disabled]="! formData.property || ! selectedLayerHasFilterOnProperty()"
+            [ngClass]="{
+                '_btn-outline-secondary': ! formData.property || ! selectedLayerHasFilterOnProperty(),
+                'btn-outline-info': formData.property && selectedLayerHasFilterOnProperty()
+            }">
                 Eliminar filtro capa
             </button>
         </div>
-
         <div class="col-4 p-1">
             <button 
             id="filter-elements-remove-all-filters-btn"
-            type="button" 
-            disabled
-            class="btn btn-block btn-outline">
-             Eliminar todo
+            (click)="removeFilterOnAllLayers()"
+            type="button" class="btn btn-block btn-outline"
+            [disabled]="! isThereAnyLayerWithActiveFilter"
+            [ngClass]="{
+                '_btn-outline-secondary': ! isThereAnyLayerWithActiveFilter,
+                'btn-outline-info': isThereAnyLayerWithActiveFilter
+            }">
+                Eliminar todo
             </button>
         </div>
-        
     </div>
-
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { fadeInAnimation, fadeOutAnimation } from 'angular-animations';
 import { BaseToolComponent } from '../base-tool/base-tool.component';
 import { ToolService } from '../../../../../../services/gis/map/tool.service';
 import { MapService } from '../../../../../../services/gis/map/map.service';
@@ -6,15 +7,25 @@ import { GisLayerService } from '@services/gis/gis-layer.service';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import { GisLayer } from '../../../../../../models/gis-layer';
-import { isNumeric, isset } from '../../../../../../shared/helpers';
+import { SpinnerService } from '@services/spinner.service';
+import { ToastrService } from 'ngx-toastr';
+import { delayExecution, isNumeric, isset } from 'src/app/shared/helpers';
+// import { ProjectLayersService } from '../../../../../../services/gis/project-layers.service';
+import { MapLayerService } from '../../../../../../services/gis/map/map-layer.service';
 
 @Component({  templateUrl: './feature-filter.component.html',
-  styleUrls: ['./feature-filter.component.scss']
+  styleUrls: ['./feature-filter.component.scss'],
+  animations: [
+    fadeInAnimation({duration: 500}),
+    fadeOutAnimation({duration: 500})
+  ],
+  encapsulation: ViewEncapsulation.None
 })
-export class FeatureFilterComponent extends BaseToolComponent 
+export class FeatureFilterComponent extends BaseToolComponent implements OnInit
 {
   public attributes:any=[];
   public selectedLayer:GisLayer;
+  private layers:GisLayer[] = [];
   public projectLayersSubscription: Subscription;
   public search:string = null;
   public propertyValues:Array<string|number> = [];
@@ -28,10 +39,19 @@ export class FeatureFilterComponent extends BaseToolComponent
   };
   public properties:Array<any> = [];
   public apiData:any;
+
+  public spinnerShow: boolean = false;
+
+  public isThereAnyLayerWithActiveFilter:boolean = false;
+
   constructor(
     protected toolService:ToolService,
     protected mapService:MapService,
-    private _gisLayerService:GisLayerService
+    private _gisLayerService:GisLayerService,
+    private _spinnerService: SpinnerService,
+    private _toastrService:ToastrService,
+    // private _projectLayersService:ProjectLayersService,
+    private _mapLayerService:MapLayerService
   )
   {
     super(
@@ -41,6 +61,10 @@ export class FeatureFilterComponent extends BaseToolComponent
 
     this.key = "feature-filter";
   }
+  ngOnInit(): void {
+    this.layers = this._mapLayerService.projectedLayers 
+    console.log(this.layers);
+  }
 
   async onChangeLayerSelector(layer: GisLayer)
   {
@@ -49,8 +73,6 @@ export class FeatureFilterComponent extends BaseToolComponent
       this.formData.layer = layer;
       this.attributes = await this._gisLayerService.getAllowedAttributesPerTool(this.selectedLayer.id);
       this.selectedLayerFilter = layer.filterMap;
-      console.log(this.selectedLayerFilter);
-      
       if(this.attributes.length < 1){
         Swal.fire({
           icon: "info",
@@ -70,24 +92,97 @@ export class FeatureFilterComponent extends BaseToolComponent
 
   public async updateFilter(value:string|number):Promise<void>
   {
+    this._spinnerService.show();
     this.selectedLayer.updateFilter(this.selectedPropertyData.name, value );
+    setTimeout(() => {
+      this._spinnerService.hide();
+    }, 500);
   }
 
   public valueExistsOnFilter(value:string|number):boolean
   {    
     return this.selectedLayerFilter[this.selectedPropertyData.name] ?
-    this.selectedLayerFilter[this.selectedPropertyData.name].includes(value) :
+    this.selectedLayerFilter[this.selectedPropertyData.name].includes(value) ? true :
+    false : false;
+  }
+
+  public onChangePropertySelector():void {
+    this.selectedPropertyData = this.attributes.find(property => property.name === this.formData.property);
+    this.propertyValues = this.selectedPropertyData.domain;
+    this.search = null;
+  }
+
+  public selectedLayerHasFilterOnProperty():boolean
+  {
+    console.log(this.selectedPropertyData, this.selectedLayerFilter)
+    return this.selectedLayerFilter && Object.keys(this.selectedLayerFilter).length &&
+    this.selectedLayerFilter[this.selectedPropertyData.name] ?
+    this.selectedLayerFilter[this.selectedPropertyData.name].length > 0 :
     false;
   }
 
+  private updateCqlFilterInSelectedLayer():void
+  {
+    let cqlFilter = "";
 
+    if( ! this.selectedLayerFilter[this.selectedPropertyData.name].length )
+      delete this.selectedLayerFilter[this.selectedPropertyData.name];
 
-  public onChangePropertySelector():void {
-    console.log(this.formData);
-    this.selectedPropertyData = this.attributes.find(property => property.name === this.formData.property);
-    console.log(this.selectedPropertyData);
-    this.propertyValues = this.selectedPropertyData.domain;
-    this.search = null;
+    for( let [property, values] of Object.entries(this.selectedLayerFilter))
+    {
+      if( cqlFilter.charAt(cqlFilter.length - 1) === ")" )
+        cqlFilter += " AND ";
+
+      values = values.map(value =>  isNumeric(value) ? value : `'${value}'`);
+
+      cqlFilter += `"${property}" IN (${values.join(", ")})`;
+    }
+
+    isset(cqlFilter) ?
+    this.selectedLayer.wms.wmsParams.cql_filter = cqlFilter :
+    delete this.selectedLayer.wms.wmsParams.cql_filter;
+
+    this.selectedLayer.refresh();
+
+    // this._projectLayersService.notificarCambioEnObservador();
+  }
+
+  public async removeFilterOnProperty():Promise<void>
+  {
+    this.selectedLayerFilter[this.selectedPropertyData.name] = [];
+    this.updateCqlFilterInSelectedLayer();
+  }
+
+  public async removeFilterOnAllLayers():Promise<void>
+  {
+    try
+    {
+      this._spinnerService.show("Eliminando filtros...");
+
+      await delayExecution(250);
+
+      /* this._projectLayersService
+          .obtenerCapas({modulo: null, grupo: null, proyectado: true})
+          .forEach(capa => {
+            delete capa.capaWms.wmsParams.cql_filter;
+            capa.refrescar();
+          }); */
+
+      this.selectedLayerFilter = {};
+
+      //this._projectLayersService.notificarCambioEnObservador();
+
+      this._toastrService.success("Filtros eliminados.","Exito!");
+
+    } catch (error)
+    {
+      console.error(error);
+      this._toastrService.error(error.message, "Error");
+    }
+    finally
+    {
+      this._spinnerService.hide();
+    }
   }
 
 
