@@ -21,9 +21,7 @@
                 class="custom" 
                 placeholder="Seleccione una propiedad"
                 [clearable]="false"
-                [disabled]=" !formData.layer || loadingAttr"
-                [loading]="loadingAttr"
-                loadingText="Cargando..."
+                [disabled]=" !formData.layer || showSpinner"            
                 [(ngModel)]="formData.property"
                 [ngModelOptions]="{standalone: true}"
                 (change)="onChangePropertySelector()"
@@ -49,8 +47,8 @@
                 <input type="checkbox" class="overflow-control-input"
                 id="feature_value_{{value}}"
                 name="feature_value_{{value}}"
-                (change)="updateFilter(value)" 
-                [checked]="valueExistsOnFilter(value)">
+                (change)="updateFilter(value)"     
+                [checked]="valueExistsOnFilter(value)"            >
                 <span class="overflow-control-indicator"></span>
                 <span class="overflow-control-description">{{value | titlecase}}</span>
             </label>
@@ -75,7 +73,7 @@
             (click)="removeFilterOnProperty()"
             [disabled]="!formData.property || !selectedLayerHasFilterOnProperty()"
             disabled>
-                Eliminar filtro capa
+                Eliminar filtro
             </button>
         </div>
 
@@ -89,5 +87,9 @@
              Eliminar todo
             </button>
         </div>
+    </div>
+
+    <div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
+        <mat-spinner></mat-spinner>
     </div>
 </div>

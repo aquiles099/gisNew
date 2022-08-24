@@ -14,6 +14,7 @@
     font-size: .8rem;
     padding: 4px;
     font-family: "Rubik Bold" !important;
+    height: 40px;
 }
 
 .btn-outline{
@@ -25,6 +26,7 @@
     width: 100%;
     padding: 4px;
     font-family: "Rubik Bold" !important;
+    height: 40px;
 }
 
 ._bottom-section {
@@ -107,8 +109,7 @@
     }
 }
     
-.feature-property-values-section {
-    border: 1px solid #E0E0E0;
+.feature-property-values-section {    
     padding-top: 8px;
     padding-bottom: 8px;
     max-height: 30vh;
@@ -148,8 +149,7 @@
         font-size: .875rem;
         &:hover {cursor: pointer;}
     }
-    .custom-control {
-        border-bottom: 1px solid #E0E0E0;
+    .custom-control {       
         position: relative;
         display: block;
         justify-content: center !important;
@@ -187,7 +187,7 @@
             width: 1.2rem;
             height: 1.2rem;
             border: 1px solid #000;
-            left: 16px;
+            left: 0px;
         }
         &.overflow-checkbox .overflow-control-indicator::after {
             content: '';

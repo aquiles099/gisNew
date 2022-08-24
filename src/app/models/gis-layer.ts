@@ -193,6 +193,7 @@ export class GisLayer
 
   public clearFilter(): void{
     this.filter = {};
+    delete this.wms.wmsParams.cql_filter;
     this.refresh();
   }
 

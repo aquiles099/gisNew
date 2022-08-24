@@ -30,12 +30,10 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
   public properties:Array<any> = [];
   public apiData:any;
   public isThereAnyLayerWithActiveFilter:boolean = false;
-  public loadingAttr: boolean = false;
   constructor(
     protected toolService:ToolService,
     protected mapService:MapService,
-    private _gisLayerService:GisLayerService,
-    private _toolService:ToolService,
+    private _gisLayerService:GisLayerService,    
     private _mapLayerService:MapLayerService
   )
   {
@@ -48,23 +46,25 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
   }
   
   ngOnInit(): void {
+    console.log(this.selectedLayer);
+    
     this.isThereAnyLayerWithActiveFilter = this._mapLayerService.projectedLayers.length > 0;
   }
 
   async onChangeLayerSelector(layer: GisLayer)
   {
-    this.loadingAttr = true;
+    this.showSpinner = true;
     this.attributes = [];
     this.selectedPropertyData = [];
     this.propertyValues = [];
     this.formData.property= [];
     this.selectedLayerFilter = null;
     if(layer) {
+      this.selectedLayer ? this.selectedLayer.clearFilter(): '';
       this.selectedLayer = layer;
       this.formData.layer = layer;
       this.attributes = await this._gisLayerService.getAllowedAttributesPerTool(this.selectedLayer.id);
       this.selectedLayerFilter = layer.filterMap;
-      console.log(this.selectedLayerFilter);
       if(this.attributes.length < 1){
         Swal.fire({
           icon: "info",
@@ -74,13 +74,13 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
           heightAuto: false
         });
       }
-      this.loadingAttr = false;
+      this.showSpinner = false;
     } else {
       this.selectedLayer = null;
       this.attributes = [];
       this.selectedPropertyData = [];
       this.propertyValues = [];
-      this.loadingAttr = false;
+      this.showSpinner = false;
 
     }
   }
@@ -97,14 +97,15 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     false;
   }
 
-  public onChangePropertySelector():void {    
+  public onChangePropertySelector():void {  
+    this.propertyValues= [];
     this.selectedPropertyData = this.attributes.find(property => property.name === this.formData.property);
     this.propertyValues = this.selectedPropertyData.domain;
     this.search = null;
   }
 
   public toggleSectionVisibility() {
-    this._toolService.disableTool();
+    this.close();
   }
 
   public async removeFilterOnProperty():Promise<void>
@@ -114,8 +115,6 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     this.formData.property= null;
     this.propertyValues = [];
     this.selectedPropertyData = [];
-    
-    
   }
 
   public selectedLayerHasFilterOnProperty():boolean
@@ -138,7 +137,5 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     this.formData.property= null;
     this.layerId = null;
     this.selectedLayerFilter = null;
-    
-    
   }
 }
