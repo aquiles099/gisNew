@@ -15,6 +15,7 @@
     [(ngModel)]="layerId"
     [ngModelOptions]="{standalone: true}"
     (change)="onChange($event)"
+    dropdownPosition="bottom"
     >
     <ng-template ng-optgroup-tmp let-item="item">
         <div class="w-100 text-center" [innerHtml]="item.label | safeHtml" ></div>
