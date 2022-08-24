@@ -12,53 +12,56 @@
             ></layer-selector>
         </div>
 
-        <div id="filter-elements-attribute-selector" class="col-12 p-0 mt-xs-2 mb-2 text-left">
-            <label class="mb-2 label-title" for="">Atributo:</label>
-            <ng-select
-                [items]="attributes"
-                bindLabel="display_name"
-                bindValue="name"
-                class="custom" 
-                placeholder="Seleccione una propiedad"
-                [clearable]="false"
-                [disabled]=" !formData.layer || showSpinner"            
-                [(ngModel)]="formData.property"
-                [ngModelOptions]="{standalone: true}"
-                (change)="onChangePropertySelector()"
-                >
-            </ng-select>
-        </div>
+        <ng-container *ngIf="attributes && attributes.length == 0">
+            <label class="mb-2 label-title">Debe configurar algún atributo para esta herramienta.</label>
+        </ng-container>
 
-        <div id="filter-elements-attributes-finder " class="pad-left-0 text-left pad-right-0" >            
-            <div class="w-100 text-left" class="pad-left-0">            
-                <label class="mb-2 label-title" for=""> Valores: </label>            
-                <input type="text"
-                [disabled]="! formData.property || (propertyValues && propertyValues.length === 0)"
-                class="form-control form-control-sm d-inline search-field"
-                placeholder="Buscar..." [(ngModel)]="search">            
-                <img src="assets/icons/svg/lupa.svg" class="icon search-icon" alt="lupa">                    
-            </div>           
-        </div>
-        <div class="feature-property-values-section-empty"
-        *ngIf="!formData.property || !propertyValues"></div>
+        <ng-container *ngIf="!attributes || (attributes && attributes.length > 0)">
+            <div id="filter-elements-attribute-selector" class="col-12 p-0 mt-xs-2 mb-2 text-left">
+                <label class="mb-2 label-title">Atributo:</label>
+                <ng-select
+                    [items]="attributes"
+                    bindLabel="display_name"
+                    bindValue="name"
+                    class="custom" 
+                    placeholder="Seleccione una propiedad"
+                    [clearable]="false"
+                    [disabled]=" !formData.layer || showSpinner"            
+                    [(ngModel)]="formData.property"
+                    [ngModelOptions]="{standalone: true}"
+                    (change)="onChangePropertySelector()"
+                    >
+                </ng-select>
+            </div>
 
-        <div class="feature-property-values-section-empty"
-        *ngIf="formData.property && (propertyValues && propertyValues.length === 0)"> No tiene valores el atributo </div>
-    
-        <div id="filter-elements-attribute-values-list"
-        class="feature-property-values-section"
-        *ngIf="formData.property && (propertyValues && propertyValues.length > 0)">
-            <label class="custom-control overflow-checkbox"
-            *ngFor="let value of ( propertyValues | keyMatch : search)">
-                <input type="checkbox" class="overflow-control-input"
-                id="feature_value_{{value}}"
-                name="feature_value_{{value}}"
-                (change)="updateFilter(value)"     
-                [checked]="valueExistsOnFilter(value)"            >
-                <span class="overflow-control-indicator"></span>
-                <span class="overflow-control-description">{{value | titlecase}}</span>
-            </label>
-        </div> 
+            <div id="filter-elements-attributes-finder " class="pad-left-0 text-left pad-right-0">            
+                <div class="w-100 text-left" class="pad-left-0">
+                    <label class="mb-2 label-title"> Valores: </label>            
+                    <input type="text"
+                    [disabled]="! formData.property || (propertyValues && propertyValues.length === 0)"
+                    class="form-control form-control-sm d-inline search-field"
+                    placeholder="Buscar..." [(ngModel)]="search">            
+                    <img src="assets/icons/svg/lupa.svg" class="icon search-icon" alt="lupa">                    
+                </div>           
+            </div>
+            <div class="feature-property-values-section-empty"
+            *ngIf="!formData.property || !propertyValues || (formData.property && (propertyValues && propertyValues.length === 0))">Vacio</div>
+
+            <div id="filter-elements-attribute-values-list"
+            class="feature-property-values-section"
+            *ngIf="formData.property && (propertyValues && propertyValues.length > 0)">
+                <label class="custom-control overflow-checkbox"
+                *ngFor="let value of ( propertyValues | keyMatch : search)">
+                    <input type="checkbox" class="overflow-control-input"
+                    id="feature_value_{{value}}"
+                    name="feature_value_{{value}}"
+                    (change)="updateFilter(value)"     
+                    [checked]="valueExistsOnFilter(value)"            >
+                    <span class="overflow-control-indicator"></span>
+                    <span class="overflow-control-description">{{value | titlecase}}</span>
+                </label>
+            </div> 
+        </ng-container>
     </div>
 
     

@@ -13,7 +13,7 @@ import { MapLayerService } from '@services/gis/map/map-layer.service';
 })
 export class FeatureFilterComponent extends BaseToolComponent implements OnInit
 {
-  public attributes:any=[];
+  public attributes:any[] = null;
   public selectedLayer:GisLayer;
   public projectLayersSubscription: Subscription;
   public search:string = null;
@@ -52,7 +52,6 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
   async onChangeLayerSelector(layer: GisLayer)
   {
     this.showSpinner = true;
-    this.attributes = [];
     this.selectedPropertyData = [];
     this.propertyValues = null;
     this.formData.property= [];
@@ -63,19 +62,10 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
       this.formData.layer = layer;
       this.attributes = await this._gisLayerService.getAllowedAttributesPerTool(this.selectedLayer.id);
       this.selectedLayerFilter = layer.filterMap;
-      if(this.attributes.length < 1){
-        Swal.fire({
-          icon: "info",
-          title: "Error",
-          text: "Debe configurar algún atributo para esta herramienta.",
-          confirmButtonText: "OK",
-          heightAuto: false
-        });
-      }
       this.showSpinner = false;
     } else {
       this.selectedLayer = null;
-      this.attributes = [];
+      this.attributes = null;
       this.selectedPropertyData = [];
       this.formData.property= [];
       this.propertyValues = null;
@@ -129,7 +119,7 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
       layer.clearFilter();
     }
     this.selectedLayer = null;
-    this.attributes = [];
+    this.attributes = null;
     this.selectedPropertyData = [];
     this.propertyValues = null;
     this.formData.property= null;
