@@ -9,10 +9,22 @@
     text-align: center;
     padding: .75rem;
     transition: height .2s, left .5s;
+    @media only screen and (max-width: 576px) {
+        padding-left: 55px !important;
+    }
+    @media only screen and (min-width: 577px) {
+        padding-left: 25px !important;
+    }
 }
 
 .bar.collapsed{
     height: 42.5%;
+    @media only screen and (max-width: 576px) {
+        padding-left: 55px !important;
+    }
+    @media only screen and (min-width: 577px) {
+        padding-left: 25px !important;
+    }
 }
 
 .title{

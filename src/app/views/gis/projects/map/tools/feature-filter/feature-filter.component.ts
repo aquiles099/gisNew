@@ -46,8 +46,6 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
   }
   
   ngOnInit(): void {
-    console.log(this.selectedLayer);
-    
     this.isThereAnyLayerWithActiveFilter = this._mapLayerService.projectedLayers.length > 0;
   }
 
@@ -56,7 +54,7 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     this.showSpinner = true;
     this.attributes = [];
     this.selectedPropertyData = [];
-    this.propertyValues = [];
+    this.propertyValues = null;
     this.formData.property= [];
     this.selectedLayerFilter = null;
     if(layer) {
@@ -79,7 +77,8 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
       this.selectedLayer = null;
       this.attributes = [];
       this.selectedPropertyData = [];
-      this.propertyValues = [];
+      this.formData.property= [];
+      this.propertyValues = null;
       this.showSpinner = false;
 
     }
@@ -97,10 +96,9 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     false;
   }
 
-  public onChangePropertySelector():void {  
-    this.propertyValues= [];
+  public onChangePropertySelector():void {
     this.selectedPropertyData = this.attributes.find(property => property.name === this.formData.property);
-    this.propertyValues = this.selectedPropertyData.domain;
+    this.propertyValues = this.selectedPropertyData.domain || [];
     this.search = null;
   }
 
@@ -113,7 +111,7 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     this.selectedLayerFilter[this.selectedPropertyData.name] = [];
     this.selectedLayer.clearFilter();
     this.formData.property= null;
-    this.propertyValues = [];
+    this.propertyValues = null;
     this.selectedPropertyData = [];
   }
 
@@ -133,7 +131,7 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     this.selectedLayer = null;
     this.attributes = [];
     this.selectedPropertyData = [];
-    this.propertyValues = [];
+    this.propertyValues = null;
     this.formData.property= null;
     this.layerId = null;
     this.selectedLayerFilter = null;

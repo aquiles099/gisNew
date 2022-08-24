@@ -32,12 +32,18 @@
         <div id="filter-elements-attributes-finder " class="pad-left-0 text-left pad-right-0" >            
             <div class="w-100 text-left" class="pad-left-0">            
                 <label class="mb-2 label-title" for=""> Valores: </label>            
-                <input type="text" [disabled]="! formData.property" class="form-control form-control-sm d-inline search-field" placeholder="Buscar..." [(ngModel)]="search">            
+                <input type="text"
+                [disabled]="! formData.property || (propertyValues && propertyValues.length === 0)"
+                class="form-control form-control-sm d-inline search-field"
+                placeholder="Buscar..." [(ngModel)]="search">            
                 <img src="assets/icons/svg/lupa.svg" class="icon search-icon" alt="lupa">                    
             </div>           
         </div>
         <div class="feature-property-values-section-empty"
-        *ngIf="!formData.property"></div>
+        *ngIf="!formData.property || !propertyValues"></div>
+
+        <div class="feature-property-values-section-empty"
+        *ngIf="formData.property && (propertyValues && propertyValues.length === 0)"> No tiene valores el atributo </div>
     
         <div id="filter-elements-attribute-values-list"
         class="feature-property-values-section"
@@ -53,19 +59,17 @@
                 <span class="overflow-control-description">{{value | titlecase}}</span>
             </label>
         </div> 
-        <div class="feature-property-values-section-empty"
-         *ngIf="formData.property && propertyValues.length === 0"  class="mg-t-16"> Vacio </div>
     </div>
 
     
-    <div class="row mt-3 m-0 align-items-center" >
-        <div class="col-md-4 p-1">
+    <div class="row mt-3 m-0 align-items-center style-btns-position" >
+        <div class="col-lg-4 p-1">
             <button type="button" class="btn btn-block btn-Aceptar" (click)="toggleSectionVisibility()">
                 Aceptar
             </button>
         </div>
 
-        <div class="col-md-4 p-1">
+        <div class="col-lg-4 p-1">
             <button 
             id="filter-elements-remove-layer-filter-btn"          
             type="button" 
@@ -77,7 +81,7 @@
             </button>
         </div>
 
-        <div class="col-md-4 p-1">
+        <div class="col-lg-4 p-1">
             <button 
             id="filter-elements-remove-all-filters-btn"
             type="button" 
