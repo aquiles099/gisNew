@@ -13,7 +13,7 @@
         </div>
 
         <ng-container *ngIf="attributes && attributes.length == 0">
-            <label class="mb-2 label-title">Debe configurar algún atributo para esta herramienta.</label>
+            <label class="mb-2 ">Debe configurar algún atributo para esta herramienta.</label>
         </ng-container>
 
         <ng-container *ngIf="!attributes || (attributes && attributes.length > 0)">
@@ -45,7 +45,8 @@
                 </div>           
             </div>
             <div class="feature-property-values-section-empty"
-            *ngIf="!formData.property || !propertyValues || (formData.property && (propertyValues && propertyValues.length === 0))">Vacio</div>
+                *ngIf="formData.property && propertyValues && propertyValues.length === 0" > Vacio 
+            </div>
 
             <div id="filter-elements-attribute-values-list"
             class="feature-property-values-section"
