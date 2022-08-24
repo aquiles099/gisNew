@@ -15,17 +15,19 @@
         <div id="filter-elements-attribute-selector" class="col-12 p-0 mt-xs-2 mb-2 text-left">
             <label class="mb-2 label-title" for="">Atributo:</label>
             <ng-select
+                [items]="attributes"
+                bindLabel="display_name"
+                bindValue="name"
                 class="custom" 
-                placeholder="Seleccione una propiedad"                
+                placeholder="Seleccione una propiedad"
                 [clearable]="false"
-                [disabled]=" !formData.layer"
+                [disabled]=" !formData.layer || loadingAttr"
+                [loading]="loadingAttr"
+                loadingText="Cargando..."
                 [(ngModel)]="formData.property"
                 [ngModelOptions]="{standalone: true}"
                 (change)="onChangePropertySelector()"
                 >
-                <ng-option [value]="attribute.name" *ngFor="let attribute of attributes">
-                    {{attribute.display_name}} 
-                </ng-option>
             </ng-select>
         </div>
 
@@ -36,11 +38,14 @@
                 <img src="assets/icons/svg/lupa.svg" class="icon search-icon" alt="lupa">                    
             </div>           
         </div>
+        <div class="feature-property-values-section-empty"
+        *ngIf="!formData.property"></div>
     
         <div id="filter-elements-attribute-values-list"
-        class="feature-property-values-section bottom-bordered "
-        *ngIf="formData.property && propertyValues.length > 0">
-            <label class="custom-control overflow-checkbox" *ngFor="let value of ( propertyValues | keyMatch : search)">
+        class="feature-property-values-section"
+        *ngIf="formData.property && (propertyValues && propertyValues.length > 0)">
+            <label class="custom-control overflow-checkbox"
+            *ngFor="let value of ( propertyValues | keyMatch : search)">
                 <input type="checkbox" class="overflow-control-input"
                 id="feature_value_{{value}}"
                 name="feature_value_{{value}}"
@@ -50,18 +55,19 @@
                 <span class="overflow-control-description">{{value | titlecase}}</span>
             </label>
         </div> 
-        <span *ngIf="formData.property && propertyValues.length === 0"  class="mg-t-16"> Vacio </span>
+        <div class="feature-property-values-section-empty"
+         *ngIf="formData.property && propertyValues.length === 0"  class="mg-t-16"> Vacio </div>
     </div>
 
     
-    <div class="_bottom-section row m-0 align-items-center" >
-        <div class="col-4 p-1">
+    <div class="row mt-3 m-0 align-items-center" >
+        <div class="col-md-4 p-1">
             <button type="button" class="btn btn-block btn-Aceptar" (click)="toggleSectionVisibility()">
                 Aceptar
             </button>
         </div>
 
-        <div class="col-4 p-1">
+        <div class="col-md-4 p-1">
             <button 
             id="filter-elements-remove-layer-filter-btn"          
             type="button" 
@@ -73,7 +79,7 @@
             </button>
         </div>
 
-        <div class="col-4 p-1">
+        <div class="col-md-4 p-1">
             <button 
             id="filter-elements-remove-all-filters-btn"
             type="button" 

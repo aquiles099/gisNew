@@ -30,6 +30,7 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
   public properties:Array<any> = [];
   public apiData:any;
   public isThereAnyLayerWithActiveFilter:boolean = false;
+  public loadingAttr: boolean = false;
   constructor(
     protected toolService:ToolService,
     protected mapService:MapService,
@@ -52,6 +53,7 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
 
   async onChangeLayerSelector(layer: GisLayer)
   {
+    this.loadingAttr = true;
     this.attributes = [];
     this.selectedPropertyData = [];
     this.propertyValues = [];
@@ -63,7 +65,6 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
       this.attributes = await this._gisLayerService.getAllowedAttributesPerTool(this.selectedLayer.id);
       this.selectedLayerFilter = layer.filterMap;
       console.log(this.selectedLayerFilter);
-      
       if(this.attributes.length < 1){
         Swal.fire({
           icon: "info",
@@ -73,11 +74,13 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
           heightAuto: false
         });
       }
+      this.loadingAttr = false;
     } else {
       this.selectedLayer = null;
       this.attributes = [];
       this.selectedPropertyData = [];
       this.propertyValues = [];
+      this.loadingAttr = false;
 
     }
   }
