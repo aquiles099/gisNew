@@ -23,7 +23,7 @@ export class GisLayer
   geoserverUrl:string;
   map:Map;
 
-  private filter:{[key:string]:(string | number)[]} = {};
+  private _filter:{[key:string]:(string | number)[]} = {};
   
   constructor(
       data:Layer,
@@ -48,9 +48,9 @@ export class GisLayer
     return this.gis_layer.geoserver_name;
   }
 
-  get filterMap()
+  get filter()
   {
-    return this.filter;
+    return this._filter;
   }
 
   // map
@@ -129,37 +129,45 @@ export class GisLayer
     this.refresh();
   }
 
-  // filter
+  // _filter
 
   public async updateFilter(attrName:string, value:string|number):Promise<void>
   {
     if( this.attributeExistsOnFilter(attrName) )
     {
-      this.filter[attrName] = this.valueExistsOnFilter(attrName, value) ?
-      this.filter[attrName].filter(_value => _value !== value) :
-      [...this.filter[attrName], value];
+      this._filter[attrName] = this.valueExistsOnFilter(attrName, value) ?
+      this._filter[attrName].filter(_value => _value !== value) :
+      [...this._filter[attrName], value];
     }
     else
     {
-      this.filter[attrName] = [value];
+      this._filter[attrName] = [value];
     }
 
     this.updateCqlFilterInSelectedLayer();
   }
 
+  /**
+   * Comprobar si hay filtros sobre algun atributo.
+  */
+  public hasFilterOnSomeAttribute():boolean
+  {
+    return Object.keys(this._filter).length > 0;
+  }
+
   public attributeExistsOnFilter(attrName:string):boolean
   {
-    return isset(this.filter[attrName]);
+    return isset(this._filter[attrName]);
   }
- 
+  
   public valueExistsOnFilter(attrName:string, value:string|number):boolean
   {
-    return this.filter[attrName].includes(value);
+    return this._filter[attrName].includes(value);
   }
 
   public async removeAttributeFromFilter(attrName:string):Promise<void>
   {
-    delete this.filter[attrName];
+    delete this._filter[attrName];
     this.updateCqlFilterInSelectedLayer();
   }
 
@@ -167,7 +175,7 @@ export class GisLayer
   {
     let cqlFilter = "";
 
-    for( let [attribute, values] of Object.entries(this.filter))
+    for( let [attribute, values] of Object.entries(this._filter))
     {
       if( values.length )
       {
@@ -180,7 +188,7 @@ export class GisLayer
       }
       else
       {
-        delete this.filter[attribute];
+        delete this._filter[attribute];
       }
     }
 
@@ -191,8 +199,9 @@ export class GisLayer
     this.refresh();
   }
 
-  public clearFilter(): void{
-    this.filter = {};
+  public clearFilter(): void
+  {
+    this._filter = {};
     delete this.wms.wmsParams.cql_filter;
     this.refresh();
   }

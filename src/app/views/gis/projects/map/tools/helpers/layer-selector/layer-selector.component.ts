@@ -5,7 +5,8 @@ import { MapLayerService } from '../../../../../../../services/gis/map/map-layer
 @Component({
   selector: 'layer-selector',
   templateUrl: './layer-selector.component.html',
-  styleUrls: ['./layer-selector.component.scss']
+  styleUrls: ['./layer-selector.component.scss', 
+  '../../../../../../../../styles/map/tool.scss']
 })
 export class LayerSelectorComponent implements OnInit
 {

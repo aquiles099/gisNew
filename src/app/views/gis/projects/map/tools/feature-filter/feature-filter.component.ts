@@ -3,24 +3,26 @@ import { BaseToolComponent } from '../base-tool/base-tool.component';
 import { ToolService } from '../../../../../../services/gis/map/tool.service';
 import { MapService } from '../../../../../../services/gis/map/map.service';
 import { GisLayerService } from '@services/gis/gis-layer.service';
-import { Subscription } from 'rxjs';
-import Swal from 'sweetalert2';
 import { GisLayer } from '../../../../../../models/gis-layer';
 import { MapLayerService } from '@services/gis/map/map-layer.service';
+import { LayerAttribute } from '../../../../../../interfaces/layer-attribute';
 
 @Component({  templateUrl: './feature-filter.component.html',
-  styleUrls: ['./feature-filter.component.scss']
+  styleUrls: [
+    './feature-filter.component.scss',
+   '../../../../../../../styles/map/tool.scss'
+]
 })
 export class FeatureFilterComponent extends BaseToolComponent implements OnInit
 {
-  public attributes:any[] = null;
+  public atributes:LayerAttribute[] = null;
   public selectedLayer:GisLayer;
-  public projectLayersSubscription: Subscription;
   public search:string = null;
   public propertyValues:Array<string|number> = [];
   public selectedLayerFilter:{[atributo:string]:Array<string|number>};
   private selectedPropertyData:any;
   public layerId:number;
+
   public formData:any = {
     module:null,
     group:null,
@@ -28,8 +30,8 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     property:null
   };
   public properties:Array<any> = [];
-  public apiData:any;
   public isThereAnyLayerWithActiveFilter:boolean = false;
+
   constructor(
     protected toolService:ToolService,
     protected mapService:MapService,
@@ -45,32 +47,42 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
     this.key = "feature-filter";
   }
   
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.isThereAnyLayerWithActiveFilter = this._mapLayerService.projectedLayers.length > 0;
   }
 
   async onChangeLayerSelector(layer: GisLayer)
   {
-    this.showSpinner = true;
-    this.selectedPropertyData = [];
-    this.propertyValues = null;
-    this.formData.property= [];
-    this.selectedLayerFilter = null;
-    if(layer) {
-      this.selectedLayer ? this.selectedLayer.clearFilter(): '';
-      this.selectedLayer = layer;
-      this.formData.layer = layer;
-      this.attributes = await this._gisLayerService.getAllowedAttributesPerTool(this.selectedLayer.id);
-      this.selectedLayerFilter = layer.filterMap;
-      this.showSpinner = false;
-    } else {
-      this.selectedLayer = null;
-      this.attributes = null;
+    try
+    {
+      this.showSpinner = true;
       this.selectedPropertyData = [];
-      this.formData.property= [];
       this.propertyValues = null;
-      this.showSpinner = false;
+      this.formData.property= [];
+      this.selectedLayerFilter = null;
+  
+      this.selectedLayer = layer;
+  
+      if(layer)
+      {
+        this.formData.layer = layer;
+        this.atributes = await this._gisLayerService.getAllowedAttributesPerTool(this.selectedLayer.id);
+        this.selectedLayerFilter = layer.filter;
+      }
+      else
+      {
+        this.atributes = null;
+      }
 
+    }
+    catch(err) {
+     console.log(err);
+     this.showSpinner = false;
+    }
+    finally
+    {
+      this.showSpinner = false;
     }
   }
 
@@ -80,50 +92,46 @@ export class FeatureFilterComponent extends BaseToolComponent implements OnInit
   }
 
   public valueExistsOnFilter(value:string|number):boolean
-  {    
+  {        
     return this.selectedLayerFilter[this.selectedPropertyData.name] ?
     this.selectedLayerFilter[this.selectedPropertyData.name].includes(value) :
     false;
   }
 
-  public onChangePropertySelector():void {
-    this.selectedPropertyData = this.attributes.find(property => property.name === this.formData.property);
+  public onChangePropertySelector():void
+  {
+    this.selectedPropertyData = this.atributes.find(property => property.name === this.formData.property);
     this.propertyValues = this.selectedPropertyData.domain || [];
     this.search = null;
   }
 
-  public toggleSectionVisibility() {
-    this.close();
-  }
-
   public async removeFilterOnProperty():Promise<void>
   { 
-    this.selectedLayerFilter[this.selectedPropertyData.name] = [];
     this.selectedLayer.clearFilter();
-    this.formData.property= null;
-    this.propertyValues = null;
     this.selectedPropertyData = [];
+    this.propertyValues = null;
+    this.formData.property= null;  
+    this.selectedLayerFilter = this.selectedLayer.filter;     
   }
 
   public selectedLayerHasFilterOnProperty():boolean
-  {
-    return this.selectedLayerFilter && Object.keys(this.selectedLayerFilter).length &&
-    this.selectedLayerFilter[this.selectedPropertyData.name] ?
-    this.selectedLayerFilter[this.selectedPropertyData.name].length > 0 :
+  {  
+    return this.selectedLayerFilter && Object.keys(this.selectedLayerFilter).length  ?
+    this.selectedLayer.hasFilterOnSomeAttribute() :
     false;
   }
 
   public async removeFilterOnAllLayers():Promise<void>
   {
-    for(let layer of this._mapLayerService.projectedLayers) {
+    for(let layer of this._mapLayerService.projectedLayers)
       layer.clearFilter();
-    }
-    this.selectedLayer = null;
-    this.attributes = null;
-    this.selectedPropertyData = [];
-    this.propertyValues = null;
-    this.formData.property= null;
-    this.layerId = null;
-    this.selectedLayerFilter = null;
+    
+      this.selectedLayer = null;
+      this.atributes = null;
+      this.selectedPropertyData = [];
+      this.propertyValues = null;
+      this.formData.property= null;
+      this.layerId = null;
+      this.selectedLayerFilter = null;
   }
 }

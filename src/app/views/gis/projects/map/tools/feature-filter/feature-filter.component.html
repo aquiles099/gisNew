@@ -12,18 +12,16 @@
             ></layer-selector>
         </div>
 
-        <ng-container *ngIf="attributes && attributes.length == 0">
+        <ng-container *ngIf="atributes && atributes.length == 0">
             <label class="mb-2 ">Debe configurar algún atributo para esta herramienta.</label>
         </ng-container>
+        
 
-        <ng-container *ngIf="!attributes || (attributes && attributes.length > 0)">
+        <ng-container *ngIf="! atributes || (atributes && atributes.length > 0)">
             <div id="filter-elements-attribute-selector" class="col-12 p-0 mt-xs-2 mb-2 text-left">
-                <label class="mb-2 label-title">Atributo:</label>
+                <label class="mb-2">Atributo:</label>
                 <ng-select
-                    [items]="attributes"
-                    bindLabel="display_name"
-                    bindValue="name"
-                    class="custom" 
+                    class="layer-selector" 
                     placeholder="Seleccione una propiedad"
                     [clearable]="false"
                     [disabled]=" !formData.layer || showSpinner"            
@@ -32,6 +30,9 @@
                     (change)="onChangePropertySelector()"
                     dropdownPosition="bottom"
                     >
+                    <ng-option [value]="atribute.name" *ngFor="let atribute of atributes">
+                        {{atribute.display_name}} <span *ngIf="selectedLayer.attributeExistsOnFilter(atribute.name)" style="font-weight: 600">- con filtro <img src="assets/icons/svg/map/feature-filter-no-lines.svg" alt="feature-filter" style="width:16px" draggable="false"></span>
+                    </ng-option>
                 </ng-select>
             </div>
 
@@ -42,12 +43,14 @@
                     [disabled]="! formData.property || (propertyValues && propertyValues.length === 0)"
                     class="form-control form-control-sm d-inline search-field"
                     placeholder="Buscar..." [(ngModel)]="search">            
-                    <img src="assets/icons/svg/lupa.svg" class="icon search-icon" alt="lupa">                    
+                    <img src="assets/icons/svg/lupa.svg" class="icon search-icon-filtro" alt="lupa">                    
                 </div>           
             </div>
             <div class="feature-property-values-section-empty"
                 *ngIf="formData.property && propertyValues && propertyValues.length === 0" > Vacio 
             </div>
+
+   
 
             <div id="filter-elements-attribute-values-list"
             class="feature-property-values-section"
@@ -67,35 +70,45 @@
     </div>
 
     
-    <div class="row mt-3 m-0 align-items-center style-btns-position" >
-        <div class="col-lg-4 p-1">
-            <button type="button" class="btn btn-block btn-Aceptar" (click)="toggleSectionVisibility()">
-                Aceptar
-            </button>
-        </div>
+    <div class="row mx-0 px-2 d-flex justify-content-center ">
 
-        <div class="col-lg-4 p-1">
-            <button 
-            id="filter-elements-remove-layer-filter-btn"          
-            type="button" 
-            class="btn btn-block btn-outline"
-            (click)="removeFilterOnProperty()"
-            [disabled]="!formData.property || !selectedLayerHasFilterOnProperty()"
-            disabled>
-                Eliminar filtro
-            </button>
+        <div class="bottom-section">
+    
+            <div class="row mx-0 justify-content-between">
+    
+                <div class="col-4 p-1">
+                    <button type="button" class="btn btn-block btn-ok" (click)="close()">
+                        Aceptar
+                    </button>
+                </div>
+        
+                <div class="col-4 p-1">
+                    <button 
+                    id="filter-elements-remove-layer-filter-btn"          
+                    type="button" 
+                    class="btn btn-block btn-outline"
+                    (click)="removeFilterOnProperty()"
+                    [disabled]="!formData.property || !selectedLayerHasFilterOnProperty()"
+                    disabled>
+                        Eliminar filtro
+                    </button>
+                </div>
+        
+                <div class="col-4 p-1">
+                    <button 
+                    id="filter-elements-remove-all-filters-btn"
+                    type="button" 
+                    (click)="removeFilterOnAllLayers()"
+                    [disabled]="!formData.property || !isThereAnyLayerWithActiveFilter "
+                    class="btn btn-block btn-outline">
+                     Eliminar todo
+                    </button>
+                </div>
+    
+            </div>
+            
         </div>
-
-        <div class="col-lg-4 p-1">
-            <button 
-            id="filter-elements-remove-all-filters-btn"
-            type="button" 
-            (click)="removeFilterOnAllLayers()"
-            [disabled]="!formData.property || !isThereAnyLayerWithActiveFilter"
-            class="btn btn-block btn-outline">
-             Eliminar todo
-            </button>
-        </div>
+    
     </div>
 
     <div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">

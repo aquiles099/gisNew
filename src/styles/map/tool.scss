@@ -4,7 +4,6 @@
     height: 90%;
 }
 
-.btn-ok,
 .btn-cancel{
     border-radius: 0.25rem;
     background-color: #001E33;
@@ -21,8 +20,28 @@
 }
 
 .btn-ok{
+    color: #FFF;   
+    border-radius: 3px;
     background-color: #001E33;
-    color: #fff;
+    width: 100%;
+    font-size: .825rem;
+    padding: 4px;
+    font-family: "Rubik Bold" !important;
+    height: 40px;
+    line-height: 1.2;
+}
+  
+.btn-outline{
+    border-radius: 3px;
+    background-color: #FFF;
+    border: 1px solid #001E33;
+    color: #001E33;  
+    font-size: .825rem;
+    width: 100%;
+    padding: 4px;
+    font-family: "Rubik Bold" !important;
+    height: 40px;
+    line-height: 1.2;
 }
 
 .btn-cancel{
@@ -92,7 +111,143 @@ input[type=checkbox]{
     padding: 0rem .75rem;
 }
 
+.ng-select.layer-selector ::ng-deep .ng-select-container  {    
+    font-size: .825rem;
+    background-color: #FAFAFA;
+    border-color: #E0E0E0;
+    border-radius: .125rem;
+    color: #222;
+    font-family: 'NunitoSans' !important;
+  }
+  
+  .ng-select.layer-selector ::ng-deep .ng-select-container:disabled  {    
+    opacity: .65;
+  }
+  
+  .ng-select.layer-selector ::ng-deep .ng-option{
+    font-size: .825rem;
+    color: #222;
+    font-family: 'NunitoSans' !important;
+  }
+  
+  label{
+    width: 100%;
+    text-align: start;
+    margin-bottom: .5rem;
+    font-size: .875rem;
+    font-family: 'Rubik Bold' !important;
+    color: #001E33;
+  }
+  
+
+  
+  .btn.disabled, .btn:disabled, fieldset:disabled .btn {
+    color: #BDBDBD;
+    border: 1px solid #BDBDBD;
+  }
+  /**Checkbox**/
+  .overflow-checkbox .overflow-control-input {
+    display: none;
+  }
+  
+  .overflow-checkbox .overflow-control-input:checked ~ .overflow-control-indicator::after {
+    -webkit-transform: rotateZ(50deg) scale(1);
+    -ms-transform: rotate(50deg) scale(1);
+    transform: rotateZ(50deg) scale(1);
+    top: -2px;
+    left: 5px;
+  }
+  
+  .overflow-checkbox .overflow-control-input:checked ~ .overflow-control-indicator::before {
+    opacity: 1;
+  }
+  
+  .overflow-checkbox .overflow-control-input:disabled ~ .overflow-control-indicator {
+    opacity: .5;
+    border: 2px solid #ccc;
+  }
+  
+  .overflow-checkbox .overflow-control-input:disabled ~ .overflow-control-indicator:after {
+    border-bottom: 4px solid #ccc;
+    border-right: 4px solid #ccc;
+  }
+  
+  .overflow-checkbox .overflow-control-indicator {
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1px solid #000;
+    left: 0px;
+  }
+  .overflow-checkbox .overflow-control-indicator::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    -webkit-transform: rotateZ(90deg) scale(0);
+    -ms-transform: rotate(90deg) scale(0);
+    transform: rotateZ(90deg) scale(0);
+    width: 7px;
+    border-bottom: 3px solid #001E33;
+    border-right: 3px solid #001E33;
+    border-radius: 3px;
+    top: -2px;
+    left: 2px;
+  }
+  .overflow-checkbox .overflow-control-indicator::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    width: 7px;
+    border-right: 7px solid #fff;
+    border-radius: 3px;
+    -webkit-transform: rotateZ(50deg) scale(1);
+    -ms-transform: rotate(50deg) scale(1);
+    transform: rotateZ(50deg) scale(1);
+    top: 0px;
+    left: 4px;
+    opacity: 0;
+  }
+  
+  
+
 /* media */
+
+@media(min-width: 400px)
+  {
+    label{
+        font-size: .813rem;
+    }
+      
+      .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+          font-size: .75rem;
+      }
+      
+      .ng-select.layer-selector ::ng-deep .ng-option{
+          font-size: .725rem !important;
+      }
+  
+      .btn-ok{
+        font-size: .75rem;
+        height: 35px;
+      }
+  
+      .btn-outline{
+        font-size: .75rem;
+        height: 35px;
+      }
+  }
 
 @media(min-width: 800px)
 {
@@ -100,19 +255,31 @@ input[type=checkbox]{
         padding: 0rem .75rem 0rem 2.5rem;
     }
 
+    label{
+        font-size: 0.875rem;
+    }
+
     .attr-label,
     .attr-value,
     .ng-select.attr-value{
-        font-size: 0.75rem !important;
+        font-size: .813rem !important;
     }
 
     .ng-select.attr-value ::ng-deep .ng-select-container  {    
-        font-size: .75rem;
+        font-size: .813rem;
     }
     
     .ng-select.attr-value ::ng-deep .ng-option{
-        font-size: .75rem !important;
+        font-size: .813rem !important;
     } 
+
+    .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+        font-size: .813rem !important;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-option{
+        font-size: .813rem !important;
+    }
     
     input[type=checkbox]{
         width: 1.25rem;
@@ -121,7 +288,11 @@ input[type=checkbox]{
     
     .btn-ok,
     .btn-cancel{
-        font-size: .75rem;
+        font-size: .813rem;
+    } 
+  
+    .btn-outline{
+        font-size:.813rem;
     }
 }
 
@@ -133,6 +304,10 @@ input[type=checkbox]{
         font-size: 0.825rem !important;
     }
 
+    label{
+        font-size: 0.875rem;
+    }
+
     .ng-select.attr-value ::ng-deep .ng-select-container  {    
         font-size: .825rem;
     }
@@ -140,6 +315,15 @@ input[type=checkbox]{
     .ng-select.attr-value ::ng-deep .ng-option{
         font-size: .825rem !important;
     } 
+
+    .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+        font-size: .813rem !important;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-option{
+        font-size: .813rem !important;
+    }
+    
     
     input[type=checkbox]{
         width: 1.75rem;
@@ -148,7 +332,11 @@ input[type=checkbox]{
     
     .btn-ok,
     .btn-cancel{
-        font-size: .825rem;
+        font-size: .813rem;
+    } 
+  
+    .btn-outline{
+        font-size:.813rem;
     }
 
     .bottom-section{
@@ -159,9 +347,14 @@ input[type=checkbox]{
 
 @media(min-width: 1280px)
 {       
+    
     .help-message{
-        font-size: .925rem;
-    }    
+        font-size: .875rem;
+    } 
+
+    label{
+        font-size: 0.875rem;
+    }  
 
     .attr-label,
     .attr-value,
@@ -170,12 +363,21 @@ input[type=checkbox]{
     }
 
     .ng-select.attr-value ::ng-deep .ng-select-container  {    
-        font-size: .875rem;
+        font-size: .813rem;
     }
     
     .ng-select.attr-value ::ng-deep .ng-option{
-        font-size: .875rem !important;
+        font-size: .813rem !important;
     } 
+
+    .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+        font-size: .813rem !important;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-option{
+        font-size: .813rem !important;
+    }
+    
     
     .bottom-section{
         padding: 0rem 1rem 0rem 2.5rem;
@@ -187,8 +389,11 @@ input[type=checkbox]{
 
     .btn-ok,
     .btn-cancel{
-        font-size: .875rem;
+        font-size: .813rem;
     }
+    .btn-outline{
+        font-size: .813rem;
+      }
 }
 
 @media(min-width: 1360px)
@@ -210,6 +415,10 @@ input[type=checkbox]{
         font-size: .95rem !important;
     }
 
+    label{
+        font-size: .875rem;
+      }
+
     .ng-select.attr-value ::ng-deep .ng-select-container  {    
         font-size: .95rem;
     }
@@ -218,6 +427,14 @@ input[type=checkbox]{
         font-size: .95rem !important;
     } 
 
+    .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+        font-size: .813rem !important;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-option{
+        font-size: .813rem !important;
+    }
+
     .bottom-section{
         bottom: 3.5%;
         padding: 0rem 1.25rem 0rem 2.5rem;
@@ -225,22 +442,45 @@ input[type=checkbox]{
 
     .btn-ok,
     .btn-cancel{
-        font-size: .95rem;
+        font-size: .85rem;
+    }
+
+    .btn-outline{
+        font-size: .85rem;
     }
 }
 
 @media(min-width: 1600px)
 {
     .help-message{
-        font-size: 1.125rem;
+        font-size: 0.875rem;
     }    
-
-    label{
-        font-size: 1.125rem;
-    }
 
     .bottom-section{
         padding: 0rem 1.5rem 0rem 2.5rem;
+    }
+
+    .ng-select.layer-selector ::ng-deep .ng-select-container  {    
+        font-size: .85rem !important;
+    }
+    
+    .ng-select.layer-selector ::ng-deep .ng-option{
+        font-size: .85rem !important;
+    }
+    
+
+    
+    label{
+    font-size:  0.875rem;
+    }
+
+    .btn-ok,
+    .btn-cancel{
+        font-size: .85rem;
+    }
+
+    .btn-outline{
+        font-size: .85rem;
     }
 }
 
