@@ -6,6 +6,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { ResourceService } from './services/resource.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { MatchValuePipe } from './pipes/match-value.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
@@ -37,7 +38,8 @@ import { KeyMatchPipe } from './pipes/key-match.pipe';
       preventDuplicates: true,
       enableHtml: true
     }),
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HighchartsChartModule
   ],
   exports:[
     CommonModule,
@@ -53,7 +55,8 @@ import { KeyMatchPipe } from './pipes/key-match.pipe';
     //
     SafeHtmlPipe,
     MatchValuePipe,
-    KeyMatchPipe
+    KeyMatchPipe,
+    HighchartsChartModule
   ],
   providers:[
     ResourceService

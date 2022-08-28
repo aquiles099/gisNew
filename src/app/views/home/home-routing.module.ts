@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home.component';
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 import { InternalServerErrorComponent } from './errors/internal-server-error/internal-server-error.component';
@@ -14,12 +13,12 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'tablero',
+        redirectTo: 'tablero/gmao',
         pathMatch: 'full'
       },
       {
         path: 'tablero',
-        component: DashboardComponent
+        loadChildren: () => import('../home/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
         path: 'proyectos',

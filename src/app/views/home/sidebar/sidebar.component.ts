@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit {
   public mainRoutes:any[] = [
     {
       'id': 'dashboard',
-      'path': ['/home','tablero'],
+      'path': ['/home','tablero','gmao'],
       'iconPath': 'assets/icons/svg/dashboard.svg',
       'label': 'Dashboard'
     },
