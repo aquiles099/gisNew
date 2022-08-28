@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnChanges, OnDestroy, SimpleChanges, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import * as Highcharts from 'highcharts';
 
@@ -7,7 +7,7 @@ import * as Highcharts from 'highcharts';
   templateUrl: './graphs-view.component.html',
   styleUrls: ['./graphs-view.component.scss']
 })
-export class GraphsViewComponent implements OnChanges {
+export class GraphsViewComponent implements OnInit, OnDestroy {
 
   @Input() data: any = null;
 
@@ -19,26 +19,94 @@ export class GraphsViewComponent implements OnChanges {
       renderTo: '',
       plotBackgroundColor: null,
       plotBorderWidth: null,
-      plotShadow: false
+      plotShadow: false,
+      zoomType: "xy"
     },
     credits: {
       enabled: false
     },
     title: {
-      text: ''
+      text: '',
+      style: {
+          display: 'none'
+      }
     },
     subtitle: {
-      text: ''
+      text: '',
+      style: {
+          display: 'none'
+      }
     },
-    tooltip: {
-      pointFormat: '<b>{point.percentage:.1f}%</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
+    xAxis: [
+      {
+        categories: [
+          "x1",
+          "x2",
+          "x3",
+          "x4",
+          "x5",
+          "x6",
+          "x7",
+          "x8",
+          "x9",
+          "x10"
+        ],
+        crosshair: true
+      }
+    ],
+    yAxis: [
+      {
+        // Primary yAxis
+        labels: {
+          format: "{value}",
+          style: {
+            color: "#7cb5ec"
+          }
+        },
+        title: {
+          text: "Unidade de Medida 1",
+          style: {
+            display: 'none'
+          }
         }
+      },
+      {
+        // Secondary yAxis
+        title: {
+          text: "Unidade de Medida 2",
+          style: {
+            display: 'none'
+          }
+        },
+        labels: {
+          format: "{value}",
+          style: {
+            color: "#0d233a"
+          }
+        },
+        opposite: true
+      },
+      {
+        // Secondary yAxis
+        title: {
+          text: "Unidade de Medida 3",
+          style: {
+            display: 'none'
+          }
+        },
+        labels: {
+          format: "{value}",
+          style: {
+            color: "#8bbc21"
+          }
+        },
+        opposite: true
+      }
+    ],
+    tooltip: {
+      shared: true
     },
-    plotOptions: {
+    /* plotOptions: {
       pie: {
         allowPointSelect: true,
         cursor: 'pointer',
@@ -49,18 +117,39 @@ export class GraphsViewComponent implements OnChanges {
         },
         showInLegend: true
       }
-    },
+    }, */
     series: [
       {
-        type: 'pie',
-        colorByPoint: true,
-        name: '',
-        data: [{
-          name: 'tipo 1',
-          y: Number(28),
-          sliced: false,
-          selected: false
-        }]
+        name: "Série 1",
+        type: "column",
+        color: "#7cb5ec",
+        yAxis: 0,
+        data: [
+          49.9,
+          71.5,
+          106.4,
+          129.2,
+          144.0,
+          176.0,
+          135.6,
+          148.5,
+          210.4,
+          194.1
+        ]
+      },
+      {
+        name: "Série 2",
+        type: "spline",
+        color: "#0d233a",
+        yAxis: 1,
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3]
+      },
+      {
+        name: "Série 3",
+        type: "spline",
+        color: "#8bbc21",
+        yAxis: 2,
+        data: [4.0, 3.9, 6.5, 11.5, 15.2, 18.5, 22, 23.5, 20.3, 12.3]
       }
     ]
   };
@@ -72,7 +161,7 @@ export class GraphsViewComponent implements OnChanges {
   constructor(
     private router: Router,
   ) {
-
+    console.log('grafico');
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };
@@ -90,14 +179,13 @@ export class GraphsViewComponent implements OnChanges {
     }
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnInit(): void {
     this.onLoadChart()
   }
 
   public onLoadChart():void
   {
     console.log('cargando graficos')
-    this.pieChartOptions.title.text = 'Titulo gráfico';
     this.pieChartOptions.chart['renderTo'] = this.chartElement.nativeElement;
     this.chart = Highcharts.chart(this.pieChartOptions);
   }
