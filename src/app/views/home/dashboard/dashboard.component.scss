@@ -2,6 +2,37 @@
     background-color: rgb(250, 248, 248);
 }
 
+.dashboard-type {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: flex-start;
+}
+
+.dashboard-type .btn-type-graphics {
+    border: none;
+    background: #fff;
+    min-width: 100px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    text-align: center;
+    font-size: .75rem;
+    font-family: 'Rubik light' !important;
+}
+
+.dashboard-type .btn-type-active {
+    min-width: 100px;
+    border: none;
+    border-top-left-radius: .975rem;
+    border-top-right-radius: .975rem;
+    background: #F1F3F7;
+    font-family: 'Rubik Bold' !important;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    text-align: center;
+    font-size: .75rem;
+}
 
 .dashboard-list{
     width: 100%;
@@ -10,8 +41,6 @@
     overflow: hidden;
     text-align: center;
     display: inline-block;
-    border-top-left-radius: .975rem;
-    border-top-right-radius: .975rem;
 }
 
 .selectors-row{
@@ -54,6 +83,10 @@ select{
     z-index: 10000;
 }
 
+.dashboard-box-title{
+    margin-bottom: 0.7rem !important;
+}
+
 .dashboard-box{
     cursor: pointer;
     border-radius: .875rem;
@@ -62,7 +95,6 @@ select{
     box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
     -webkit-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
     -moz-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
-    margin-bottom: 2.7rem !important;
 }
 
 .paginator-btn,
@@ -97,11 +129,6 @@ select{
     color: #495C80 !important;
 }
 
-.graphics-section div{
-    width: 100%;
-    margin-bottom: -17.5%;
-}
-
 .favourite-btn{
     position: relative;
     left: 40%;
@@ -112,13 +139,14 @@ select{
 }
 
 .graphics-section{
-    height: 60%;
+    height: 30vh;
     width: 100%;
+    background: #F1F3F7;
 }
 
-.graphics-section > img{
+.graphics-section .containter-graphics{
     width: 100%;
-    max-height: 100%;
+    height: 100%;
     border-top-left-radius: .975rem;
     border-top-right-radius: .975rem;
 }
@@ -130,7 +158,8 @@ select{
 
 .dashboard-box .info-section .logo{
     max-width: 97.5%;
-    max-height: 2.5rem;
+    max-height: 2.2rem;
+    margin-right: 10px;
 }
 
 .dashboard-title{
@@ -140,7 +169,7 @@ select{
 }
 
 .last-access-label{
-    font-size: .875rem;
+    font-size: .675rem;
 }
 
 .dashboard-details{
@@ -253,6 +282,7 @@ select{
         width: 106% !important;
         padding-right: 30px !important;
         padding-left: 30px !important;
+        top: 12% !important;
     }
 }
 
@@ -307,18 +337,17 @@ select{
     }
 
     .dashboard-box .info-section .logo{
-        max-height: 3rem;
+        max-height: 2.2rem;
     }
  }
 
  @media(min-width: 1280px)
  {
     .graphics-section{
-        height: 55%;
+        
     }
 
     .graphics-section div{
-        margin-bottom: -12.5% !important;
     }
     
     .dashboard-box .info-section{
@@ -329,7 +358,6 @@ select{
 @media(min-width: 1440px)
  {
     .graphics-section div{
-        margin-bottom: -12.5% !important;
     }
     
     .favourite-btn{
@@ -344,7 +372,6 @@ select{
     }
 
     .graphics-section div{
-        margin-bottom: -15%;
     }
     
     .favourite-btn{
@@ -360,7 +387,7 @@ select{
     }
 
     .last-access-label{
-        font-size: .875rem;
+        font-size: .675rem;
     }
 
     .dashboard-title{
@@ -368,7 +395,7 @@ select{
     }
 
     .dashboard-box .info-section .logo{
-        max-height: 3rem;
+        max-height: 2.2rem;
     }
 }
  
@@ -384,7 +411,7 @@ select{
     }
 
     .last-access-label{
-        font-size: .875rem;
+        font-size: .675rem;
     }
 }
  
@@ -398,7 +425,7 @@ select{
  @media(min-width: 1280px) and (min-height: 720px)
  {
     .dashboard-box .info-section .logo{
-        max-height: 2.5rem;
+        max-height: 2.2rem;
     }
 
  }
@@ -428,11 +455,11 @@ select{
     }
 
     .last-access-label{
-        font-size: .9rem;
+        font-size: .75rem;
     }
 
     .dashboard-box .info-section .logo{
-        max-height: 2.75rem;
+        max-height: 2.2rem;
     }
  }
  
@@ -443,7 +470,7 @@ select{
     }
 
     .last-access-label{
-        font-size: .9rem;
+        font-size: .75rem;
     }
  }
  
@@ -454,7 +481,7 @@ select{
     }
 
     .last-access-label{
-        font-size: .875rem;
+        font-size: .675rem;
     }
 
     .section-label{
@@ -462,7 +489,7 @@ select{
     }
     
     .dashboard-box .info-section .logo{
-        max-height: 3rem;
+        max-height: 2.2rem;
     }
  }
 
@@ -517,6 +544,6 @@ select{
     }
 
     .last-access-label{
-        font-size: 1rem;
+        font-size: .8rem;
     }
  }

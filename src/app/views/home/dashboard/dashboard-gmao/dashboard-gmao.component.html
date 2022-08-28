@@ -8,14 +8,21 @@
         </div>
 
     </div>
+    <div class="row mx-0 align-items-center">
+        <div class="col-md-12 dashboard-type">
+            <button type="button" class="btn-type-active">GMAO</button>
+            <button type="button" class="btn-type-graphics">Tellink</button>
+            <button type="button" class="btn-type-graphics">Gestión Energética</button>
+        </div>
+    </div>
 </div>
 
 <div class="content animate__animated animate__fadeInRight animate__faster">
-    <!-- #vsContainer 
+
+    <div class="dashboard-list d-lg-inline-block"
+    #vsContainer 
     (scroll)="scrolled()" 
-    (touchmove)="scrolled()"  -->
-    <div 
-    class="dashboard-list d-lg-inline-block">
+    (touchmove)="scrolled()">
 
         <div class="row mb-3 py-2 d-flex justify-content-end">
             
@@ -38,7 +45,7 @@
     
                     <div *ngFor="let data of records; let i = index;" class="col-12 p-0 col-md-6 col-xl-4">
 
-                        <div class="dashboard-box">
+                        <div class="dashboard-box dashboard-box-title">
                             <div class="col-12 py-2">
                                 <strong>Texto de incidencia</strong>
                             </div>
@@ -58,33 +65,24 @@
                             <div class="info-section py-2">
                     
                                 <div class="row mx-0 h-100 d-flex align-items-center">
-                    
-                                    <div class="col-3 px-2 px-md-0">
-                    
-                                        <!-- <img class="logo" [src]="project.logo_src" [attr.alt]="project.title"> -->
-                                        
+                                    <div class="col-md-12 py-2">
+                                        <strong>Incidencias Resueltas</strong>
                                     </div>
-                    
-                                    <div class="col-9 ps-2 pr-0">
-                    
-                                        <div class="row mx-0 d-flex align-items-center text-start">
-                    
-                                            <!-- <div [attr.title]="project.title" class="col-12 p-0 dashboard-title text-truncate mb-">
-                                                {{ project.title }}
-                                            </div>
-                                            
-                                            <div class="col-12 p-0">
-                                                <span class="last-access-label">{{ project.last_access}}</span>
-                                            </div> -->
-                    
-                                        </div>
-                    
+                                    <div class="col-md-12 px-md-2 align-items-center text-start">
+                                        <img class="logo" [src]="'assets/images/LOGO-ALCAUDETE.png'" [attr.alt]="'Alcaudete'">
+                                        <small>Alcaudete desarrollo</small>
                                     </div>
-                    
                                 </div>
-                    
+                                <div class="row mx-0 h-100 px-md-1 align-items-center">
+                                    <div class="col-md-6 p-0">
+                                        <span class="last-access-label">Última visita</span><br/>
+                                        <span class="last-access-label">hace 2 días</span>
+                                    </div>
+                                    <div class="col-md-6 p-0">
+                                        <img class="logo" [src]="'assets/images/brand-logo-icon.png'" [attr.alt]="'Alcaudete'">
+                                    </div>
+                                </div>
                             </div>
-                    
                         </div>
                     </div>
                     

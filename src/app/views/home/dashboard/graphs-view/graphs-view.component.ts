@@ -20,7 +20,8 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
       plotBackgroundColor: null,
       plotBorderWidth: null,
       plotShadow: false,
-      zoomType: "xy"
+      zoomType: "xy",
+      backgroundColor: '#F1F3F7',
     },
     credits: {
       enabled: false
@@ -45,13 +46,10 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
           "x3",
           "x4",
           "x5",
-          "x6",
-          "x7",
-          "x8",
-          "x9",
-          "x10"
+          "x6"
         ],
-        crosshair: true
+        crosshair: true,
+        visible: false
       }
     ],
     yAxis: [
@@ -106,18 +104,6 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
     tooltip: {
       shared: true
     },
-    /* plotOptions: {
-      pie: {
-        allowPointSelect: true,
-        cursor: 'pointer',
-        dataLabels: {
-          enabled: false,
-          color: '#000000',
-          connectorColor: '#000000'
-        },
-        showInLegend: true
-      }
-    }, */
     series: [
       {
         name: "Série 1",
@@ -127,31 +113,35 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
         data: [
           49.9,
           71.5,
-          106.4,
-          129.2,
-          144.0,
-          176.0,
-          135.6,
-          148.5,
-          210.4,
-          194.1
+          86.4,
+          89.2,
+          104.0,
+          65.0
         ]
       },
       {
         name: "Série 2",
         type: "spline",
         color: "#0d233a",
-        yAxis: 1,
-        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3]
+        yAxis: 0,
+        data: [77.0, 86.9, 109.5, 114.5, 128.2, 148.3]
       },
       {
         name: "Série 3",
         type: "spline",
         color: "#8bbc21",
-        yAxis: 2,
-        data: [4.0, 3.9, 6.5, 11.5, 15.2, 18.5, 22, 23.5, 20.3, 12.3]
+        yAxis: 0,
+        data: [84.0, 93.9, 76.5, 91.5, 105.2, 122.3]
       }
-    ]
+    ],
+    legend:{
+      align: 'center',
+      verticalAlign: 'top',
+      floating: false,
+      itemStyle: {
+        display: 'none'
+      }
+    }
   };
 
   private chart: any;
