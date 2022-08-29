@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Input, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-graphs-view',
   templateUrl: './graphs-view.component.html',
-  styleUrls: ['./graphs-view.component.scss']
+  styleUrls: ['./graphs-view.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class GraphsViewComponent implements OnInit, OnDestroy {
 
@@ -21,7 +22,12 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
       plotBorderWidth: null,
       plotShadow: false,
       zoomType: "xy",
-      backgroundColor: '#F1F3F7',
+      backgroundColor: 'transparent',
+      spacingBottom: 5,
+      spacingTop: 10,
+      spacingLeft: 5,
+      spacingRight: 5,
+      className: 'graphics-class'
     },
     credits: {
       enabled: false
@@ -48,8 +54,7 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
           "x5",
           "x6"
         ],
-        crosshair: true,
-        visible: false
+        crosshair: true
       }
     ],
     yAxis: [

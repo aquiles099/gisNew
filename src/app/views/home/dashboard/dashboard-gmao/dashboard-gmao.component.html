@@ -26,9 +26,9 @@
 
         <div class="row mb-3 py-2 d-flex justify-content-end">
             
-            <div class="col-md-3 px-0 selectors-option">
+            <div class="col-md-3 px-0 selectors-row">
 
-                <select class="ps-md-3 selectors-row" name="sort-by-category">
+                <select class="ps-md-3" name="sort-by-category">
                     <option *ngFor="let option of ['Opcion 1', 'Opcion 2']" [value]="option">{{option}}</option>
                 </select>
                 <img [src]="'assets/icons/svg/chevron-down.svg'" class="sort-icon" alt="flecha">
@@ -43,13 +43,16 @@
     
                 <div class="row mx-0">
     
-                    <div *ngFor="let data of records; let i = index;" class="col-12 p-0 col-md-6 col-xl-4">
+                    <div *ngFor="let data of records; let i = index;" class="col-12 p-0 col-md-6 col-xl-4 mb-3">
 
                         <div class="dashboard-box dashboard-box-title">
-                            <div class="col-12 py-2">
+                            <div class="col-12 py-2 dashboard-box-title-header">
                                 <strong>Texto de incidencia</strong>
+                                <button type="button" class="btn-transparent">
+                                    <img [src]="'assets/icons/svg/window-new-svgrepo-com.svg'" alt="">
+                                </button>
                             </div>
-                            <div class="col-12 p-0 px-lg-3">
+                            <div class="col-md-12 p-0 px-lg-3">
                                 <small>Desde 01/08/2022 hasta 27/08/2022</small>
                             </div>
                         </div>
@@ -165,11 +168,11 @@
                             Incidencias
                         </button>
                         <button type="button" class="btn-outline-options">
-                            <img [src]="'assets/icons/svg/LISTADO.svg'" alt="Ordenes de trabajo">
+                            <img [src]="'assets/icons/svg/layout-text-window-reverse-svgrepo-com.svg'" alt="Ordenes de trabajo">
                             Ordenes de Trabajo
                         </button>
                         <button type="button" class="btn-outline-options">
-                            <img [src]="'assets/icons/svg/mantenimiento_preventivo.svg'" alt="Mantenimiento Preventivo">
+                            <img [src]="'assets/icons/svg/tools-svgrepo-com.svg'" alt="Mantenimiento Preventivo">
                             Mantenimiento Preventivo
                         </button>
                         <button type="button" class="btn-outline-options">

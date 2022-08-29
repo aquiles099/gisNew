@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { VirtualScrollWithPaginatorComponent } from '../../../../shared/components/virtual-scroll-with-paginator/virtual-scroll-with-paginator.component';
 
 @Component({
@@ -7,7 +7,8 @@ import { VirtualScrollWithPaginatorComponent } from '../../../../shared/componen
   styleUrls: [
     './dashboard-gmao.component.scss',
     '../../../../../styles/home/view.scss'
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class DashboardGmaoComponent extends VirtualScrollWithPaginatorComponent implements OnInit {
 
