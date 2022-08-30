@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProjectService extends CrudService
 {
+  urlList = 'http://46.183.116.100/smart-gest-backend/public/api/administracion/proyectos/listado';
+
   constructor(
     protected http:HttpClient
   )
@@ -19,13 +21,25 @@ export class ProjectService extends CrudService
 
   public async getSimpleList():Promise<any>
    {
-     try
-     {
+    try
+    {
         return await this.httpClient.get<any>(`${this.baseUrl}/listado`).toPromise();
-     }
-     catch (error)
-     {
+    }
+    catch (error)
+    {
       throw error;
-     }
-   }
+    }
+  }
+
+  public async getListOptions():Promise<any>
+  {
+    try
+    {
+        return await this.httpClient.get<any>(`${this.urlList}`).toPromise();
+    }
+    catch (error)
+    {
+      throw error;
+    }
+  }
 }

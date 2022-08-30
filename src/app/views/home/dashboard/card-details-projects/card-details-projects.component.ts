@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { AuthService } from '@services/auth.service';
 import { User } from 'src/app/models/user';
@@ -10,6 +10,8 @@ import { User } from 'src/app/models/user';
 })
 export class CardDetailsProjectsComponent implements OnInit {
 
+  @Input() public detailsProject: boolean = false;
+
   constructor(
     private _authService:AuthService,
   ) { }
@@ -20,7 +22,6 @@ export class CardDetailsProjectsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.user)
   }
 
 }

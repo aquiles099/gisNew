@@ -68,43 +68,33 @@
     display: inline-block !important;
 }
 
-.dashboard-list .selectors-row{
-    position: relative;
-    top: 0;
-    z-index: 0;
-    width: 230px !important;
-    height: 30px !important;
-    border: 1px solid #333;
-    margin-right: 2rem;
-    background: #FFF;
-    border-radius: 0.575rem;
+.dashboard-list .selectors-row
+{
+    display: inline-flex;
+    justify-content: end;
+    width: 97% !important;
 }
 
 .dashboard-list .selectors-row select{
-    border: 0;
-    box-shadow: none !important;
-    outline: none;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding: 5px 0px 0px 9px !important;
+    width: 230px !important;
+    height: 30px !important;
+    border: 1px solid #333;
+    border-radius: 0.575rem;
     font-family: 'Rubik' !important;
     font-size: .875rem;
-    text-align: left !important;
-    float: left;
-    background: transparent;
+    background-image: url(../../../../assets/icons/svg/chevron-down.svg);
+    background-repeat: no-repeat;
+    background-position: 98% center;
+    background-size: 15px 15px;
+    padding-right: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
 }
 
-.dashboard-list .selectors-row .sort-icon{
-    box-sizing: border-box;
-    height: 13px;
-    width: 13px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 5px;
-    right: 5%;
-    z-index: 10000;
+select::-ms-expand {
+    display: none; /*Evita que se muestre la flecha por defecto en versiones de IE*/
 }
 
 .dashboard-list .dashboard-box{

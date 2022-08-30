@@ -11,9 +11,15 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class DashboardGmaoComponent  implements OnInit {
 
+  viewIncident: boolean = false;
+
   constructor() {}
 
   ngOnInit(): void {
+  }
+
+  public viewDetailIncident(value: any) {
+    this.viewDetailIncident = value;
   }
 
 }

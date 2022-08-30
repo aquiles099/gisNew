@@ -1,6 +1,93 @@
 <div class="dashboard-details">
         
-    <div class="row mx-0">
+    <div class="row mx-0" [hidden]="detailsProject">
+        
+        <div class="col-12 py-3 px-2 px-lg-3">
+
+            <div class="row mx-0 justify-content-around align-items-center">
+                <div class="col-3 pe-2 ps-0 px-md-3 px-lg-0 text-md-start avatar">
+                    <img class="logo-avatar" [src]="'assets/icons/svg/USUARIO1.svg'">
+                </div>
+                <div class="col-9 pe-2 ps-0 px-md-3 px-lg-0 text-md-start">
+                    <h3 class="dashboard-title-welcome"> Bienvenido</h3> 
+                    <h3 class="dashboard-title-name"> {{ user.full_name }}</h3>
+                    <h3 class="dashboard-title-company"> {{ user.company.name }}</h3>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="col-12 my-1 px-2 px-lg-3">
+            <div class="row mx-0 align-items-center">
+        
+                <div class="col-md-12 py-3 px-0 info-projects">
+                    <span class="mb-1 name-compay">Empresa: <b>{{ user.company.name }}</b></span>
+                    <span class="mb-1 name-projects">Proyecto: <b>Alcaudete</b></span>
+                    <span>Proyección: ETRS8g/ UTM zone 30N</span>
+                </div>
+        
+            </div>
+        </div>
+
+        <div class="col-12 my-1 px-2 px-lg-3 py-xl-2">
+
+            <div class="separator mb-2">
+                <div></div>
+            </div>
+
+            <div class="row mx-0 section-label">
+                
+                <div class="col-md-12 p-0 text-start">
+                    <div class="team-title">Equipo de trabajo:</div>
+                    <ul>
+                        <li>
+                            <span class="team-name">José Ruiviejo</span>
+                        </li>
+                        <li>
+                            <span>Juan Castillo</span>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+
+            <div class="separator mt-2">
+                <div></div>
+            </div>
+
+        </div>
+
+        <div class="col-12 my-1 px-2 px-lg-3">
+
+            <div class="row mx-0">
+                
+                <div class="col-md-12 my-2 py-1 px-0 dashboard-option">
+                    <button type="button" class="btn-outline-options">
+                        <img [src]="'assets/icons/png/icons8_Plus_96px_2.png'" alt="Incidencia" title="Incidencia">
+                        Incidencias
+                    </button>
+                    <button type="button" class="btn-outline-options">
+                        <img [src]="'assets/icons/png/icons8_Plus_96px_2 (1).png'" alt="Ordenes de trabajo" title="Ordenes de trabajo">
+                        Ordenes de Trabajo
+                    </button>
+                    <button type="button" class="btn-outline-options">
+                        <img [src]="'assets/icons/png/icons8_Plus_96px_2 (2).png'" alt="Mantenimiento Preventivo" title="Mantenimiento Preventivo">
+                        Mantenimiento Preventivo
+                    </button>
+                    <button type="button" class="btn-outline-options">
+                        <img [src]="'assets/icons/png/icons8_Plus_96px_2 (3).png'" alt="Almacenes" title="Almacenes">
+                        Almacenes
+                    </button>
+
+                </div>
+                
+            </div>
+
+        </div>
+    
+    </div>
+
+    <div class="row mx-0" *ngIf="detailsProject">
         
         <div class="col-12 py-3 px-2 px-lg-3">
 
