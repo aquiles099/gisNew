@@ -43,7 +43,6 @@ export class ContentComponent extends VirtualScrollWithPaginatorComponent
   {
     this.records = [1,2,3];
     this.optionsFilter = await this._projectService.getListOptions();
-    console.log(this.optionsFilter)
   }
 
   public ngAfterViewChecked(): void

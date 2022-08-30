@@ -19,7 +19,8 @@ export class DashboardGmaoComponent  implements OnInit {
   }
 
   public viewDetailIncident(value: any) {
-    this.viewDetailIncident = value;
+
+    this.viewIncident = value;
   }
 
 }

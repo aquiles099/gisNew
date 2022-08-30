@@ -12,12 +12,12 @@
     </div>
     <div class="row mx-0 align-items-center">
         <div class="col-md-12 dashboard-type">
-            <button type="button" class="btn-type-graphics btn-type-active">GMAO</button>
+            <button type="button" class="btn-type-graphics btn-type-active" (click)="viewDetailIncident(false)">GMAO</button>
             <button type="button" class="btn-type-graphics">Tellink</button>
             <button type="button" class="btn-type-graphics">Gestión Energética</button>
         </div>
     </div>
 </div>
 
-<app-content (incidentSelected)="viewDetailIncident($event)"></app-content>
+<app-content (incidentSelected)="viewDetailIncident($event)" *ngIf="!viewIncident"></app-content>
 <app-content-details *ngIf="viewIncident"></app-content-details>
