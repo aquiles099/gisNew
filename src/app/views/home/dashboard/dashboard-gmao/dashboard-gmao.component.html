@@ -21,8 +21,7 @@
 
     <div class="dashboard-list d-lg-inline-block"
     #vsContainer 
-    (scroll)="scrolled()" 
-    (touchmove)="scrolled()">
+>
 
         <div class="row mb-3 py-2 d-flex justify-content-end">
             
@@ -37,12 +36,9 @@
 
         </div>
         
-        <div class="row mx-0 d-flex">
-    
-            <div class="col-12 p-0">
-    
-                <div class="row mx-0">
-    
+        <div class="row mx-0 d-flex">    
+            <div class="col-12 p-0">    
+                <div class="row mx-0">    
                     <div *ngFor="let data of records; let i = index;" class="col-12 p-0 col-md-6 col-xl-4 mb-3">
 
                         <div class="dashboard-box dashboard-box-title">
@@ -70,15 +66,11 @@
                                 <div class="row mx-0 h-100 d-flex align-items-center">
                                     <div class="col-md-12 py-2">
                                         <strong>Incidencias Resueltas</strong>
-                                    </div>
-                                    <div class="col-md-12 px-md-2 align-items-center text-start">
-                                        <img class="logo" [src]="'assets/images/LOGO-ALCAUDETE.png'" [attr.alt]="'Alcaudete'">
-                                        <small>Alcaudete desarrollo</small>
-                                    </div>
+                                    </div>                                 
                                 </div>
                                 <div class="row mx-0 h-100 px-md-1 align-items-center">
                                     <div class="col-md-6 p-0">
-                                        <span class="last-access-label">Última visita</span><br/>
+                                        <span class="last-access-label">Última vista</span>
                                         <span class="last-access-label">hace 2 días</span>
                                     </div>
                                     <div class="col-md-6 p-0">
@@ -112,7 +104,8 @@
                         <img [src]="'assets/icons/svg/USUARIO1.svg'">
                     </div>
                     <div class="col-9 pe-2 ps-0 px-md-3 px-lg-0 text-md-start">
-                        Bienvenido
+                        <h3 class="dashboard-subtitle-welcome"> Bienvenido</h3> 
+                        <h2 class="dashboard-title-welcome"> {{ user.full_name }}</h2>
                     </div>
                 </div>
     
