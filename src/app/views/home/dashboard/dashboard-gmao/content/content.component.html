@@ -1,18 +1,14 @@
-<div class="content animate__animated animate__fadeInRight animate__slow">
-    <div class="dashboard-list d-lg-inline-block"
-    #vsContainer 
-    (scroll)="scrolled()" 
-    (touchmove)="scrolled()">
+<div class="content animate__animated animate__fadeInRight animate__slow"
+#vsContainer>
+    <div class="dashboard-list d-lg-inline-block">
 
         <div class="row mb-3 py-2 d-flex justify-content-end">
             
             <div class="col-md-3 px-0 selectors-row">
-
-                <select class="ps-md-3" name="sort-by-category">
+                <select name="sort-by-category">
                     <option *ngFor="let option of ['Opcion 1', 'Opcion 2']" [value]="option">{{option}}</option>
                 </select>
                 <img [src]="'assets/icons/svg/chevron-down.svg'" class="sort-icon" alt="flecha">
-
             </div>
 
         </div>
@@ -23,17 +19,17 @@
     
                 <div class="row mx-0">
     
-                    <div *ngFor="let data of records; let i = index;" class="col-12 p-0 col-md-6 col-xl-4 mb-3">
+                    <div *ngFor="let data of records; let i = index;" class="col-12 p-0 col-lg-6 col-xl-4 mb-3">
 
                         <div class="dashboard-box dashboard-box-title">
                             <div class="col-12 py-2 dashboard-box-title-header">
-                                <strong>Texto de incidencia</strong>
+                                <span>Texto de incidencia</span>
                                 <button type="button" class="btn-transparent">
-                                    <img [src]="'assets/icons/svg/window-new-svgrepo-com.svg'" alt="">
+                                    <img [src]="'assets/icons/png/ampliar.png'" alt="">
                                 </button>
                             </div>
                             <div class="col-md-12 p-0 px-lg-3">
-                                <small>Desde 01/08/2022 hasta 27/08/2022</small>
+                                <span class="txt-box-header">Desde 01/08/2022 hasta 27/08/2022</span>
                             </div>
                         </div>
 
@@ -48,12 +44,8 @@
                             <div class="info-section py-2">
                     
                                 <div class="row mx-0 h-100 d-flex align-items-center">
-                                    <div class="col-md-12 py-2">
-                                        <strong>Incidencias Resueltas</strong>
-                                    </div>
-                                    <div class="col-md-12 px-md-2 align-items-center text-start">
-                                        <img class="logo" [src]="'assets/images/LOGO-ALCAUDETE.png'" [attr.alt]="'Alcaudete'">
-                                        <small>Alcaudete desarrollo</small>
+                                    <div class="col-md-12 py-2 txt-incidents">
+                                        Incidencias Resueltas
                                     </div>
                                 </div>
                                 <div class="row mx-0 h-100 px-md-1 align-items-center">
@@ -61,8 +53,10 @@
                                         <span class="last-access-label">Última visita</span><br/>
                                         <span class="last-access-label">hace 2 días</span>
                                     </div>
-                                    <div class="col-md-6 p-0">
-                                        <img class="logo" [src]="'assets/images/brand-logo-icon.png'" [attr.alt]="'Alcaudete'">
+                                    <div class="col-md-6 p-0 logo">
+                                        <img class="logo-img"
+                                        [src]="'assets/icons/png/Fisotec - GIS SMART Environment.png'"
+                                        [attr.alt]="''">
                                     </div>
                                 </div>
                             </div>

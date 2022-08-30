@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef, AfterViewChecked, ViewEncapsulation } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef, AfterViewChecked, ViewEncapsulation } from '@angular/core';
 
 import { VirtualScrollWithPaginatorComponent } from '@shared/components/virtual-scroll-with-paginator/virtual-scroll-with-paginator.component';
 import { ProjectService } from '@services/administration/project.service';
@@ -14,9 +13,7 @@ import { ProjectService } from '@services/administration/project.service';
   encapsulation: ViewEncapsulation.None
 })
 export class ContentComponent extends VirtualScrollWithPaginatorComponent
-  implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
-
-  private routeDataSubscription:Subscription;
+  implements OnInit, AfterViewInit, AfterViewChecked {
 
   public showSpinner:boolean = false;
 
@@ -26,11 +23,7 @@ export class ContentComponent extends VirtualScrollWithPaginatorComponent
     protected _projectService:ProjectService,
     private _changeDetectorRef:ChangeDetectorRef
   ) {
-    super(_projectService);
-    
-    this.startCallback = () => this.showSpinner = true;
-    
-    this.endCallback = () => this.showSpinner = false;
+    super(null);
   }
 
   ngOnInit(): void {
@@ -43,17 +36,12 @@ export class ContentComponent extends VirtualScrollWithPaginatorComponent
 
   public async loadRecords(): Promise<void>
   {
-    await super.loadRecords();
+    this.records = [1,2,3];
   }
 
   public ngAfterViewChecked(): void
   {  
    this._changeDetectorRef.detectChanges();
-  }
-
-  public ngOnDestroy(): void 
-  {
-   this.routeDataSubscription.unsubscribe(); 
   }
 
 }

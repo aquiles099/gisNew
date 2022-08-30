@@ -36,7 +36,7 @@
   font-family: 'Rubik Light';
   src: url("../assets/fonts/rubik/Rubik-Light.ttf") format("truetype");
 }
-  //rubik
+  //Nunito
 @font-face {
   font-family: 'NunitoSans';
   src: url("../assets/fonts/nunito-sans/NunitoSans-Regular.ttf") format("truetype");
@@ -50,8 +50,12 @@
 @font-face {
   font-family: 'NunitoSans Light';
   src: url("../assets/fonts/nunito-sans/NunitoSans-Light.ttf") format("truetype");
+}
 
-
+//Raleway
+@font-face {
+  font-family: 'Raleway';
+  src: url("../assets/fonts/Raleway/static/Raleway-Regular.ttf") format("truetype");
 }
 
 ::-webkit-scrollbar {

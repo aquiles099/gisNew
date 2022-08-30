@@ -1,15 +1,17 @@
+/*
+* HEADER
+*/
 .header {
-    height: 60px !important;
+    display: block !important;
+    height: 55px !important;
 }
-.content {
-    background-color: rgb(250, 248, 248);
-    overflow: auto;
-    top: 60px !important;
-    height: 100% !important;
-    left: -3%;
-    width: 106%;
-    padding-right: 30px;
-    padding-left: 30px;
+
+.header h4 {
+    color: #00204A;
+    font-family: 'Rubik' !important;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
 }
 
 .dashboard-type {
@@ -18,82 +20,94 @@
     align-items: center;
     vertical-align: middle;
     justify-content: flex-start;
+    color: #00204A !important;
+    font-family: 'Rubik' !important;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 21px;
 }
 
 .dashboard-type .btn-type-graphics {
     border: none;
     background: #fff;
-    min-width: 100px;
+    width: fit-content;
     padding-top: 2px;
     padding-bottom: 4px;
     text-align: center;
-    font-size: .75rem;
-    font-family: 'Rubik light' !important;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .dashboard-type .btn-type-active {
-    min-width: 100px;
-    border: none;
-    border-top-left-radius: .975rem;
-    border-top-right-radius: .975rem;
-    background: #F1F3F7;
-    font-family: 'Rubik Bold' !important;
-    padding-top: 2px;
-    padding-bottom: 4px;
-    text-align: center;
-    font-size: .75rem;
+    border-top-left-radius: .575rem;
+    border-top-right-radius: .575rem;
+    background: rgba(243,243,244,0.6) !important;
+    font-weight: 700;
+}
+
+/*
+* DASHBOARD CARDS INFO GRAPHICS
+*/
+.content {
+    background-color: rgba(243,243,244,0.6);
+    overflow: auto;
+    height: 92% !important;
+    width: 106%;
+    padding-right: 30px;
+    padding-left: 30px;
+    display: inline-block;
+    top: 55px;
+    max-height: 100%;
 }
 
 .dashboard-list{
     width: 100%;
-    max-height: 80vh;
     height: 100%;
     padding: 0 0 .5rem 0;
-    overflow-y: auto;
-    overflow-x: hidden;
     text-align: center;
-    display: inline-block;
+    display: inline-block !important;
 }
 
-.selectors-row{
+.dashboard-list .selectors-row{
     position: relative;
     top: 0;
     z-index: 0;
-    width: 20rem;
+    width: 230px !important;
+    height: 30px !important;
+    border: 1px solid #333;
     margin-right: 2rem;
     background: #FFF;
-    border-top-left-radius: 0.975rem;
-    border-top-right-radius: 0.975rem;
-    border-bottom-left-radius: 0.975rem;
-    border-bottom-right-radius: 0.975rem;
+    border-radius: 0.575rem;
 }
 
-select{
+.dashboard-list .selectors-row select{
     border: 0;
     box-shadow: none !important;
     outline: none;
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding: 0 .25rem;
+    padding: 5px 0px 0px 9px !important;
+    font-family: 'Rubik' !important;
     font-size: .875rem;
-    text-overflow: ellipsis;
+    text-align: left !important;
+    float: left;
+    background: transparent;
 }
 
-.sort-icon{
-    width: .975rem;
+.dashboard-list .selectors-row .sort-icon{
+    box-sizing: border-box;
+    height: 13px;
+    width: 13px;
+    border: none;
     cursor: pointer;
     position: absolute;
-    top: 7px;
+    top: 5px;
     right: 5%;
     z-index: 10000;
 }
 
-.dashboard-box-title{
-    margin-bottom: 0.7rem !important;
-}
-
-.dashboard-box{
+.dashboard-list .dashboard-box{
     border-radius: .875rem;
     background: #fff;
     width: 95%;
@@ -102,65 +116,102 @@ select{
     -moz-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
 }
 
-.paginator-btn,
-.dashboard-box{
-    transition: transform .2s;
-}
-
-.paginator-btn:hover,
-.dashboard-box:hover{
-    transform: scale(1.01);
-}
-
-.dashboard-box .separator {
+.dashboard-list .dashboard-box .separator {
     width: 100%;
     height: .4rem;
 }
 
-.dashboard-box .separator > div {
+.dashboard-list .dashboard-box .separator > div {
     width: 40%;
     height: 100%;
     float: right;
-    background: #495C80;
+    background: #222831;
 }
 
-.dashboard-box .col-12:nth-child(1){
-    color: #495C80;
-    background: #F1F3F7;
+.dashboard-list .dashboard-box .col-12:nth-child(1){
+    color: #00204A;
+    background: rgba(167,210,255,0.5);
     border-top-left-radius: .975rem;
     border-top-right-radius: .975rem;
 }
 
-.dashboard-box div > small {
-    font-size: xx-small !important;
-    color: #495C80 !important;
+.dashboard-list .dashboard-box-title{
+    margin-bottom: 0.7rem !important;
 }
 
-.dashboard-box-title-header {
+.dashboard-list .dashboard-box-title-header {
     display: inline-flex;
-    justify-content: space-between;
-    flex: content;
     padding-left: 15px;
+    justify-content: space-between;
 }
 
-.dashboard-box-title-header:nth-child(2):hover  {
+.dashboard-list .dashboard-box-title-header span{
+    font-family: 'Rubik' !important;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.dashboard-list .dashboard-box-title-header button {
+    width: 33px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.dashboard-list .dashboard-box-title-header button img {
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard-list .dashboard-box-title-header:nth-child(2):hover  {
     cursor: pointer;
 }
 
-.favourite-btn{
-    position: relative;
-    left: 40%;
+.dashboard-list .dashboard-box-title .txt-box-header {
+    font-family: 'NunitoSans' !important;
+    font-weight: normal;
+    font-size: 10px;
 }
 
-.favourite-btn img{
-    width: 2.25rem !important;
+.dashboard-list .dashboard-box .info-section{
+    height: 40%;
+    width: 100%;
+}
+
+.dashboard-list .dashboard-box .info-section .txt-incidents {
+    color: #00204A;
+    font-family: 'Rubik' !important;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25px;
+}
+
+.dashboard-list .dashboard-box .info-section .last-access-label{
+    color: #00204A;
+    font-family: 'NunitoSans' !important;
+    font-size: 16px;
+    line-height: 22px;
+    width: 100%;
+    display: inline-block;
+}
+
+.dashboard-list .dashboard-box .info-section .logo{
+    display: inline-flex;
+    gap: 5px;
+    justify-content: flex-end;
+    padding-right: 5px !important;
+}
+
+.dashboard-list .dashboard-box .info-section .logo-img{
+    width: 35px;
+    height: 35px;
 }
 
 .graphics-details {
     height: 55vh;
     width: 100%;
     border: none;
-    background-color: #F1F3F7;
+    background-color: rgba(167,210,255,0.5);
     border-top-left-radius: .975rem !important;
     border-top-right-radius: .975rem !important;
 }
@@ -169,7 +220,7 @@ select{
     height: 30vh;
     width: 100%;
     border: none;
-    background-color: #F1F3F7;
+    background-color: rgba(167,210,255,0.5);
     border-top-left-radius: .975rem !important;
     border-top-right-radius: .975rem !important;
 }
@@ -186,104 +237,101 @@ select{
     border: none;
 }
 
-.dashboard-box .info-section{
-    height: 40%;
-    width: 100%;
-}
-
-.dashboard-box .info-section .logo{
-    max-width: 97.5%;
-    max-height: 2.2rem;
-    margin-right: 10px;
-}
-
-.dashboard-title{
-    font-size: 1.05rem;
-    margin-bottom: 0;
-    font-family: 'Rubik Bold' !important;
-}
-
-.dashboard-title-welcome{
-    font-size: 1.35rem;
-    margin-bottom: 0;
-    font-family: 'Rubik' !important;
-    color: #00204A;
-    font-weight: 600;
-}
-
-.dashboard-subtitle-welcome{
-    font-size: 1rem;
-    margin-bottom: 0;
-    font-family: 'Rubik' !important;
-    color: #00204A;
-    font-weight: 600;
-}
-
-.last-access-label{
-    font-size: .825rem;
-    width: 100%;
-    display: inline-block;
-    font-family: 'NunitoSans' !important;
-
-}
-
+/*
+* DASHBOARD CARDS INFO PROJECT
+*/
 .dashboard-details{
     width: 100%;
-    height: 98%;
-    color: #495C80;
+    height: 99.4%;
     border-radius: .925rem .925rem 0 0;
     background-color: #FFF;
     box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
     -webkit-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
     -moz-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
-    overflow-y: auto;
     vertical-align: top;
     align-items: start;
-    margin-top: 0.7rem;
+    margin-top: 0.2rem;
     max-height: 100%;
-}
-
-.dashboard-details.empty{
-   display: none;
-}
-
-.dashboard-details-example{
-    display: none;
+    display: inline-block !important;
 }
 
 .dashboard-details .col-12:nth-child(1){
-    background: #F1F3F7;
+    background: rgba(167,210,255,0.5);
+    border-top-left-radius: 0.975rem;
+    border-top-right-radius: 0.975rem;
 }
 
 .dashboard-details .col-12:nth-child(1) button:not(.btn-transparent){
     border-radius: .925rem;
     background-color: #495C80;
     color: #fff;
-    font-family: 'Rubik Bold' !important;
-    font-weight: bold;
+    font-weight: 700;
     padding: .25rem 1.25rem;
 }
 
-.back-to-the-listing-btn{
-    width: 1.75rem;
+.dashboard-details .avatar{
+    width: 5vw;
+    height: 5vw;
 }
 
-.dashboard-details img{
-    max-width: 100%;
-    max-height: 6.5rem;
-    width: 90px;
+.dashboard-details .logo-avatar{
+    width: 100%;
+    height: 100%;
 }
 
-.dashboard-details .col-12:nth-child(2) h4{
-    font-family: 'Rubik light' !important;
+.dashboard-details .dashboard-title-welcome,
+.dashboard-details .dashboard-title-company{
+    font-family: 'Rubik' !important;
+    color: #00204A !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    line-height: 25px !important;
+    margin-bottom: 0;
 }
 
-.dashboard-details .col-12:nth-child(2) h4:nth-child(1){
-    font-size: 1.125rem;
+.dashboard-details .dashboard-title-name{
+    font-family: 'Rubik' !important;
+    color: #00204A !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    line-height: 25px !important;
+    margin-bottom: 0;
 }
 
-.dashboard-details .col-12:nth-child(2) h4{
-    font-size: .875rem;
+.dashboard-details .info-projects {
+    font-family: 'Raleway' !important;
+    color: #001E33 !important;
+    font-size: 1.05rem !important;
+    font-weight: normal !important;
+    line-height: 15px !important;
+    display: grid;
+    gap: 5px;
+}
+
+.dashboard-details .info-projects b {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+}
+
+.dashboard-details .section-label {
+    display: grid;
+    gap: 5px;
+}
+
+.dashboard-details .section-label .team-title {
+    font-family: 'NunitoSans' !important;
+    color: #333 !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+}
+
+.dashboard-details .section-label .team-name {
+    font-family: 'NunitoSans' !important;
+    color: #333 !important;
+    font-size: 1rem !important;
+    font-weight: normal !important;
+    line-height: 15px !important;
 }
 
 .dashboard-details .separator{
@@ -294,7 +342,7 @@ select{
 .dashboard-details .separator div{
     width: 40%;
     height: 100%;
-    background: #495C80;
+    background: #222831;
 }
 
 .dashboard-details .separator:nth-child(1) div{
@@ -305,19 +353,19 @@ select{
     float: left;
 }
 
-.dashboard-option{
+.dashboard-details .dashboard-option{
     justify-content: center;
     display: inline-flex;
     gap: 15px;
 }
 
-.btn-outline-options img{
+.dashboard-details .btn-outline-options img{
     width: 100%;
     height: 100%;
     margin-bottom: 15px;
 }
 
-.btn-outline-options{
+.dashboard-details .btn-outline-options{
     border-radius: 3px;
     border: none;
     box-shadow: 0px 1px 2px 2px rgba(69,69,69,0.5);
@@ -325,96 +373,160 @@ select{
     -moz-box-shadow: 0px 1px 2px 2px rgba(69,69,69,0.5);
     background-color: #FFF;
     color: #495C80;  
-    font-size: xx-small;
-    width: 65px;
+    width: 5vw;
+    height: 5vw;
     padding: 4px;
-    font-family: "Rubik light" !important;
-    height: 65px;
+    font-size: 0.7vw;
     line-height: 1;
     text-align: center;
 }
 
- /* media */
- @media (max-width: 799px) {
+/*
+* MEDIA QUERIES
+*/
+@media (max-width: 599px)
+{
     .content {
-        left: -8%;
-        width: 113%;
-        padding-right: 15px;
-        padding-left: 15px;
-        top: 55px !important;
+        display: grid;
+        width: 109% !important;
+    }
+    .dashboard-list{
+       width: 100% !important;
+    }
+    .dashboard-details{
+        width: 95% !important;
+        border-radius: .925rem !important;
+        margin-bottom: 1.2rem;
     }
 }
 
- @media(min-width: 1024px)
- {
-    .dashboard-list{
-        width: 70%;
+@media (max-width: 599px) and (min-height: 620px)
+{
+    .content {
+        height: 93% !important;
     }
+}
 
+@media (max-width: 599px) and (min-height: 670px)
+{
+    .content {
+        height: 93.5% !important;
+    }
+}
+
+@media (max-width: 599px) and (min-height: 700px)
+{
+    .content {
+        height: 94% !important;
+    }
+}
+
+@media (max-width: 599px) and (min-height: 750px)
+{
+    .content {
+        height: 94.5% !important;
+    }
+}
+
+@media (max-width: 599px) and (min-height: 800px)
+{
+    .content {
+        height: 95% !important;
+    }
+}
+
+@media(min-width: 600px) and (max-width: 699px)
+{
+    .dashboard-list{
+       width: 50% !important;
+    }
+    .dashboard-details{
+        width: 50% !important;
+    }
+}
+
+@media(min-width: 700px) and (max-width: 799px)
+{
+    .dashboard-list{
+       width: 55% !important;
+    }
+    .dashboard-details{
+        width: 45% !important;
+    }
+}
+
+@media(min-width: 800px) and (max-width: 949px)
+{
+    .dashboard-list{
+       width: 60% !important;
+    }
+    .dashboard-details{
+        width: 40% !important;
+    }
+}
+
+@media(min-width: 950px)
+{
+    .dashboard-list{
+       width: 70% !important;
+    }
+    .dashboard-details{
+        width: 30% !important;
+    }
+}
+
+@media (max-width: 799px) {
+    .content {
+        left: -6%;
+        width: 111%;
+        padding-right: 15px;
+        padding-left: 15px;
+        padding-bottom: 20px;
+    }
+}
+
+@media (min-width: 800px) {
+    .content {
+        left: -3%;
+        width: 103%;
+        padding-right: 25px;
+        padding-left: 25px;
+        top: 59px;
+    }
+}
+
+@media(min-width: 1024px)
+ {
+    .content {
+        left: -3%;
+        width: 105%;
+        padding-right: 25px;
+        padding-left: 25px;
+        top: 64px;
+    }
     select{
         padding: 0 .5rem;
         font-size: .975rem;
     }
 
-    .dashboard-list.selected-project{
-        display: inline-block;
-    }
-
-    .dashboard-details{
-        width: 30%;
-        display: inline-block;
-    }
-
-    .dashboard-details .col-12:nth-child(2) h4:nth-child(1){
-        font-size: 1.125rem;
-    }
-
-    .dashboard-details .col-12:nth-child(2) h4{
-        font-size: .875rem;
-    }
-
     .dashboard-details.empty{
         display: inline-block;
     } 
-    
-    .back-to-the-listing-btn{
-        display: none;
-    }
-
-    .section-label{
-        font-size: .875rem;
-    }
-
-    .dashboard-details-example{
-        display: block;
-    }
-
-    .dashboard-box .info-section .logo{
-        max-height: 2.2rem;
-    }
+  
  }
 
  @media(min-width: 1280px)
  {
-    .graphics-section{
-        
+    .content {
+        left: -3%;
+        width: 106%;
+        padding-right: 25px;
+        padding-left: 25px;
+        top: 70px;
+        height: 93% !important;
     }
-
-    .graphics-section div{
-    }
-    
     .dashboard-box .info-section{
         height: 45%;
-    }
-} 
-
-@media(min-width: 1440px)
- {
-    .graphics-section div{
-    }
-    
-    .favourite-btn{
-        left: 42.5% !important;
     }
 } 
 
@@ -423,69 +535,26 @@ select{
     .dashboard-box{
         width: 92.5%;
     }
-
-    .graphics-section div{
-    }
-    
-    .favourite-btn{
-        left: 42.5%;
-    }
-
-    .dashboard-details .col-12:nth-child(2) h4:nth-child(1){
-        font-size: 1.25rem;
-    }
-
-    .dashboard-details .col-12:nth-child(2) h4{
-        font-size: .975rem;
-    }
-
-    .last-access-label{
-        font-size: .675rem;
-    }
-
-    .dashboard-title{
-        font-size: .975rem;
-    }
-
-    .dashboard-box .info-section .logo{
-        max-height: 2.2rem;
-    }
 }
  
 @media(min-width: 1024px) and (min-height: 768px)
 {
-    
 }
   
 @media(min-width: 1152px) and (min-height: 864px)
 {
-    .dashboard-title{
-        font-size: 1rem;
-    }
-
-    .last-access-label{
-        font-size: .675rem;
-    }
 }
  
  @media(min-width: 1176px) and (min-height: 664px)
  {
-    .dashboard-details{
-        overflow: auto;
-    }
  }
  
  @media(min-width: 1280px) and (min-height: 720px)
  {
-    .dashboard-box .info-section .logo{
-        max-height: 2.2rem;
-    }
-
  }
  
  @media(min-width: 1280px) and (min-height: 768px)
  {
-
  }
 
  @media(min-width: 1280px) and (min-height: 800px)
@@ -495,55 +564,18 @@ select{
  
  @media(min-width: 1280px) and (min-height: 960px)
  {
-    .section-label,
-    .dashboard-details .col-12:nth-child(1) button:not(.btn-transparent){
-        font-size: 1.125rem;
-    }
  }
  
  @media(min-width: 1280px) and (min-height: 1024px)
  {
-    .dashboard-title{
-        font-size: 1.125rem;
-    }
-
-    .last-access-label{
-        font-size: .75rem;
-    }
-
-    .dashboard-box .info-section .logo{
-        max-height: 2.2rem;
-    }
  }
  
  @media(min-width: 1360px) and (min-height: 765px)
  {
-    .dashboard-title{
-        font-size: 1rem;
-    }
-
-    .last-access-label{
-        font-size: .75rem;
-    }
  }
  
  @media(min-width: 1440px) and (min-height: 900px)
  {
-    .dashboard-title{
-        font-size: 1rem;
-    }
-
-    .last-access-label{
-        font-size: .875rem;
-    }
-
-    .section-label{
-        font-size: 1rem;
-    }
-    
-    .dashboard-box .info-section .logo{
-        max-height: 2.2rem;
-    }
  }
 
  @media(min-width: 1600px) and (min-height: 900px)
@@ -558,9 +590,6 @@ select{
 
  @media(min-width: 1680px) and (min-height: 1024px)
  {
-    .dashboard-details .col-12:nth-child(1) button:not(.btn-transparent){
-        font-size: 1.35rem;
-    }
  }
 
  @media(min-width: 1680px) and (min-height: 1050px)
@@ -575,9 +604,6 @@ select{
    
  @media(min-width: 1768px) and (min-height: 992px)
  {
-    .dashboard-details .col-12:nth-child(1) button:not(.btn-transparent){
-        font-size: 1.35rem;
-    }
  }
 
  @media(min-width: 1880px) and (min-height: 882px)
@@ -592,11 +618,4 @@ select{
  
  @media(min-height: 1210px)
  {
-    .dashboard-title{
-        font-size: 1.5rem;
-    }
-
-    .last-access-label{
-        font-size: .8rem;
-    }
  }

@@ -1,7 +1,9 @@
 <div class="header d-lg-block animate__animated animate__fadeIn animate__faster">
     <div class="row mx-0 align-items-center">
         
-        <div class="col-9 title p-0">Dashboard</div>
+        <div class="col-9 title p-0">
+            <h4>Dashboard</h4>
+        </div>
 
         <div class="d-block col-3 px-0">
             <img src="assets/icons/svg/ayuda.svg" class="help-icon float-end" alt="ayuda">
@@ -10,12 +12,12 @@
     </div>
     <div class="row mx-0 align-items-center">
         <div class="col-md-12 dashboard-type">
-            <button type="button" class="btn-type-active">GMAO</button>
+            <button type="button" class="btn-type-graphics btn-type-active">GMAO</button>
             <button type="button" class="btn-type-graphics">Tellink</button>
             <button type="button" class="btn-type-graphics">Gestión Energética</button>
         </div>
     </div>
 </div>
 
-<app-content *ngIf="false"></app-content>
-<app-content-details *ngIf="true"></app-content-details>
+<app-content></app-content>
+<app-content-details *ngIf="false"></app-content-details>
