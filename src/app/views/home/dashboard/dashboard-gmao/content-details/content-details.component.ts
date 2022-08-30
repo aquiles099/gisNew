@@ -1,14 +1,20 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Input, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import * as Highcharts from 'highcharts';
+import { VirtualScrollWithPaginatorComponent } from '../../../../../shared/components/virtual-scroll-with-paginator/virtual-scroll-with-paginator.component';
 
 @Component({
-  selector: 'app-graphs-view',
-  templateUrl: './graphs-view.component.html',
-  styleUrls: ['./graphs-view.component.scss'],
+  selector: 'app-content-details',
+  templateUrl: './content-details.component.html',
+  styleUrls: [
+    './content-details.component.scss',
+    '../../../../../../styles/home/view.scss'
+  ],
   encapsulation: ViewEncapsulation.None
 })
-export class GraphsViewComponent implements OnInit, OnDestroy {
+export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent implements OnInit, OnDestroy {
+
+  public showSpinner:boolean = false;
 
   @Input() data: any = null;
 
@@ -156,6 +162,8 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
   ) {
+    super(null);
+
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };

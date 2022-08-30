@@ -7,6 +7,9 @@ import { DashboardTellinkComponent } from './dashboard-tellink/dashboard-tellink
 import { DashboardGestionEnergeticaComponent } from './dashboard-gestion-energetica/dashboard-gestion-energetica.component';
 import { GraphicsContentComponent } from './graphics-content/graphics-content.component';
 import { GraphsViewComponent } from './graphs-view/graphs-view.component';
+import { ContentComponent } from './dashboard-gmao/content/content.component';
+import { ContentDetailsComponent } from './dashboard-gmao/content-details/content-details.component';
+import { CardDetailsProjectsComponent } from './card-details-projects/card-details-projects.component';
 
 
 
@@ -16,7 +19,10 @@ import { GraphsViewComponent } from './graphs-view/graphs-view.component';
     DashboardTellinkComponent,
     DashboardGestionEnergeticaComponent,
     GraphicsContentComponent,
-    GraphsViewComponent
+    GraphsViewComponent,
+    ContentComponent,
+    ContentDetailsComponent,
+    CardDetailsProjectsComponent
   ],
   imports: [
     DashboardRoutingModule,

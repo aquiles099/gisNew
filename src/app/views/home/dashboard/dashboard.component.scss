@@ -156,6 +156,15 @@ select{
     width: 2.25rem !important;
 }
 
+.graphics-details {
+    height: 55vh;
+    width: 100%;
+    border: none;
+    background-color: #F1F3F7;
+    border-top-left-radius: .975rem !important;
+    border-top-right-radius: .975rem !important;
+}
+
 .graphics-section{
     height: 30vh;
     width: 100%;
@@ -165,13 +174,15 @@ select{
     border-top-right-radius: .975rem !important;
 }
 
-.graphics-section .containter-graphics{
+.graphics-section .containter-graphics,
+.graphics-details .containter-graphics {
     width: 100%;
     height: 100%;
     border: none;
 }
 
-.graphics-section .containter-graphics:hover{
+.graphics-section .containter-graphics:hover,
+.graphics-details .containter-graphics:hover {
     border: none;
 }
 

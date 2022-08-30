@@ -1,0 +1,153 @@
+<div class="content animate__animated animate__fadeInLeft animate__slow">
+    <div class="dashboard-list d-lg-inline-block"
+    #vsContainer 
+    (scroll)="scrolled()" 
+    (touchmove)="scrolled()">
+
+        <div class="row mb-3 py-2 d-flex justify-content-end">
+            
+            <div class="col-md-3 px-0 selectors-row">
+
+                <select class="ps-md-3" name="sort-by-category">
+                    <option *ngFor="let option of ['Opcion 1', 'Opcion 2']" [value]="option">{{option}}</option>
+                </select>
+                <img [src]="'assets/icons/svg/chevron-down.svg'" class="sort-icon" alt="flecha">
+
+            </div>
+
+        </div>
+        
+        <div class="row mx-0 d-flex">
+    
+            <div class="col-12 p-0">
+    
+                <div class="row mx-0">
+    
+                    <div class="col-12 p-0 col-md-12 mb-3">
+
+                        <div class="dashboard-box dashboard-box-title">
+                            <div class="col-12 py-2 dashboard-box-title-header">
+                                <strong>Texto de incidencia</strong>
+                                <button type="button" class="btn-transparent">
+                                    <img [src]="'assets/icons/svg/window-new-svgrepo-com.svg'" alt="">
+                                </button>
+                            </div>
+                            <div class="col-md-12 p-0 px-lg-3">
+                                <small>Desde 01/08/2022 hasta 27/08/2022</small>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-box">
+                            
+                            <div class="graphics-details">
+
+                                <div #divGraphics class="containter-graphics"></div>
+                            
+                            </div>
+                    
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+                
+        </div>
+        
+    </div>
+    
+    <div class="dashboard-details">
+        
+        <div class="row mx-0 animate__animated animate__fadeInRight animate__faster">
+            
+            <div class="col-12 py-3 px-2 px-lg-3">
+    
+                <div class="row mx-0 justify-content-around align-items-center">
+                    <div class="col-3 pe-2 ps-0 px-md-3 px-lg-0 text-md-start">
+                        <img [src]="'assets/icons/svg/USUARIO1.svg'">
+                    </div>
+                    <div class="col-9 pe-2 ps-0 px-md-3 px-lg-0 text-md-start">
+                        Bienvenido
+                    </div>
+                </div>
+    
+            </div>
+            
+            <div class="col-12 my-1 px-2 px-lg-3">
+                <div class="row mx-0 align-items-center">
+            
+                    <div class="col-md-12 py-3 px-0">
+                        <h4 class="mb-1">Empresa: <b>Fisotex</b></h4>
+                        <h4 class="mb-1">Proyecto: <b>Alcaudete</b></h4>
+                        Proyección: ETRS8g/ UTM zone 30N
+                    </div>
+            
+                </div>
+            </div>
+    
+            <div class="col-12 my-1 px-2 px-lg-3 py-xl-2">
+    
+                <div class="separator mb-2">
+                    <div></div>
+                </div>
+    
+                <div class="row mx-0 section-label">
+                    
+                    <div class="col-md-12 p-0 text-start">
+                        <small><b class="text-uppercase">Equipo de trabajo:</b></small>
+                        <ul>
+                            <li>
+                                <small>José Ruiviejo</small>
+                            </li>
+                            <li>
+                                <small>Juan Castillo</small>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+    
+                <div class="separator mt-2">
+                    <div></div>
+                </div>
+    
+            </div>
+    
+            <div class="col-12 my-1 px-2 px-lg-3">
+    
+                <div class="row mx-0">
+                    
+                    <div class="col-md-12 my-2 py-1 px-0 dashboard-option">
+                        <button type="button" class="btn-outline-options">
+                            <img [src]="'assets/icons/svg/INCIDENCIA.svg'" alt="Incidencia">
+                            Incidencias
+                        </button>
+                        <button type="button" class="btn-outline-options">
+                            <img [src]="'assets/icons/svg/layout-text-window-reverse-svgrepo-com.svg'" alt="Ordenes de trabajo">
+                            Ordenes de Trabajo
+                        </button>
+                        <button type="button" class="btn-outline-options">
+                            <img [src]="'assets/icons/svg/tools-svgrepo-com.svg'" alt="Mantenimiento Preventivo">
+                            Mantenimiento Preventivo
+                        </button>
+                        <button type="button" class="btn-outline-options">
+                            <img [src]="'assets/icons/svg/almacen.svg'" alt="Almacenes">
+                            Almacenes
+                        </button>
+
+                    </div>
+                    
+                </div>
+    
+            </div>
+        
+        </div>
+    
+    </div>
+
+    <!-- SPINNER -->
+    <div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">
+        <mat-spinner></mat-spinner>
+    </div>
+
+</div>
