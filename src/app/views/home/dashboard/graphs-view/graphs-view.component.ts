@@ -23,11 +23,12 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
       plotShadow: false,
       zoomType: "xy",
       backgroundColor: 'transparent',
-      spacingBottom: 5,
+      spacingBottom: 10,
       spacingTop: 10,
       spacingLeft: 5,
       spacingRight: 5,
-      className: 'graphics-class'
+      className: 'graphics-class',
+      showAxes: true
     },
     credits: {
       enabled: false
@@ -47,14 +48,21 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
     xAxis: [
       {
         categories: [
-          "x1",
-          "x2",
-          "x3",
-          "x4",
-          "x5",
-          "x6"
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
         ],
-        crosshair: true
+        crosshair: true,
+        visible: true,
+        gridLineColor: "#636363",
+        gridLineWidth: 1,
+        startOnTick: true,
+        endOnTick: true,
+        tickLength: 1,
+        offset: 1
       }
     ],
     yAxis: [
@@ -63,20 +71,22 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
         labels: {
           format: "{value}",
           style: {
-            color: "#7cb5ec"
+            color: "#00204A"
           }
         },
         title: {
-          text: "Unidade de Medida 1",
+          text: "",
           style: {
             display: 'none'
           }
-        }
+        },
+        gridLineColor: "#636363",
+        gridLineWidth: 1
       },
       {
         // Secondary yAxis
         title: {
-          text: "Unidade de Medida 2",
+          text: "",
           style: {
             display: 'none'
           }
@@ -84,15 +94,16 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
         labels: {
           format: "{value}",
           style: {
-            color: "#0d233a"
+            color: "#00204A"
           }
         },
-        opposite: true
+        opposite: true,
+        gridLineColor: "#636363"
       },
       {
         // Secondary yAxis
         title: {
-          text: "Unidade de Medida 3",
+          text: "",
           style: {
             display: 'none'
           }
@@ -100,10 +111,11 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
         labels: {
           format: "{value}",
           style: {
-            color: "#8bbc21"
+            color: "#00204A"
           }
         },
-        opposite: true
+        opposite: true,
+        gridLineColor: "#636363"
       }
     ],
     tooltip: {
@@ -179,7 +191,6 @@ export class GraphsViewComponent implements OnInit, OnDestroy {
 
   public onLoadChart():void
   {
-    console.log('cargando graficos')
     this.pieChartOptions.chart['renderTo'] = this.chartElement.nativeElement;
     this.chart = Highcharts.chart(this.pieChartOptions);
   }

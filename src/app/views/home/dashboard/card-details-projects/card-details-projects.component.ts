@@ -11,6 +11,7 @@ import { User } from 'src/app/models/user';
 export class CardDetailsProjectsComponent implements OnInit {
 
   @Input() public detailsProject: boolean = false;
+  @Input() public dataIncident: any = null;
 
   constructor(
     private _authService:AuthService,

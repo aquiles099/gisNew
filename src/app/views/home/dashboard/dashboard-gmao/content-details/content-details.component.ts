@@ -16,7 +16,7 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
 
   public showSpinner:boolean = false;
 
-  @Input() data: any = null;
+  @Input() dataIncident: any = null;
 
   @ViewChild('divGraphics', { static: true }) public chartElement: ElementRef;
 
@@ -29,11 +29,12 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
       plotShadow: false,
       zoomType: "xy",
       backgroundColor: 'transparent',
-      spacingBottom: 5,
+      spacingBottom: 10,
       spacingTop: 10,
       spacingLeft: 5,
       spacingRight: 5,
-      className: 'graphics-class'
+      className: 'graphics-class',
+      showAxes: true
     },
     credits: {
       enabled: false
@@ -60,7 +61,14 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
           "x5",
           "x6"
         ],
-        crosshair: true
+        crosshair: true,
+        visible: true,
+        gridLineColor: "#636363",
+        gridLineWidth: 1,
+        startOnTick: true,
+        endOnTick: true,
+        tickLength: 1,
+        offset: 1
       }
     ],
     yAxis: [
@@ -69,20 +77,22 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
         labels: {
           format: "{value}",
           style: {
-            color: "#7cb5ec"
+            color: "#00204A"
           }
         },
         title: {
-          text: "Unidade de Medida 1",
+          text: "",
           style: {
             display: 'none'
           }
-        }
+        },
+        gridLineColor: "#636363",
+        gridLineWidth: 1
       },
       {
         // Secondary yAxis
         title: {
-          text: "Unidade de Medida 2",
+          text: "",
           style: {
             display: 'none'
           }
@@ -90,15 +100,16 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
         labels: {
           format: "{value}",
           style: {
-            color: "#0d233a"
+            color: "#00204A"
           }
         },
-        opposite: true
+        opposite: true,
+        gridLineColor: "#636363"
       },
       {
         // Secondary yAxis
         title: {
-          text: "Unidade de Medida 3",
+          text: "",
           style: {
             display: 'none'
           }
@@ -106,10 +117,11 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
         labels: {
           format: "{value}",
           style: {
-            color: "#8bbc21"
+            color: "#00204A"
           }
         },
-        opposite: true
+        opposite: true,
+        gridLineColor: "#636363"
       }
     ],
     tooltip: {

@@ -12,13 +12,13 @@
 
                         <div class="dashboard-box dashboard-box-title">
                             <div class="col-12 py-2 dashboard-box-title-header">
-                                <span>Texto de incidencia</span>
-                                <button type="button" class="btn-transparent">
-                                    <img [src]="'assets/icons/png/ampliar.png'" alt="">
-                                </button>
+                                <span>{{dataIncident.name}}</span>
+                                <img class="logo-img"
+                                        [src]="'assets/icons/png/Fisotec - GIS SMART Environment.png'"
+                                        [attr.alt]="''">
                             </div>
-                            <div class="col-md-12 p-0 px-lg-3">
-                                <span class="txt-box-header">Desde 01/08/2022 hasta 27/08/2022</span>
+                            <div class="col-md-12 p-0 px-lg-3 text-end">
+                                <span class="txt-box-header">{{dataIncident.lapse}}</span>
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@
         
     </div>
     
-    <app-card-details-projects></app-card-details-projects>
+    <app-card-details-projects [detailsProject]="true" [dataIncident]="dataIncident"></app-card-details-projects>
 
     <!-- SPINNER -->
     <div *ngIf="showSpinner" class="spinner animate__animated animate__fadeIn animate__faster">

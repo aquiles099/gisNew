@@ -41,7 +41,20 @@ export class ContentComponent extends VirtualScrollWithPaginatorComponent
 
   public async loadRecords(): Promise<void>
   {
-    this.records = [1,2,3];
+    this.records = [
+      {
+        name: 'Incidencia 50',
+        lapse: 'Desde 01/08/2022 hasta 27/08/2022',
+      },
+      {
+        name: 'O. de Trabajo 30',
+        lapse: 'Desde 01/08/2022 hasta 27/08/2022',
+      },
+      {
+        name: 'Mant. Prevent. 50',
+        lapse: 'Desde 01/08/2022 hasta 27/08/2022',
+      }
+    ];
     this.optionsFilter = await this._projectService.getListOptions();
   }
 
@@ -50,8 +63,8 @@ export class ContentComponent extends VirtualScrollWithPaginatorComponent
    this._changeDetectorRef.detectChanges();
   }
 
-  public selectedIncident(): void {
-    this.incidentSelected.emit(true);
+  public selectedIncident(data: any): void {
+    this.incidentSelected.emit(data);
   }
 
 }

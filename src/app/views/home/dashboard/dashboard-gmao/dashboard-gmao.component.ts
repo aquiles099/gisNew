@@ -12,6 +12,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class DashboardGmaoComponent  implements OnInit {
 
   viewIncident: boolean = false;
+  dataIncident: any = null;
 
   constructor() {}
 
@@ -19,8 +20,8 @@ export class DashboardGmaoComponent  implements OnInit {
   }
 
   public viewDetailIncident(value: any) {
-
-    this.viewIncident = value;
+    this.dataIncident = value;
+    this.viewIncident = true;
   }
 
 }

@@ -198,13 +198,19 @@ select::-ms-expand {
     height: 35px;
 }
 
+.dashboard-list .dashboard-box .logo-img {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
 .graphics-details {
     height: 55vh;
     width: 100%;
     border: none;
-    background-color: rgba(167,210,255,0.5);
-    border-top-left-radius: .975rem !important;
-    border-top-right-radius: .975rem !important;
+    background-color: #FFFFFF;
+    border-radius: .975rem !important;
+    padding: 5px;
 }
 
 .graphics-section{
@@ -310,6 +316,14 @@ select::-ms-expand {
     font-weight: 700 !important;
 }
 
+.dashboard-details .info-projects .text-incident {
+    color: #222;
+    font-family: "NunitoSans" !important;
+    font-size: 1rem;
+    line-height: 25px;
+    text-align: justify;
+}
+
 .dashboard-details .section-label {
     display: grid;
     gap: 5px;
@@ -378,6 +392,38 @@ select::-ms-expand {
     text-align: center;
 }
 
+
+.dashboard-details table th {
+    color: #00204A;
+    font-family: 'Rubik' !important;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+}
+
+.dashboard-details table td {
+    color: #00204A;
+    font-family: 'Rubik' !important;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 17px;
+}
+
+.dashboard-details table td .icon-resolve {
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+    background-color: green;
+    border-radius: 50%;
+    border: none;
+}
+
+.dashboard-details .container-info-details {
+    height: 65vh;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
 /*
 * MEDIA QUERIES
 */
@@ -393,6 +439,19 @@ select::-ms-expand {
         border-top-right-radius: .575rem;
         border: 1px solid rgba(243,243,244,0.6) !important;
     }
+
+    .content {
+        display: grid;
+        width: 112.5% !important;
+        top: 125px !important;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 599px) 
+{
+    .content {
+        top:63px !important;
+    }
 }
 
 @media (max-width: 599px)
@@ -400,7 +459,6 @@ select::-ms-expand {
     .content {
         display: grid;
         width: 112.5% !important;
-        top: 125px !important;
     }
     .dashboard-list{
        width: 100% !important;
@@ -425,6 +483,15 @@ select::-ms-expand {
     .dashboard-details .header-details .avatar{
         width: 60px;
         height: 60px;
+    }
+
+    .dashboard-details .btn-outline-options {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .graphics-details {
+        height: 45vh !important;
     }
 }
 

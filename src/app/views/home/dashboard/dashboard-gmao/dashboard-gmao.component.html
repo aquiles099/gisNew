@@ -20,4 +20,4 @@
 </div>
 
 <app-content (incidentSelected)="viewDetailIncident($event)" *ngIf="!viewIncident"></app-content>
-<app-content-details *ngIf="viewIncident"></app-content-details>
+<app-content-details *ngIf="viewIncident" [dataIncident]="dataIncident"></app-content-details>
