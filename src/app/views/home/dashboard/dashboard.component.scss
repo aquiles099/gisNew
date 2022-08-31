@@ -22,42 +22,51 @@
     justify-content: flex-start;
     color: #00204A !important;
     font-family: 'Rubik' !important;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: normal;
     line-height: 21px;
 }
 
-.dashboard-type .btn-type-graphics {
-    border: none;
-    background: #fff;
-    width: fit-content;
-    padding-top: 2px;
-    padding-bottom: 4px;
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
+.dashboard-type .btn-ok{
+    color: #FFF;   
+    border-radius: 3px;
+    background-color: #001E33;
+    width: 180px;
+    font-size: .825rem;
+    padding: 4px;
+    font-family: "Rubik Bold" !important;
+    height: 40px;
+    line-height: 1.2;
 }
 
-.dashboard-type .btn-type-active {
-    border-top-left-radius: .575rem;
-    border-top-right-radius: .575rem;
-    background: rgba(243,243,244,0.6) !important;
-    font-weight: 700;
+.dashboard-type .btn-outline{
+    border-radius: 3px;
+    background-color: #FFF;
+    border: 1px solid #001E33;
+    color: #001E33;  
+    font-size: .825rem;
+    width: 180px;
+    padding: 4px;
+    font-family: "Rubik Bold" !important;
+    height: 40px;
+    line-height: 1.2;
 }
 
 /*
 * DASHBOARD CARDS INFO GRAPHICS
+* background-color: rgba(243,243,244,0.6);
 */
-.content {
-    background-color: rgba(243,243,244,0.6);
+.content-dashboard {
     overflow: auto;
     height: 92% !important;
     width: 106%;
     padding-right: 30px;
     padding-left: 30px;
     display: inline-block;
-    top: 55px;
+    top: 75px;
     max-height: 100%;
+    position: absolute;
+    margin-top: 5px;
 }
 
 .dashboard-list{
@@ -433,30 +442,23 @@ select::-ms-expand {
         display: grid;
     }
 
-    .dashboard-type .btn-type-graphics {
-        width: 220px;
-        border-top-left-radius: .575rem;
-        border-top-right-radius: .575rem;
-        border: 1px solid rgba(243,243,244,0.6) !important;
-    }
-
-    .content {
+    .content-dashboard {
         display: grid;
         width: 112.5% !important;
-        top: 125px !important;
+        top: 140px !important;
     }
 }
 
 @media (min-width: 501px) and (max-width: 599px) 
 {
-    .content {
-        top:63px !important;
+    .content-dashboard {
+        top:78px !important;
     }
 }
 
 @media (max-width: 599px)
 {
-    .content {
+    .content-dashboard {
         display: grid;
         width: 112.5% !important;
     }
@@ -497,35 +499,35 @@ select::-ms-expand {
 
 @media (max-width: 599px) and (min-height: 620px)
 {
-    .content {
+    .content-dashboard {
         height: 93% !important;
     }
 }
 
 @media (max-width: 599px) and (min-height: 670px)
 {
-    .content {
+    .content-dashboard {
         height: 93.5% !important;
     }
 }
 
 @media (max-width: 599px) and (min-height: 700px)
 {
-    .content {
+    .content-dashboard {
         height: 94% !important;
     }
 }
 
 @media (max-width: 599px) and (min-height: 750px)
 {
-    .content {
+    .content-dashboard {
         height: 94.5% !important;
     }
 }
 
 @media (max-width: 599px) and (min-height: 800px)
 {
-    .content {
+    .content-dashboard {
         height: 95% !important;
     }
 }
@@ -571,34 +573,34 @@ select::-ms-expand {
 }
 
 @media (max-width: 799px) {
-    .content {
+    .content-dashboard {
         left: -6%;
         width: 111%;
         padding-right: 15px;
         padding-left: 15px;
         padding-bottom: 20px;
-        top: 63px;
+        top: 78px;
     }
 }
 
 @media (min-width: 800px) {
-    .content {
+    .content-dashboard {
         left: -3%;
-        width: 103%;
+        width: 106%;
         padding-right: 25px;
         padding-left: 25px;
-        top: 64px;
+        top: 79px;
     }
 }
 
 @media(min-width: 1024px)
  {
-    .content {
+    .content-dashboard {
         left: -3%;
-        width: 105%;
+        width: 106%;
         padding-right: 25px;
         padding-left: 25px;
-        top: 64px;
+        top: 79px;
     }
     select{
         padding: 0 .5rem;
@@ -613,12 +615,12 @@ select::-ms-expand {
 
  @media(min-width: 1280px)
  {
-    .content {
+    .content-dashboard {
         left: -3%;
         width: 106%;
         padding-right: 25px;
         padding-left: 25px;
-        top: 70px;
+        top: 85px;
         height: 93% !important;
     }
     .dashboard-box .info-section{
