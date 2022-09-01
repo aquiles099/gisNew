@@ -2,7 +2,7 @@
     
     <div class="brand-logo-section">
 
-        <img  class="cursor-pointer" [routerLink]="['/home/proyectos']" src="assets/images/brand-marker-logo.png" alt="brand-logo">
+        <img  class="cursor-pointer" [routerLink]="['/home/proyectos']" src="assets/images/isotipo.svg" alt="brand-logo">
 
     </div>
    
@@ -108,12 +108,13 @@
         </div>
 
     </div>
-
+    
     <div  
     *ngIf="logoutWindowIsVisible" 
-    [@fadeInOnEnter] [@fadeOutOnLeave] 
     (mouseenter)="overTheLogoutWindow()" 
-    (mouseleave)="hideLogoutWindow()" 
+    (mouseleave)="hideLogoutWindow()"
+    [@fadeInOnEnter] [@fadeOutOnLeave] 
+ 
     class="logout-window">
 
         <div class="row mx-0">

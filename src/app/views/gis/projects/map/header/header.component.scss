@@ -120,7 +120,7 @@ header{
     background-color: #FFF;
     border: 1px solid #E0E0E0;
     box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
-    color: #495C80;
+    color: var(--main-dark-blue);
     font-size: 0.875rem;
 }
 
@@ -153,19 +153,23 @@ header{
 }
 
 .logout-window > .row > .col-12:nth-child(1){
-    background-color: #E6EEFF;
+    background-image: url('/assets/images/rectanguloUser.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 18vh;
 }
 
 .user-info > h6{
     text-align: center;
     font-size: 1.25rem;
     font-weight: bold;
-    color: #495C80;
+    color: var(--main-white);
 }
 
 .user-info > h4{
     font-size: .775rem;
-    color: #495C80;
+    color: var(--main-white);
 }
 
 .logout-window-option{

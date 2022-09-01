@@ -5,7 +5,7 @@
 
 .project-info{
     font-size: .925rem;
-    color: #495C80;
+    color: var(--main-dark-blue);
 }
 
 .table-col{
@@ -33,7 +33,7 @@ thead:not(.checkbox-table th){
 .table-thead th,
 .table-thead th button{
     font-size: 1rem;
-    color: #495C80;
+    color: var(--main-dark-blue);
     background-color: #F1F3F7;
     font-family: 'Rubik Bold' !important;
 }

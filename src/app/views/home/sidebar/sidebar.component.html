@@ -2,7 +2,7 @@
     [class.collapsed]="isCollapsed">
 
     <div class="brand-logo-section">
-        <img [src]="isCollapsed ? 'assets/images/brand-logo-icon.png' : 'assets/images/brand-logo-black.png'" alt="fisotec">
+        <img [src]="isCollapsed ? 'assets/images/isotipo.svg' : 'assets/images/logo.svg'" alt="fisotec">
     </div>
 
     <div class="separator"></div>
@@ -13,7 +13,7 @@
         
             <div class="col-12 px-0 text-center" *ngFor="let route of mainRoutes">
 
-                <div [routerLink]="route.path" routerLinkActive="active" [routerLinkActiveOptions]="{fragment: 'exact', exact: false}"  class="row mx-0 py-3 py-md-2 py-lg-3 align-items-center option">
+                <div [routerLink]="route.path" routerLinkActive="active" [routerLinkActiveOptions]="{fragment: 'exact', exact: false}"  class="row mx-0 py-3 py-md-2 align-items-center option">
                    
                     <div class="px-1 text-center" [class.col-12]="isCollapsed" [class.col-4]="! isCollapsed">
                         <img class="option-icon" [src]="route.iconPath" [attr.alt]="route.label">
@@ -43,7 +43,7 @@
         
             <div class="col-12 px-0 text-center" *ngFor="let route of administrationRoutes">
 
-                <div [routerLink]="route.path" routerLinkActive="active" [routerLinkActiveOptions]="{fragment: 'exact', exact: false}"  class="row mx-0 py-3 py-md-2 py-lg-3 align-items-center option">
+                <div [routerLink]="route.path" routerLinkActive="active" [routerLinkActiveOptions]="{fragment: 'exact', exact: false}"  class="row mx-0 py-3 py-md-2 align-items-center option">
                    
                     <div class="px-1 text-center" [class.col-12]="isCollapsed" [class.col-4]="! isCollapsed">
                         <img class="option-icon" [src]="route.iconPath" [attr.alt]="route.label">

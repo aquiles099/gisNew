@@ -2,14 +2,16 @@
     
     <div class="brand-logo-section cursor-pointer">
         <img (click)="toggleSidebarCollapsedState()" class="cursor-pointer collapse-sidebar-main-btn" src="assets/icons/png/hamburguesa.png" alt="fisotec">
-        <img src="assets/images/brand-logo-black.png" alt="fisotec">
+        <img src="assets/images/logo.svg" alt="fisotec">
     </div>
     
     <div class="user-company-logo-section">
         
-        <img (click)="toggleSidebarCollapsedState()" class="cursor-pointer collapse-sidebar-secondary-btn" src="assets/icons/png/hamburguesa.png" alt="fisotec">
+        <button type="button" class="btn-transparent" (click)="toggleSidebarCollapsedState()">
+            <img  class="cursor-pointer collapse-sidebar-secondary-btn" src="assets/icons/png/hamburguesa.png" alt="fisotec">
+        </button>
 
-        <img src="assets/images/brand-logo-black.png" class="user-company-logo" alt="fisotec">
+        <img src="assets/images/logo.svg" class="user-company-logo" alt="fisotec">
 
         <div >
             <span [attr.title]="user.company.name" class="text-truncate company-name">
@@ -18,23 +20,22 @@
         </div>
 
     </div>
-
     <div class="logout-window-section">
 
         <div class="circle" 
         (click)="toggleLogoutWindowVisibility()"
-        (mouseenter)="showLogoutWindow()"
-        (mouseleave)="hideLogoutWindowAutomatically()">
+        (mouseenter)="overTheLogoutWindow()" 
+        (mouseleave)="hideLogoutWindow()"
+       >
             {{ user.fullNameInitials }}
         </div>
 
     </div>
-
     <div  
     *ngIf="logoutWindowIsVisible" 
+
     [@fadeInOnEnter] [@fadeOutOnLeave] 
-    (mouseenter)="overTheLogoutWindow()" 
-    (mouseleave)="hideLogoutWindow()" 
+    
     class="logout-window">
 
         <div class="row mx-0">

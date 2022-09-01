@@ -25,6 +25,7 @@
     font-size: 16px;
     font-weight: normal;
     line-height: 21px;
+    padding-left: 0px;
 }
 
 .dashboard-type .btn-ok{
@@ -38,6 +39,7 @@
     height: 40px;
     line-height: 1.2;
     margin-right: 10px;
+    border-radius: 15px;
 }
 
 .dashboard-type .btn-outline{
@@ -52,6 +54,7 @@
     height: 40px;
     line-height: 1.2;
     margin-right: 10px;
+    border-radius: 15px;
 }
 
 /*
@@ -170,7 +173,7 @@ select::-ms-expand {
 .dashboard-list .dashboard-box-title .txt-box-header {
     font-family: 'NunitoSans' !important;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 0.8rem;
 }
 
 .dashboard-list .dashboard-box .info-section{
@@ -262,11 +265,11 @@ select::-ms-expand {
     border: 1px solid rgba(0,32,74,0.8);
 }
 
-.dashboard-details .col-12:nth-child(1){
-    background: rgba(167,210,255,0.5);
+.dashboard-details .col-12:nth-child(1){    
     border-top-left-radius: 0.975rem;
     border-top-right-radius: 0.975rem;
 }
+
 
 .dashboard-details .col-12:nth-child(1) button:not(.btn-transparent){
     border-radius: .925rem;
@@ -276,7 +279,7 @@ select::-ms-expand {
     padding: .25rem 1.25rem;
 }
 
-.backgroun-blue{
+.background-blue{
     background: rgba(167,210,255,0.5);
 }
 
@@ -621,8 +624,8 @@ select::-ms-expand {
  @media(min-width: 1280px)
  {
     .content-dashboard {
-        left: -3%;
-        width: 106%;
+        left: -1.5%;
+        width: 103%;
         padding-right: 25px;
         padding-left: 25px;
         top: 85px;

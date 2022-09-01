@@ -38,7 +38,7 @@ export class SidebarComponent implements OnInit {
       'id': 'users',
       'path': ['/home','usuarios'],
       'iconPath': 'assets/icons/svg/usuarios.svg',
-      'label': 'Gestionar usuarios'
+      'label': 'Usuarios'
     }
   ];
 
@@ -66,7 +66,7 @@ export class SidebarComponent implements OnInit {
         'id': 'companies',
         'path': ['/home','empresas'],
         'iconPath': 'assets/icons/svg/empresa.svg',
-        'label': 'Administrar empresas'
+        'label': 'Empresas'
       });
     }
   }

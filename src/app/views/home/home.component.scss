@@ -12,20 +12,6 @@
  @media(min-width: 800px)
  {
     .home-content.sidebar-is-collapsed{
-        left: 12.5%;
-        width: 85%;
-    }
-    
-    .home-content{
-        left: 22.5%;
-        width: 75%;
-        height: 85%;
-    }
- }
-
- @media(min-width: 1280px)
-{
-    .home-content.sidebar-is-collapsed{
         left: 10%;
         width: 87.5%;
     }
@@ -33,6 +19,21 @@
     .home-content{
         left: 17.5%;
         width: 80%;
+        height: 85%;
+    }
+ }
+
+ @media(min-width: 1280px)
+{
+    .home-content.sidebar-is-collapsed{
+        left: 7.5%;
+        width: 90%;
+    }
+    
+    .home-content{
+        left: 15%;
+        width: 82.5%;
+        height: 86%;
     }
 }
  

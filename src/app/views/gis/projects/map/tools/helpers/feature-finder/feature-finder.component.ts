@@ -14,13 +14,12 @@ import { GisLayerService } from '../../../../../../../services/gis/gis-layer.ser
 })
 export class FeatureFinderComponent extends LayerHighlighterComponent implements OnInit {
 
-  private getFeatures: (event:any) => void = async event => 
+  protected getFeatures: (event:any) => void = async event => 
   {
     this.ngZone.run( async () => {
       
       try
       {
-        
 
         this.showSpinner = true;
 
