@@ -86,23 +86,19 @@
     width: 97% !important;
 }
 
-.dashboard-list .selectors-row select{
-    width: 230px !important;
-    height: 30px !important;
+.dashboard-list .selectors-row .btn-select{
+    width: fit-content !important;
+    height: 35px !important;
     border: 1px solid #808080;
     border-radius: 0.3125rem;
     font-family: 'Rubik' !important;
-    font-size: .875rem;
-    background-image: url(../../../../assets/icons/svg/chevron-down.svg);
-    background-repeat: no-repeat;
-    background-position: 98% center;
-    background-size: 15px 15px;
-    padding-right: 5px;
-    padding-left: 5px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
+    font-size: 14px;
+}
+
+.dashboard-list .selectors-row .btn-select img,
+.dashboard-list .selectors-row .dropdown-menu img{
+    width: 20px;
+    height: 20px;
 }
 
 select::-ms-expand {
@@ -116,6 +112,7 @@ select::-ms-expand {
     box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
     -webkit-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
     -moz-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    border: 1px solid rgba(0,32,74,0.5);
 }
 
 .dashboard-list .dashboard-box .separator {
@@ -262,10 +259,11 @@ select::-ms-expand {
     margin-top: 0.2rem;
     max-height: 100%;
     display: inline-block !important;
+    border: 1px solid rgba(0,32,74,0.8);
 }
 
 .dashboard-details .col-12:nth-child(1){
-   
+    background: rgba(167,210,255,0.5);
     border-top-left-radius: 0.975rem;
     border-top-right-radius: 0.975rem;
 }
