@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { AuthService } from '../../../services/auth.service';
 import { HomeService } from '../../../services/home.service';
+import { getRandomColor } from '../../../shared/helpers';
 
 @Component({
   selector: 'home-header',

@@ -6,7 +6,8 @@
     top: 7.5%;
     left: 0%;
     height: 92.5%;   
-    background-color: #F1F3F7;
+    background-color: var(--main-dark-blue);
+    color: #fff;
     box-shadow: 3px 3px 4px 0 rgba(147,147,147,0.5);
     -webkit-box-shadow: 3px 3px 4px 0 rgba(147,147,147,0.5);
     -moz-box-shadow: 3px 3px 4px 0 rgba(147,147,147,0.5);
@@ -42,7 +43,7 @@
 }
 
 .brand-logo-section > img{
-    max-width: 75%;
+    max-width: 72.5%;
     max-height: 2rem;
 }
 
@@ -70,8 +71,9 @@
 }
 
 .active{
-    background-color: #E6EEFF;
-    border-right: .35rem solid #495C80;
+    color: #00204A;
+    background-color: #A7D2FF;
+    border-right: .35rem solid #39F;
 }
 
  /* media */
@@ -80,12 +82,12 @@
  {
      .sidebar{
          height: 100%;
-         width: 20%;
+         width: 15%;
          top: 0%;
      }
      
      .sidebar.collapsed{
-         width: 10%;
+         width: 7.5%;
      }
  
      .backdrop{
@@ -100,7 +102,7 @@
     }
 
     .option{
-        font-size: .85rem;
+        font-size: .675rem;
     }   
 
     .option-icon{
@@ -111,8 +113,12 @@
 
  @media(min-width: 1024px)
  {
+    .brand-logo-section{
+        height: 7%;
+    }
+
     .option{
-        font-size: .9rem;
+        font-size: .875rem;
     }   
 
     .option-icon{
@@ -123,18 +129,18 @@
 
  @media(min-width: 1280px)
  {
+    .brand-logo-section{
+        height: 6.5%;
+    }
+
     .sidebar{
-        width: 15%;
+        width: 12.5%;
         top: 0%;
     }
     
     .sidebar.collapsed{
-        width: 7.5%;
+        width: 5%;
     }
-
-    .option{
-        font-size: .95rem;
-    }   
 
     .option-icon{
         width: 2.5rem;
@@ -144,6 +150,10 @@
 
  @media(min-width: 1440px)
  {
+    .brand-logo-section{
+        height: 6%;
+    }
+
     .option{
         font-size: .975rem;
     }   
@@ -169,35 +179,35 @@
  @media(min-width: 800px) and (min-height: 600px)
  {
     .brand-logo-section > img{
-        max-height: 1.75rem;
+        max-height: 1.5rem;
     }
  }
  
  @media(min-width: 1024px) and (min-height: 768px)
  {
     .brand-logo-section > img{
-        max-height: 2rem;
+        max-height: 1.75rem;
     }
  }
  
  @media(min-width: 1152px) and (min-height: 864px)
  {
     .brand-logo-section > img{
-        max-height: 2.5rem;
+        max-height: 2.25rem;
     }
  }
  
  @media(min-width: 1176px) and (min-height: 664px)
  {
     .brand-logo-section > img{
-        max-height: 2rem;
+        max-height: 1.75rem;
     }
  }
  
  @media(min-width: 1280px) and (min-height: 720px)
  {
     .brand-logo-section > img{
-        max-height: 2.25rem;
+        max-height: 2rem;
     }
  }
  
@@ -216,7 +226,7 @@
  @media(min-width: 1280px) and (min-height: 960px)
  {
     .brand-logo-section > img{
-        max-height: 2.5rem;
+        max-height: 2.25rem;
     }
 
  }
@@ -224,7 +234,7 @@
  @media(min-width: 1280px) and (min-height: 1024px)
  {
     .brand-logo-section > img{
-        max-height: 2.75rem;
+        max-height: 2.5rem;
     }
  }
  
@@ -236,7 +246,7 @@
  @media(min-width: 1440px) and (min-height: 900px)
  {
     .brand-logo-section > img{
-        max-height: 2.5rem;
+        max-height: 2.25rem;
     }
  }
  
@@ -248,7 +258,7 @@
  @media(min-width: 1600px) and (min-height: 1024px)
  {
     .brand-logo-section > img{
-        max-height: 2.75rem;
+        max-height: 2.5rem;
     }
  }
  
@@ -265,35 +275,35 @@
  @media(min-width: 1600px) and (min-height: 1200px)
  {
     .brand-logo-section > img{
-        max-height: 3.25rem;
+        max-height: 3rem;
     }
  }
  
  @media(min-width: 1768px) and (min-height: 992px)
  {
     .brand-logo-section > img{
-        max-height: 3rem;
+        max-height: 2.75rem;
     }
  }
  
  @media(min-width: 1880px) and (min-height: 882px)
  { 
     .brand-logo-section > img{
-        max-height: 3rem;
+        max-height: 2.75rem;
     }
  }
  
  @media(min-width: 1920px) and (min-height: 1080px)
  {
     .brand-logo-section > img{
-        max-height: 3rem;
+        max-height: 2.75rem;
     }
  }
  
  @media(min-height: 1210px)
  {
     .brand-logo-section > img{
-        max-height: 3.25rem;
+        max-height: 3rem;
     }
  }
  

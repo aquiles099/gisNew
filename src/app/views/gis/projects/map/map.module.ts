@@ -40,6 +40,7 @@ import { FeatureFinderComponent } from './tools/helpers/feature-finder/feature-f
 import { LayerHighlighterComponent } from './tools/helpers/layer-highlighter/layer-highlighter.component';
 import { DrawLayerComponent } from './tools/helpers/draw-layer/draw-layer.component';
 import { LayerSelectorComponent } from './tools/helpers/layer-selector/layer-selector.component';
+import { MoveFeatureComponent as MoveFeatureHelperComponent } from './tools/helpers/move-feature/move-feature.component';
 
 // services
 import { MapService } from '../../../../services/gis/map/map.service';
@@ -48,7 +49,6 @@ import { MapLayerService } from '../../../../services/gis/map/map-layer.service'
 import { ToolService } from '../../../../services/gis/map/tool.service';
 import { FeatureService } from '../../../../services/gis/map/feature.service';
 import { GisLayerService } from '../../../../services/gis/gis-layer.service';
-import { FeatureFinderComponent as HelperFeatureFinderComponent } from './tools/helpers/feature-finder/feature-finder.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +73,6 @@ import { FeatureFinderComponent as HelperFeatureFinderComponent } from './tools/
     LayerCategorizationComponent,
     FeatureTableComponent,
     AnalysisChartsComponent,
-
     LuminairesPerCmComponent,
     StreetViewComponent,
     // helpers
@@ -81,6 +80,7 @@ import { FeatureFinderComponent as HelperFeatureFinderComponent } from './tools/
     LayerHighlighterComponent,
     DrawLayerComponent,
     LayerSelectorComponent,
+    MoveFeatureHelperComponent
   ],
   imports: [
     SharedModule,

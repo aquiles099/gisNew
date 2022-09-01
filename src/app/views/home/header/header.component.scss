@@ -71,7 +71,7 @@ header{
 }
 
 .circle{
-    background-color: #40824F;
+    background-color: var(--main-light-blue);
     border-radius:50%;
     padding: .35rem;
     color: #fff;
@@ -86,17 +86,17 @@ header{
     right: 7.5%;
     width: 52.5%;
     height: auto;
-    border-radius: .975rem;
+    border-radius: .0.313rem;
     background-color: #FFF;
     border: 1px solid #E0E0E0;
     box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
-    color: #495C80;
+    color: var(--main-dark-blue);
     font-size: 0.875rem;
 }
 
 .user-info-container{
-    border-top-right-radius: .975rem;
-    border-top-left-radius: .975rem;
+    border-top-right-radius: .0.313rem;
+    border-top-left-radius: .0.313rem;
 }
 
 .profile-image-container{
@@ -122,20 +122,24 @@ header{
     border-top: 1px solid #E0E0E0;
 }
 
-.logout-window > .row > .col-12:nth-child(1){
-    background-color: #E6EEFF;
+.logout-window > .row > .col-12:nth-child(1){   
+   background-image: url('/assets/images/rectanguloUser.png');
+   background-size: cover;
+   background-position: center;
+   position: relative;
+   height: 18vh;
 }
 
 .user-info > h6{
     text-align: center;
     font-size: 1.25rem;
     font-weight: bold;
-    color: #495C80;
+    color: var(--main-white);
 }
 
 .user-info > h4{
     font-size: .775rem;
-    color: #495C80;
+    color: var(--main-white);
 }
 
 .logout-window-option{
@@ -146,8 +150,6 @@ header{
 .logout-window-option:hover{
     transform: scale(1.02);
 }
-
-
   
  /* media */
   
@@ -155,12 +157,12 @@ header{
 {
     header.collapsed{
         right: 0%;
-        width: 90%;
+        width: 92.5%;
     }
-    
+
     header{
         right: 0%;
-        width: 80%;
+        width: 85%;
     }
 
     .brand-logo-section{
@@ -219,6 +221,14 @@ header{
 
 @media(min-width: 1024px)
 {
+    header{
+        height: 7%;
+    }
+
+    .circle{
+        padding: .5rem;
+    }
+
     .collapse-sidebar-secondary-btn{
         padding: 0 2rem;
     }
@@ -261,19 +271,28 @@ header{
 @media(min-width: 1280px)
 {
     header.collapsed{
-        width: 92.5%;
+        width: 95%;
     }
     
     header{
-        width: 85%;
+        height: 6.5%;
+        width: 87.5%;
     }
 }
 
 @media(min-width: 1440px)
 {
+    header{
+        height: 6%;
+    }
+
+    .collapse-sidebar-secondary-btn{
+        height: 1.5rem;
+    }    
+
     .circle{
-        padding: 0.5rem;
-        font-size: 0.875rem;
+        padding: .725rem;
+        font-size: 0.95rem;
     }
     
     .logout-window{
@@ -297,7 +316,12 @@ header{
 @media(min-width: 1600px)
 {
     .collapse-sidebar-secondary-btn{
-        max-height: 2rem;
+        height: 1.75rem;
+    }    
+
+    .circle{
+        padding: .75rem;
+        font-size: 0.95rem;
     }
 
     .company-name{

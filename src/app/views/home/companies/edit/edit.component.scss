@@ -61,13 +61,13 @@ img:not(.logo) {
 .buttons {
   width: 80%;
   border-radius: 15px;
-  background-color: #495C80;
+  background-color: var(--main-dark-blue);
   color: white;
 }
 
 .bold-text {
   height: 28px;
-  color: #495C80;
+  color: var(--main-dark-blue);
   font-family: "Rubik Bold" !important;
   font-size: 24px;
   font-weight: 700;
@@ -76,7 +76,7 @@ img:not(.logo) {
 
 .little-bold-text {
   height: 16px;
-  color: #495C80;
+  color: var(--main-dark-blue);
   font-family: "Rubik Bold" !important;
   font-size: 14px;
   font-weight: 700;

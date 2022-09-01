@@ -1,1 +1,40 @@
 @import url('../../dashboard.component.scss');
+
+.logo-select{
+    width: 25px;
+}
+
+.ng-select {
+    position: relative;
+    display: block;
+    box-sizing: border-box;    
+    font-size: .825rem;
+    background-color: #FAFAFA;
+    border-color: #E0E0E0;
+    border-radius: .125rem;
+    color: #222;
+    font-family: 'NunitoSans' !important;
+    min-width: 250px;
+}
+
+
+.ng-select .ng-select-container {
+    color: #333;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #000;
+    min-height: 40px;
+    font-size: .925rem;
+    align-items: center;
+    font-family: 'NunitoSans' !important;
+    min-width: 250px;
+}
+
+.dashboard-title-name{
+  font-family: 'Rubik' !important;
+  color: #00204A !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  line-height: 25px !important;
+  margin-bottom: 0;
+}

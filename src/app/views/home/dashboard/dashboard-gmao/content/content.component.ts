@@ -20,6 +20,7 @@ export class ContentComponent extends VirtualScrollWithPaginatorComponent
   @Output() incidentSelected: EventEmitter<any> = new EventEmitter;
 
   public showSpinner:boolean = false;
+  public optionProyect: any;
 
   public records: any[] = [];
   public optionsFilter: any[] = [];
@@ -55,8 +56,9 @@ export class ContentComponent extends VirtualScrollWithPaginatorComponent
         lapse: 'Desde 01/08/2022 hasta 27/08/2022',
       }
     ];
-    this.optionsFilter = await this._projectService.getListOptions();
-    console.log(this.optionsFilter);
+    this.optionsFilter = await this._projectService.getSimpleList();
+    this.optionProyect = this.optionsFilter[0];
+    
   }
 
   public ngAfterViewChecked(): void

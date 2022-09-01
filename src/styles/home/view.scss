@@ -3,7 +3,7 @@
     position: absolute;
     height: 12.5%;
     width: 100%;
-    color: #495C80;
+    color: var(--main-dark-blue);
     font-family: 'Rubik Bold' !important;
 }
 
@@ -53,7 +53,7 @@
   }
   
 .checkbox.checked {
-    background-color: #495C80;
+    background-color: var(--main-dark-blue);
 }
   
   .checkbox input {
@@ -62,7 +62,7 @@
 
 .btn-block{
     border-radius: 0.925rem;
-    background-color: #495C80;
+    background-color: var(--main-dark-blue);
     color: #fff;
     font-family: "Rubik Bold" !important;
     font-weight: bold;

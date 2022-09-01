@@ -5,21 +5,17 @@
         <div class="row mb-1 py-2">
             
             <div class="col-md-12 px-0 selectors-row">
-                <div class="dropdown" *ngIf="optionsFilter.length > 0">
-                    <button type="button" class="btn btn-select dropdown-toggle" data-bs-toggle="dropdown">
-                    <img class="logo-select" [src]="optionsFilter[0].logo_src" *ngIf="optionsFilter.length > 0"> {{optionsFilter.length == 0 ? '' : optionsFilter[0].title}}
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item disabled">Seleccionar</a>
-                        </li>
-                        <li *ngFor="let option of optionsFilter; let i = index;">
-                            <a class="dropdown-item" [ngClass]="{'active': i == 0}">
-                                <img class="logo-select" [src]="optionsFilter[0].logo_src"> {{option.title}}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <ng-select          
+                    class="content-selector"           
+                    placeholder="Seleccione una propiedad"                                       
+                    dropdownPosition="bottom"
+                    [clearable] = false
+                    [(ngModel)]="optionProyect"
+                    >
+                    <ng-option [value]="option" *ngFor="let option of optionsFilter; let i = index;">                   
+                        <img class="logo-select" [src]="option.logo_src"> {{option.title}}                        
+                    </ng-option>
+                </ng-select>
             </div>
 
         </div>

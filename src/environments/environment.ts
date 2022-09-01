@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: false,  
   baseUrl: '//46.183.116.100',
   administrationPublicUrl: '//46.183.116.100/smart-gest-backend/public',
   administrationApiUrl: '//46.183.116.100/smart-gest-backend/public/api',
