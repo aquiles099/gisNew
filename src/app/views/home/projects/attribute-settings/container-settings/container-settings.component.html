@@ -1,0 +1,120 @@
+<div class="content animate__animated animate__fadeInRight animate__faster">
+
+    <div class="row mx-0">
+
+        <div class="col-3 col-md-1 px-0 text-start">
+            <img [src]="project.logo_src" class="project-logo" [attr.alt]="project.title">
+        </div>
+
+        <div class="col-9 col-md-8 col-xl-9 ps-3 pe-0 project-info align-items-center">
+
+            <b>Proyecto:</b> {{project.title}}
+            <br>
+            <b>Estado:</b> Activo
+
+        </div>
+        
+        <div class="col-md-12 py-2 px-0">
+
+            <div class="row mx-0 justify-content-around align-items-center">
+
+                <div class="col-md-3 text-start px-2">
+                    <button type="button" class="btn btn-block px-md-4">
+                        Ordenar atributos
+                    </button>
+                </div>
+
+                <div class="col-md-3 text-start px-2"></div>
+
+                <div class="col-md-3 px-2 d-flex flex-column">
+                    <label for="select-layer">
+                        <b>Capa:</b> 
+                    </label>
+
+                    <select class="ps-md-3" name="select-layer" id="select-layer">
+                        <option [value]="''"></option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 px-2 d-flex flex-column">
+                    <label for="select-layer">
+                        <b>Tipo de atributo:</b> 
+                    </label>
+
+                    <select class="ps-md-3" name="select-layer" id="select-layer">
+                        <option [value]="''"></option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-12 p-0 table-col mt-2">
+                
+                <table>
+        
+                    <thead class="table-thead">
+        
+                        <tr class="table-titles">
+                            <th class="user-col right-bordered">
+                                Columna 1
+                            </th>
+                            <th class="module-col right-bordered flex-inline justify-content-around">
+                                Columna 2
+                                <button type="button" class="btn-transparent">
+                                    <img class="icon back-to-the-listing-btn" src="assets/icons/svg/chevron-right.svg" alt="volver">
+                                </button>
+                            </th>
+                            <th class="module-col right-bordered flex-inline justify-content-around">
+                                Columna 3
+                                <button type="button" class="btn-transparent">
+                                    <img class="icon back-to-the-listing-btn" src="assets/icons/svg/chevron-right.svg" alt="volver">
+                                </button>
+                            </th>
+                            <th class="module-col right-bordered flex-inline justify-content-around">
+                                Columna 4
+                                <button type="button" class="btn-transparent">
+                                    <img class="icon back-to-the-listing-btn" src="assets/icons/svg/chevron-right.svg" alt="volver">
+                                </button> 
+                            </th>
+                        </tr>
+
+                    </thead>
+    
+                    <tbody>
+        
+                        <tr  *ngFor="let atributte of ['Todos', 'atributo 1', 'atributo 2', 'atributo 3']">
+                
+                            <td class="user-col right-bordered">
+                                {{atributte}}
+                            </td>
+
+                            <td class="text-center right-bordered">
+
+                                <input type="checkbox">
+            
+                            </td>
+
+                            <td class="text-center right-bordered">
+
+                                <input type="checkbox">
+            
+                            </td>
+
+                            <td class="text-center right-bordered">
+
+                                <input type="checkbox">
+            
+                            </td>
+                            
+                         </tr>
+
+                    </tbody>
+    
+                </table>
+    
+        </div>
+    </div>
+
+</div>

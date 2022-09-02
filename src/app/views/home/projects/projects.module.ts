@@ -16,6 +16,7 @@ import { ModuleService } from '../../../services/gis/module.service';
 import { ProvinceService } from '../../../services/locations/province.service';
 import { HiringPlanService } from '../../../services/administration/hiring-plan.service';
 import { CompanyService } from '../../../services/administration/company.service';
+import { ContainerSettingsComponent } from './attribute-settings/container-settings/container-settings.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CompanyService } from '../../../services/administration/company.service
     DetailsComponent,
     AttributeSettingsComponent,
     CreationFormComponent,
+    ContainerSettingsComponent,
   ],
   imports: [
     SharedModule,
