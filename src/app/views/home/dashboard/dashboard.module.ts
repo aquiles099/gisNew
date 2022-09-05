@@ -10,6 +10,7 @@ import { GraphsViewComponent } from './graphs-view/graphs-view.component';
 import { ContentComponent } from './dashboard-gmao/content/content.component';
 import { ContentDetailsComponent } from './dashboard-gmao/content-details/content-details.component';
 import { CardDetailsProjectsComponent } from './card-details-projects/card-details-projects.component';
+import { ButtonsActionsComponent } from './card-details-projects/buttons-actions/buttons-actions.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CardDetailsProjectsComponent } from './card-details-projects/card-detai
     GraphsViewComponent,
     ContentComponent,
     ContentDetailsComponent,
-    CardDetailsProjectsComponent
+    CardDetailsProjectsComponent,
+    ButtonsActionsComponent
   ],
   imports: [
     DashboardRoutingModule,

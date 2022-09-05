@@ -16,80 +16,52 @@
             </div>
 
         </div>
-        
-        <div class="col-12 my-1 px-2 px-lg-3">
-            <div class="row mx-0 align-items-center">
-        
-                <div class="col-md-12 py-3 px-0 info-projects">
-                    <span class="mb-1 name-compay">Empresa: <b>{{ user.company.name }}</b></span>
-                    <span class="mb-1 name-projects">Proyecto: <b>Alcaudete</b></span>
-                    <span>Proyección: ETRS8g/ UTM zone 30N</span>
+
+        <div class="container-info-details">
+            <div class="col-12 my-1 px-2 px-lg-3">
+                <div class="row mx-0 align-items-center">
+            
+                    <div class="col-md-12 py-3 px-0 info-projects">
+                        <span class="mb-1 name-compay">Empresa: <b>{{ user.company.name }}</b></span>
+                        <span class="mb-1 name-projects">Proyecto: <b>Alcaudete</b></span>
+                        <span>Proyección: ETRS8g/ UTM zone 30N</span>
+                    </div>
+            
                 </div>
-        
+            </div>
+
+            <div class="col-12 my-1 p-0">
+
+                <div class="separator mb-2">
+                    <div></div>
+                </div>
+
+                <div class="row mx-0 section-label px-2 px-lg-3">
+                    
+                    <div class="col-md-12 p-0 text-start">
+                        <div class="team-title">Equipo de trabajo:</div>
+                        <ul>
+                            <li>
+                                <span class="team-name">José Ruiviejo</span>
+                            </li>
+                            <li>
+                                <span>Juan Castillo</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                <div class="separator mt-2">
+                    <div></div>
+                </div>
+
+            </div>
+
+            <div class="col-12 my-1 px-0 px-lg-0">
+                <app-buttons-actions></app-buttons-actions>
             </div>
         </div>
-
-        <div class="col-12 my-1 p-0">
-
-            <div class="separator mb-2">
-                <div></div>
-            </div>
-
-            <div class="row mx-0 section-label px-2 px-lg-3">
-                
-                <div class="col-md-12 p-0 text-start">
-                    <div class="team-title">Equipo de trabajo:</div>
-                    <ul>
-                        <li>
-                            <span class="team-name">José Ruiviejo</span>
-                        </li>
-                        <li>
-                            <span>Juan Castillo</span>
-                        </li>
-                    </ul>
-                </div>
-                
-            </div>
-
-            <div class="separator mt-2">
-                <div></div>
-            </div>
-
-        </div>
-
-        <div class="col-12 my-1 px-2 px-lg-3">
-
-            <div class="row mx-0">
-                <div class="col-sm-4 col-md-3 .col-lg-3 my-2 py-1 px-0 dashboard-option">
-                    <button type="button" class="btn-outline-options">
-                        <img [src]="'assets/icons/png/icons8_Plus_96px_2.png'" alt="Incidencia" title="Incidencia">
-                        Incidencias
-                    </button>        
-                </div>
-                
-                <div class="col-sm-4 col-md-3 .col-lg-3  my-2 py-1 px-0 dashboard-option">            
-                    <button type="button" class="btn-outline-options">
-                        <img [src]="'assets/icons/png/icons8_Plus_96px_2 (1).png'" alt="Ordenes de trabajo" title="Ordenes de trabajo">
-                        Ordenes de Trabajo
-                    </button>
-                </div>
-                
-                <div class="col-sm-4 col-md-3 .col-lg-3 my-2 py-1 px-0 dashboard-option">                
-                    <button type="button" class="btn-outline-options">
-                        <img [src]="'assets/icons/png/icons8_Plus_96px_2 (2).png'" alt="Mantenimiento Preventivo" title="Mantenimiento Preventivo">
-                        Mantenimiento Preventivo
-                    </button>     
-                </div>
-                <div class="col-sm-4 col-md-3 .col-lg-3 my-2 py-1 px-0 dashboard-option">                        
-                    <button type="button" class="btn-outline-options">
-                        <img [src]="'assets/icons/png/icons8_Plus_96px_2 (3).png'" alt="Almacenes" title="Almacenes">
-                        Almacenes
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    
     </div>
 
     <div class="row mx-0" *ngIf="detailsProject">
@@ -177,33 +149,8 @@
                 </div>
 
             </div>
-
-            <div class="col-12 my-1 px-2 px-lg-3">
-
-                <div class="row mx-0">
-                    
-                    <div class="col-md-12 my-2 py-1 px-0 dashboard-option">
-                        <button type="button" class="btn-outline-options">
-                            <img [src]="'assets/icons/png/icons8_Plus_96px_2.png'" alt="Incidencia" title="Incidencia">
-                            <span> Incidencias </span>
-                            
-                        </button>
-                        <button type="button" class="btn-outline-options">
-                            <img [src]="'assets/icons/png/icons8_Plus_96px_2 (1).png'" alt="Ordenes de trabajo" title="Ordenes de trabajo">
-                            <span> Ordenes de Trabajo </span>
-                        </button>
-                        <button type="button" class="btn-outline-options">
-                            <img [src]="'assets/icons/png/icons8_Plus_96px_2 (2).png'" alt="Mantenimiento Preventivo" title="Mantenimiento Preventivo">
-                            <span> Mantenimiento Preventivo </span>
-                        </button>
-                        <button type="button" class="btn-outline-options">
-                            <img [src]="'assets/icons/png/icons8_Plus_96px_2 (3).png'" alt="Almacenes" title="Almacenes">
-                            <span> Almacenes </span>
-                        </button>
-                    </div>
-                    
-                </div>
-
+            <div class="col-12 my-1 px-0 px-lg-0">
+                <app-buttons-actions></app-buttons-actions>
             </div>
         </div>
     
