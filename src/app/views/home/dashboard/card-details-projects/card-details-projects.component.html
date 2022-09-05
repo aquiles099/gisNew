@@ -60,27 +60,32 @@
         <div class="col-12 my-1 px-2 px-lg-3">
 
             <div class="row mx-0">
-                
-                <div class="col-md-12 my-2 py-1 px-0 dashboard-option">
+                <div class="col-sm-4 col-md-3 .col-lg-3 my-2 py-1 px-0 dashboard-option">
                     <button type="button" class="btn-outline-options">
                         <img [src]="'assets/icons/png/icons8_Plus_96px_2.png'" alt="Incidencia" title="Incidencia">
                         Incidencias
-                    </button>
+                    </button>        
+                </div>
+                
+                <div class="col-sm-4 col-md-3 .col-lg-3  my-2 py-1 px-0 dashboard-option">            
                     <button type="button" class="btn-outline-options">
                         <img [src]="'assets/icons/png/icons8_Plus_96px_2 (1).png'" alt="Ordenes de trabajo" title="Ordenes de trabajo">
                         Ordenes de Trabajo
                     </button>
+                </div>
+                
+                <div class="col-sm-4 col-md-3 .col-lg-3 my-2 py-1 px-0 dashboard-option">                
                     <button type="button" class="btn-outline-options">
                         <img [src]="'assets/icons/png/icons8_Plus_96px_2 (2).png'" alt="Mantenimiento Preventivo" title="Mantenimiento Preventivo">
                         Mantenimiento Preventivo
-                    </button>
+                    </button>     
+                </div>
+                <div class="col-sm-4 col-md-3 .col-lg-3 my-2 py-1 px-0 dashboard-option">                        
                     <button type="button" class="btn-outline-options">
                         <img [src]="'assets/icons/png/icons8_Plus_96px_2 (3).png'" alt="Almacenes" title="Almacenes">
                         Almacenes
                     </button>
-
                 </div>
-                
             </div>
 
         </div>
@@ -92,7 +97,12 @@
         <div class="col-12 py-3 px-2 px-lg-3 background-blue">
 
             <div class="row mx-0 justify-content-around align-items-center">
-                <div class="col-9 pe-2 ps-0 px-md-3 px-lg-0 text-md-start">
+                <div class="col-2 pe-2 ps-0 px-md-3 px-lg-0 text-md-start">
+                    <img class="img-escudo" [src]="'assets/images/escudo.png'" >
+                  
+                </div>
+                <div class="col-10 pe-2 ps-0 px-md-3 px-lg-0 text-md-end">
+                    <h3 class="dashboard-title-name"> Alcaudete</h3>
                     <h3 class="dashboard-title-name"> {{ dataIncident.name }}</h3>
                 </div>
             </div>
@@ -175,21 +185,21 @@
                     <div class="col-md-12 my-2 py-1 px-0 dashboard-option">
                         <button type="button" class="btn-outline-options">
                             <img [src]="'assets/icons/png/icons8_Plus_96px_2.png'" alt="Incidencia" title="Incidencia">
-                            Incidencias
+                            <span> Incidencias </span>
+                            
                         </button>
                         <button type="button" class="btn-outline-options">
                             <img [src]="'assets/icons/png/icons8_Plus_96px_2 (1).png'" alt="Ordenes de trabajo" title="Ordenes de trabajo">
-                            Ordenes de Trabajo
+                            <span> Ordenes de Trabajo </span>
                         </button>
                         <button type="button" class="btn-outline-options">
                             <img [src]="'assets/icons/png/icons8_Plus_96px_2 (2).png'" alt="Mantenimiento Preventivo" title="Mantenimiento Preventivo">
-                            Mantenimiento Preventivo
+                            <span> Mantenimiento Preventivo </span>
                         </button>
                         <button type="button" class="btn-outline-options">
                             <img [src]="'assets/icons/png/icons8_Plus_96px_2 (3).png'" alt="Almacenes" title="Almacenes">
-                            Almacenes
+                            <span> Almacenes </span>
                         </button>
-
                     </div>
                     
                 </div>

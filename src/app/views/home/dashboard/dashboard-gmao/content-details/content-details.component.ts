@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Input, ViewEncapsulation } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import * as Highcharts from 'highcharts';
-import { VirtualScrollWithPaginatorComponent } from '../../../../../shared/components/virtual-scroll-with-paginator/virtual-scroll-with-paginator.component';
 
 @Component({
   selector: 'app-content-details',
@@ -12,7 +11,7 @@ import { VirtualScrollWithPaginatorComponent } from '../../../../../shared/compo
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent implements OnInit, OnDestroy {
+export class ContentDetailsComponent implements OnInit, OnDestroy {
 
   public showSpinner:boolean = false;
 
@@ -54,12 +53,12 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
     xAxis: [
       {
         categories: [
-          "x1",
-          "x2",
-          "x3",
-          "x4",
-          "x5",
-          "x6"
+          "Enero",
+          "Febrero",
+          "Marzo",
+          "Abril",
+          "Mayo",
+          "Junio"
         ],
         crosshair: true,
         visible: true,
@@ -131,7 +130,7 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
       {
         name: "Série 1",
         type: "column",
-        color: "#7cb5ec",
+        color: "#FF4069",
         yAxis: 0,
         data: [
           49.9,
@@ -145,14 +144,14 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
       {
         name: "Série 2",
         type: "spline",
-        color: "#0d233a",
+        color: "#FFCD56",
         yAxis: 0,
         data: [77.0, 86.9, 109.5, 114.5, 128.2, 148.3]
       },
       {
         name: "Série 3",
         type: "spline",
-        color: "#8bbc21",
+        color: "#36A2EB",
         yAxis: 0,
         data: [84.0, 93.9, 76.5, 91.5, 105.2, 122.3]
       }
@@ -167,30 +166,15 @@ export class ContentDetailsComponent extends VirtualScrollWithPaginatorComponent
     }
   };
 
-  private chart: any;
-
-  private mySubscription: any;
+  public chart: any;
 
   constructor(
     private router: Router,
   ) {
-    super(null);
-
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    };
-    this.mySubscription = this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        // Trick the Router into believing it's last link wasn't previously loaded
-        this.router.navigated = false;
-      }
-    });
   }
 
   ngOnDestroy() {
-    if (this.mySubscription) {
-      this.mySubscription.unsubscribe();
-    }
+  
   }
 
   ngOnInit(): void {

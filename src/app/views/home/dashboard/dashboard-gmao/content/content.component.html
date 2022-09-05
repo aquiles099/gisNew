@@ -6,7 +6,7 @@
             
             <div class="col-md-12 px-0 selectors-row">
                 <ng-select          
-                    class="content-selector"           
+                    class="content-selector-dash"           
                     placeholder="Seleccione una propiedad"                                       
                     dropdownPosition="bottom"
                     [clearable] = false
@@ -28,21 +28,22 @@
     
                     <div *ngFor="let data of records; let i = index;" class="col-12 p-0 col-lg-6 col-xl-4 mb-3">
 
-                        <div class="dashboard-box dashboard-box-title">
+                        <div class="dashboard-box dashboard-box-title borde-r-5">
                             <div class="col-12 py-2 dashboard-box-title-header">
                                 <span>{{data.name}}</span>
                                 <button type="button" class="btn-transparent" (click)="selectedIncident(data)">
                                     <img [src]="'assets/icons/png/ampliar.png'" alt="">
                                 </button>
                             </div>
-                            <div class="col-md-12 p-0 px-lg-3">
+                            <div class="col-md-12 p-0 px-lg-3 text-left">
                                 <span class="txt-box-header">{{data.lapse}}</span>
                             </div>
                         </div>
 
-                        <div class="dashboard-box">
+                        <div class="dashboard-box borde-r-15">
                             
                             <app-graphs-view></app-graphs-view>
+                            <div class="contenedor-azul"></div>
                     
                             <div class="separator">
                                 <div></div>

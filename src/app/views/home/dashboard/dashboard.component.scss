@@ -8,7 +8,7 @@
 
 .header h4 {
     color: #00204A;
-    font-family: 'Rubik' !important;
+    font-family: 'Rubik Bold' !important;
     font-size: 24px;
     font-weight: 700;
     line-height: 28px;
@@ -29,9 +29,9 @@
 }
 
 .dashboard-type .btn-ok{
-    color: #FFF;   
+    color: #001E33;   
     border-radius: 3px;
-    background-color: #001E33;
+    background-color: rgba(243,243,244,0.6);
     width: 180px;
     font-size: .825rem;
     padding: 4px;
@@ -39,13 +39,15 @@
     height: 40px;
     line-height: 1.2;
     margin-right: 10px;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border: none;
 }
 
 .dashboard-type .btn-outline{
     border-radius: 3px;
     background-color: #FFF;
-    border: 1px solid #001E33;
+    border: none;
     color: #001E33;  
     font-size: .825rem;
     width: 180px;
@@ -54,7 +56,8 @@
     height: 40px;
     line-height: 1.2;
     margin-right: 10px;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 /*
@@ -109,13 +112,20 @@ select::-ms-expand {
 }
 
 .dashboard-list .dashboard-box{
-    border-radius: .3125rem;
     background: #fff;
     width: 95%;
     box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
     -webkit-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
     -moz-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
-    border: 1px solid rgba(0,32,74,0.5);
+    border: none;
+}
+
+.borde-r-5{
+    border-radius: .3125rem;
+}
+
+.borde-r-15{
+    border-radius: .938rem;
 }
 
 .dashboard-list .dashboard-box .separator {
@@ -149,8 +159,8 @@ select::-ms-expand {
 }
 
 .dashboard-list .dashboard-box-title-header span{
-    font-family: 'Rubik' !important;
-    font-size: 1.1rem;
+    font-family: 'Rubik Bold' !important;
+    font-size: 1.3rem;
     font-weight: bold;
     text-align: left;
 }
@@ -183,7 +193,7 @@ select::-ms-expand {
 
 .dashboard-list .dashboard-box .info-section .txt-incidents {
     color: #00204A;
-    font-family: 'Rubik' !important;
+    font-family: 'Rubik Bold' !important;
     font-size: 21px;
     font-weight: 700;
     line-height: 25px;
@@ -226,12 +236,12 @@ select::-ms-expand {
 }
 
 .graphics-section{
-    height: 30vh;
+    height: 38vh;
     width: 100%;
     border: none;
     background-color: rgba(167,210,255,0.5);
-    border-top-left-radius: .3125rem !important;
-    border-top-right-radius: .3125rem !important;
+    border-top-left-radius: .938rem !important;
+    border-top-right-radius: .938rem !important;
 }
 
 .graphics-section .containter-graphics,
@@ -239,6 +249,7 @@ select::-ms-expand {
     width: 100%;
     height: 100%;
     border: none;
+    padding-top: 24px;
 }
 
 .graphics-section .containter-graphics:hover,
@@ -254,15 +265,15 @@ select::-ms-expand {
     height: 99.4%;
     border-radius: .925rem .925rem 0 0;
     background-color: #FFF;
-    box-shadow: 4px 2px 4px 0 rgba(0,32,74,0.8);
-    -webkit-box-shadow: 4px 2px 4px 0 rgba(0,32,74,0.8);
-    -moz-box-shadow: 4px 2px 4px 0 rgba(0,32,74,0.8);
+    box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
+    -moz-box-shadow: 4px 2px 4px 0 rgba(0,0,0,0.5);
     vertical-align: top;
     align-items: start;
     margin-top: 0.2rem;
     max-height: 100%;
     display: inline-block !important;
-    border: 1px solid rgba(0,32,74,0.8);
+    border: none;
 }
 
 .dashboard-details .col-12:nth-child(1){    
@@ -301,19 +312,17 @@ select::-ms-expand {
 
 .dashboard-details .header-details .dashboard-title-welcome,
 .dashboard-details .header-details .dashboard-title-company{
-    font-family: 'Rubik' !important;
+    font-family: 'Rubik Bold' !important;
     color: #00204A !important;
-    font-size: 1rem !important;
-    font-weight: 700 !important;
+    font-size: 1rem !important;    
     line-height: 25px !important;
     margin-bottom: 0;
 }
 
 .dashboard-details .header-details .dashboard-title-name{
-    font-family: 'Rubik' !important;
+    font-family: 'Rubik Bold' !important;
     color: #00204A !important;
-    font-size: 1.5rem !important;
-    font-weight: 700 !important;
+    font-size: 1.5rem !important;    
     line-height: 25px !important;
     margin-bottom: 0;
 }
@@ -329,8 +338,8 @@ select::-ms-expand {
 }
 
 .dashboard-details .info-projects b {
-    font-size: 1.15rem !important;
-    font-weight: 700 !important;
+    font-size: 1.15rem !important;    
+    font-family: 'Rubik Bold' !important;
 }
 
 .dashboard-details .info-projects .text-incident {
@@ -394,19 +403,36 @@ select::-ms-expand {
 }
 
 .dashboard-details .btn-outline-options{
-    border-radius: 3px;
+    border-radius: 15px;
     border: none;
-    box-shadow: 0px 1px 2px 2px rgba(69,69,69,0.5);
-    -webkit-box-shadow: 0px 1px 2px 2px rgba(69,69,69,0.5);
-    -moz-box-shadow: 0px 1px 2px 2px rgba(69,69,69,0.5);
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
     background-color: #FFF;
     color: #495C80;  
-    width: 5vw;
-    height: 5vw;
-    padding: 4px;
+    width: 4.2vw;
+    height: 4.2vw;
+    padding: 8px;
     font-size: 0.8rem;
     line-height: 1;
     text-align: center;
+    margin-left: 0px;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.ng-select.content-selector-dash ::ng-deep .ng-select-container {
+    color: #333;
+    background-color: #fff;
+    border-radius: 4px;
+    min-height: 40px;
+    font-size: .925rem;
+    align-items: center;
+    font-family: 'NunitoSans' !important;
+    border-color: #808080;
+    min-width: 250px;
 }
 
 
@@ -415,7 +441,7 @@ select::-ms-expand {
     font-family: 'Rubik' !important;
     font-size: 14px;
     font-weight: 700;
-    line-height: 17px;
+    line-height: 30px;
 }
 
 .dashboard-details table td {
